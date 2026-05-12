@@ -1,1 +1,2938 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vyeta Digital Solutions | Cybersecurity · AI · Infrastructure · Telecom</title>
+  <meta name="description" content="Vyeta Digital Solutions — Africa's premier technology company delivering world-class Cybersecurity, AI & Automation, IT Infrastructure, Networking, Cloud Solutions, and Telecommunications Tower Maintenance.">
+  <meta name="keywords" content="cybersecurity Zambia, AI automation Africa, IT infrastructure, telecommunications tower maintenance, cloud solutions, network security, digital transformation">
+  <meta name="author" content="Vyeta Digital Solutions">
+  <meta name="robots" content="index, follow">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vyeta Digital Solutions | Premium Technology & Cybersecurity">
+  <meta property="og:description" content="Enterprise-grade technology solutions — Cybersecurity, AI, Cloud, Telecom & Tower Maintenance, and Digital Transformation.">
+  <meta property="og:site_name" content="Vyeta Digital Solutions">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vyeta Digital Solutions">
+  <meta name="twitter:description" content="Enterprise-grade Cybersecurity, AI, Cloud & Telecom solutions.">
+
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23030712'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='48' fill='%2300d4ff'>V</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Oxanium', 'sans-serif'],
+            body: ['Exo 2', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — VYETA DIGITAL SOLUTIONS
+       Dark Cyberpunk / Enterprise Elite aesthetic
+    ============================================================ */
+    :root {
+      --bg-void:      #020810;
+      --bg-deep:      #050d1a;
+      --bg-surface:   #0a1628;
+      --bg-raised:    #0f2040;
+      --cyan:         #00d4ff;
+      --cyan-dim:     rgba(0, 212, 255, 0.6);
+      --cyan-glow:    rgba(0, 212, 255, 0.18);
+      --cyan-trace:   rgba(0, 212, 255, 0.07);
+      --blue:         #1d6aff;
+      --blue-glow:    rgba(29, 106, 255, 0.22);
+      --violet:       #7c3aed;
+      --violet-glow:  rgba(124, 58, 237, 0.2);
+      --emerald:      #10b981;
+      --amber:        #f59e0b;
+      --red:          #ef4444;
+      --text-primary: #f0f6ff;
+      --text-body:    #c8d8f0;
+      --text-muted:   #6b87ae;
+      --glass-bg:     rgba(10, 22, 40, 0.72);
+      --glass-border: rgba(0, 212, 255, 0.12);
+      --glass-border-hover: rgba(0, 212, 255, 0.35);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg-void);
+      color: var(--text-body);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    h1,h2,h3,h4,h5 {
+      font-family: 'Oxanium', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-void); }
+    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       UTILITY CLASSES
+    ───────────────────────────────────────────────────────────── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+    .section-label::before,
+    .section-label::after {
+      content:'';
+      display:block;
+      width:28px; height:1px;
+      background: var(--cyan);
+      opacity:0.5;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 55%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glow-cyan { text-shadow: 0 0 28px var(--cyan-glow), 0 0 60px rgba(0,212,255,0.08); }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+      color: #020810;
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 32px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px var(--cyan-glow), 0 12px 40px rgba(0,212,255,0.25);
+    }
+    .btn-primary::after {
+      content:'';
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity:0;
+      transition: opacity 0.3s;
+    }
+    .btn-primary:hover::after { opacity:1; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: transparent;
+      color: var(--cyan);
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 32px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,212,255,0.45);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: var(--cyan-trace);
+      border-color: var(--cyan);
+      box-shadow: 0 0 24px var(--cyan-glow);
+      transform: translateY(-2px);
+    }
+
+    /* ── Glass card ── */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s;
+    }
+    .glass-card:hover {
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 0 32px var(--cyan-glow), 0 20px 60px rgba(0,0,0,0.4);
+      transform: translateY(-5px);
+    }
+
+    /* ── Section wrapper ── */
+    .section-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
+    /* ── Animated grid bg ── */
+    .cyber-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* ── Reveal animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.revealed { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+    /* ─────────────────────────────────────────────────────────────
+       NAVBAR
+    ───────────────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+      padding: 0;
+    }
+    #navbar.scrolled {
+      background: rgba(3,7,18,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(0,212,255,0.1), 0 4px 24px rgba(0,0,0,0.5);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #020810;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-name {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      letter-spacing: 0.03em;
+    }
+    .nav-logo-sub {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: color 0.25s, background 0.25s;
+      position: relative;
+    }
+    .nav-link::after {
+      content:'';
+      position:absolute;
+      bottom:4px; left:50%; right:50%;
+      height:1px;
+      background: var(--cyan);
+      transition: left 0.25s, right 0.25s;
+    }
+    .nav-link:hover { color: var(--cyan); }
+    .nav-link:hover::after { left:12px; right:12px; }
+    .nav-cta {
+      margin-left: 12px;
+      padding: 9px 22px;
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #020810;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .nav-cta:hover {
+      box-shadow: 0 0 24px var(--cyan-glow);
+      transform: translateY(-1px);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    #mobile-menu {
+      display: none;
+      background: rgba(3,7,18,0.97);
+      border-top: 1px solid rgba(0,212,255,0.1);
+      padding: 16px 24px 24px;
+    }
+    #mobile-menu.open { display: block; }
+    .mobile-link {
+      display: block;
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-body);
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.25s;
+    }
+    .mobile-link:hover { color: var(--cyan); }
+
+    @media(max-width:1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--bg-void);
+    }
+    #particleCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,212,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(29,106,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 120px 24px 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media(max-width:900px) {
+      .hero-content { grid-template-columns: 1fr; padding: 120px 24px 80px; }
+      .hero-visual { display: none; }
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,212,255,0.07);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 100px;
+      padding: 6px 16px 6px 8px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.5)}
+      50%{box-shadow:0 0 0 6px rgba(0,212,255,0)}
+    }
+    .hero-badge-text {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .hero-headline {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 600;
+      color: var(--text-muted);
+      min-height: 2.4em;
+      margin-bottom: 24px;
+    }
+    .typed-text { color: var(--cyan); }
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--cyan);
+      vertical-align: middle;
+      margin-left: 3px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 52px; }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-stat-item { display: flex; flex-direction: column; gap: 2px; }
+    .hero-stat-number {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .hero-stat-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    /* Hero visual panel */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-panel {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(10,22,40,0.7);
+      border: 1px solid rgba(0,212,255,0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 60px rgba(0,212,255,0.08), 0 40px 80px rgba(0,0,0,0.5);
+    }
+    .hero-panel-header {
+      background: rgba(0,212,255,0.06);
+      border-bottom: 1px solid rgba(0,212,255,0.1);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .panel-dot { width:10px;height:10px;border-radius:50%; }
+    .panel-title {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-panel-body { padding: 24px 20px; }
+    .panel-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+      animation: row-slide 0.6s ease backwards;
+    }
+    .panel-row:nth-child(1){animation-delay:0.1s}
+    .panel-row:nth-child(2){animation-delay:0.2s}
+    .panel-row:nth-child(3){animation-delay:0.3s}
+    .panel-row:nth-child(4){animation-delay:0.4s}
+    .panel-row:nth-child(5){animation-delay:0.5s}
+    @keyframes row-slide { from{opacity:0;transform:translateX(12px)} to{opacity:1;transform:translateX(0)} }
+    .panel-icon {
+      width: 32px; height: 32px;
+      background: rgba(0,212,255,0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .panel-info { flex: 1; }
+    .panel-info-label {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .panel-info-sub { font-size: 0.65rem; color: var(--text-muted); }
+    .panel-status {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
+    .status-ok { color: var(--emerald); background: rgba(16,185,129,0.1); }
+    .status-active { color: var(--cyan); background: var(--cyan-trace); }
+    .status-live { color: var(--amber); background: rgba(245,158,11,0.1); }
+    .hero-panel-footer {
+      border-top: 1px solid rgba(0,212,255,0.08);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .uptime-bar-wrap { display:flex;align-items:center;gap:8px;flex:1; }
+    .uptime-label { font-size:0.65rem;color:var(--text-muted);white-space:nowrap; }
+    .uptime-bar { flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden; }
+    .uptime-fill {
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--cyan),var(--blue));
+      border-radius:4px;
+      transition:width 2s ease 0.8s;
+    }
+    .uptime-pct { font-family:'Oxanium',sans-serif;font-size:0.7rem;font-weight:700;color:var(--cyan); }
+
+    /* ─────────────────────────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────────────────────────── */
+    #about {
+      position: relative;
+      background: linear-gradient(180deg, var(--bg-void) 0%, var(--bg-deep) 100%);
+      overflow: hidden;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    @media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+    .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.01rem; }
+    .value-list { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px; }
+    .value-item {
+      display:flex;align-items:center;gap:10px;
+      padding:10px 14px;
+      border-left:2px solid var(--cyan);
+      background:rgba(0,212,255,0.04);
+      border-radius:0 8px 8px 0;
+      font-size:0.85rem;font-weight:600;color:var(--text-primary);
+    }
+    .value-item i { color:var(--cyan);font-size:0.75rem; }
+    .about-cards { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+    @media(max-width:500px){.about-cards{grid-template-columns:1fr;}}
+    .about-card {
+      padding: 28px 24px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      transition: all 0.35s;
+    }
+    .about-card:hover {
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 0 28px var(--cyan-glow);
+      transform: translateY(-4px);
+    }
+    .about-card-icon {
+      width:48px;height:48px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.12), rgba(29,106,255,0.08));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.25rem;color:var(--cyan);
+      margin-bottom:16px;
+    }
+    .about-card h4 {
+      font-family:'Oxanium',sans-serif;
+      font-size:1rem;font-weight:700;
+      color:var(--text-primary);
+      margin-bottom:8px;
+    }
+    .about-card p { font-size:0.85rem;color:var(--text-muted);line-height:1.65; }
+    .mission-vision {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 0;
+    }
+    @media(max-width:640px){.mission-vision{grid-template-columns:1fr;}}
+    .mv-card {
+      padding:36px 32px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, rgba(29,106,255,0.03) 100%);
+      border: 1px solid rgba(0,212,255,0.14);
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mv-card::before {
+      content:'';
+      position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--cyan),var(--blue));
+    }
+    .mv-card h3 {
+      font-family:'Oxanium',sans-serif;
+      font-size:1.15rem;font-weight:700;
+      color:var(--cyan);margin-bottom:14px;
+    }
+    .mv-card p { font-size:0.92rem;color:var(--text-muted);line-height:1.75; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────────────────────────── */
+    #services {
+      position: relative;
+      background: var(--bg-void);
+      overflow: hidden;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      padding: 36px 28px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s;
+      cursor: default;
+    }
+    .service-card::after {
+      content:'';
+      position:absolute;
+      inset:-60px;
+      background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(0,212,255,0.06),transparent);
+      opacity:0;
+      transition:opacity 0.4s;
+      pointer-events:none;
+    }
+    .service-card:hover {
+      border-color: rgba(0,212,255,0.3);
+      box-shadow: 0 0 40px var(--cyan-glow), 0 20px 60px rgba(0,0,0,0.4);
+      transform: translateY(-6px);
+    }
+    .service-card:hover::after { opacity:1; }
+    .service-card-num {
+      position:absolute;
+      top:20px;right:24px;
+      font-family:'Oxanium',sans-serif;
+      font-size:3rem;font-weight:900;
+      color:rgba(0,212,255,0.05);
+      line-height:1;
+    }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.12), rgba(29,106,255,0.08));
+      border: 1px solid rgba(0,212,255,0.22);
+      border-radius: 12px;
+      display: flex; align-items:center; justify-content:center;
+      font-size: 1.4rem; color: var(--cyan);
+      margin-bottom: 22px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover .service-icon {
+      transform:scale(1.1);
+      box-shadow: 0 0 24px var(--cyan-glow);
+    }
+    .service-card h3 {
+      font-family:'Oxanium',sans-serif;
+      font-size:1.1rem;font-weight:700;
+      color:var(--text-primary);margin-bottom:12px;
+    }
+    .service-card p { font-size:0.87rem;color:var(--text-muted);line-height:1.7;margin-bottom:22px; }
+    .learn-more {
+      display:inline-flex;align-items:center;gap:6px;
+      font-family:'Oxanium',sans-serif;
+      font-size:0.75rem;font-weight:700;
+      letter-spacing:0.1em;text-transform:uppercase;
+      color:var(--cyan);text-decoration:none;
+      transition:gap 0.3s;
+    }
+    .learn-more:hover { gap:10px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       CYBERSECURITY
+    ───────────────────────────────────────────────────────────── */
+    #cybersecurity {
+      position:relative;
+      background: linear-gradient(180deg, var(--bg-void) 0%, #040c1c 100%);
+      overflow:hidden;
+    }
+    .cyber-layout {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:64px;
+      align-items:center;
+      margin-bottom:80px;
+    }
+    @media(max-width:900px){.cyber-layout{grid-template-columns:1fr;gap:40px;}}
+    .cyber-dashboard {
+      background:rgba(5,13,30,0.9);
+      border:1px solid rgba(0,212,255,0.15);
+      border-radius:14px;
+      overflow:hidden;
+      font-family:'Oxanium',sans-serif;
+      box-shadow:0 0 60px rgba(0,212,255,0.07);
+    }
+    .db-header {
+      background:rgba(0,212,255,0.06);
+      border-bottom:1px solid rgba(0,212,255,0.1);
+      padding:14px 20px;
+      display:flex;align-items:center;gap:12px;
+    }
+    .db-title { font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan); }
+    .db-live {
+      margin-left:auto;display:flex;align-items:center;gap:6px;
+      font-size:0.6rem;letter-spacing:0.12em;color:var(--emerald);
+    }
+    .db-live-dot { width:6px;height:6px;background:var(--emerald);border-radius:50%;animation:pulse-dot 1.5s infinite; }
+    .db-body { padding:20px; }
+    .db-stats-row { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px; }
+    .db-stat {
+      background:rgba(0,212,255,0.04);
+      border:1px solid rgba(0,212,255,0.08);
+      border-radius:8px;
+      padding:14px 12px;
+      text-align:center;
+    }
+    .db-stat-num { font-size:1.4rem;font-weight:800;color:var(--cyan);display:block; }
+    .db-stat-lbl { font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted); }
+    .threat-feed-title {
+      font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+      color:var(--text-muted);margin-bottom:10px;display:flex;align-items:center;gap:8px;
+    }
+    .threat-feed-title::after { content:'';flex:1;height:1px;background:rgba(0,212,255,0.08); }
+    #threatFeed { max-height:180px;overflow:hidden;display:flex;flex-direction:column;gap:6px; }
+    .threat-row {
+      display:flex;align-items:center;gap:10px;
+      padding:8px 12px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:6px;
+      font-size:0.7rem;
+      animation:slide-threat 0.4s ease;
+    }
+    @keyframes slide-threat { from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)} }
+    .threat-dot { width:6px;height:6px;border-radius:50%;flex-shrink:0; }
+    .threat-msg { flex:1;color:var(--text-body); }
+    .threat-time { color:var(--text-muted);font-size:0.6rem;white-space:nowrap; }
+    .threat-sev {
+      font-size:0.55rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+      padding:2px 7px;border-radius:100px;
+    }
+    .sev-high{color:var(--red);background:rgba(239,68,68,0.12);}
+    .sev-med{color:var(--amber);background:rgba(245,158,11,0.12);}
+    .sev-low{color:var(--emerald);background:rgba(16,185,129,0.1);}
+    .db-footer { padding:14px 20px;border-top:1px solid rgba(0,212,255,0.08);display:flex;align-items:center;justify-content:space-between; }
+    .db-footer-txt { font-size:0.62rem;color:var(--text-muted);letter-spacing:0.06em; }
+    .db-footer-btn {
+      font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+      color:var(--cyan);background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);
+      padding:5px 12px;border-radius:4px;cursor:pointer;transition:all 0.25s;border:none;
+    }
+    .db-footer-btn:hover{background:rgba(0,212,255,0.15);}
+    .cyber-text p { color:var(--text-muted);font-size:0.97rem;margin-bottom:18px;line-height:1.78; }
+    .cyber-features { display:flex;flex-direction:column;gap:12px;margin-top:24px; }
+    .cyber-feature {
+      display:flex;align-items:flex-start;gap:14px;
+      padding:16px 18px;
+      background:rgba(0,212,255,0.04);
+      border:1px solid rgba(0,212,255,0.09);
+      border-radius:10px;
+      transition:border-color 0.3s;
+    }
+    .cyber-feature:hover { border-color:rgba(0,212,255,0.25); }
+    .cyber-feature-icon { color:var(--cyan);font-size:1.1rem;margin-top:1px;flex-shrink:0; }
+    .cyber-feature h4 { font-family:'Oxanium',sans-serif;font-size:0.9rem;font-weight:700;color:var(--text-primary);margin-bottom:4px; }
+    .cyber-feature p { font-size:0.82rem;color:var(--text-muted);line-height:1.6;margin:0; }
+    .cyber-stats-row {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;
+      margin-top:20px;
+    }
+    .cyber-counter {
+      padding:28px 20px;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      text-align:center;
+      transition:all 0.35s;
+    }
+    .cyber-counter:hover { border-color:var(--glass-border-hover);box-shadow:0 0 24px var(--cyan-glow); }
+    .cyber-counter .num {
+      font-family:'Oxanium',sans-serif;
+      font-size:2.2rem;font-weight:900;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      display:block;
+    }
+    .cyber-counter .lbl { font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:4px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       AI & AUTOMATION
+    ───────────────────────────────────────────────────────────── */
+    #ai-automation {
+      position:relative;
+      background:var(--bg-void);
+      overflow:hidden;
+    }
+    .ai-bg {
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(124,58,237,0.05),transparent);
+      pointer-events:none;
+    }
+    .ai-layout {
+      display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px;
+    }
+    @media(max-width:900px){.ai-layout{grid-template-columns:1fr;gap:40px;}}
+    .ai-text p { color:var(--text-muted);font-size:0.97rem;line-height:1.78;margin-bottom:18px; }
+    .ai-pillars { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px; }
+    .ai-pillar {
+      padding:18px 16px;
+      background:rgba(124,58,237,0.05);
+      border:1px solid rgba(124,58,237,0.14);
+      border-radius:10px;
+      transition:all 0.3s;
+    }
+    .ai-pillar:hover { border-color:rgba(124,58,237,0.35);box-shadow:0 0 20px var(--violet-glow); }
+    .ai-pillar-icon { font-size:1.2rem;color:#a78bfa;margin-bottom:8px; }
+    .ai-pillar h4 { font-family:'Oxanium',sans-serif;font-size:0.85rem;font-weight:700;color:var(--text-primary);margin-bottom:4px; }
+    .ai-pillar p { font-size:0.78rem;color:var(--text-muted);line-height:1.6;margin:0; }
+    /* AI visual: animated workflow */
+    .ai-visual { position:relative; }
+    .ai-workflow-box {
+      background:rgba(10,22,40,0.8);
+      border:1px solid rgba(124,58,237,0.18);
+      border-radius:16px;
+      padding:32px;
+      box-shadow:0 0 60px rgba(124,58,237,0.06);
+    }
+    .workflow-title {
+      font-family:'Oxanium',sans-serif;font-size:0.65rem;font-weight:700;
+      letter-spacing:0.2em;text-transform:uppercase;color:#a78bfa;
+      margin-bottom:24px;text-align:center;
+    }
+    .workflow-steps { display:flex;flex-direction:column;gap:0; }
+    .wf-step {
+      display:flex;align-items:center;gap:16px;
+      padding:14px 16px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.05);
+      position:relative;
+    }
+    .wf-connector {
+      width:2px;height:24px;
+      background:linear-gradient(180deg,rgba(124,58,237,0.4),rgba(124,58,237,0.1));
+      margin:0 auto;
+      margin-left:27px;
+    }
+    .wf-num {
+      width:28px;height:28px;flex-shrink:0;
+      background:linear-gradient(135deg,rgba(124,58,237,0.3),rgba(29,106,255,0.2));
+      border:1px solid rgba(124,58,237,0.3);
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Oxanium',sans-serif;font-size:0.7rem;font-weight:800;color:#a78bfa;
+    }
+    .wf-info { flex:1; }
+    .wf-info h5 { font-family:'Oxanium',sans-serif;font-size:0.85rem;font-weight:700;color:var(--text-primary);margin-bottom:2px; }
+    .wf-info p { font-size:0.72rem;color:var(--text-muted);margin:0; }
+    .wf-status {
+      font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+      padding:3px 8px;border-radius:100px;
+    }
+    .wf-active{color:var(--emerald);background:rgba(16,185,129,0.1);}
+    .wf-running{color:#a78bfa;background:rgba(124,58,237,0.1);animation:pulse-status 2s infinite;}
+    @keyframes pulse-status{0%,100%{opacity:1}50%{opacity:0.5}}
+    .wf-done{color:var(--cyan);background:var(--cyan-trace);}
+    /* AI use-case cards */
+    .ai-use-cases { display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px; }
+    .ai-card {
+      padding:28px 22px;
+      background:var(--glass-bg);
+      border:1px solid rgba(124,58,237,0.12);
+      border-radius:12px;
+      text-align:center;
+      transition:all 0.35s;
+    }
+    .ai-card:hover { border-color:rgba(124,58,237,0.35);box-shadow:0 0 28px var(--violet-glow);transform:translateY(-4px); }
+    .ai-card-icon { font-size:1.8rem;margin-bottom:14px;display:block; }
+    .ai-card h4 { font-family:'Oxanium',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text-primary);margin-bottom:8px; }
+    .ai-card p { font-size:0.82rem;color:var(--text-muted);line-height:1.65;margin:0; }
+
+    /* ─────────────────────────────────────────────────────────────
+       TELECOM & TOWER
+    ───────────────────────────────────────────────────────────── */
+    #telecom {
+      position:relative;
+      background:linear-gradient(180deg,var(--bg-void) 0%,#030e1e 100%);
+      overflow:hidden;
+    }
+    .telecom-bg {
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(29,106,255,0.06),transparent);
+      pointer-events:none;
+    }
+    .telecom-layout { display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px; }
+    @media(max-width:900px){.telecom-layout{grid-template-columns:1fr;gap:40px;}}
+    /* Tower visual */
+    .tower-visual {
+      display:flex;align-items:center;justify-content:center;
+    }
+    .tower-box {
+      background:rgba(10,22,40,0.8);
+      border:1px solid rgba(29,106,255,0.18);
+      border-radius:16px;
+      padding:32px 28px;
+      width:100%;max-width:420px;
+      box-shadow:0 0 60px rgba(29,106,255,0.08);
+    }
+    .tower-box-header {
+      font-family:'Oxanium',sans-serif;font-size:0.65rem;font-weight:700;
+      letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);
+      margin-bottom:24px;text-align:center;
+    }
+    .tower-diagram {
+      display:flex;flex-direction:column;align-items:center;
+      position:relative;margin-bottom:24px;
+    }
+    .tower-top {
+      width:4px;background:linear-gradient(180deg,var(--cyan),var(--blue));
+      height:30px;border-radius:4px;
+      position:relative;
+    }
+    .tower-top::before {
+      content:'';position:absolute;
+      top:-8px;left:50%;transform:translateX(-50%);
+      width:12px;height:12px;
+      background:var(--cyan);border-radius:50%;
+      box-shadow:0 0 16px var(--cyan),0 0 32px rgba(0,212,255,0.5);
+      animation:tower-blink 2s ease-in-out infinite;
+    }
+    @keyframes tower-blink{0%,100%{opacity:1}50%{opacity:0.3}}
+    .tower-body {
+      width:60px;
+      background:linear-gradient(180deg,rgba(0,212,255,0.6),rgba(29,106,255,0.4));
+      height:80px;
+      clip-path:polygon(50% 0%,100% 100%,0% 100%);
+      position:relative;
+    }
+    .tower-base {
+      width:80px;height:10px;
+      background:var(--blue);border-radius:4px;
+      box-shadow:0 0 16px rgba(29,106,255,0.5);
+    }
+    .signal-rings {
+      position:absolute;top:0;left:50%;transform:translateX(-50%);
+    }
+    .signal-ring {
+      position:absolute;
+      border-radius:50%;
+      border:1px solid rgba(0,212,255,0.3);
+      transform:translate(-50%,-50%);
+      animation:signal-expand 3s ease-out infinite;
+    }
+    .signal-ring:nth-child(1){width:60px;height:60px;animation-delay:0s;}
+    .signal-ring:nth-child(2){width:100px;height:100px;animation-delay:0.8s;}
+    .signal-ring:nth-child(3){width:150px;height:150px;animation-delay:1.6s;}
+    @keyframes signal-expand{0%{opacity:0.6;transform:translate(-50%,-50%) scale(0.8)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.4)}}
+    .tower-metrics { display:grid;grid-template-columns:repeat(3,1fr);gap:12px; }
+    .t-metric {
+      background:rgba(29,106,255,0.06);
+      border:1px solid rgba(29,106,255,0.12);
+      border-radius:8px;padding:12px 10px;text-align:center;
+    }
+    .t-metric-num { font-family:'Oxanium',sans-serif;font-size:1.1rem;font-weight:800;color:var(--cyan);display:block; }
+    .t-metric-lbl { font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted); }
+    .telecom-text p { color:var(--text-muted);font-size:0.97rem;line-height:1.78;margin-bottom:18px; }
+    .telecom-services { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px; }
+    .tele-service {
+      display:flex;align-items:center;gap:10px;
+      padding:11px 14px;
+      background:rgba(29,106,255,0.05);
+      border:1px solid rgba(29,106,255,0.1);
+      border-radius:8px;
+      font-size:0.82rem;font-weight:500;color:var(--text-body);
+      transition:border-color 0.3s;
+    }
+    .tele-service:hover{border-color:rgba(29,106,255,0.35);}
+    .tele-service i{color:var(--blue);font-size:0.8rem;flex-shrink:0;}
+    /* Tower service cards */
+    .tower-service-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px; }
+    .tower-svc {
+      padding:28px 22px;
+      background:var(--glass-bg);
+      border:1px solid rgba(29,106,255,0.12);
+      border-radius:12px;
+      transition:all 0.35s;
+    }
+    .tower-svc:hover{border-color:rgba(29,106,255,0.35);box-shadow:0 0 28px var(--blue-glow);transform:translateY(-4px);}
+    .tower-svc-icon{font-size:1.5rem;color:var(--blue);margin-bottom:14px;}
+    .tower-svc h4{font-family:'Oxanium',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;}
+    .tower-svc p{font-size:0.82rem;color:var(--text-muted);line-height:1.65;margin:0;}
+
+    /* ─────────────────────────────────────────────────────────────
+       INDUSTRIES
+    ───────────────────────────────────────────────────────────── */
+    #industries { position:relative;background:var(--bg-void);overflow:hidden; }
+    .industries-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px; }
+    .industry-card {
+      padding:32px 24px;text-align:center;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      transition:all 0.35s;
+      position:relative;overflow:hidden;
+    }
+    .industry-card::before {
+      content:'';
+      position:absolute;inset:0;
+      background:linear-gradient(135deg,var(--cyan-glow),transparent);
+      opacity:0;transition:opacity 0.35s;
+    }
+    .industry-card:hover{border-color:var(--glass-border-hover);transform:translateY(-5px);box-shadow:0 0 32px var(--cyan-glow);}
+    .industry-card:hover::before{opacity:1;}
+    .industry-icon{font-size:2.2rem;margin-bottom:16px;display:block;position:relative;z-index:1;}
+    .industry-card h4{font-family:'Oxanium',sans-serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;position:relative;z-index:1;}
+    .industry-card p{font-size:0.8rem;color:var(--text-muted);line-height:1.65;margin:0;position:relative;z-index:1;}
+
+    /* ─────────────────────────────────────────────────────────────
+       STATS
+    ───────────────────────────────────────────────────────────── */
+    #stats {
+      position:relative;
+      background:linear-gradient(180deg,var(--bg-void) 0%,rgba(0,212,255,0.02) 50%,var(--bg-void) 100%);
+      overflow:hidden;
+    }
+    .stats-inner {
+      max-width:1100px;margin:0 auto;padding:80px 24px;
+    }
+    .stats-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px; }
+    .stat-box {
+      padding:44px 20px;text-align:center;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      transition:all 0.35s;position:relative;overflow:hidden;
+    }
+    .stat-box::before {
+      content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+      width:60%;height:2px;
+      background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+      opacity:0;transition:opacity 0.35s;
+    }
+    .stat-box:hover{background:rgba(10,22,40,0.9);border-color:var(--glass-border-hover);}
+    .stat-box:hover::before{opacity:1;}
+    .stat-num {
+      font-family:'Oxanium',sans-serif;
+      font-size:clamp(2rem,4vw,3rem);font-weight:900;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      display:block;margin-bottom:8px;
+    }
+    .stat-suffix { font-size:1.2rem;font-weight:900; }
+    .stat-lbl {
+      font-family:'Exo 2',sans-serif;
+      font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+      color:var(--text-muted);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       TESTIMONIALS
+    ───────────────────────────────────────────────────────────── */
+    #testimonials { position:relative;background:var(--bg-void);overflow:hidden; }
+    .testimonial-wrapper { position:relative; }
+    .testimonials-track { display:flex;transition:transform 0.6s cubic-bezier(0.25,0.8,0.25,1);gap:0; }
+    .testimonial-slide { min-width:100%;padding:0 8px; }
+    .testimonial-card {
+      max-width:800px;margin:0 auto;
+      padding:48px 52px;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:16px;
+      position:relative;
+    }
+    @media(max-width:640px){.testimonial-card{padding:32px 24px;}}
+    .testimonial-card::before {
+      content:'"';
+      position:absolute;top:20px;left:36px;
+      font-family:'Oxanium',sans-serif;
+      font-size:5rem;font-weight:900;
+      color:rgba(0,212,255,0.1);
+      line-height:1;
+    }
+    .testimonial-text {
+      font-size:1.07rem;font-style:italic;
+      color:var(--text-body);line-height:1.8;
+      margin-bottom:28px;position:relative;
+    }
+    .testimonial-author { display:flex;align-items:center;gap:16px; }
+    .author-avatar {
+      width:48px;height:48px;border-radius:50%;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Oxanium',sans-serif;font-weight:800;font-size:1rem;
+      color:#020810;flex-shrink:0;
+    }
+    .author-name { font-family:'Oxanium',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text-primary); }
+    .author-role { font-size:0.78rem;color:var(--text-muted); }
+    .testimonial-stars { color:var(--amber);font-size:0.85rem;margin-bottom:16px; }
+    .testimonial-controls { display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px; }
+    .t-btn {
+      width:40px;height:40px;border-radius:50%;
+      background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);
+      color:var(--cyan);cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      transition:all 0.3s;font-size:0.85rem;
+    }
+    .t-btn:hover{background:rgba(0,212,255,0.18);box-shadow:0 0 16px var(--cyan-glow);}
+    .t-dots { display:flex;gap:8px; }
+    .t-dot {
+      width:8px;height:8px;border-radius:50%;
+      background:rgba(0,212,255,0.2);cursor:pointer;
+      transition:all 0.3s;
+    }
+    .t-dot.active{background:var(--cyan);box-shadow:0 0 10px var(--cyan-glow);}
+
+    /* ─────────────────────────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────────────────────────── */
+    #contact { position:relative;background:linear-gradient(180deg,var(--bg-void) 0%,var(--bg-deep) 100%);overflow:hidden; }
+    .contact-layout { display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start; }
+    @media(max-width:900px){.contact-layout{grid-template-columns:1fr;gap:40px;}}
+    .contact-info { display:flex;flex-direction:column;gap:24px; }
+    .contact-card {
+      padding:24px 22px;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      display:flex;align-items:flex-start;gap:16px;
+      transition:all 0.3s;text-decoration:none;
+    }
+    .contact-card:hover{border-color:var(--glass-border-hover);box-shadow:0 0 20px var(--cyan-glow);}
+    .contact-card-icon {
+      width:44px;height:44px;flex-shrink:0;
+      border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.1rem;
+    }
+    .icon-wa{background:rgba(37,211,102,0.1);color:#25d366;}
+    .icon-email{background:rgba(0,212,255,0.1);color:var(--cyan);}
+    .icon-loc{background:rgba(29,106,255,0.1);color:var(--blue);}
+    .icon-time{background:rgba(124,58,237,0.1);color:#a78bfa;}
+    .contact-card-text { flex:1; }
+    .contact-card-label { font-family:'Oxanium',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px; }
+    .contact-card-value { font-family:'Exo 2',sans-serif;font-size:0.92rem;font-weight:600;color:var(--text-primary); }
+    .contact-card-sub { font-size:0.78rem;color:var(--text-muted);margin-top:2px; }
+    /* Form */
+    .contact-form {
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:16px;
+      padding:40px 36px;
+    }
+    @media(max-width:600px){.contact-form{padding:28px 20px;}}
+    .form-title { font-family:'Oxanium',sans-serif;font-size:1.3rem;font-weight:800;color:var(--text-primary);margin-bottom:6px; }
+    .form-subtitle { font-size:0.85rem;color:var(--text-muted);margin-bottom:28px; }
+    .form-grid { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px; }
+    @media(max-width:480px){.form-grid{grid-template-columns:1fr;}}
+    .form-group { display:flex;flex-direction:column;gap:7px;margin-bottom:16px; }
+    .form-group:last-of-type{margin-bottom:0;}
+    .form-label {
+      font-family:'Oxanium',sans-serif;
+      font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--text-muted);
+    }
+    .form-input,.form-textarea {
+      background:rgba(5,13,30,0.8);
+      border:1px solid rgba(0,212,255,0.12);
+      border-radius:8px;
+      padding:12px 16px;
+      font-family:'Exo 2',sans-serif;
+      font-size:0.92rem;color:var(--text-primary);
+      outline:none;
+      transition:border-color 0.3s,box-shadow 0.3s;
+      width:100%;
+    }
+    .form-input::placeholder,.form-textarea::placeholder { color:var(--text-muted); }
+    .form-input:focus,.form-textarea:focus {
+      border-color:rgba(0,212,255,0.5);
+      box-shadow:0 0 0 3px rgba(0,212,255,0.08);
+    }
+    .form-input.error,.form-textarea.error { border-color:rgba(239,68,68,0.5); }
+    .form-textarea { resize:vertical;min-height:120px; }
+    .form-submit {
+      width:100%;margin-top:24px;
+      padding:14px;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+      color:#020810;
+      font-family:'Oxanium',sans-serif;font-size:0.88rem;font-weight:800;
+      letter-spacing:0.12em;text-transform:uppercase;
+      border:none;border-radius:8px;cursor:pointer;
+      transition:all 0.3s;
+    }
+    .form-submit:hover{box-shadow:0 0 30px var(--cyan-glow);transform:translateY(-2px);}
+    .form-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+    .form-message {
+      margin-top:16px;padding:12px 16px;border-radius:8px;
+      font-size:0.85rem;font-weight:500;
+      display:none;
+    }
+    .form-message.success{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:var(--emerald);display:block;}
+    .form-message.error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:var(--red);display:block;}
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────────── */
+    #footer {
+      background:var(--bg-void);
+      border-top:1px solid rgba(0,212,255,0.08);
+    }
+    .footer-main {
+      max-width:1280px;margin:0 auto;
+      padding:72px 24px 40px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:48px;
+    }
+    @media(max-width:900px){.footer-main{grid-template-columns:1fr 1fr;gap:36px;}}
+    @media(max-width:540px){.footer-main{grid-template-columns:1fr;gap:28px;}}
+    .footer-brand {}
+    .footer-logo { display:flex;align-items:center;gap:10px;margin-bottom:16px;text-decoration:none; }
+    .footer-logo-icon {
+      width:36px;height:36px;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+      border-radius:7px;
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Oxanium',sans-serif;font-weight:900;font-size:1rem;color:#020810;
+    }
+    .footer-logo-name{font-family:'Oxanium',sans-serif;font-weight:800;font-size:1rem;color:var(--text-primary);}
+    .footer-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.75;margin-bottom:20px;max-width:280px;}
+    .footer-social{display:flex;gap:10px;}
+    .social-btn{
+      width:36px;height:36px;border-radius:8px;
+      background:rgba(0,212,255,0.07);border:1px solid rgba(0,212,255,0.14);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--text-muted);font-size:0.9rem;text-decoration:none;
+      transition:all 0.3s;
+    }
+    .social-btn:hover{background:rgba(0,212,255,0.15);border-color:rgba(0,212,255,0.4);color:var(--cyan);}
+    .footer-col-title{
+      font-family:'Oxanium',sans-serif;font-size:0.8rem;font-weight:700;
+      letter-spacing:0.16em;text-transform:uppercase;color:var(--cyan);
+      margin-bottom:18px;
+    }
+    .footer-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+    .footer-links li a{
+      font-size:0.85rem;color:var(--text-muted);text-decoration:none;
+      transition:color 0.25s;display:flex;align-items:center;gap:6px;
+    }
+    .footer-links li a:hover{color:var(--cyan);}
+    .footer-links li a::before{content:'›';color:var(--cyan);opacity:0.5;}
+    .footer-bottom{
+      max-width:1280px;margin:0 auto;
+      padding:20px 24px;
+      border-top:1px solid rgba(255,255,255,0.04);
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:12px;
+    }
+    .footer-copy{font-size:0.78rem;color:var(--text-muted);}
+    .footer-copy span{color:var(--cyan);}
+    .footer-badges{display:flex;gap:8px;flex-wrap:wrap;}
+    .footer-badge{
+      font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+      padding:4px 10px;border-radius:100px;
+      background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.14);
+      color:var(--text-muted);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       LOADING SCREEN
+    ───────────────────────────────────────────────────────────── */
+    #loader {
+      position:fixed;inset:0;z-index:9999;
+      background:var(--bg-void);
+      display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;
+      transition:opacity 0.6s, visibility 0.6s;
+    }
+    #loader.done { opacity:0;visibility:hidden; }
+    .loader-logo {
+      font-family:'Oxanium',sans-serif;font-size:2.5rem;font-weight:900;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .loader-bar-wrap { width:200px;height:2px;background:rgba(0,212,255,0.1);border-radius:2px;overflow:hidden; }
+    .loader-bar {
+      height:100%;width:0%;
+      background:linear-gradient(90deg,var(--cyan),var(--blue));
+      border-radius:2px;
+      animation:load-progress 1.6s ease forwards;
+    }
+    @keyframes load-progress{to{width:100%}}
+    .loader-text{font-family:'Oxanium',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-muted);}
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION DIVIDERS
+    ───────────────────────────────────────────────────────────── */
+    .section-divider {
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(0,212,255,0.15),transparent);
+      max-width:1280px;margin:0 auto;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       MISC
+    ───────────────────────────────────────────────────────────── */
+    .delay-1{transition-delay:0.1s!important;}
+    .delay-2{transition-delay:0.2s!important;}
+    .delay-3{transition-delay:0.3s!important;}
+    .delay-4{transition-delay:0.4s!important;}
+    .delay-5{transition-delay:0.5s!important;}
+    .delay-6{transition-delay:0.6s!important;}
+    .delay-7{transition-delay:0.7s!important;}
+    .delay-8{transition-delay:0.8s!important;}
+
+    @media(max-width:640px){
+      .value-list{grid-template-columns:1fr;}
+      .ai-pillars{grid-template-columns:1fr;}
+      .telecom-services{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ LOADER ═══════════════════ -->
+<div id="loader">
+  <div class="loader-logo">VDS</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Initializing Secure Environment</div>
+</div>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon">V</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Vyeta Digital</span>
+        <span class="nav-logo-sub">Solutions</span>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#cybersecurity" class="nav-link">Cybersecurity</a>
+      <a href="#ai-automation" class="nav-link">AI Solutions</a>
+      <a href="#telecom" class="nav-link">Tower & Telecom</a>
+      <a href="#industries" class="nav-link">Industries</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#cybersecurity" class="mobile-link">Cybersecurity</a>
+    <a href="#ai-automation" class="mobile-link">AI Solutions</a>
+    <a href="#telecom" class="mobile-link">Tower &amp; Telecom</a>
+    <a href="#industries" class="mobile-link">Industries</a>
+    <a href="#contact" class="mobile-link" style="color:var(--cyan);border:none;margin-top:12px;">→ Get In Touch</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="home">
+  <div id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="cyber-grid-bg"></div>
+
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge reveal">
+          <div class="hero-badge-dot"></div>
+          <span class="hero-badge-text">Africa's Premier Technology Company</span>
+        </div>
+
+        <h1 class="hero-headline reveal delay-1">
+          Securing the Future.<br>
+          <span class="gradient-text">Powering Digital</span><br>
+          Transformation.
+        </h1>
+
+        <div class="hero-tagline reveal delay-2">
+          <span class="typed-text"></span><span class="cursor"></span>
+        </div>
+
+        <p class="hero-description reveal delay-3">
+          Vyeta Digital Solutions delivers enterprise-grade cybersecurity, AI-powered automation,
+          telecommunications infrastructure, and cloud solutions — built for governments, enterprises,
+          and industry leaders across Africa and beyond.
+        </p>
+
+        <div class="hero-cta reveal delay-4">
+          <a href="#contact" class="btn-primary">
+            <i class="fa-solid fa-rocket"></i> Get Started
+          </a>
+          <a href="#contact" class="btn-outline">
+            <i class="fa-solid fa-calendar-check"></i> Request Consultation
+          </a>
+        </div>
+
+        <div class="hero-stats reveal delay-5">
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">250+</span>
+            <span class="hero-stat-label">Projects Delivered</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">99.9%</span>
+            <span class="hero-stat-label">Infrastructure Uptime</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">24/7</span>
+            <span class="hero-stat-label">SOC Monitoring</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal-right delay-2">
+        <div class="hero-panel">
+          <div class="hero-panel-header">
+            <div class="panel-dot" style="background:#ff5f56"></div>
+            <div class="panel-dot" style="background:#ffbd2e;margin-left:6px"></div>
+            <div class="panel-dot" style="background:#27c93f;margin-left:6px"></div>
+            <div class="panel-title">VDS OPERATIONS CENTER</div>
+          </div>
+          <div class="hero-panel-body">
+            <div class="panel-row">
+              <div class="panel-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="panel-info">
+                <div class="panel-info-label">Threat Intelligence</div>
+                <div class="panel-info-sub">Perimeter defense active</div>
+              </div>
+              <span class="panel-status status-ok">Secured</span>
+            </div>
+            <div class="panel-row">
+              <div class="panel-icon"><i class="fa-solid fa-brain"></i></div>
+              <div class="panel-info">
+                <div class="panel-info-label">AI Automation Engine</div>
+                <div class="panel-info-sub">Processing 14 workflows</div>
+              </div>
+              <span class="panel-status status-active">Running</span>
+            </div>
+            <div class="panel-row">
+              <div class="panel-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+              <div class="panel-info">
+                <div class="panel-info-label">Tower Infrastructure</div>
+                <div class="panel-info-sub">42 sites monitored</div>
+              </div>
+              <span class="panel-status status-ok">Online</span>
+            </div>
+            <div class="panel-row">
+              <div class="panel-icon"><i class="fa-solid fa-cloud"></i></div>
+              <div class="panel-info">
+                <div class="panel-info-label">Cloud Infrastructure</div>
+                <div class="panel-info-sub">Hybrid environment</div>
+              </div>
+              <span class="panel-status status-active">Syncing</span>
+            </div>
+            <div class="panel-row">
+              <div class="panel-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <div class="panel-info">
+                <div class="panel-info-label">Network Operations</div>
+                <div class="panel-info-sub">Zero anomalies detected</div>
+              </div>
+              <span class="panel-status status-live">Live</span>
+            </div>
+          </div>
+          <div class="hero-panel-footer">
+            <div class="uptime-bar-wrap">
+              <span class="uptime-label">System Uptime</span>
+              <div class="uptime-bar"><div class="uptime-fill" id="uptimeFill"></div></div>
+              <span class="uptime-pct">99.9%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label reveal"><span>About Us</span></p>
+        <h2 class="section-title reveal delay-1">
+          African-Led.<br>
+          <span class="gradient-text">Globally Competitive.</span>
+        </h2>
+        <p class="reveal delay-2">
+          Vyeta Digital Solutions was founded with a singular vision: to deliver technology solutions
+          that rival the world's best — built in Africa, for Africa, and trusted across borders.
+          We combine deep technical expertise with an intimate understanding of local operational realities.
+        </p>
+        <p class="reveal delay-3">
+          From securing critical government networks and maintaining telecommunications towers in
+          remote terrain, to deploying AI-driven automation across enterprise workflows — Vyeta operates
+          where technology meets mission-critical infrastructure.
+        </p>
+        <div class="value-list reveal delay-4">
+          <div class="value-item"><i class="fa-solid fa-check"></i> Enterprise Integrity</div>
+          <div class="value-item"><i class="fa-solid fa-check"></i> Technical Excellence</div>
+          <div class="value-item"><i class="fa-solid fa-check"></i> Operational Reliability</div>
+          <div class="value-item"><i class="fa-solid fa-check"></i> Security-First Culture</div>
+          <div class="value-item"><i class="fa-solid fa-check"></i> Continuous Innovation</div>
+          <div class="value-item"><i class="fa-solid fa-check"></i> Client Partnership</div>
+        </div>
+      </div>
+
+      <div class="about-cards">
+        <div class="about-card glass-card reveal delay-1">
+          <div class="about-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h4>Innovation</h4>
+          <p>We architect solutions that are ahead of the curve — anticipating tomorrow's challenges and building the tools to address them today.</p>
+        </div>
+        <div class="about-card glass-card reveal delay-2">
+          <div class="about-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Security</h4>
+          <p>Every system, every deployment, every engagement begins and ends with an uncompromising commitment to security by design.</p>
+        </div>
+        <div class="about-card glass-card reveal delay-3">
+          <div class="about-card-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h4>Reliability</h4>
+          <p>Mission-critical environments demand absolute dependability. We engineer our solutions to maintain uptime where failure is not an option.</p>
+        </div>
+        <div class="about-card glass-card reveal delay-4">
+          <div class="about-card-icon"><i class="fa-solid fa-code"></i></div>
+          <h4>Technical Excellence</h4>
+          <p>Our certified engineers and architects bring global-standard expertise directly to your environment — no compromise on quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mission-vision">
+      <div class="mv-card reveal delay-1">
+        <h3><i class="fa-solid fa-crosshairs" style="margin-right:10px"></i>Our Mission</h3>
+        <p>
+          To empower organizations across Africa with enterprise-grade technology solutions —
+          delivering cybersecurity, infrastructure, AI, and telecommunications services that
+          protect, connect, and accelerate our clients' most critical operations.
+        </p>
+      </div>
+      <div class="mv-card reveal delay-2">
+        <h3><i class="fa-solid fa-eye" style="margin-right:10px"></i>Our Vision</h3>
+        <p>
+          To be recognized as the definitive technology partner for governments, telecoms,
+          enterprises, and industrial operators across Africa — setting the global benchmark
+          for technology excellence originating from the continent.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section id="services">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:60px">
+      <p class="section-label reveal" style="justify-content:center">What We Deliver</p>
+      <h2 class="section-title reveal delay-1" style="margin-bottom:16px">
+        End-to-End <span class="gradient-text">Technology Solutions</span>
+      </h2>
+      <p class="reveal delay-2" style="color:var(--text-muted);max-width:580px;margin:0 auto;font-size:1rem">
+        From securing digital perimeters to maintaining physical tower infrastructure — Vyeta covers
+        the full spectrum of enterprise technology needs.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 1 -->
+      <div class="service-card reveal delay-1">
+        <span class="service-card-num">01</span>
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Cybersecurity Solutions</h3>
+        <p>Comprehensive security architecture, SOC operations, penetration testing, incident response, compliance frameworks, and continuous threat monitoring for enterprise environments.</p>
+        <a href="#cybersecurity" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 2 -->
+      <div class="service-card reveal delay-2">
+        <span class="service-card-num">02</span>
+        <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>AI &amp; Automation</h3>
+        <p>Intelligent automation platforms, machine learning integration, AI-driven analytics, business process automation, and cognitive systems designed to elevate operational efficiency.</p>
+        <a href="#ai-automation" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 3 -->
+      <div class="service-card reveal delay-3">
+        <span class="service-card-num">03</span>
+        <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>IT Support &amp; Maintenance</h3>
+        <p>Proactive IT management, helpdesk operations, hardware lifecycle support, preventive maintenance programs, and SLA-backed infrastructure management for enterprise environments.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 4 -->
+      <div class="service-card reveal delay-4">
+        <span class="service-card-num">04</span>
+        <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <h3>Networking &amp; Infrastructure</h3>
+        <p>Enterprise network design, routing, switching, SD-WAN deployment, LAN/WAN optimization, and high-availability infrastructure architecture for mission-critical connectivity.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 5 -->
+      <div class="service-card reveal delay-5">
+        <span class="service-card-num">05</span>
+        <div class="service-icon"><i class="fa-solid fa-cloud"></i></div>
+        <h3>Cloud Solutions</h3>
+        <p>Multi-cloud strategy, hybrid cloud architecture, cloud migration, infrastructure-as-code, cloud security posture management, and managed cloud services across all major platforms.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 6 -->
+      <div class="service-card reveal delay-6">
+        <span class="service-card-num">06</span>
+        <div class="service-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+        <h3>Telecom &amp; Tower Maintenance</h3>
+        <p>Full-lifecycle telecommunications tower maintenance, site inspection, network equipment servicing, preventive and emergency maintenance, and uptime optimization for telecom operators.</p>
+        <a href="#telecom" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 7 -->
+      <div class="service-card reveal delay-1">
+        <span class="service-card-num">07</span>
+        <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+        <h3>Branding &amp; Digital Presence</h3>
+        <p>Enterprise-grade brand identity, website development, digital marketing strategy, SEO, and comprehensive digital presence management to elevate your corporate image.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 8 -->
+      <div class="service-card reveal delay-2">
+        <span class="service-card-num">08</span>
+        <div class="service-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <h3>Hardware Supply &amp; Procurement</h3>
+        <p>Authorized supply and procurement of enterprise hardware — servers, networking equipment, security appliances, and telecommunications hardware from globally recognized manufacturers.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- 9 -->
+      <div class="service-card reveal delay-3">
+        <span class="service-card-num">09</span>
+        <div class="service-icon"><i class="fa-solid fa-link"></i></div>
+        <h3>Blockchain &amp; Fintech Solutions</h3>
+        <p>Blockchain integration, smart contract development, fintech platform architecture, digital payment infrastructure, and distributed ledger solutions for financial institutions and enterprises.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ CYBERSECURITY ═══════════════════ -->
+<section id="cybersecurity">
+  <div class="section-wrap">
+    <div class="cyber-layout">
+      <!-- Dashboard mock -->
+      <div class="cyber-dashboard reveal-left">
+        <div class="db-header">
+          <i class="fa-solid fa-radar" style="color:var(--cyan);font-size:0.85rem"></i>
+          <span class="db-title">VDS Security Operations Center</span>
+          <div class="db-live"><div class="db-live-dot"></div> LIVE</div>
+        </div>
+        <div class="db-body">
+          <div class="db-stats-row">
+            <div class="db-stat">
+              <span class="db-stat-num" id="dbThreats">0</span>
+              <span class="db-stat-lbl">Threats Blocked</span>
+            </div>
+            <div class="db-stat">
+              <span class="db-stat-num" id="dbSystems">0</span>
+              <span class="db-stat-lbl">Systems Protected</span>
+            </div>
+            <div class="db-stat">
+              <span class="db-stat-num">99.9%</span>
+              <span class="db-stat-lbl">SOC Uptime</span>
+            </div>
+          </div>
+          <div class="threat-feed-title">Live Threat Monitor</div>
+          <div id="threatFeed"></div>
+        </div>
+        <div class="db-footer">
+          <span class="db-footer-txt">Last scan: <span id="dbTime">—</span></span>
+          <button class="db-footer-btn" onclick="this.textContent='Scanning..';setTimeout(()=>this.textContent='Scan Network',1500)">Scan Network</button>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="cyber-text reveal-right">
+        <p class="section-label">Elite Cybersecurity</p>
+        <h2 class="section-title" style="margin-bottom:20px">
+          Protecting What<br>
+          <span class="gradient-text">Matters Most</span>
+        </h2>
+        <p>
+          In a world where cyber threats evolve faster than conventional defenses,
+          Vyeta Digital Solutions operates a next-generation security practice designed
+          for high-stakes environments — government agencies, financial institutions,
+          telecoms, and critical national infrastructure.
+        </p>
+        <p>
+          Our SOC analysts, ethical hackers, and security architects operate at the
+          intersection of offensive and defensive security — giving our clients a complete,
+          360-degree protection posture.
+        </p>
+        <div class="cyber-features">
+          <div class="cyber-feature">
+            <i class="fa-solid fa-eye cyber-feature-icon"></i>
+            <div>
+              <h4>24/7 Threat Intelligence &amp; SOC</h4>
+              <p>Continuous monitoring, correlation, and real-time response to emerging threats across your entire digital estate.</p>
+            </div>
+          </div>
+          <div class="cyber-feature">
+            <i class="fa-solid fa-user-secret cyber-feature-icon"></i>
+            <div>
+              <h4>Penetration Testing &amp; Red Team</h4>
+              <p>Authorized adversarial simulation to expose vulnerabilities before malicious actors can exploit them.</p>
+            </div>
+          </div>
+          <div class="cyber-feature">
+            <i class="fa-solid fa-file-shield cyber-feature-icon"></i>
+            <div>
+              <h4>Compliance &amp; Governance</h4>
+              <p>End-to-end compliance implementation — ISO 27001, PCI-DSS, GDPR, NIST, and sector-specific regulatory frameworks.</p>
+            </div>
+          </div>
+          <div class="cyber-feature">
+            <i class="fa-solid fa-bolt cyber-feature-icon"></i>
+            <div>
+              <h4>Incident Response &amp; Recovery</h4>
+              <p>Rapid-response breach containment, forensic analysis, eradication, and business continuity restoration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cyber stats counters -->
+    <div class="cyber-stats-row">
+      <div class="cyber-counter reveal delay-1">
+        <span class="num" data-target="1200000" data-suffix="+">0</span>
+        <span class="lbl">Threats Monitored Monthly</span>
+      </div>
+      <div class="cyber-counter reveal delay-2">
+        <span class="num" data-target="350" data-suffix="+">0</span>
+        <span class="lbl">Systems Under Protection</span>
+      </div>
+      <div class="cyber-counter reveal delay-3">
+        <span class="num" data-target="99" data-suffix=".9%">0</span>
+        <span class="lbl">Threat Detection Rate</span>
+      </div>
+      <div class="cyber-counter reveal delay-4">
+        <span class="num" data-target="15" data-suffix="min">0</span>
+        <span class="lbl">Avg. Response Time</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ AI & AUTOMATION ═══════════════════ -->
+<section id="ai-automation">
+  <div class="ai-bg"></div>
+  <div class="section-wrap" style="position:relative">
+    <div class="ai-layout">
+      <div class="ai-text reveal-left">
+        <p class="section-label" style="color:#a78bfa">
+          <i class="fa-solid fa-microchip" style="margin-right:6px"></i>AI &amp; Automation
+        </p>
+        <h2 class="section-title" style="margin-bottom:20px">
+          Intelligent Systems.<br>
+          <span style="background:linear-gradient(135deg,#a78bfa,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Limitless Potential.</span>
+        </h2>
+        <p>
+          Vyeta's AI &amp; Automation practice helps organizations eliminate inefficiencies,
+          accelerate decision-making, and unlock entirely new business models. We don't just
+          implement tools — we redesign how your organization thinks and operates.
+        </p>
+        <p>
+          From intelligent document processing to predictive infrastructure management,
+          our AI solutions are built for real-world deployment at enterprise scale.
+        </p>
+        <div class="ai-pillars">
+          <div class="ai-pillar">
+            <div class="ai-pillar-icon"><i class="fa-solid fa-robot"></i></div>
+            <h4>Robotic Process Automation</h4>
+            <p>Automate repetitive workflows with intelligent bots that operate at machine speed.</p>
+          </div>
+          <div class="ai-pillar">
+            <div class="ai-pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h4>Predictive Analytics</h4>
+            <p>Transform raw data into actionable forecasts powering strategic decisions.</p>
+          </div>
+          <div class="ai-pillar">
+            <div class="ai-pillar-icon"><i class="fa-solid fa-comments"></i></div>
+            <h4>Conversational AI</h4>
+            <p>Deploy intelligent virtual agents that resolve queries and automate customer interactions.</p>
+          </div>
+          <div class="ai-pillar">
+            <div class="ai-pillar-icon"><i class="fa-solid fa-gears"></i></div>
+            <h4>Process Intelligence</h4>
+            <p>Map, analyze, and optimize business processes using AI-driven discovery engines.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-visual reveal-right">
+        <div class="ai-workflow-box">
+          <div class="workflow-title">AI Integration Workflow</div>
+          <div class="workflow-steps">
+            <div class="wf-step">
+              <div class="wf-num">01</div>
+              <div class="wf-info">
+                <h5>Data Ingestion &amp; Assessment</h5>
+                <p>Structured and unstructured data sources mapped</p>
+              </div>
+              <span class="wf-status wf-done">Complete</span>
+            </div>
+            <div class="wf-connector"></div>
+            <div class="wf-step">
+              <div class="wf-num">02</div>
+              <div class="wf-info">
+                <h5>Model Training &amp; Validation</h5>
+                <p>Domain-specific AI models calibrated and tested</p>
+              </div>
+              <span class="wf-status wf-done">Complete</span>
+            </div>
+            <div class="wf-connector"></div>
+            <div class="wf-step">
+              <div class="wf-num">03</div>
+              <div class="wf-info">
+                <h5>Automation Orchestration</h5>
+                <p>Workflow triggers and decision trees configured</p>
+              </div>
+              <span class="wf-status wf-running">Processing</span>
+            </div>
+            <div class="wf-connector"></div>
+            <div class="wf-step">
+              <div class="wf-num">04</div>
+              <div class="wf-info">
+                <h5>Enterprise Integration</h5>
+                <p>API connections to existing ERP, CRM, systems</p>
+              </div>
+              <span class="wf-status wf-active">Pending</span>
+            </div>
+            <div class="wf-connector"></div>
+            <div class="wf-step">
+              <div class="wf-num">05</div>
+              <div class="wf-info">
+                <h5>Monitoring &amp; Optimization</h5>
+                <p>Continuous performance tuning and drift detection</p>
+              </div>
+              <span class="wf-status wf-active">Queued</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI use case cards -->
+    <div class="ai-use-cases">
+      <div class="ai-card reveal delay-1">
+        <span class="ai-card-icon">🏦</span>
+        <h4>Financial Services</h4>
+        <p>AI-powered fraud detection, risk scoring, credit assessment, and automated compliance reporting.</p>
+      </div>
+      <div class="ai-card reveal delay-2">
+        <span class="ai-card-icon">🏛️</span>
+        <h4>Government &amp; Public Sector</h4>
+        <p>Citizen service automation, document processing, predictive resource allocation, and data governance.</p>
+      </div>
+      <div class="ai-card reveal delay-3">
+        <span class="ai-card-icon">⚡</span>
+        <h4>Energy &amp; Utilities</h4>
+        <p>Predictive asset maintenance, demand forecasting, anomaly detection, and grid optimization.</p>
+      </div>
+      <div class="ai-card reveal delay-4">
+        <span class="ai-card-icon">🏥</span>
+        <h4>Healthcare</h4>
+        <p>Clinical workflow automation, patient data analysis, diagnostic support systems, and supply chain intelligence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ TELECOM & TOWER ═══════════════════ -->
+<section id="telecom">
+  <div class="telecom-bg"></div>
+  <div class="section-wrap" style="position:relative">
+    <div class="telecom-layout">
+      <div class="tower-visual reveal-left">
+        <div class="tower-box">
+          <div class="tower-box-header">
+            <i class="fa-solid fa-satellite-dish" style="margin-right:8px"></i>Tower Operations Monitor
+          </div>
+          <div class="tower-diagram">
+            <div class="signal-rings">
+              <div class="signal-ring"></div>
+              <div class="signal-ring"></div>
+              <div class="signal-ring"></div>
+            </div>
+            <div class="tower-top"></div>
+            <div class="tower-body"></div>
+            <div class="tower-base"></div>
+          </div>
+          <div class="tower-metrics" style="margin-top:20px">
+            <div class="t-metric">
+              <span class="t-metric-num">42</span>
+              <span class="t-metric-lbl">Active Sites</span>
+            </div>
+            <div class="t-metric">
+              <span class="t-metric-num">99.7%</span>
+              <span class="t-metric-lbl">Uptime</span>
+            </div>
+            <div class="t-metric">
+              <span class="t-metric-num">&lt;2h</span>
+              <span class="t-metric-lbl">Response</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="telecom-text reveal-right">
+        <p class="section-label" style="color:var(--blue)">Telecom Infrastructure</p>
+        <h2 class="section-title" style="margin-bottom:20px">
+          Tower Maintenance<br>
+          <span style="background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Built for Uptime.</span>
+        </h2>
+        <p>
+          Telecommunications infrastructure is the backbone of modern connectivity. Vyeta Digital Solutions
+          provides comprehensive tower maintenance services that keep operators, ISPs, governments, and
+          enterprise networks running without interruption — even in the most demanding environments.
+        </p>
+        <p>
+          Our trained field engineers, equipped with specialized tooling and backed by a robust logistics
+          network, ensure every tower site meets regulatory standards, operational benchmarks, and safety requirements.
+        </p>
+        <div class="telecom-services">
+          <div class="tele-service"><i class="fa-solid fa-wrench"></i> Preventive Maintenance</div>
+          <div class="tele-service"><i class="fa-solid fa-magnifying-glass"></i> Tower Inspections</div>
+          <div class="tele-service"><i class="fa-solid fa-bolt"></i> Emergency Response</div>
+          <div class="tele-service"><i class="fa-solid fa-solar-panel"></i> Power Systems Support</div>
+          <div class="tele-service"><i class="fa-solid fa-satellite"></i> Equipment Servicing</div>
+          <div class="tele-service"><i class="fa-solid fa-chart-bar"></i> Performance Reporting</div>
+          <div class="tele-service"><i class="fa-solid fa-road"></i> Site Access Management</div>
+          <div class="tele-service"><i class="fa-solid fa-shield-halved"></i> Safety Compliance</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tower service cards -->
+    <div class="tower-service-grid">
+      <div class="tower-svc reveal delay-1">
+        <div class="tower-svc-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h4>Preventive Maintenance</h4>
+        <p>Scheduled, systematic maintenance programs that identify and resolve issues before they cause downtime — extending equipment life and protecting your investment.</p>
+      </div>
+      <div class="tower-svc reveal delay-2">
+        <div class="tower-svc-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+        <h4>Tower Inspections</h4>
+        <p>Structural, electrical, and antenna system inspections conducted by certified engineers, with detailed reporting against industry standards and regulatory requirements.</p>
+      </div>
+      <div class="tower-svc reveal delay-3">
+        <div class="tower-svc-icon"><i class="fa-solid fa-siren-on"></i></div>
+        <h4>Emergency Response</h4>
+        <p>Rapid-mobilization emergency support teams available around the clock to restore service following weather events, equipment failures, or security incidents.</p>
+      </div>
+      <div class="tower-svc reveal delay-4">
+        <div class="tower-svc-icon"><i class="fa-solid fa-plug-circle-check"></i></div>
+        <h4>Power Systems Support</h4>
+        <p>Generator servicing, battery backup management, renewable energy integration, and fuel logistics coordination to maintain power continuity at every site.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;padding:28px 32px;background:rgba(29,106,255,0.05);border:1px solid rgba(29,106,255,0.15);border-radius:12px" class="reveal">
+      <p style="font-family:'Oxanium',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Industries Served — Telecom Division</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">📡 Telecommunications</span>
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">⛏️ Mining</span>
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">🏛️ Government</span>
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">⚡ Energy</span>
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">🏦 Banking</span>
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">🚛 Logistics</span>
+        <span style="padding:6px 14px;background:rgba(29,106,255,0.08);border:1px solid rgba(29,106,255,0.18);border-radius:100px;font-size:0.8rem;color:var(--text-body)">🏢 Enterprise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ INDUSTRIES ═══════════════════ -->
+<section id="industries">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:60px">
+      <p class="section-label reveal" style="justify-content:center">Who We Serve</p>
+      <h2 class="section-title reveal delay-1" style="margin-bottom:16px">
+        Industries We <span class="gradient-text">Empower</span>
+      </h2>
+      <p class="reveal delay-2" style="color:var(--text-muted);max-width:560px;margin:0 auto">
+        Vyeta serves clients across the most demanding and regulated sectors — delivering tailored
+        technology solutions that meet the unique operational demands of each industry.
+      </p>
+    </div>
+
+    <div class="industries-grid">
+      <div class="industry-card reveal delay-1">
+        <span class="industry-icon">🏛️</span>
+        <h4>Government</h4>
+        <p>National agencies, ministries, and public sector bodies require the highest standards of security, compliance, and infrastructure reliability.</p>
+      </div>
+      <div class="industry-card reveal delay-2">
+        <span class="industry-icon">📡</span>
+        <h4>Telecommunications</h4>
+        <p>Network operators and ISPs depend on Vyeta for tower maintenance, network security, and infrastructure monitoring at scale.</p>
+      </div>
+      <div class="industry-card reveal delay-3">
+        <span class="industry-icon">⛏️</span>
+        <h4>Mining</h4>
+        <p>Remote operational environments require resilient connectivity, ruggedized infrastructure, and round-the-clock technical support.</p>
+      </div>
+      <div class="industry-card reveal delay-4">
+        <span class="industry-icon">🏦</span>
+        <h4>Banking &amp; Finance</h4>
+        <p>Regulatory compliance, data security, anti-fraud systems, and fintech integration for financial institutions of all sizes.</p>
+      </div>
+      <div class="industry-card reveal delay-5">
+        <span class="industry-icon">🚛</span>
+        <h4>Logistics</h4>
+        <p>Fleet tracking, supply chain digitization, warehouse automation, and connectivity solutions for modern logistics operations.</p>
+      </div>
+      <div class="industry-card reveal delay-6">
+        <span class="industry-icon">🏢</span>
+        <h4>SMEs &amp; Enterprises</h4>
+        <p>Scalable technology services that give growing businesses access to enterprise-grade capabilities without enterprise overhead.</p>
+      </div>
+      <div class="industry-card reveal delay-1">
+        <span class="industry-icon">🏥</span>
+        <h4>Healthcare</h4>
+        <p>Patient data security, health system integration, telemedicine infrastructure, and medical IoT connectivity management.</p>
+      </div>
+      <div class="industry-card reveal delay-2">
+        <span class="industry-icon">🎓</span>
+        <h4>Education</h4>
+        <p>Campus connectivity, e-learning platforms, student data governance, and cybersecurity awareness programs for institutions.</p>
+      </div>
+      <div class="industry-card reveal delay-3">
+        <span class="industry-icon">⚡</span>
+        <h4>Energy &amp; Utilities</h4>
+        <p>SCADA security, smart grid solutions, remote monitoring, and operational technology protection for the energy sector.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ STATS ═══════════════════ -->
+<section id="stats">
+  <div class="stats-inner">
+    <div style="text-align:center;margin-bottom:52px">
+      <p class="section-label reveal" style="justify-content:center">By The Numbers</p>
+      <h2 class="section-title reveal delay-1">
+        Performance That <span class="gradient-text">Speaks</span>
+      </h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box reveal delay-1">
+        <span class="stat-num"><span class="count-num" data-target="250">0</span><span class="stat-suffix">+</span></span>
+        <span class="stat-lbl">Projects Completed</span>
+      </div>
+      <div class="stat-box reveal delay-2">
+        <span class="stat-num"><span class="count-num" data-target="120">0</span><span class="stat-suffix">+</span></span>
+        <span class="stat-lbl">Clients Supported</span>
+      </div>
+      <div class="stat-box reveal delay-3">
+        <span class="stat-num"><span class="count-num" data-target="350">0</span><span class="stat-suffix">+</span></span>
+        <span class="stat-lbl">Systems Secured</span>
+      </div>
+      <div class="stat-box reveal delay-4">
+        <span class="stat-num"><span class="count-num" data-target="42">0</span><span class="stat-suffix">+</span></span>
+        <span class="stat-lbl">Tower Sites Maintained</span>
+      </div>
+      <div class="stat-box reveal delay-5">
+        <span class="stat-num"><span class="count-num" data-target="24">0</span><span class="stat-suffix">/7</span></span>
+        <span class="stat-lbl">Support Availability</span>
+      </div>
+      <div class="stat-box reveal delay-6">
+        <span class="stat-num"><span class="count-num" data-target="99">0</span><span class="stat-suffix">.9%</span></span>
+        <span class="stat-lbl">Infrastructure Uptime</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section id="testimonials">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:52px">
+      <p class="section-label reveal" style="justify-content:center">Client Feedback</p>
+      <h2 class="section-title reveal delay-1">
+        Trusted by <span class="gradient-text">Industry Leaders</span>
+      </h2>
+    </div>
+
+    <div class="testimonial-wrapper reveal delay-2">
+      <div style="overflow:hidden">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "Vyeta Digital Solutions transformed our entire cybersecurity posture within months.
+                Their SOC team identified critical vulnerabilities our previous providers had missed for years.
+                The level of technical expertise and professionalism they bring to every engagement is genuinely
+                world-class — comparable to the best firms I have worked with internationally."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">MK</div>
+                <div>
+                  <div class="author-name">Mwila K.</div>
+                  <div class="author-role">Chief Information Security Officer, National Commercial Bank</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "Our tower infrastructure across 38 sites was experiencing recurring downtime that was
+                costing us significantly in SLA penalties. Vyeta's maintenance team restructured our entire
+                preventive maintenance program and response protocols. We have maintained 99.7% uptime
+                across all sites for the past 14 months — a performance level we simply could not achieve before."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TN</div>
+                <div>
+                  <div class="author-name">Tafadzwa N.</div>
+                  <div class="author-role">Head of Infrastructure, Regional Telecom Operator</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "The AI automation solution Vyeta deployed for our procurement and document processing
+                workflows reduced our processing time by 78%. What previously took a team of eight people
+                three days now completes automatically overnight. The ROI was evident within the first quarter.
+                They truly understand enterprise environments and deliver on their commitments."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">PS</div>
+                <div>
+                  <div class="author-name">Patricia S.</div>
+                  <div class="author-role">Director of Digital Transformation, Mining Corporation</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "We engaged Vyeta to design and deploy our entire cloud and networking infrastructure
+                following a major expansion. Their architects produced a solution that was more cost-efficient,
+                more secure, and more scalable than what three other vendors had proposed. Their project
+                execution was flawless and they were on-site every step of the way."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">JB</div>
+                <div>
+                  <div class="author-name">James B.</div>
+                  <div class="author-role">IT Director, Pan-African Logistics Group</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="t-btn" id="tPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="t-dots" id="tDots"></div>
+        <button class="t-btn" id="tNext"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:60px">
+      <p class="section-label reveal" style="justify-content:center">Get In Touch</p>
+      <h2 class="section-title reveal delay-1" style="margin-bottom:16px">
+        Start Your <span class="gradient-text">Digital Transformation</span>
+      </h2>
+      <p class="reveal delay-2" style="color:var(--text-muted);max-width:520px;margin:0 auto">
+        Reach out to Vyeta Digital Solutions and let our specialists design the right technology
+        strategy for your organization. Response guaranteed within 24 business hours.
+      </p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <a href="https://wa.me/260777363303" target="_blank" class="contact-card reveal delay-1">
+          <div class="contact-card-icon icon-wa"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="contact-card-text">
+            <div class="contact-card-label">WhatsApp</div>
+            <div class="contact-card-value">+260 777 363 303</div>
+            <div class="contact-card-sub">Tap to message on WhatsApp</div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--text-muted);font-size:0.75rem;align-self:center"></i>
+        </a>
+
+        <a href="mailto:vyeta.solutions@outlook.com" class="contact-card reveal delay-2">
+          <div class="contact-card-icon icon-email"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-card-text">
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">vyeta.solutions@outlook.com</div>
+            <div class="contact-card-sub">Formal inquiries and RFPs</div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--text-muted);font-size:0.75rem;align-self:center"></i>
+        </a>
+
+        <div class="contact-card reveal delay-3" style="cursor:default">
+          <div class="contact-card-icon icon-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-card-text">
+            <div class="contact-card-label">Location</div>
+            <div class="contact-card-value">Lusaka, Zambia</div>
+            <div class="contact-card-sub">Serving clients across Africa</div>
+          </div>
+        </div>
+
+        <div class="contact-card reveal delay-4" style="cursor:default">
+          <div class="contact-card-icon icon-time"><i class="fa-solid fa-clock"></i></div>
+          <div class="contact-card-text">
+            <div class="contact-card-label">Business Hours</div>
+            <div class="contact-card-value">Mon – Fri: 08:00 – 17:30</div>
+            <div class="contact-card-sub">Emergency SOC support: 24/7 available</div>
+          </div>
+        </div>
+
+        <div style="padding:20px 22px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.12);border-radius:12px;" class="reveal delay-5">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div style="width:8px;height:8px;background:var(--emerald);border-radius:50%;animation:pulse-dot 1.5s infinite;flex-shrink:0"></div>
+            <span style="font-family:'Oxanium',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--emerald)">Response Commitment</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin:0;line-height:1.65">
+            All inquiries receive an initial response within <strong style="color:var(--text-primary)">4 business hours</strong>.
+            Critical security matters are escalated immediately to our on-call team.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form reveal-right delay-2">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-subtitle">Fill in the details below and our team will be in touch shortly.</div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="fname">Full Name *</label>
+            <input type="text" id="fname" class="form-input" placeholder="John Mwamba">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="femail">Email Address *</label>
+            <input type="email" id="femail" class="form-input" placeholder="john@company.com">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="fcompany">Company / Organization</label>
+            <input type="text" id="fcompany" class="form-input" placeholder="Your Company Ltd">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fservice">Service Interest</label>
+            <select id="fservice" class="form-input" style="cursor:pointer">
+              <option value="">Select a service…</option>
+              <option>Cybersecurity Solutions</option>
+              <option>AI &amp; Automation</option>
+              <option>Telecom &amp; Tower Maintenance</option>
+              <option>IT Infrastructure</option>
+              <option>Cloud Solutions</option>
+              <option>Networking</option>
+              <option>Branding &amp; Digital Presence</option>
+              <option>Hardware Supply</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="fmessage">Message *</label>
+          <textarea id="fmessage" class="form-textarea" placeholder="Tell us about your project, requirements, or the challenge you're looking to solve…"></textarea>
+        </div>
+
+        <button class="form-submit" id="formSubmit" onclick="handleSubmit()">
+          <i class="fa-solid fa-paper-plane" style="margin-right:8px"></i>Send Message
+        </button>
+        <div class="form-message" id="formMessage"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#home" class="footer-logo">
+        <div class="footer-logo-icon">V</div>
+        <span class="footer-logo-name">Vyeta Digital Solutions</span>
+      </a>
+      <p class="footer-desc">
+        Africa's premier technology company — delivering enterprise cybersecurity, AI automation,
+        IT infrastructure, cloud solutions, and telecommunications tower maintenance services.
+      </p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://wa.me/260777363303" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:vyeta.solutions@outlook.com" class="social-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Solutions</div>
+      <ul class="footer-links">
+        <li><a href="#cybersecurity">Cybersecurity</a></li>
+        <li><a href="#ai-automation">AI &amp; Automation</a></li>
+        <li><a href="#telecom">Tower Maintenance</a></li>
+        <li><a href="#services">Cloud Solutions</a></li>
+        <li><a href="#services">Networking</a></li>
+        <li><a href="#services">Hardware Supply</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links" style="gap:14px">
+        <li>
+          <a href="https://wa.me/260777363303" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span style="color:var(--text-muted);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase">WhatsApp</span>
+            <span style="color:var(--text-body)">+260 777 363 303</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:vyeta.solutions@outlook.com" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span style="color:var(--text-muted);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase">Email</span>
+            <span style="color:var(--text-body);font-size:0.8rem">vyeta.solutions@outlook.com</span>
+          </a>
+        </li>
+        <li>
+          <span style="flex-direction:column;align-items:flex-start;gap:2px;display:flex">
+            <span style="color:var(--text-muted);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase">Location</span>
+            <span style="color:var(--text-body)">Lusaka, Zambia</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      &copy; 2025 <span>Vyeta Digital Solutions</span>. All rights reserved.
+    </div>
+    <div class="footer-badges">
+      <span class="footer-badge">ISO 27001 Ready</span>
+      <span class="footer-badge">24/7 SOC</span>
+      <span class="footer-badge">Enterprise Grade</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+<script>
+  /* ─────────────────────────────────────────────────────
+     LOADER
+  ───────────────────────────────────────────────────── */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('done');
+      // Trigger uptime bar
+      setTimeout(() => {
+        const fill = document.getElementById('uptimeFill');
+        if (fill) fill.style.width = '99.9%';
+      }, 400);
+    }, 1800);
+  });
+
+  /* ─────────────────────────────────────────────────────
+     NAVBAR
+  ───────────────────────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  /* ─────────────────────────────────────────────────────
+     PARTICLE CANVAS
+  ───────────────────────────────────────────────────── */
+  (function() {
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    const PARTICLE_COUNT = 80;
+    const CONNECTION_DIST = 130;
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', () => { resize(); });
+
+    function Particle() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.r = Math.random() * 1.8 + 0.6;
+      this.alpha = Math.random() * 0.5 + 0.2;
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    let mouse = { x: null, y: null };
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    canvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Update & draw particles
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,212,255,${p.alpha})`;
+        ctx.fill();
+      });
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < CONNECTION_DIST) {
+            const alpha = (1 - d / CONNECTION_DIST) * 0.25;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0,212,255,${alpha})`;
+            ctx.lineWidth = 0.6;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+        // Mouse interaction
+        if (mouse.x !== null) {
+          const dx = particles[i].x - mouse.x;
+          const dy = particles[i].y - mouse.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 160) {
+            const alpha = (1 - d / 160) * 0.5;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0,212,255,${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  /* ─────────────────────────────────────────────────────
+     TYPING EFFECT
+  ───────────────────────────────────────────────────── */
+  (function() {
+    const phrases = [
+      'Cybersecurity Excellence.',
+      'AI-Powered Automation.',
+      'Telecom Infrastructure.',
+      'Cloud Transformation.',
+      'Digital Innovation.',
+    ];
+    const el = document.querySelector('.typed-text');
+    if (!el) return;
+    let phraseIndex = 0, charIndex = 0, deleting = false;
+
+    function type() {
+      const current = phrases[phraseIndex];
+      if (deleting) {
+        el.textContent = current.substring(0, charIndex--);
+        if (charIndex < 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(type, 400);
+          return;
+        }
+        setTimeout(type, 50);
+      } else {
+        el.textContent = current.substring(0, charIndex++);
+        if (charIndex > current.length) {
+          deleting = true;
+          setTimeout(type, 2000);
+          return;
+        }
+        setTimeout(type, 80);
+      }
+    }
+    setTimeout(type, 1200);
+  })();
+
+  /* ─────────────────────────────────────────────────────
+     SCROLL REVEAL
+  ───────────────────────────────────────────────────── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  /* ─────────────────────────────────────────────────────
+     COUNTER ANIMATION
+  ───────────────────────────────────────────────────── */
+  function animateCounter(el, target, duration = 2000, suffix = '') {
+    const start = performance.now();
+    const isFloat = target % 1 !== 0;
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const value = isFloat ? (target * ease).toFixed(1) : Math.floor(target * ease);
+      el.textContent = value.toLocaleString() + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Stats counters
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        animateCounter(el, target, 2000, suffix);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.count-num').forEach(el => counterObserver.observe(el));
+
+  // Cyber dashboard counters
+  const cyberCounterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.cyber-counter .num').forEach(el => {
+          const target = parseFloat(el.dataset.target || '0');
+          const suffix = el.dataset.suffix || '';
+          if (target >= 1000000) {
+            // Format large numbers
+            let dur = 2500;
+            const start = performance.now();
+            function step(now) {
+              const p = Math.min((now-start)/dur, 1);
+              const ease = 1-Math.pow(1-p,3);
+              const val = Math.floor(target * ease);
+              el.textContent = (val >= 1000000 ? (val/1000000).toFixed(1)+'M' : val.toLocaleString()) + suffix;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          } else {
+            animateCounter(el, target, 2000, suffix);
+          }
+        });
+        cyberCounterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const cyberSection = document.getElementById('cybersecurity');
+  if (cyberSection) cyberCounterObs.observe(cyberSection);
+
+  /* ─────────────────────────────────────────────────────
+     DB MINI COUNTERS
+  ───────────────────────────────────────────────────── */
+  const dbObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(document.getElementById('dbThreats'), 14823, 2000);
+        animateCounter(document.getElementById('dbSystems'), 347, 1800);
+        dbObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const dbEl = document.querySelector('.cyber-dashboard');
+  if (dbEl) dbObs.observe(dbEl);
+
+  /* ─────────────────────────────────────────────────────
+     THREAT FEED SIMULATION
+  ───────────────────────────────────────────────────── */
+  (function() {
+    const feed = document.getElementById('threatFeed');
+    if (!feed) return;
+
+    const threats = [
+      { msg: 'Brute-force attempt blocked — SSH Port 22', sev: 'HIGH', color: '#ef4444' },
+      { msg: 'Suspicious outbound connection intercepted', sev: 'MED', color: '#f59e0b' },
+      { msg: 'Endpoint policy violation — unauthorized USB', sev: 'LOW', color: '#10b981' },
+      { msg: 'DDoS signature detected — traffic filtered', sev: 'HIGH', color: '#ef4444' },
+      { msg: 'Phishing URL blocked at gateway', sev: 'MED', color: '#f59e0b' },
+      { msg: 'CVE-2024-1971 exploit attempt blocked', sev: 'HIGH', color: '#ef4444' },
+      { msg: 'Anomalous login — geo-location mismatch', sev: 'MED', color: '#f59e0b' },
+      { msg: 'Firewall rule updated — policy compliant', sev: 'LOW', color: '#10b981' },
+    ];
+
+    let tIdx = 0;
+    const timeEl = document.getElementById('dbTime');
+
+    function addThreat() {
+      const t = threats[tIdx % threats.length];
+      tIdx++;
+      const now = new Date();
+      const time = now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0')+':'+now.getSeconds().toString().padStart(2,'0');
+      if (timeEl) timeEl.textContent = time;
+
+      const row = document.createElement('div');
+      row.className = 'threat-row';
+      row.innerHTML = `
+        <div class="threat-dot" style="background:${t.color}"></div>
+        <span class="threat-msg">${t.msg}</span>
+        <span class="threat-time">${time}</span>
+        <span class="threat-sev sev-${t.sev.toLowerCase()}">${t.sev}</span>
+      `;
+      feed.insertBefore(row, feed.firstChild);
+      if (feed.children.length > 6) feed.removeChild(feed.lastChild);
+    }
+
+    // Initial populate
+    for (let i = 0; i < 4; i++) setTimeout(() => addThreat(), i * 200);
+    setInterval(addThreat, 3500);
+  })();
+
+  /* ─────────────────────────────────────────────────────
+     TESTIMONIALS SLIDER
+  ───────────────────────────────────────────────────── */
+  (function() {
+    const track = document.getElementById('testimonialsTrack');
+    const dotsContainer = document.getElementById('tDots');
+    if (!track) return;
+
+    const slides = track.querySelectorAll('.testimonial-slide');
+    const total = slides.length;
+    let current = 0;
+    let autoTimer;
+
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 't-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i+1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsContainer.querySelectorAll('.t-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    document.getElementById('tNext').addEventListener('click', () => { next(); resetAuto(); });
+    document.getElementById('tPrev').addEventListener('click', () => { prev(); resetAuto(); });
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(next, 6000);
+    }
+    resetAuto();
+  })();
+
+  /* ─────────────────────────────────────────────────────
+     FORM VALIDATION & SUBMISSION
+  ───────────────────────────────────────────────────── */
+  function handleSubmit() {
+    const fname = document.getElementById('fname');
+    const femail = document.getElementById('femail');
+    const fmessage = document.getElementById('fmessage');
+    const msgEl = document.getElementById('formMessage');
+    const btn = document.getElementById('formSubmit');
+
+    // Clear errors
+    [fname, femail, fmessage].forEach(el => el.classList.remove('error'));
+    msgEl.className = 'form-message';
+
+    let valid = true;
+
+    if (!fname.value.trim()) { fname.classList.add('error'); valid = false; }
+    if (!femail.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(femail.value)) {
+      femail.classList.add('error'); valid = false;
+    }
+    if (!fmessage.value.trim() || fmessage.value.trim().length < 20) {
+      fmessage.classList.add('error'); valid = false;
+    }
+
+    if (!valid) {
+      msgEl.textContent = 'Please fill in all required fields correctly.';
+      msgEl.className = 'form-message error';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px"></i>Sending…';
+
+    // Simulate submission (replace with actual backend/email service endpoint)
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane" style="margin-right:8px"></i>Send Message';
+      msgEl.textContent = '✓ Message sent successfully! Our team will be in touch within 4 business hours.';
+      msgEl.className = 'form-message success';
+      [fname, femail, document.getElementById('fcompany'), document.getElementById('fservice'), fmessage]
+        .forEach(el => { if(el) el.value = ''; });
+    }, 1800);
+  }
+
+  /* ─────────────────────────────────────────────────────
+     SMOOTH SCROLL for nav links
+  ───────────────────────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        const offset = navbar.offsetHeight + 10;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
