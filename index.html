@@ -7,7 +7,7 @@
   <style>
     /* --- MINIMALIST PREMIUM DESIGN SYSTEM --- */
     :root {
-      --bg: #05050a; 
+      --bg: #030307; 
       --text: #ffffff;
       --text-muted: #94a3b8;
       --blue: #3b82f6; 
@@ -17,89 +17,92 @@
       --green: #10b981;
       
       /* Sophisticated Dark Glass Core - High Contrast Legibility */
-      --glass-bg: rgba(10, 10, 18, 0.6);
+      --glass-bg: rgba(8, 8, 16, 0.65);
       --glass-border: rgba(255, 255, 255, 0.08);
-      --glass-blur: blur(16px);
+      --glass-blur: blur(20px);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    /* --- PURE CSS HARDWARE-ACCELERATED PARALLAX ENGINE --- */
     html {
       scroll-behavior: smooth;
-      height: 100%;
-      overflow: hidden;
+      background-color: var(--bg);
     }
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.5;
-      
-      /* Establish 3D space perspective camera */
-      height: 100%;
-      overflow-y: auto;
       overflow-x: hidden;
-      perspective: 1px;
-      transform-style: preserve-3d;
     }
 
-    /* Parallax Base Container */
-    .parallax-wrapper {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: -1;
-      transform-style: preserve-3d;
+    /* --- DEEP SPACE PARALLAX STAGE --- */
+    .magic-parallax-stage {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
       pointer-events: none;
+      perspective: 1000px;
     }
 
-    /* Layer 1: Elegant geometric grid mesh (Moves slightly slower) */
-    .cyber-grid {
+    /* Layer 1: Tilted Infinite Grid Perspective Horizon */
+    .infinite-horizon-grid {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 250%;
+      top: -20%; left: -50%; width: 200%; height: 200%;
       background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      
-      /* Push back in 3D space & scale up to fill screen bounds */
-      transform: translateZ(-1px) scale(2);
-      transform-origin: 50% 0%;
+        linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      transform: rotateX(75deg);
+      transform-origin: center top;
+      will-change: transform;
     }
 
-    /* Layer 2: Muted, deep-space color mist (Pushed further back, moves slowest) */
-    .neon-glow-orb {
+    /* Layer 2: Cosmic Floating Star Particles */
+    .star-field {
+      position: absolute;
+      width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(white 1px, transparent 0),
+        radial-gradient(rgba(255,255,255,0.4) 1px, transparent 0);
+      background-size: 250px 250px, 400px 400px;
+      background-position: 0 0, 40px 120px;
+      opacity: 0.25;
+      will-change: transform;
+    }
+
+    /* Layer 3: Organic Fluid Luminescent Orbs */
+    .ambient-luminary {
       position: absolute;
       border-radius: 50%;
-      filter: blur(160px);
-      opacity: 0.15;
+      filter: blur(140px);
+      opacity: 0.18;
       mix-blend-mode: screen;
-      
-      /* Push deeper back into the background */
-      transform: translateZ(-2px) scale(3);
-      transform-origin: 50% 0%;
+      will-change: transform;
     }
-    .orb-1 { width: 350px; height: 350px; background: var(--blue); top: 5%; left: -5%; }
-    .orb-2 { width: 450px; height: 450px; background: var(--purple); top: 40%; right: -5%; }
+    .luminary-1 { width: 500px; height: 500px; background: radial-gradient(var(--blue), var(--cyan)); top: 10%; left: -10%; }
+    .luminary-2 { width: 600px; height: 600px; background: radial-gradient(var(--purple), var(--magenta)); top: 50%; right: -10%; }
+    .luminary-3 { width: 400px; height: 400px; background: var(--blue); bottom: -10%; left: 20%; }
 
-    /* Foreground Content Layer to stay crisp and isolated */
+    /* Foreground Content Isolator */
     .foreground-content {
       position: relative;
       z-index: 10;
-      transform: translateZ(0);
     }
 
     /* --- NAVBAR --- */
     .navbar {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(5, 5, 10, 0.8);
+      background: rgba(3, 3, 7, 0.75);
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
       border-bottom: 1px solid var(--glass-border);
     }
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
     .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
-    .logo-vector { width: 24px; height: 24px; }
+    .logo-vector { width: 24px; height: 24px; animation: spin 20s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(300deg); } }
+    
     .cta-nav-btn {
       background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;
       cursor: pointer; border: none; transition: all 0.2s ease;
@@ -107,43 +110,47 @@
     .cta-nav-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
     /* --- HERO --- */
-    .hero { padding: 180px 24px 80px 24px; text-align: center; max-width: 800px; margin: 0 auto; }
-    .hero h1 { font-size: 3.2rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; line-height: 1.15; }
+    .hero { padding: 220px 24px 100px 24px; text-align: center; max-width: 850px; margin: 0 auto; }
+    .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; line-height: 1.15; }
     .hero h1 span {
-      background: linear-gradient(90deg, #ffffff, #93c5fd, #c084fc);
+      background: linear-gradient(90deg, #ffffff, #93c5fd, #c084fc, #67e8f9);
+      background-size: 200% auto;
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: textGlow 6s linear infinite;
     }
-    .hero p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 36px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    @keyframes textGlow { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
+    
+    .hero p { color: var(--text-muted); font-size: 1.25rem; margin-bottom: 36px; max-width: 650px; margin-left: auto; margin-right: auto; }
     .btn-primary {
-      display: inline-block; background: var(--blue); color: white;
-      padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-size: 0.95rem;
-      transition: all 0.2s ease;
+      display: inline-block; background: linear-gradient(135deg, var(--blue), var(--purple)); color: white;
+      padding: 16px 36px; border-radius: 8px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-size: 0.95rem;
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.25); transition: all 0.2s ease;
     }
-    .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4); }
 
     /* --- ACCORDIONS (INTERACTIVE DARK GLASS) --- */
-    .engine-section { padding: 40px 24px 80px 24px; max-width: 720px; margin: 0 auto; }
+    .engine-section { padding: 40px 24px 80px 24px; max-width: 740px; margin: 0 auto; }
     .engine-section h2 { font-size: 1.1rem; font-weight: 600; text-align: center; margin-bottom: 32px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
     
     .accordion-item {
       background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border); border-radius: 12px; margin-bottom: 16px; overflow: hidden;
-      transition: all 0.2s ease;
+      border: 1px solid var(--glass-border); border-radius: 14px; margin-bottom: 18px; overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .accordion-item:hover { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.02); }
+    .accordion-item:hover { border-color: rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.03); transform: translateY(-1px); }
     
-    .accordion-trigger { width: 100%; background: transparent; border: none; padding: 24px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .trigger-content h3 { font-size: 1.25rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+    .accordion-trigger { width: 100%; background: transparent; border: none; padding: 26px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .trigger-content h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
     .trigger-content .pain-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
-    .accordion-icon { font-size: 1.4rem; color: var(--text-muted); transition: transform 0.2s ease; }
+    .accordion-icon { font-size: 1.4rem; color: var(--text-muted); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 
-    /* Elegant active states */
-    .accordion-item.active[data-type="downtime"] { border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.03); }
-    .accordion-item.active[data-type="manual"] { border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.03); }
-    .accordion-item.active[data-type="security"] { border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.03); }
+    /* Active states */
+    .accordion-item.active[data-type="downtime"] { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.06); }
+    .accordion-item.active[data-type="manual"] { border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.06); }
+    .accordion-item.active[data-type="security"] { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 10px 30px rgba(6, 182, 212, 0.06); }
 
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-    .content-inner { padding: 0 24px 24px 24px; }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .content-inner { padding: 0 26px 26px 26px; }
     .solution-box { border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 16px; margin-bottom: 20px; }
     .solution-box p { color: #cbd5e1; font-size: 0.95rem; }
     
@@ -158,10 +165,10 @@
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
     /* --- ECOSYSTEM SECTION --- */
-    .ecosystem-section { padding: 80px 24px; }
+    .ecosystem-section { padding: 100px 24px; }
     .ecosystem-container { max-width: 850px; margin: 0 auto; }
     .ecosystem-header { text-align: center; margin-bottom: 48px; }
-    .ecosystem-header h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
+    .ecosystem-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
     .ecosystem-header h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple); text-transform: uppercase; letter-spacing: 0.08em; }
 
     .product-showcase { display: flex; flex-direction: column; gap: 24px; }
@@ -170,7 +177,7 @@
       background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
       border: 1px solid var(--glass-border); border-radius: 16px; padding: 32px;
       display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center;
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
     }
     .product-title { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 2px; }
     .platform-row .tagline { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
@@ -189,35 +196,29 @@
       width: 100%; max-width: 200px; margin-left: auto; border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    .row-swiftrade .product-title { color: white; }
-    .row-swiftrade .tagline { color: var(--purple); }
     .row-swiftrade .status-dot { background: var(--green); }
-    .row-swiftrade:hover { border-color: rgba(139, 92, 246, 0.4); transform: translateY(-2px); }
+    .row-swiftrade:hover { border-color: rgba(139, 92, 246, 0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(139, 92, 246, 0.08); }
     .row-swiftrade:hover .platform-btn { background: white; color: black; border-color: white; }
 
-    .row-consultlink .product-title { color: white; }
-    .row-consultlink .tagline { color: var(--cyan); }
     .row-consultlink .status-dot { background: var(--cyan); }
-    .row-consultlink:hover { border-color: rgba(6, 182, 212, 0.4); transform: translateY(-2px); }
+    .row-consultlink:hover { border-color: rgba(6, 182, 212, 0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(6, 182, 212, 0.08); }
     .row-consultlink:hover .platform-btn { background: white; color: black; border-color: white; }
 
-    .row-pulse .product-title { color: white; }
-    .row-pulse .tagline { color: var(--magenta); }
     .row-pulse .status-dot { background: var(--magenta); }
-    .row-pulse:hover { border-color: rgba(236, 72, 153, 0.4); transform: translateY(-2px); }
+    .row-pulse:hover { border-color: rgba(236, 72, 153, 0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(236, 72, 153, 0.08); }
     .row-pulse:hover .platform-btn { background: white; color: black; border-color: white; }
 
     /* --- DIAGNOSTIC MODAL --- */
     .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 3, 5, 0.85); 
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 2, 4, 0.88); 
       z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none;
-      transition: opacity 0.2s ease; padding: 20px;
+      transition: opacity 0.3s ease; padding: 20px; backdrop-filter: blur(8px);
     }
     .modal-overlay.open { opacity: 1; pointer-events: auto; }
     
     .wizard-card {
-      background: #0a0a12; border: 1px solid var(--glass-border); border-radius: 16px; width: 100%; max-width: 580px;
-      position: relative; box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7); display: flex; flex-direction: column; max-height: 85vh;
+      background: #07070d; border: 1px solid var(--glass-border); border-radius: 20px; width: 100%; max-width: 580px;
+      position: relative; box-shadow: 0 32px 64px rgba(0, 0, 0, 0.8); display: flex; flex-direction: column; max-height: 85vh;
     }
     
     .close-wizard {
@@ -226,7 +227,7 @@
     }
     .close-wizard:hover { color: white; }
 
-    .wizard-scroll-container { padding: 32px; overflow-y: auto; flex-grow: 1; -webkit-overflow-scrolling: touch; }
+    .wizard-scroll-container { padding: 36px; overflow-y: auto; flex-grow: 1; -webkit-overflow-scrolling: touch; }
     .wizard-step { display: none; }
     .wizard-step.active { display: block; }
 
@@ -239,7 +240,7 @@
       padding: 16px; text-align: left; color: white; font-size: 0.95rem; font-weight: 500; cursor: pointer;
       display: flex; justify-content: space-between; align-items: center; transition: all 0.15s ease;
     }
-    .opt-btn:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.2); transform: translateX(2px); }
+    .opt-btn:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); transform: translateX(3px); }
     .opt-btn::after { content: "→"; opacity: 0.4; font-weight: 700; }
 
     .diagnostic-result {
@@ -255,7 +256,7 @@
     }
     .wizard-back-btn:hover { color: white; }
 
-    .wizard-sticky-bottom { padding: 20px 32px 32px 32px; background: #07070d; border-top: 1px solid var(--glass-border); display: none; }
+    .wizard-sticky-bottom { padding: 20px 36px 36px 36px; background: #05050a; border-top: 1px solid var(--glass-border); display: none; }
     .wizard-sticky-bottom.visible { display: block; }
 
     .escalate-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -270,7 +271,7 @@
     footer { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
+      .hero h1 { font-size: 2.6rem; }
       .platform-row { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
       .platform-btn { max-width: 100%; margin-left: 0; }
     }
@@ -278,14 +279,16 @@
 </head>
 <body>
 
-  <!-- PURE CSS PARALLAX LAYERS CONTAINER -->
-  <div class="parallax-wrapper">
-    <div class="cyber-grid"></div>
-    <div class="neon-glow-orb orb-1"></div>
-    <div class="neon-glow-orb orb-2"></div>
+  <!-- THE INTERACTIVE BACKGROUND ENGINE -->
+  <div class="magic-parallax-stage">
+    <div class="infinite-horizon-grid" id="bgGrid"></div>
+    <div class="star-field" id="bgStars"></div>
+    <div class="ambient-luminary luminary-1" id="orb1"></div>
+    <div class="ambient-luminary luminary-2" id="orb2"></div>
+    <div class="ambient-luminary luminary-3" id="orb3"></div>
   </div>
 
-  <!-- CRISP FOREGROUND INTERFACE CONTENT -->
+  <!-- FOREGROUND FRAMEWORK -->
   <div class="foreground-content">
 
     <!-- NAVIGATION -->
@@ -475,7 +478,7 @@
       
       <div class="wizard-scroll-container" id="wizardScrollArea">
         
-        <!-- STEP 1: CATEGORY SELECTION -->
+        <!-- STEP 1 -->
         <div class="wizard-step active" id="step1">
           <h3>What is giving you trouble right now?</h3>
           <p class="step-subtitle">Select the area that needs to be fixed.</p>
@@ -521,7 +524,7 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 3: SOLUTIONS -->
+        <!-- STEP 3 -->
         <div class="wizard-step" id="step-solution">
           <h3>Try these simple steps right now:</h3>
           <p class="step-subtitle">We recommend trying this quick checklist first.</p>
@@ -550,8 +553,24 @@
     </div>
   </div>
 
-  <!-- SCRIPT ENGINE -->
+  <!-- THE DYNAMIC INTERACTIVE MOTION MATRIX ENGINE -->
   <script>
+    // Pure Hardware-Accelerated Dynamic Vector Scrolling Math
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      
+      // Infinite Perspective Horizon grids wrap and translate down faster to simulate travel
+      document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${scrolled * 0.35}px)`;
+      
+      // Stars drift slowly to establish sub-galactic layer isolation
+      document.getElementById('bgStars').style.transform = `translateY(${scrolled * 0.12}px)`;
+      
+      // Ambient vector orbs glide at alternating deep metrics to cross foreground components organically
+      document.getElementById('orb1').style.transform = `translateY(${scrolled * 0.22}px) scale(${1 + scrolled * 0.0003})`;
+      document.getElementById('orb2').style.transform = `translateY(${scrolled * -0.15}px) scale(${1 + scrolled * 0.0001})`;
+      document.getElementById('orb3').style.transform = `translateY(${scrolled * 0.08}px)`;
+    });
+
     // --- ACCORDION INTERACTIVITY ---
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', function() {
