@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vyeta | Business Technology, Infrastructure & Custom Software</title>
+  <title>Vyeta | Systems & Infrastructure</title>
   <style>
     /* --- PREMIUM SAAS DESIGN SYSTEM --- */
     :root {
-      --bg-pure-black: #0a0a0c;
-      --card-bg-glass: rgba(18, 18, 24, 0.75);
+      --bg-pure-black: #050507;
+      --card-bg-glass: rgba(18, 18, 24, 0.7);
       --text-pure-white: #ffffff;
-      --text-muted: #94a3b8;
+      --text-muted: #8a99ad;
       --vyeta-blue: #2563eb; 
       --neon-purple: #8b5cf6;
       --neon-cyan: #06b6d4;
@@ -18,76 +18,38 @@
       --live-green: #10b981;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       background-color: var(--bg-pure-black);
       color: var(--text-pure-white);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow-x: hidden;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    /* --- 1. PRELOADER ANIMATION --- */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #000000;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
-    }
-    .preload-logo-wrapper {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .preload-logo-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      animation: logoPulse 2s infinite ease-in-out;
-    }
-    @keyframes logoPulse {
-      0%, 100% { transform: scale(0.95); filter: drop-shadow(0 0 0px rgba(37, 99, 235, 0)); }
-      50% { transform: scale(1.03); filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.6)); }
-    }
-    .preloader-hidden {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-100vh);
+      line-height: 1.5;
     }
 
-    /* --- 2. NAVIGATION BAR --- */
+    /* --- BREAKPROOF SVG LOGO STYLING --- */
+    .logo-vector {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+
+    /* --- FIXED NAVIGATION BAR --- */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(10, 10, 12, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(5, 5, 7, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .nav-container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 12px 24px;
+      padding: 14px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -95,16 +57,15 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-    .nav-brand img {
-      height: 38px;
-      width: auto;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
     }
     .nav-links {
       display: flex;
-      gap: 32px;
-      font-size: 0.95rem;
+      gap: 28px;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--text-muted);
     }
@@ -112,38 +73,36 @@
     .cta-nav-btn {
       background: var(--text-pure-white);
       color: var(--bg-pure-black);
-      padding: 10px 20px;
-      border-radius: 8px;
+      padding: 8px 16px;
+      border-radius: 6px;
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: opacity 0.2s;
+      font-size: 0.85rem;
+      text-decoration: none;
     }
-    .cta-nav-btn:hover { opacity: 0.9; }
 
-    /* --- 3. HERO SECTION --- */
+    /* --- COMPACT HERO --- */
     .hero {
-      padding: 180px 24px 100px 24px;
+      padding: 160px 24px 60px 24px;
       text-align: center;
     }
     .hero-badge {
       display: inline-block;
-      padding: 6px 16px;
+      padding: 4px 12px;
       border-radius: 99px;
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(37, 99, 235, 0.3);
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.2);
       color: #60a5fa;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      max-width: 850px;
-      margin: 0 auto 24px auto;
-      line-height: 1.15;
+      max-width: 700px;
+      margin: 0 auto 16px auto;
+      line-height: 1.2;
     }
     .hero h1 span {
       background: linear-gradient(to right, #ffffff, var(--vyeta-blue));
@@ -152,466 +111,407 @@
     }
     .hero p {
       color: var(--text-muted);
-      font-size: 1.25rem;
-      max-width: 650px;
+      font-size: 1.15rem;
+      max-width: 550px;
       margin: 0 auto;
-      line-height: 1.6;
     }
 
-    /* --- 4. CORE SERVICES SECTION --- */
+    /* --- MODERN COMPACT UI/UX SERVICES INTERFACE --- */
     .services-section {
-      padding: 80px 24px;
-      max-width: 1200px;
+      padding: 40px 24px 80px 24px;
+      max-width: 1100px;
       margin: 0 auto;
     }
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .section-title h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
-    .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
     
-    .matrix-container {
+    /* Segmented Control / Tab Switcher Container */
+    .tabs-control-hub {
       display: flex;
-      flex-direction: column;
-      gap: 40px;
+      justify-content: center;
+      margin-bottom: 40px;
     }
-    .matrix-pillar {
-      background: var(--card-bg-glass);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 24px;
-      padding: 40px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    .tabs-navbar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 6px;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 720px;
     }
-    .pillar-header {
-      margin-bottom: 32px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding-bottom: 20px;
-    }
-    .pillar-header h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .pillar-header h3 span {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: rgba(255, 255, 255, 0.06);
-      padding: 4px 12px;
-      border-radius: 6px;
+    .tab-trigger {
+      background: transparent;
+      border: none;
       color: var(--text-muted);
+      padding: 12px 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      text-align: center;
     }
-    .sub-grid {
+    .tab-trigger:hover {
+      color: var(--text-pure-white);
+    }
+    
+    /* Dynamic active indicators based on color scheme */
+    .tab-trigger.active[data-target="infra"] { background: var(--vyeta-blue); color: #fff; }
+    .tab-trigger.active[data-target="apps"] { background: var(--neon-purple); color: #fff; }
+    .tab-trigger.active[data-target="ai"] { background: var(--neon-cyan); color: #fff; }
+    .tab-trigger.active[data-target="growth"] { background: var(--neon-magenta); color: #fff; }
+
+    /* Content Pane Visibility Logic */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    .tab-pane.pane-active {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
+      gap: 24px;
     }
-    .sub-category h4 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--text-pure-white);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sleek Mini Cards */
+    .mini-service-card {
+      background: var(--card-bg-glass);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+    }
+    .mini-service-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .sub-category h4::before {
-      content: "";
-      width: 4px;
-      height: 14px;
-      border-radius: 2px;
-      display: inline-block;
-    }
-    
-    .pillar-infra h4::before { background: var(--vyeta-blue); }
-    .pillar-apps h4::before { background: var(--neon-purple); }
-    .pillar-ai h4::before { background: var(--neon-cyan); }
-    .pillar-growth h4::before { background: var(--neon-magenta); }
-
-    .feature-list {
+    .mini-service-card ul {
       list-style: none;
     }
-    .feature-list li {
-      font-size: 0.95rem;
+    .mini-service-card ul li {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 8px;
     }
-    .feature-list li::before {
-      content: "•";
-      color: rgba(255, 255, 255, 0.2);
-      font-size: 1.1rem;
+    .mini-service-card ul li::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
     }
 
-    /* --- 5. ECOSYSTEM LINK HUB --- */
+    /* --- ECOSYSTEM HUB --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 100px 24px;
+      padding: 80px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
-    .ecosystem-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .ecosystem-header { text-align: center; max-width: 750px; margin: 0 auto 64px auto; }
+    .ecosystem-container { max-width: 1100px; margin: 0 auto; }
+    .ecosystem-header { text-align: center; margin-bottom: 44px; }
     .ecosystem-badge {
-      display: inline-block; padding: 6px 16px; border-radius: 99px;
-      background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3);
-      color: #c084fc; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; margin-bottom: 20px;
+      display: inline-block; padding: 4px 12px; border-radius: 99px;
+      background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.2);
+      color: #c084fc; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 12px;
     }
-    .ecosystem-header h2 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 18px; }
-    .ecosystem-header p { color: var(--text-muted); font-size: 1.15rem; }
+    .ecosystem-header h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
     
-    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
     .platform-card {
-      position: relative; background: var(--card-bg-glass); border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 20px; padding: 40px 32px; overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column;
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: var(--card-bg-glass); border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column;
+      transition: all 0.3s ease;
     }
-    .platform-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 28px; }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
-    .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 10px var(--live-green); }
-    .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
-    .status-dot.deployment { background-color: var(--neon-magenta); box-shadow: 0 0 10px var(--neon-magenta); }
+    .platform-status { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 20px; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 8px var(--live-green); }
+    .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); }
+    .status-dot.deployment { background-color: var(--neon-magenta); box-shadow: 0 0 8px var(--neon-magenta); }
     
-    .platform-icon {
-      width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-pure-white); transition: all 0.3s ease;
-    }
-    .platform-icon svg { width: 22px; height: 22px; }
-    .platform-card h3 { font-size: 1.7rem; font-weight: 700; margin-bottom: 4px; }
-    .tagline { font-size: 0.95rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.02em; }
-    
+    .platform-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+    .tagline { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
     .swiftrade-card .tagline { color: var(--neon-purple); }
     .consultlink-card .tagline { color: var(--neon-cyan); }
     .pulse-card .tagline { color: var(--neon-magenta); }
     
-    .description { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 40px; flex-grow: 1; }
+    .description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 24px; flex-grow: 1; }
     .platform-btn {
-      display: inline-flex; align-items: center; justify-content: space-between; width: 100%;
-      padding: 14px 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-pure-white);
-      font-size: 0.95rem; font-weight: 600; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 20px; border-radius: 10px; background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06); color: var(--text-pure-white);
+      font-size: 0.9rem; font-weight: 600; transition: all 0.2s ease;
     }
-    .btn-arrow { width: 16px; height: 16px; transition: transform 0.3s ease; }
+    .platform-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.1); }
+    .platform-card:hover .platform-btn { background: var(--text-pure-white); color: var(--bg-pure-black); }
 
-    /* --- INTERACTIVE HOVER ACTIONS --- */
-    .platform-card:hover { transform: translateY(-6px); background: rgba(22, 22, 30, 0.9); }
-    .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.15); }
-    .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15); }
-    .pulse-card:hover { border-color: rgba(217, 70, 239, 0.4); box-shadow: 0 20px 40px -15px rgba(217, 70, 239, 0.15); }
-    
-    .platform-card:hover .platform-icon { background: var(--text-pure-white); color: var(--bg-pure-black); transform: scale(1.05); }
-    .platform-card:hover .platform-btn { background: var(--text-pure-white); color: var(--bg-pure-black); border-color: var(--text-pure-white); }
-    .platform-card:hover .btn-arrow { transform: translateX(4px); }
+    footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 32px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
 
-    /* --- FOOTER --- */
-    footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
+    @media (max-width: 680px) {
+      .hero h1 { font-size: 2.2rem; }
       .nav-links { display: none; }
-      .matrix-pillar { padding: 24px; }
-      .sub-grid { gap: 24px; }
-      .ecosystem-header h2 { font-size: 1.9rem; }
+      .tabs-navbar { grid-template-columns: 1fr; gap: 4px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. PRELOADER -->
-  <div id="preloader">
-    <div class="preload-logo-wrapper">
-      <img src="image_2.png" alt="Vyeta Logo Loading">
-    </div>
-  </div>
-
-  <!-- 2. NAVIGATION BAR -->
+  <!-- FIXED NAVIGATION BAR -->
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
-        <img src="image_2.png" alt="Vyeta Logo">
+        <!-- RENDER-SAFE INLINE SVG FOR LOGO -->
+        <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="12" fill="#2563eb"/>
+          <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#2563eb"/>
+        </svg>
+        <span>vyeta</span>
       </div>
       <nav class="nav-links">
-        <a href="#services">Capabilities</a>
-        <a href="#ecosystem">Live Ecosystem</a>
+        <a href="#services">Services</a>
+        <a href="#ecosystem">Live Systems</a>
       </nav>
-      <a href="mailto:operations@vyeta.com" class="cta-nav-btn">Get In Touch</a>
+      <a href="mailto:operations@vyeta.com" class="cta-nav-btn">Contact</a>
     </div>
   </header>
 
-  <!-- 3. HERO SECTION -->
+  <!-- HERO SECTION -->
   <section class="hero">
-    <div class="hero-badge">Systems, Support & Custom Engineering</div>
+    <div class="hero-badge">Systems & Support Architecture</div>
     <h1>We build and maintain setups that <span>save you time</span>.</h1>
-    <p>We eliminate technical operational bottlenecks, manage your company's day-to-day IT health, and launch custom software designed strictly around your workflow.</p>
+    <p>Zero friction tech support, day-to-day corporate IT management, and rapid custom software built for direct workflow utility.</p>
   </section>
 
-  <!-- 4. CORE SERVICES MATRIX -->
+  <!-- DYNAMIC UX CAPABILITIES COMPONENT -->
   <section id="services" class="services-section">
-    <div class="section-title">
-      <h2>Core Digital & IT Services</h2>
-      <p>Clean, dependable execution. No technical confusion, just useful systems that keep your operations running seamlessly.</p>
-    </div>
     
-    <div class="matrix-container">
-      
-      <!-- PILLAR 1: CORE ICT & INFRASTRUCTURE -->
-      <div class="matrix-pillar pillar-infra">
-        <div class="pillar-header">
-          <h3>Infrastructure & Hardware <span>01 / Core ICT</span></h3>
-        </div>
-        <div class="sub-grid">
-          <div class="sub-category">
-            <h4>IT Support & Maintenance</h4>
-            <ul class="feature-list">
-              <li>Computer troubleshooting and repairs</li>
-              <li>Network setup and maintenance</li>
-              <li>Software installation and support</li>
-              <li>IT infrastructure management</li>
-              <li>Remote technical support</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Networking & Infrastructure</h4>
-            <ul class="feature-list">
-              <li>Office network setup</li>
-              <li>Router and switch configuration</li>
-              <li>Wi-Fi deployment</li>
-              <li>Server installation and management</li>
-              <li>Structured cabling solutions</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Hardware Supply & Procurement</h4>
-            <ul class="feature-list">
-              <li>Computers and laptops</li>
-              <li>Printers and accessories</li>
-              <li>Networking equipment</li>
-              <li>Office IT equipment sourcing</li>
-              <li>Custom hardware procurement</li>
-            </ul>
-          </div>
-        </div>
+    <!-- Tab Controls Menu -->
+    <div class="tabs-control-hub">
+      <div class="tabs-navbar">
+        <button class="tab-trigger active" data-target="infra">ICT & Infra</button>
+        <button class="tab-trigger" data-target="apps">Software</button>
+        <button class="tab-trigger" data-target="ai">Automation & Cyber</button>
+        <button class="tab-trigger" data-target="growth">Strategy & Brand</button>
       </div>
-
-      <!-- PILLAR 2: SOFTWARE & DIGITAL SOLUTIONS -->
-      <div class="matrix-pillar pillar-apps">
-        <div class="pillar-header">
-          <h3>Software Engineering <span>02 / Applications</span></h3>
-        </div>
-        <div class="sub-grid">
-          <div class="sub-category">
-            <h4>Custom Software Development</h4>
-            <ul class="feature-list">
-              <li>Business management systems</li>
-              <li>School management systems</li>
-              <li>Inventory systems</li>
-              <li>Customer portals</li>
-              <li>Web applications</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Website Development</h4>
-            <ul class="feature-list">
-              <li>Corporate websites</li>
-              <li>E-commerce platforms</li>
-              <li>Landing pages</li>
-              <li>Business portals</li>
-              <li>Website maintenance</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Mobile & Web Platforms</h4>
-            <ul class="feature-list">
-              <li>SaaS platform development</li>
-              <li>Community engagement platforms</li>
-              <li>Service marketplaces</li>
-              <li>Digital directories</li>
-              <li>Client portals</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- PILLAR 3: AI, AUTOMATION & CYBERSECURITY -->
-      <div class="matrix-pillar pillar-ai">
-        <div class="pillar-header">
-          <h3>Intelligence, Security & Cloud <span>03 / Protection & Automation</span></h3>
-        </div>
-        <div class="sub-grid">
-          <div class="sub-category">
-            <h4>AI Integration</h4>
-            <ul class="feature-list">
-              <li>AI-powered customer support</li>
-              <li>Business process automation</li>
-              <li>AI chatbots</li>
-              <li>Content generation systems</li>
-              <li>AI workflow optimization</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Business Automation</h4>
-            <ul class="feature-list">
-              <li>Google Workspace automation</li>
-              <li>Google Apps Script solutions</li>
-              <li>Automated reporting</li>
-              <li>CRM automation</li>
-              <li>Lead management systems</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Cybersecurity Services</h4>
-            <ul class="feature-list">
-              <li>Cybersecurity awareness training</li>
-              <li>Phishing simulation campaigns</li>
-              <li>Security assessments</li>
-              <li>Data protection consulting</li>
-              <li>Digital security best practices & planning</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- PILLAR 4: BRANDING, WORKPLACE & CONSULTING -->
-      <div class="matrix-pillar pillar-growth">
-        <div class="pillar-header">
-          <h3>Workplace Strategy & Branding <span>04 / Scale</span></h3>
-        </div>
-        <div class="sub-grid">
-          <div class="sub-category">
-            <h4>Branding & Digital Marketing</h4>
-            <ul class="feature-list">
-              <li>Logo design & corporate identity</li>
-              <li>Marketing materials & company profiles</li>
-              <li>Social media management</li>
-              <li>Facebook advertising & digital campaigns</li>
-              <li>Online business promotion</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Cloud & Digital Workplace</h4>
-            <ul class="feature-list">
-              <li>Google Workspace setup & deployment</li>
-              <li>Cloud storage deployment & migration</li>
-              <li>Remote work solutions</li>
-              <li>Email systems & document management</li>
-              <li>Digital workflows & collaboration tools</li>
-            </ul>
-          </div>
-          <div class="sub-category">
-            <h4>Consulting Services</h4>
-            <ul class="feature-list">
-              <li>Digital transformation technology strategy</li>
-              <li>Business digitization & ICT advisory</li>
-              <li>Systems planning & innovation consulting</li>
-              <li>Startup & SME digital business setup</li>
-              <li>Technology roadmaps & process optimization</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- PANE 1: ICT & INFRASTRUCTURE -->
+    <div class="tab-pane pane-active" id="infra">
+      <div class="mini-service-card">
+        <h4 style="color: var(--vyeta-blue)">IT Support & Maintenance</h4>
+        <ul>
+          <li>Computer troubleshooting & repairs</li>
+          <li>Network setup & maintenance</li>
+          <li>Software installation & support</li>
+          <li>IT infrastructure management</li>
+          <li>Remote technical support</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--vyeta-blue)">Networking & Infrastructure</h4>
+        <ul>
+          <li>Office network installation</li>
+          <li>Router & switch configuration</li>
+          <li>Enterprise Wi-Fi deployment</li>
+          <li>Server setup & management</li>
+          <li>Structured cabling solutions</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--vyeta-blue)">Hardware Supply & Procurement</h4>
+        <ul>
+          <li>Corporate computers & laptops</li>
+          <li>Printers & smart accessories</li>
+          <li>Network hardware sourcing</li>
+          <li>Office IT equipment sourcing</li>
+          <li>Custom hardware procurement</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PANE 2: SOFTWARE & APPLICATIONS -->
+    <div class="tab-pane" id="apps">
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-purple)">Custom Software</h4>
+        <ul>
+          <li>Business management engines</li>
+          <li>School management setups</li>
+          <li>Inventory management systems</li>
+          <li>Internal customer portals</li>
+          <li>Scalable web applications</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-purple)">Website Development</h4>
+        <ul>
+          <li>High-performance corporate sites</li>
+          <li>E-commerce checkout platforms</li>
+          <li>Optimized landing environments</li>
+          <li>Interactive business portals</li>
+          <li>Continuous site maintenance</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-purple)">Mobile & Web Platforms</h4>
+        <ul>
+          <li>SaaS product architecture</li>
+          <li>Community engagement tools</li>
+          <li>Service matching marketplaces</li>
+          <li>Digital registries & directories</li>
+          <li>Custom client hubs</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PANE 3: AI, AUTOMATION & SECURITY -->
+    <div class="tab-pane" id="ai">
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-cyan)">AI Integration</h4>
+        <ul>
+          <li>AI-powered customer support</li>
+          <li>Business process automation</li>
+          <li>Intelligent support chatbots</li>
+          <li>Automated content engines</li>
+          <li>AI team workflow optimization</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-cyan)">Business Automation</h4>
+        <ul>
+          <li>Google Workspace integration</li>
+          <li>Google Apps Script engineering</li>
+          <li>Automated operational reporting</li>
+          <li>CRM automation pipelines</li>
+          <li>Lead management setups</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-cyan)">Cybersecurity Services</h4>
+        <ul>
+          <li>Phishing simulation drills</li>
+          <li>Corporate security assessments</li>
+          <li>Data protection & safety advice</li>
+          <li>Employee awareness workshops</li>
+          <li>Incident response planning</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PANE 4: STRATEGY & WORKPLACE -->
+    <div class="tab-pane" id="growth">
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-magenta)">Cloud & Workplace</h4>
+        <ul>
+          <li>Enterprise Google Workspace setup</li>
+          <li>Secure data cloud migration</li>
+          <li>Remote office collaboration tools</li>
+          <li>Corporate email configurations</li>
+          <li>Document management systems</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-magenta)">Consulting & Strategy</h4>
+        <ul>
+          <li>Digital transformation planning</li>
+          <li>Business digitization advisory</li>
+          <li>Technology blueprints & roadmaps</li>
+          <li>SME structural tech setup</li>
+          <li>Operational process optimization</li>
+        </ul>
+      </div>
+      <div class="mini-service-card">
+        <h4 style="color: var(--neon-magenta)">Branding & Marketing</h4>
+        <ul>
+          <li>Minimalist logo & brand assets</li>
+          <li>Corporate identity development</li>
+          <li>Social media performance management</li>
+          <li>Targeted online advertising campaigns</li>
+          <li>Company profiles & materials</li>
+        </ul>
+      </div>
+    </div>
+
   </section>
 
-  <!-- 5. LIVE ECOSYSTEM HUB -->
+  <!-- LIVE ECOSYSTEM HUB -->
   <section id="ecosystem" class="ecosystem-section">
     <div class="ecosystem-container">
-      
       <div class="ecosystem-header">
-        <span class="ecosystem-badge">Our Live Platforms</span>
-        <h2>Systems We’ve Engineered. Ready to Use.</h2>
-        <p>Beyond support retainers, we run active standalone platforms designed for regional business, collaboration, and community operations. Click any system to open its live site.</p>
+        <span class="ecosystem-badge">Live Projects</span>
+        <h2>Standalone Production Systems</h2>
       </div>
 
       <div class="ecosystem-grid">
-        
         <!-- Card 1: swifTrade -->
-        <div class="platform-card swiftrade-card">
-          <div class="card-content">
-            <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
-            <div class="platform-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-              </svg>
-            </div>
-            <h3>swifTrade</h3>
-            <p class="tagline">Direct B2B Procurement Marketplace</p>
-            <p class="description">Matches bulk business buyers directly to verified wholesale product suppliers based on immediate, real-time request notifications.</p>
-            <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">
-              <span>Launch Platform</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
-          </div>
+        <div class="platform-card">
+          <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
+          <h3>swifTrade</h3>
+          <p class="tagline">B2B Procurement Marketplace</p>
+          <p class="description">Connects bulk business buyers directly to verified product suppliers using instant, request-driven real-time matches.</p>
+          <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">
+            <span>Launch Platform</span>
+            <span>→</span>
+          </a>
         </div>
 
         <!-- Card 2: ConsultLink -->
-        <div class="platform-card consultlink-card">
-          <div class="card-content">
-            <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
-            <div class="platform-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0 Z" />
-              </svg>
-            </div>
-            <h3>ConsultLink</h3>
-            <p class="tagline">On-Demand Consultant Router</p>
-            <p class="description">Instantly bridges corporate environments with expert legal, medical, and specialized technical advisors to remove calendar friction.</p>
-            <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">
-              <span>Enter Hub</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
-          </div>
+        <div class="platform-card">
+          <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
+          <h3>ConsultLink</h3>
+          <p class="tagline">On-Demand Advisor Routing</p>
+          <p class="description">Bridges corporate operations teams directly to professional, legal, and specialized technical consultants on demand.</p>
+          <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">
+            <span>Enter Hub</span>
+            <span>→</span>
+          </a>
         </div>
 
         <!-- Card 3: Pulse OS ZM -->
-        <div class="platform-card pulse-card">
-          <div class="card-content">
-            <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
-            <div class="platform-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-              </svg>
-            </div>
-            <h3>Pulse OS ZM</h3>
-            <p class="tagline">Governance & Civic Issue Tracker</p>
-            <p class="description">A clear, accountable feedback platform designed for reporting local issues, organizing structured updates, and tracking public responses.</p>
-            <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">
-              <span>Explore OS</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
-          </div>
+        <div class="platform-card">
+          <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
+          <h3>Pulse OS ZM</h3>
+          <p class="tagline">Civic Issue Tracker</p>
+          <p class="description">A clear public system designed for recording community updates, tracking local feedback, and measuring responses.</p>
+          <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">
+            <span>Explore OS</span>
+            <span>→</span>
+          </a>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Vyeta. All rights reserved.</p>
+    <p>&copy; 2026 Vyeta. Built for performance.</p>
   </footer>
 
-  <!-- PRELOADER REMOVAL SCRIPT -->
+  <!-- LIGHTWEIGHT INTERACTIVE ENGINE SCRIPT -->
   <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if(preloader) {
-          preloader.classList.add('preloader-hidden');
-        }
-      }, 1000);
+    // Tab Controller Action
+    const triggers = document.querySelectorAll('.tab-trigger');
+    const panes = document.querySelectorAll('.tab-pane');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        // Clear past active indicators
+        triggers.forEach(t => t.classList.remove('active'));
+        panes.forEach(p => p.classList.remove('pane-active'));
+
+        // Assign current active selections
+        trigger.classList.add('active');
+        const targetId = trigger.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('pane-active');
+      });
     });
   </script>
 </body>
