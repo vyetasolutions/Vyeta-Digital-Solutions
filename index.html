@@ -3,53 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vyeta | Corporate IT Retainers & Digital Systems</title>
+  <title>Vyeta | Corporate IT Retainers</title>
   <style>
-    /* --- PREMIUM SAAS DESIGN SYSTEM --- */
+    /* --- DESIGN SYSTEM --- */
     :root {
-      --bg-pure-black: #050507;
-      --card-bg-glass: rgba(18, 18, 24, 0.7);
-      --text-pure-white: #ffffff;
+      --bg: #050507;
+      --card-bg: rgba(18, 18, 24, 0.7);
+      --text: #ffffff;
       --text-muted: #8a99ad;
-      --vyeta-blue: #2563eb; 
-      --neon-purple: #8b5cf6;
-      --neon-cyan: #06b6d4;
-      --neon-magenta: #d946ef;
-      --live-green: #10b981;
+      --blue: #2563eb; 
+      --purple: #8b5cf6;
+      --cyan: #06b6d4;
+      --magenta: #d946ef;
+      --green: #10b981;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-pure-black);
-      color: var(--text-pure-white);
+      background-color: var(--bg);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow-x: hidden;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
-    /* --- BREAKPROOF SVG LOGO STYLING --- */
-    .logo-vector {
-      width: 32px;
-      height: 32px;
-      display: block;
-    }
-
-    /* --- FIXED NAVIGATION BAR --- */
+    /* --- NAVBAR --- */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(5, 5, 7, 0.75);
+      background: rgba(5, 5, 7, 0.8);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .nav-container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -57,60 +49,34 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
+      font-size: 1.2rem;
     }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-    .nav-links a:hover { color: var(--text-pure-white); }
-    
+    .logo-vector { width: 28px; height: 28px; }
     .cta-nav-btn {
-      background: var(--text-pure-white);
-      color: var(--bg-pure-black);
+      background: var(--text);
+      color: var(--bg);
       padding: 8px 16px;
       border-radius: 6px;
       font-weight: 600;
       font-size: 0.85rem;
       text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .cta-nav-btn:hover {
-      background: #e2e8f0;
-      transform: translateY(-1px);
     }
 
-    /* --- HIGH-CONVERSION VALUE HERO --- */
+    /* --- COMPACT HERO --- */
     .hero {
-      padding: 180px 24px 80px 24px;
+      padding: 140px 24px 40px 24px;
       text-align: center;
-    }
-    .hero-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 99px;
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      color: #60a5fa;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      max-width: 800px;
+      margin: 0 auto;
     }
     .hero h1 {
-      font-size: 3.4rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      max-width: 850px;
-      margin: 0 auto 20px auto;
-      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
     .hero h1 span {
       background: linear-gradient(to right, #ffffff, #93c5fd);
@@ -119,288 +85,163 @@
     }
     .hero p {
       color: var(--text-muted);
-      font-size: 1.25rem;
-      max-width: 620px;
-      margin: 0 auto 36px auto;
-    }
-    .hero-cta-group {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
     }
     .btn-primary {
-      background: var(--vyeta-blue);
+      display: inline-block;
+      background: var(--blue);
       color: white;
       padding: 14px 28px;
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
       box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-      transition: all 0.2s ease;
-    }
-    .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-    }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
     }
 
-    /* --- BUSINESS REVENUE CAPABILITIES GRID --- */
-    .services-section {
-      padding: 60px 24px 100px 24px;
-      max-width: 1100px;
+    /* --- CONVERSION ENGINE: ACTIONABLE ACCORDIONS --- */
+    .engine-section {
+      padding: 40px 24px 60px 24px;
+      max-width: 700px;
       margin: 0 auto;
     }
-    .section-label {
+    .engine-section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
       text-align: center;
-      margin-bottom: 40px;
-    }
-    .section-label h3 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      color: var(--text-muted);
     }
     
-    .tabs-control-hub {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    .tabs-navbar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      background: rgba(255, 255, 255, 0.03);
+    .accordion-item {
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 6px;
-      border-radius: 14px;
-      width: 100%;
-      max-width: 760px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: border 0.3s ease;
     }
-    .tab-trigger {
+    .accordion-item:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Trigger Header */
+    .accordion-trigger {
+      width: 100%;
       background: transparent;
       border: none;
-      color: var(--text-muted);
-      padding: 14px 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      padding: 24px;
+      text-align: left;
       cursor: pointer;
-      border-radius: 10px;
-      transition: all 0.2s ease;
-      text-align: center;
-    }
-    .tab-trigger:hover { color: var(--text-pure-white); }
-    
-    .tab-trigger.active[data-target="infra"] { background: var(--vyeta-blue); color: #fff; }
-    .tab-trigger.active[data-target="apps"] { background: var(--neon-purple); color: #fff; }
-    .tab-trigger.active[data-target="ai"] { background: var(--neon-cyan); color: #fff; }
-    .tab-trigger.active[data-target="growth"] { background: var(--neon-magenta); color: #fff; }
-
-    .tab-pane {
-      display: none;
-      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .tab-pane.pane-active {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 24px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .mini-service-card {
-      background: var(--card-bg-glass);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 16px;
-      padding: 32px;
-      backdrop-filter: blur(12px);
-    }
-    .mini-service-card h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .card-problem-statement {
-      font-size: 0.85rem;
-      color: #f87171;
-      font-weight: 600;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-    .mini-service-card ul { list-style: none; }
-    .mini-service-card ul li {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
     }
-    .mini-service-card ul li::before {
-      content: "✓";
-      color: var(--live-green);
+    .trigger-content .pain-label {
+      font-size: 0.75rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .trigger-content h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .accordion-icon {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      transition: transform 0.3s ease;
     }
 
-    /* --- STRATEGIC PACKAGES & RETAINERS --- */
-    .packages-section {
-      background: #09090e;
-      padding: 100px 24px;
+    /* Target Border Colors on Selection */
+    .accordion-item.active[data-type="downtime"] { border-color: var(--blue); }
+    .accordion-item.active[data-type="manual"] { border-color: var(--purple); }
+    .accordion-item.active[data-type="security"] { border-color: var(--cyan); }
+
+    /* Expandable Content Panel */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .content-inner {
+      padding: 0 24px 24px 24px;
+    }
+    .solution-box {
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+    .solution-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 8px; }
+    
+    /* Micro Package Tier Pricing Inside Accordion */
+    .tier-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 12px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .packages-container { max-width: 1100px; margin: 0 auto; }
-    .packages-header { text-align: center; margin-bottom: 60px; }
-    .packages-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .packages-header p { color: var(--text-muted); max-width: 500px; margin: 0 auto; }
-    
-    .packages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
+    .tier-info h4 { font-size: 0.95rem; font-weight: 700; }
+    .tier-info p { font-size: 0.85rem; color: var(--text-muted); }
+    .tier-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
     }
-    .package-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 40px 32px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .package-card.featured {
-      border: 1px solid rgba(37, 99, 235, 0.4);
-      background: linear-gradient(180deg, rgba(37, 99, 235, 0.03) 0%, rgba(5, 5, 7, 0) 100%);
-    }
-    .package-badge {
-      position: absolute; top: -12px; left: 32px;
-      background: var(--vyeta-blue); color: white;
-      padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;
-    }
-    .package-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
-    .package-card .scope { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
-    .package-features { list-style: none; margin-bottom: 40px; flex-grow: 1; }
-    .package-features li { font-size: 0.95rem; margin-bottom: 14px; color: #cbd5e1; display: flex; gap: 10px; }
-    .package-features li::before { content: "→"; color: var(--vyeta-blue); font-weight: 700; }
-    
-    .package-btn {
-      display: block; text-align: center; padding: 14px; border-radius: 8px;
-      font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: all 0.2s ease;
-    }
-    .package-card .package-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: white; }
-    .package-card.featured .package-btn { background: white; color: black; }
-    .package-card .package-btn:hover { background: rgba(255, 255, 255, 0.1); }
-    .package-card.featured .package-btn:hover { background: #e2e8f0; }
+    .tier-link:hover { background: white; color: black; }
 
-    /* --- LIVE ECOSYSTEM HUB --- */
+    /* Active Animation States */
+    .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
+
+    /* --- VETTED PRODUCTS --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 100px 24px;
+      padding: 60px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .ecosystem-container { max-width: 1100px; margin: 0 auto; }
-    .ecosystem-header { text-align: center; margin-bottom: 54px; }
-    .ecosystem-badge {
-      display: inline-block; padding: 5px 14px; border-radius: 99px;
-      background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.2);
-      color: #c084fc; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;
-    }
-    .ecosystem-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
-    
-    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 28px; }
+    .ecosystem-container { max-width: 1000px; margin: 0 auto; }
+    .ecosystem-header { text-align: center; margin-bottom: 36px; }
+    .ecosystem-header h2 { font-size: 1.6rem; font-weight: 800; }
+    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     
     .platform-card {
-      position: relative;
-      background: linear-gradient(180deg, rgba(20, 20, 28, 0.8) 0%, rgba(10, 10, 14, 0.9) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-top-width: 3px; 
-      border-radius: 16px; 
-      padding: 36px 28px; 
-      display: flex; 
-      flex-direction: column;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    .swiftrade-card { border-top-color: var(--neon-purple); }
-    .consultlink-card { border-top-color: var(--neon-cyan); }
-    .pulse-card { border-top-color: var(--neon-magenta); }
-    
-    .platform-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; }
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; }
-    .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 10px var(--live-green); }
-    .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
-    .status-dot.deployment { background-color: var(--neon-magenta); box-shadow: 0 0 10px var(--neon-magenta); }
-    
-    .platform-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em; }
-    .tagline { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.01em; }
-    
-    .swiftrade-card .tagline { color: #a78bfa; }
-    .consultlink-card .tagline { color: #22d3ee; }
-    .pulse-card .tagline { color: #f472b6; }
-    
-    .description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 36px; flex-grow: 1; }
-    
-    .platform-btn {
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 20px; 
-      border-radius: 10px; 
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08); 
-      color: var(--text-pure-white);
-      font-size: 0.9rem; 
-      font-weight: 700; 
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
     }
-    .platform-btn span { transition: transform 0.3s ease; }
-
-    .platform-card:hover { 
-      transform: translateY(-8px); 
-      background: linear-gradient(180deg, rgba(26, 26, 36, 0.9) 0%, rgba(12, 12, 18, 0.95) 100%);
+    .platform-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+    .platform-card .tagline { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; }
+    .platform-card .description { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+    .platform-btn {
+      text-align: center; padding: 10px; border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04); color: white;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
     }
-    
-    .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.15); }
-    .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.15); }
-    .pulse-card:hover { border-color: rgba(217, 70, 239, 0.3); box-shadow: 0 20px 40px -10px rgba(217, 70, 239, 0.15); }
-    
-    .platform-card:hover .platform-btn { 
-      background: var(--text-pure-white); 
-      color: var(--bg-pure-black); 
-      border-color: var(--text-pure-white);
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-    }
-    .platform-card:hover .platform-btn span { transform: translateX(3px); }
+    .platform-card:hover .platform-btn { background: white; color: black; }
 
-    footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
-      .hero-cta-group { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
-      .nav-links { display: none; }
-      .tabs-navbar { grid-template-columns: 1fr; gap: 4px; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .trigger-content h3 { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- FIXED NAVIGATION BAR -->
+  <!-- NAVIGATION -->
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
@@ -410,255 +251,146 @@
         </svg>
         <span>vyeta</span>
       </div>
-      <nav class="nav-links">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#retainers">Retainer Packages</a>
-        <a href="#ecosystem">Our Products</a>
-      </nav>
-      <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit%20Request" class="cta-nav-btn">Request Audit</a>
+      <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit" class="cta-nav-btn">Request Audit</a>
     </div>
   </header>
 
-  <!-- HERO SECTION: RE-ENGINEERED FOR VALUE -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Enterprise Operations & Infrastructure</div>
-    <h1>We manage your corporate IT infrastructure so your business <span>never loses a minute</span>.</h1>
-    <p>Zero-friction corporate tech support, secure networks, and custom-engineered automation pipelines built to protect your operational capacity.</p>
-    <div class="hero-cta-group">
-      <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit%20Request" class="btn-primary">Book an IT Infrastructure Audit</a>
-      <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
-    </div>
+    <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
+    <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
+    <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit" class="btn-primary">Get an IT System Audit</a>
   </section>
 
-  <!-- CAPABILITIES INTERFACE: REFOCUSED ON ELIMINATING PAIN POINTS -->
-  <section id="capabilities" class="services-section">
-    <div class="section-label">
-      <h3>Operational Engineering Capabilities</h3>
-    </div>
-    
-    <div class="tabs-control-hub">
-      <div class="tabs-navbar">
-        <button class="tab-trigger active" data-target="infra">ICT & Infra</button>
-        <button class="tab-trigger" data-target="apps">Software</button>
-        <button class="tab-trigger" data-target="ai">Automation & Cyber</button>
-        <button class="tab-trigger" data-target="growth">Strategy & Brand</button>
-      </div>
-    </div>
+  <!-- INTERACTIVE VALUE INTERFACE -->
+  <section class="engine-section">
+    <h2>Select Your Current Core Operational Bottleneck:</h2>
 
-    <!-- PANE 1: ICT & INFRASTRUCTURE -->
-    <div class="tab-pane pane-active" id="infra">
-      <div class="mini-service-card">
-        <h4 style="color: var(--vyeta-blue)">Retainer IT Support</h4>
-        <p class="card-problem-statement">Eliminates: Idle Staff & System Downtime</p>
-        <ul>
-          <li>Immediate hardware & computer troubleshooting</li>
-          <li>Corporate network tuning and fault protection</li>
-          <li>Remote real-time technical helpdesk for operations</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--vyeta-blue)">Secure Networks</h4>
-        <p class="card-problem-statement">Eliminates: Dropped Connections & Weak Wi-Fi</p>
-        <ul>
-          <li>Enterprise-grade multi-office network installation</li>
-          <li>Managed router, switch, and secure firewall configuration</li>
-          <li>Structured clean cabling for corporate office layout</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--vyeta-blue)">Hardware Sourcing</h4>
-        <p class="card-problem-statement">Eliminates: Overpriced, Unverified Equipment</p>
-        <ul>
-          <li>Procurement of corporate server builds & laptops</li>
-          <li>High-capacity network arrays and accessories</li>
-          <li>End-to-end direct logistics and deployment</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- PANE 2: SOFTWARE & APPLICATIONS -->
-    <div class="tab-pane" id="apps">
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-purple)">Custom Internal Software</h4>
-        <p class="card-problem-statement">Eliminates: Fragmented Office Workflows</p>
-        <ul>
-          <li>Tailored business management and billing engines</li>
-          <li>Secure asset tracking and inventory systems</li>
-          <li>Internal corporate customer portals</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-purple)">Corporate Web Systems</h4>
-        <p class="card-problem-statement">Eliminates: Slow, Outdated Web Assets</p>
-        <ul>
-          <li>High-speed custom enterprise environments</li>
-          <li>E-commerce systems with integrated checkouts</li>
-          <li>Continuous system updates and performance monitoring</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-purple)">Platform MVPs</h4>
-        <p class="card-problem-statement">Eliminates: High-Cost Development Failures</p>
-        <ul>
-          <li>Rapid deployment of web service architectures</li>
-          <li>Custom client hubs and market request portals</li>
-          <li>Lightweight data models built for quick scaling</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- PANE 3: AI, AUTOMATION & SECURITY -->
-    <div class="tab-pane" id="ai">
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-cyan)">Workflow Automation</h4>
-        <p class="card-problem-statement">Eliminates: Slow Manual Data Entry</p>
-        <ul>
-          <li>Custom Google Workspace backends and scripting</li>
-          <li>Automated operational reporting direct to email</li>
-          <li>CRM data pipeline and lead sync integrations</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-cyan)">Intelligent Support</h4>
-        <p class="card-problem-statement">Eliminates: Missed Client Inquiries</p>
-        <ul>
-          <li>Context-aware automated business chatbots</li>
-          <li>Internal team knowledge bases driven by AI</li>
-          <li>Smart automated customer routing models</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-cyan)">Cyber Defense</h4>
-        <p class="card-problem-statement">Eliminates: Data Breaches & Phishing Risks</p>
-        <ul>
-          <li>Corporate network threat evaluations</li>
-          <li>Controlled phishing simulation training drills</li>
-          <li>Comprehensive employee access safety blueprints</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- PANE 4: STRATEGY & WORKPLACE -->
-    <div class="tab-pane" id="growth">
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-magenta)">Cloud Workplace</h4>
-        <p class="card-problem-statement">Eliminates: Disconnected Distributed Teams</p>
-        <ul>
-          <li>Unified Google Workspace system migrations</li>
-          <li>Secure shared storage and credential structures</li>
-          <li>Centralized corporate email setup</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-magenta)">Tech Consulting</h4>
-        <p class="card-problem-statement">Eliminates: Blind, Unstructured Tech Spend</p>
-        <ul>
-          <li>Digital transformation blueprints for SMEs</li>
-          <li>Operational workflow scaling reviews</li>
-          <li>Software design architecture plans</li>
-        </ul>
-      </div>
-      <div class="mini-service-card">
-        <h4 style="color: var(--neon-magenta)">Corporate Presence</h4>
-        <p class="card-problem-statement">Eliminates: Weak, Unprofessional Digital Identity</p>
-        <ul>
-          <li>Minimalist high-contrast brand assets</li>
-          <li>Polished pitch assets and company profiles</li>
-          <li>Targeted online placement asset management</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRATEGIC RETAINER TIERING TABLE -->
-  <section id="retainers" class="packages-section">
-    <div class="packages-container">
-      <div class="packages-header">
-        <h2>Predictable Operational Retainers</h2>
-        <p>Secure premium ICT retainers, priority engineering support, and routine architecture maintenance.</p>
-      </div>
-      
-      <div class="packages-grid">
-        <!-- Tier 1 -->
-        <div class="package-card">
-          <h3>Essential Plan</h3>
-          <p class="scope">Ideal for growing teams needing core stability.</p>
-          <ul class="package-features">
-            <li>Scheduled hardware & network maintenance</li>
-            <li>Remote business technical helpdesk</li>
-            <li>Basic cloud asset configuration</li>
-            <li>Guaranteed next-day incident response</li>
-          </ul>
-          <a href="mailto:operations@vyeta.com?subject=Essential%20Retainer%20Inquiry" class="package-btn">Select Essential</a>
+    <!-- BLOCK 1: DOWNTIME -->
+    <div class="accordion-item" data-type="downtime">
+      <button class="accordion-trigger">
+        <div class="trigger-content">
+          <div class="pain-label" style="color: var(--blue)">Infrastructure & Helpdesk</div>
+          <h3>Computers are slow / Networks keep dropping</h3>
         </div>
-        
-        <!-- Tier 2 -->
-        <div class="package-card featured">
-          <div class="package-badge">Most Demanded</div>
-          <h3>Professional Plan</h3>
-          <p class="scope">Complete operational coverage for active companies.</p>
-          <ul class="package-features">
-            <li>Priority 24/7 network & device monitoring</li>
-            <li>Same-day urgent on-site technical support</li>
-            <li>Custom Google Workspace automated reporting</li>
-            <li>Quarterly infrastructure threat assessments</li>
-          </ul>
-          <a href="mailto:operations@vyeta.com?subject=Professional%20Retainer%20Inquiry" class="package-btn">Deploy Professional</a>
-        </div>
-        
-        <!-- Tier 3 -->
-        <div class="package-card">
-          <h3>Corporate Plan</h3>
-          <p class="scope">For enterprises demanding custom system engineering.</p>
-          <ul class="package-features">
-            <li>Dedicated enterprise infrastructure support</li>
-            <li>Unlimited software updates & custom script tweaks</li>
-            <li>Full cyber defense drills & simulations</li>
-            <li>Direct technology officer strategic planning</li>
-          </ul>
-          <a href="mailto:operations@vyeta.com?subject=Corporate%20Retainer%20Inquiry" class="package-btn">Contact Board</a>
+        <div class="accordion-icon">+</div>
+      </button>
+      <div class="accordion-content">
+        <div class="content-inner">
+          <div class="solution-box">
+            <p>We deploy rock-solid office networking, structured cabling, and permanent hardware configurations backed by an active, on-call corporate support desk.</p>
+          </div>
+          <div class="tier-row">
+            <div class="tier-info">
+              <h4>Essential Maintenance Retainer</h4>
+              <p>Routine hardware health checks, network optimization, and next-day emergency assistance.</p>
+            </div>
+            <a href="mailto:operations@vyeta.com?subject=Essential%20Retainer%20Inquiry" class="tier-link">Select</a>
+          </div>
+          <div class="tier-row">
+            <div class="tier-info">
+              <h4>Professional Support Retainer</h4>
+              <p>24/7 proactive system tracking, high-priority same-day on-site troubleshooting, full coverage.</p>
+            </div>
+            <a href="mailto:operations@vyeta.com?subject=Professional%20Retainer%20Inquiry" class="tier-link">Select</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- BLOCK 2: MANUAL WORKFLOWS -->
+    <div class="accordion-item" data-type="manual">
+      <button class="accordion-trigger">
+        <div class="trigger-content">
+          <div class="pain-label" style="color: var(--purple)">Software & Automation</div>
+          <h3>Too much manual data entry / Staff is bottlenecked</h3>
+        </div>
+        <div class="accordion-icon">+</div>
+      </button>
+      <div class="accordion-content">
+        <div class="content-inner">
+          <div class="solution-box">
+            <p>We build tailored business management applications, automated Google Apps Script pipeline tools, and lightweight web platforms to clean up manual operations.</p>
+          </div>
+          <div class="tier-row">
+            <div class="tier-info">
+              <h4>Operational Automation Setup</h4>
+              <p>Custom Google Workspace scripts, automated database reporting pipelines, app integrations.</p>
+            </div>
+            <a href="mailto:operations@vyeta.com?subject=Automation%20Setup%20Inquiry" class="tier-link">Select</a>
+          </div>
+          <div class="tier-row">
+            <div class="tier-info">
+              <h4>Custom Enterprise Platforms</h4>
+              <p>Dedicated billing software, multi-tiered business web apps, tailored customer registries.</p>
+            </div>
+            <a href="mailto:operations@vyeta.com?subject=Custom%20Platform%20Inquiry" class="tier-link">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCK 3: SECURITY CONCERNS -->
+    <div class="accordion-item" data-type="security">
+      <button class="accordion-trigger">
+        <div class="trigger-content">
+          <div class="pain-label" style="color: var(--cyan)">Cybersecurity & Strategy</div>
+          <h3>Worried about data leaks / Unprotected endpoints</h3>
+        </div>
+        <div class="accordion-icon">+</div>
+      </button>
+      <div class="accordion-content">
+        <div class="content-inner">
+          <div class="solution-box">
+            <p>We run network penetration testing, administer controlled company-wide phishing drills, and construct secure access parameters to lock down commercial data assets.</p>
+          </div>
+          <div class="tier-row">
+            <div class="tier-info">
+              <h4>Corporate Threat Assessment</h4>
+              <p>Full security scanning, network liability audits, employee access optimization plans.</p>
+            </div>
+            <a href="mailto:operations@vyeta.com?subject=Threat%20Assessment%20Inquiry" class="tier-link">Select</a>
+          </div>
+          <div class="tier-row">
+            <div class="tier-info">
+              <h4>Continuous Security & Strategy</h4>
+              <p>Ongoing vulnerability assessments, active monitoring, employee training, data recovery prep.</p>
+            </div>
+            <a href="mailto:operations@vyeta.com?subject=Security%20Strategy%20Inquiry" class="tier-link">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
-  <!-- LIVE ECOSYSTEM HUB -->
-  <section id="ecosystem" class="ecosystem-section">
+  <!-- FLAGSHIP PRODUCTS -->
+  <section class="ecosystem-section">
     <div class="ecosystem-container">
       <div class="ecosystem-header">
-        <span class="ecosystem-badge">Live Projects</span>
         <h2>Our Flagship Digital Products</h2>
       </div>
 
       <div class="ecosystem-grid">
-        <div class="platform-card swiftrade-card">
-          <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
+        <div class="platform-card">
           <h3>swifTrade</h3>
           <p class="tagline">B2B Procurement Marketplace</p>
-          <p class="description">Connects bulk business buyers directly to verified product suppliers using instant, request-driven real-time matches.</p>
-          <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">
-            Launch Platform <span>&rarr;</span>
-          </a>
+          <p class="description">Direct request-matching network connecting verified commercial buyers to bulk product suppliers instantly.</p>
+          <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">Open Platform &rarr;</a>
         </div>
 
-        <div class="platform-card consultlink-card">
-          <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
+        <div class="platform-card">
           <h3>ConsultLink</h3>
-          <p class="tagline">On-Demand Advisor Routing</p>
-          <p class="description">Bridges corporate operations teams directly to professional, legal, and specialized technical consultants on demand.</p>
-          <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">
-            Enter Hub <span>&rarr;</span>
-          </a>
+          <p class="tagline">On-Demand Specialist Routing</p>
+          <p class="description">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
+          <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">Open Preview &rarr;</a>
         </div>
 
-        <div class="platform-card pulse-card">
-          <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
+        <div class="platform-card">
           <h3>Pulse OS ZM</h3>
-          <p class="tagline">Civic Issue Tracker</p>
-          <p class="description">A clear public system designed for recording community updates, tracking local feedback, and measuring responses.</p>
-          <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">
-            Explore OS <span>&rarr;</span>
-          </a>
+          <p class="tagline">Civic Feedback Engine</p>
+          <p class="description">Public system engineered for recording regional community updates and tracking local responses.</p>
+          <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
         </div>
       </div>
     </div>
@@ -669,19 +401,25 @@
     <p>&copy; 2026 Vyeta. Built for performance.</p>
   </footer>
 
-  <!-- LIGHTWEIGHT INTERACTIVE ENGINE SCRIPT -->
+  <!-- SCRIPT ENGINE FOR ACCORDIONS -->
   <script>
-    const triggers = document.querySelectorAll('.tab-trigger');
-    const panes = document.querySelectorAll('.tab-pane');
-
-    triggers.forEach(trigger => {
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
-        triggers.forEach(t => t.classList.remove('active'));
-        panes.forEach(p => p.classList.remove('pane-active'));
+        const item = trigger.parentElement;
+        const content = item.querySelector('.accordion-content');
+        const isActive = item.classList.contains('active');
+        
+        // Collapse all other panels to keep page clean
+        document.querySelectorAll('.accordion-item').forEach(el => {
+          el.classList.remove('active');
+          el.querySelector('.accordion-content').style.maxHeight = null;
+        });
 
-        trigger.classList.add('active');
-        const targetId = trigger.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('pane-active');
+        // Toggle state
+        if (!isActive) {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
       });
     });
   </script>
