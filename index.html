@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vyeta Digital Solutions | Enterprise Infrastructure & Ecosystem Hub</title>
+  <title>Vyeta | Business Capacity & Systems</title>
   <style>
-    /* --- CORE THEME VARIABLES --- */
+    /* --- THEME DESIGN SYSTEM --- */
     :root {
       --bg-pure-black: #0a0a0c;
-      --card-bg-glass: rgba(18, 18, 24, 0.7);
+      --card-bg-glass: rgba(18, 18, 24, 0.75);
       --text-pure-white: #ffffff;
       --text-muted: #94a3b8;
-      --vyeta-blue: #2563eb; /* Matches the vibrant blue in image.png */
+      --vyeta-blue: #2563eb; 
       --neon-purple: #8b5cf6;
       --neon-cyan: #06b6d4;
       --neon-magenta: #d946ef;
       --live-green: #10b981;
     }
 
-    /* --- RESET & BASE STYLES --- */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -29,56 +28,40 @@
       color: var(--text-pure-white);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow-x: hidden;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     a { text-decoration: none; color: inherit; }
 
-    /* --- 1. SHOWSTOPPER PRELOADER --- */
+    /* --- 1. CODE-BASED LOGO ANIMATION (NO FILE REQUIRED) --- */
     #preloader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #000000; /* Pure black to match image.png background */
+      background-color: #000000;
       z-index: 9999;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
     }
     .preload-logo-wrapper {
       position: relative;
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .preload-logo {
-      width: 100%;
-      height: auto;
+    .logo-svg {
+      width: 100px;
+      height: 100px;
       animation: logoPulse 2s infinite ease-in-out;
-    }
-    /* Futuristic scanning light ring behind the logo */
-    .preload-ring {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border: 2px solid transparent;
-      border-top-color: var(--vyeta-blue);
-      border-bottom-color: var(--neon-purple);
-      border-radius: 50%;
-      animation: ringSpin 1.5s linear infinite;
     }
     @keyframes logoPulse {
       0%, 100% { transform: scale(0.95); filter: drop-shadow(0 0 0px rgba(37, 99, 235, 0)); }
-      50% { transform: scale(1.02); filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.6)); }
-    }
-    @keyframes ringSpin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      50% { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(37, 99, 235, 0.8)); }
     }
     .preloader-hidden {
       opacity: 0;
@@ -86,7 +69,7 @@
       transform: translateY(-100vh);
     }
 
-    /* --- 2. PREMIUM NAVIGATION BAR --- */
+    /* --- 2. NAVIGATION --- */
     .navbar {
       position: fixed;
       top: 0;
@@ -100,7 +83,7 @@
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 24px;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -108,14 +91,14 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       letter-spacing: -0.02em;
     }
-    .nav-brand img {
-      height: 32px;
-      width: auto;
+    .nav-brand svg {
+      width: 28px;
+      height: 28px;
     }
     .nav-links {
       display: flex;
@@ -138,9 +121,8 @@
 
     /* --- 3. HERO SECTION --- */
     .hero {
-      padding: 180px 24px 100px 24px;
+      padding: 200px 24px 120px 24px;
       text-align: center;
-      position: relative;
     }
     .hero-badge {
       display: inline-block;
@@ -151,12 +133,11 @@
       color: #60a5fa;
       font-size: 0.85rem;
       font-weight: 600;
-      text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 24px;
     }
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       max-width: 850px;
@@ -170,14 +151,14 @@
     }
     .hero p {
       color: var(--text-muted);
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin: 0 auto 40px auto;
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    /* --- 4. PAIN-POINT SERVICES RETAINERS --- */
+    /* --- 4. SERVICES SECTION --- */
     .services-section {
-      padding: 80px 24px;
+      padding: 60px 24px 100px 24px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -192,7 +173,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 32px;
-      margin-bottom: 100px;
     }
     .retainer-card {
       background: var(--card-bg-glass);
@@ -203,8 +183,9 @@
       flex-direction: column;
       backdrop-filter: blur(12px);
     }
-    .retainer-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
-    .retainer-focus { color: var(--vyeta-blue); font-size: 0.95rem; font-weight: 600; margin-bottom: 24px; text-transform: uppercase; }
+    .retainer-card h3 { font-size: 1.6rem; margin-bottom: 4px; }
+    .retainer-focus { color: var(--vyeta-blue); font-size: 0.9rem; font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em; }
+    
     .retainer-metrics {
       background: rgba(255, 255, 255, 0.02);
       border-radius: 12px;
@@ -218,15 +199,15 @@
     .metric-value { font-weight: 600; color: var(--text-pure-white); }
     
     .retainer-features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
-    .retainer-features li { position: relative; padding-left: 24px; margin-bottom: 12px; color: var(--text-muted); font-size: 0.95rem; }
+    .retainer-features li { position: relative; padding-left: 24px; margin-bottom: 14px; color: var(--text-muted); font-size: 0.95rem; }
     .retainer-features li::before {
-      content: "✓"; position: absolute; left: 0; color: var(--vyeta-blue); font-weight: bold;
+      content: "→"; position: absolute; left: 0; color: var(--vyeta-blue); font-weight: bold;
     }
 
-    /* --- 5. THE SHOW STOPPER ECOSYSTEM NEXUS --- */
+    /* --- 5. ECOSYSTEM NEXUS SHOWSTOPPER --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 100px 24px;
+      padding: 120px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
     .ecosystem-header { text-align: center; max-width: 750px; margin: 0 auto 64px auto; }
@@ -237,7 +218,7 @@
       text-transform: uppercase; margin-bottom: 20px;
     }
     .ecosystem-header h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 18px; }
-    .ecosystem-header p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+    .ecosystem-header p { color: var(--text-muted); font-size: 1.15rem; line-height: 1.6; }
     
     .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
     .platform-card {
@@ -246,7 +227,7 @@
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column;
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
-    .platform-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 28px; }
+    .platform-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 28px; }
     .status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
     .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 10px var(--live-green); }
     .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
@@ -257,9 +238,9 @@
       margin-bottom: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--text-pure-white); transition: all 0.3s ease;
     }
-    .platform-icon svg { width: 24px; height: 24px; }
-    .platform-card h3 { font-size: 1.6rem; font-weight: 600; margin-bottom: 4px; }
-    .tagline { font-size: 0.95rem; font-weight: 500; margin-bottom: 16px; }
+    .platform-icon svg { width: 22px; height: 22px; }
+    .platform-card h3 { font-size: 1.7rem; font-weight: 700; margin-bottom: 4px; }
+    .tagline { font-size: 0.95rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.02em; }
     
     .swiftrade-card .tagline { color: var(--neon-purple); }
     .consultlink-card .tagline { color: var(--neon-cyan); }
@@ -274,8 +255,8 @@
     }
     .btn-arrow { width: 16px; height: 16px; transition: transform 0.3s ease; }
 
-    /* --- INTERACTIVE HOVER ANIMATIONS --- */
-    .platform-card:hover { transform: translateY(-8px); background: rgba(22, 22, 30, 0.9); }
+    /* --- INTERACTIVE EFFECTS --- */
+    .platform-card:hover { transform: translateY(-6px); background: rgba(22, 22, 30, 0.9); }
     .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.15); }
     .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15); }
     .pulse-card:hover { border-color: rgba(217, 70, 239, 0.5); box-shadow: 0 20px 40px -15px rgba(217, 70, 239, 0.15); }
@@ -284,12 +265,10 @@
     .platform-card:hover .platform-btn { background: var(--text-pure-white); color: var(--bg-pure-black); border-color: var(--text-pure-white); }
     .platform-card:hover .btn-arrow { transform: translateX(4px); }
 
-    /* --- FOOTER --- */
     footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
 
-    /* --- RESPONSIVE ADJUSTMENTS --- */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
+      .hero h1 { font-size: 2.5rem; }
       .nav-links { display: none; }
       .ecosystem-header h2 { font-size: 2rem; }
     }
@@ -297,104 +276,100 @@
 </head>
 <body>
 
-  <!-- 1. PRELOADER COMPONENT WITH IMAGE.PNG -->
   <div id="preloader">
     <div class="preload-logo-wrapper">
-      <div class="preload-ring"></div>
-      <img src="image.png" alt="Vyeta Logo" class="preload-logo">
+      <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="12" fill="#2563eb"/>
+        <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#2563eb"/>
+      </svg>
     </div>
   </div>
 
-  <!-- 2. NAVIGATION BAR -->
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
-        <img src="image.png" alt="Vyeta Logo">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="12" fill="#2563eb"/>
+          <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#2563eb"/>
+        </svg>
         <span>vyeta</span>
       </div>
       <nav class="nav-links">
-        <a href="#services">Capacity Retainers</a>
-        <a href="#ecosystem">Ecosystem Nexus</a>
+        <a href="#services">Retainer Plans</a>
+        <a href="#ecosystem">Live Systems</a>
       </nav>
-      <a href="mailto:operations@vyeta.com" class="cta-nav-btn">Initiate Brief</a>
+      <a href="mailto:operations@vyeta.com" class="cta-nav-btn">Get In Touch</a>
     </div>
   </header>
 
-  <!-- 3. HERO ANCHOR -->
   <section class="hero">
-    <div class="hero-badge">Operations & Technology Architecture</div>
-    <h1>Engineered for <span>Business Capacity</span>. Built for Minute Value.</h1>
-    <p>We don't sell blocks of developer hours or bury metrics in technical jargon. We optimize operational capacity and deploy live market infrastructure.</p>
+    <div class="hero-badge">Systems & Operations Architecture</div>
+    <h1>We build the setups that <span>save you time</span>.</h1>
+    <p>We don't log hours or hand you complicated tech reports. We fix operational bottlenecks, give your team time back, and launch software that works.</p>
   </section>
 
-  <!-- 4. PAIN-POINT SERVICES CAPACITY RETAINERS -->
   <section id="services" class="services-section">
     <div class="section-title">
-      <h2>ICT Retainer Architecture</h2>
-      <p>Clear, scalable operational tiers designed to secure and clear technical bottlenecks.</p>
+      <h2>Monthly Support Tiers</h2>
+      <p>Simple, reliable technical support designed to keep your business moving forward without friction.</p>
     </div>
     
     <div class="retainer-grid">
-      <!-- Essential Package -->
       <div class="retainer-card">
-        <h3>Essential Retainer</h3>
-        <p class="retainer-focus">Operational Stabilization</p>
+        <h3>Essential Plan</h3>
+        <p class="retainer-focus">Day-to-Day Stability</p>
         <div class="retainer-metrics">
-          <div class="metric-line"><span class="metric-label">Business Capacity:</span><span class="metric-value">Foundation Guard</span></div>
-          <div class="metric-line"><span class="metric-label">Minute Value Impact:</span><span class="metric-value">Immediate Recovery</span></div>
+          <div class="metric-line"><span class="metric-label">Main Benefit:</span><span class="metric-value">Fix Breakages Fast</span></div>
+          <div class="metric-line"><span class="metric-label">Time Reclaimed:</span><span class="metric-value">Immediate Relief</span></div>
         </div>
         <ul class="retainer-features">
-          <li>Core baseline infrastructure threat mitigation</li>
-          <li>Basic routine operational continuity response</li>
-          <li>System failure architecture containment</li>
+          <li>Continuous monitoring to keep your systems online</li>
+          <li>Fast fix response when tech tools stop working</li>
+          <li>Basic safety setups to keep your business data safe</li>
         </ul>
       </div>
 
-      <!-- Professional Package -->
-      <div class="retainer-card" style="border-color: rgba(37, 99, 235, 0.3);">
-        <h3>Professional Retainer</h3>
-        <p class="retainer-focus">Efficiency Optimization</p>
+      <div class="retainer-card" style="border-color: rgba(37, 99, 235, 0.4);">
+        <h3>Professional Plan</h3>
+        <p class="retainer-focus">Speed & Automation</p>
         <div class="retainer-metrics">
-          <div class="metric-line"><span class="metric-label">Business Capacity:</span><span class="metric-value">Scale Optimization</span></div>
-          <div class="metric-line"><span class="metric-label">Minute Value Impact:</span><span class="metric-value">Friction Elimination</span></div>
+          <div class="metric-line"><span class="metric-label">Main Benefit:</span><span class="metric-value">Automate Tasks</span></div>
+          <div class="metric-line"><span class="metric-label">Time Reclaimed:</span><span class="metric-value">Hours Saved Weekly</span></div>
         </div>
         <ul class="retainer-features">
-          <li>Advanced pipeline automation & operational fluidity</li>
-          <li>Active process time-drain mitigation</li>
-          <li>Priority infrastructure capacity deployment</li>
+          <li>Remove repetitive steps with smart team automation</li>
+          <li>Speed up lagging internal software and workflows</li>
+          <li>Priority queue handling whenever your team needs help</li>
         </ul>
       </div>
 
-      <!-- Corporate Package -->
       <div class="retainer-card">
-        <h3>Corporate Retainer</h3>
-        <p class="retainer-focus">Enterprise Transformation</p>
+        <h3>Corporate Plan</h3>
+        <p class="retainer-focus">Custom Built Growth</p>
         <div class="retainer-metrics">
-          <div class="metric-line"><span class="metric-label">Business Capacity:</span><span class="metric-value">Market Dominance</span></div>
-          <div class="metric-line"><span class="metric-label">Minute Value Impact:</span><span class="metric-value">Total Synchronization</span></div>
+          <div class="metric-line"><span class="metric-label">Main Benefit:</span><span class="metric-value">Tailored Systems</span></div>
+          <div class="metric-line"><span class="metric-label">Time Reclaimed:</span><span class="metric-value">Full Peace of Mind</span></div>
         </div>
         <ul class="retainer-features">
-          <li>Full-scale bespoke enterprise ecosystem design</li>
-          <li>Continuous dedicated architecture adaptation</li>
-          <li>Executive workflow optimization strategy</li>
+          <li>Custom tech setups built completely for your workflow</li>
+          <li>Direct access to our senior tech leads for planning</li>
+          <li>Complete management of your entire business operations stack</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 5. SHOW STOPPER ECOSYSTEM NEXUS -->
   <section id="ecosystem" class="ecosystem-section">
     <div class="ecosystem-container">
       
       <div class="ecosystem-header">
-        <span class="ecosystem-badge">The Vyeta Ecosystem</span>
-        <h2>Proprietary Infrastructure. Live Market Solutions.</h2>
-        <p>We do not just consult on technological transformation—we build the live engines that run them. Access our centralized flagship hubs directly.</p>
+        <span class="ecosystem-badge">Our Live Projects</span>
+        <h2>Software We’ve Built. Ready to Use.</h2>
+        <p>We don't just offer monthly tech support plans—we build standalone platforms that solve real business problems. Click any card below to launch the live app.</p>
       </div>
 
       <div class="ecosystem-grid">
         
-        <!-- Card 1: swifTrade -->
         <div class="platform-card swiftrade-card">
           <div class="card-content">
             <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
@@ -404,8 +379,8 @@
               </svg>
             </div>
             <h3>swifTrade</h3>
-            <p class="tagline">Demand-First Procurement</p>
-            <p class="description">Collapsing market friction between commercial B2B buyers and verified regional suppliers. A procurement engine built around dynamic real-time request models.</p>
+            <p class="tagline">Direct B2B Procurement Marketplace</p>
+            <p class="description">Cuts out the middleman by matching wholesale business buyers directly with vetted suppliers based on active, real-time product requests.</p>
             <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">
               <span>Launch Platform</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -413,18 +388,17 @@
           </div>
         </div>
 
-        <!-- Card 2: ConsultLink -->
         <div class="platform-card consultlink-card">
           <div class="card-content">
-            <div class="platform-status"><span class="status-dot mvp"></span> MVP Access</div>
+            <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
             <div class="platform-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0 Z" />
               </svg>
             </div>
             <h3>ConsultLink</h3>
-            <p class="tagline">Expert Service Matching</p>
-            <p class="description">Instantly bridging the coordination gap between enterprise operations and legal, medical, or technical consultants. Streamlined on-demand professional routing.</p>
+            <p class="tagline">On-Demand Consultant Router</p>
+            <p class="description">Instantly links corporate teams to expert legal, technical, and professional advisors without the slow booking back-and-forth.</p>
             <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">
               <span>Enter Hub</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -432,18 +406,17 @@
           </div>
         </div>
 
-        <!-- Card 3: Pulse OS ZM -->
         <div class="platform-card pulse-card">
           <div class="card-content">
-            <div class="platform-status"><span class="status-dot deployment"></span> Active Network</div>
+            <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
             <div class="platform-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </div>
             <h3>Pulse OS ZM</h3>
-            <p class="tagline">Civic & Governance Infrastructure</p>
-            <p class="description">Empowering community-driven governance through data transparency. Built to manage issue tracking, systemic verification, and clear public interaction loops.</p>
+            <p class="tagline">Community Engagement Platform</p>
+            <p class="description">A transparent online community hub designed for tracking civic feedback, reporting local issues, and tracking real-world responses.</p>
             <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">
               <span>Explore OS</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -455,18 +428,15 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Vyeta Digital Solutions. All infrastructure ecosystems synchronized.</p>
+    <p>&copy; 2026 Vyeta. All live software platforms integrated.</p>
   </footer>
 
-  <!-- PRELOADER ACCELERATOR SCRIPT -->
   <script>
     window.addEventListener('load', () => {
       setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('preloader-hidden');
-      }, 1400);
+        document.getElementById('preloader').classList.add('preloader-hidden');
+      }, 1200);
     });
   </script>
 </body>
