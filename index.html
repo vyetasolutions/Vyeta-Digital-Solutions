@@ -7,8 +7,7 @@
   <style>
     /* --- DESIGN SYSTEM --- */
     :root {
-      --bg: #050507;
-      --card-bg: rgba(18, 18, 24, 0.7);
+      --bg: #030305; /* Deepened for maximum contrast with glass layers */
       --text: #ffffff;
       --text-muted: #8a99ad;
       --blue: #2563eb; 
@@ -16,6 +15,11 @@
       --cyan: #06b6d4;
       --magenta: #d946ef;
       --green: #10b981;
+      
+      /* Glassmorphic Core Specifications */
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.06);
+      --glass-blur: blur(14px);
       
       /* Product Specific Brand Colors */
       --swiftrade-glow: #a78bfa;
@@ -37,7 +41,6 @@
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      /* FIXED: Restricted transition triggers to prevent styling mutations on layout expansion */
       transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
                   transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, opacity;
@@ -58,9 +61,10 @@
       top: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(5, 5, 7, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(3, 3, 5, 0.75);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
     }
     .nav-container {
       max-width: 1000px;
@@ -90,7 +94,7 @@
       border: none;
     }
 
-    /* --- COMPACT HERO --- */
+    /* --- HERO --- */
     .hero {
       padding: 140px 24px 40px 24px;
       text-align: center;
@@ -128,7 +132,7 @@
       font-size: 1rem;
     }
 
-    /* --- CONVERSION ENGINE: ACTIONABLE ACCORDIONS --- */
+    /* --- INTERACTIVE ACTIONABLE ACCORDIONS (GLASS) --- */
     .engine-section {
       padding: 40px 24px 60px 24px;
       max-width: 700px;
@@ -143,15 +147,18 @@
     }
     
     .accordion-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
       border-radius: 12px;
       margin-bottom: 16px;
       overflow: hidden;
-      transition: border 0.3s ease;
+      transition: border 0.3s ease, background 0.3s ease;
     }
     .accordion-item:hover {
       border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
     }
     
     .accordion-trigger {
@@ -166,7 +173,7 @@
       align-items: center;
     }
     .trigger-content {
-      pointer-events: none; /* FIXED: Prevents click mutations from breaking parent selector targets */
+      pointer-events: none; 
     }
     .trigger-content .pain-label {
       font-size: 0.75rem;
@@ -187,16 +194,14 @@
       pointer-events: none;
     }
 
-    .accordion-item.active[data-type="downtime"] { border-color: var(--blue); }
-    .accordion-item.active[data-type="manual"] { border-color: var(--purple); }
-    .accordion-item.active[data-type="security"] { border-color: var(--cyan); }
+    .accordion-item.active[data-type="downtime"] { border-color: var(--blue); background: rgba(37, 99, 235, 0.03); }
+    .accordion-item.active[data-type="manual"] { border-color: var(--purple); background: rgba(139, 92, 246, 0.03); }
+    .accordion-item.active[data-type="security"] { border-color: var(--cyan); background: rgba(6, 182, 212, 0.03); }
 
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      /* FIXED: Locked layout parameters to safeguard height calculations */
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      background: rgba(0, 0, 0, 0.2);
     }
 
     .content-inner { padding: 0 24px 24px 24px; }
@@ -229,21 +234,24 @@
     .tier-link:hover { background: white; color: black; }
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
-    /* --- HIGH-CHARACTER PRODUCTS SECTION --- */
+    /* --- HIGH-CHARACTER PRODUCTS SECTION (GLASS) --- */
     .ecosystem-section {
-      background-color: #020203;
+      background-color: #010102;
       padding: 90px 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
     .ecosystem-container { max-width: 850px; margin: 0 auto; }
     .ecosystem-header { text-align: center; margin-bottom: 54px; }
     .ecosystem-header h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
 
     .product-showcase { display: flex; flex-direction: column; gap: 40px; }
+    
     .platform-row {
       position: relative;
-      background: linear-gradient(135deg, rgba(15, 15, 22, 0.8) 0%, rgba(5, 5, 8, 0.9) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.03);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
       border-radius: 16px;
       padding: 40px;
       display: grid;
@@ -272,36 +280,36 @@
       width: 100%; max-width: 220px;
     }
 
-    .row-swiftrade .product-title { color: var(--swiftrade-glow); text-shadow: 0 0 30px rgba(167, 139, 250, 0.15); }
+    /* Product States and Glow Configurations */
+    .row-swiftrade .product-title { color: var(--swiftrade-glow); text-shadow: 0 0 35px rgba(167, 139, 250, 0.1); }
     .row-swiftrade .tagline { color: #8b5cf6; }
     .row-swiftrade::before { background: var(--swiftrade-glow); }
-    .row-swiftrade .platform-btn { border: 1px solid rgba(167, 139, 250, 0.3); }
+    .row-swiftrade .platform-btn { border: 1px solid rgba(167, 139, 250, 0.2); }
     .row-swiftrade .status-dot { background: var(--green); box-shadow: 0 0 8px var(--green); }
-    .row-swiftrade:hover { border-color: rgba(167, 139, 250, 0.2); box-shadow: 0 20px 40px -15px rgba(167, 139, 250, 0.1); }
+    .row-swiftrade:hover { border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.02); }
     .row-swiftrade:hover .platform-btn { background: var(--swiftrade-glow); color: #000; border-color: var(--swiftrade-glow); box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3); }
 
-    .row-consultlink .product-title { color: var(--consultlink-glow); text-shadow: 0 0 30px rgba(34, 211, 238, 0.15); }
+    .row-consultlink .product-title { color: var(--consultlink-glow); text-shadow: 0 0 35px rgba(34, 211, 238, 0.1); }
     .row-consultlink .tagline { color: #06b6d4; }
     .row-consultlink::before { background: var(--consultlink-glow); }
-    .row-consultlink .platform-btn { border: 1px solid rgba(34, 211, 238, 0.3); }
+    .row-consultlink .platform-btn { border: 1px solid rgba(34, 211, 238, 0.2); }
     .row-consultlink .status-dot { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
-    .row-consultlink:hover { border-color: rgba(34, 211, 238, 0.2); box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.1); }
+    .row-consultlink:hover { border-color: rgba(34, 211, 238, 0.3); background: rgba(34, 211, 238, 0.02); }
     .row-consultlink:hover .platform-btn { background: var(--consultlink-glow); color: #000; border-color: var(--consultlink-glow); box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3); }
 
-    .row-pulse .product-title { color: var(--pulse-glow); text-shadow: 0 0 30px rgba(244, 114, 182, 0.15); }
+    .row-pulse .product-title { color: var(--pulse-glow); text-shadow: 0 0 35px rgba(244, 114, 182, 0.1); }
     .row-pulse .tagline { color: #d946ef; }
     .row-pulse::before { background: var(--pulse-glow); }
-    .row-pulse .platform-btn { border: 1px solid rgba(244, 114, 182, 0.3); }
+    .row-pulse .platform-btn { border: 1px solid rgba(244, 114, 182, 0.2); }
     .row-pulse .status-dot { background: var(--magenta); box-shadow: 0 0 8px var(--magenta); }
-    .row-pulse:hover { border-color: rgba(244, 114, 182, 0.2); box-shadow: 0 20px 40px -15px rgba(244, 114, 182, 0.1); }
+    .row-pulse:hover { border-color: rgba(244, 114, 182, 0.3); background: rgba(244, 114, 182, 0.02); }
     .row-pulse:hover .platform-btn { background: var(--pulse-glow); color: #000; border-color: var(--pulse-glow); box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3); }
 
-    /* --- DYNAMIC FLOW ENGINE MODAL --- */
+    /* --- GLASS DIAGNOSTIC MODAL ENGINE --- */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(3, 3, 5, 0.95);
-      backdrop-filter: blur(25px);
+      background: rgba(3, 3, 5, 0.85); /* Solid dark tint background behind the glass layer prevents multi-layer rendering lag */
       z-index: 1000;
       display: flex;
       align-items: center;
@@ -313,13 +321,15 @@
     .modal-overlay.open { opacity: 1; pointer-events: auto; }
     
     .wizard-card {
-      background: #0d0d12;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(13, 13, 18, 0.4); 
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--glass-border);
       border-radius: 16px;
       width: 100%;
       max-width: 580px;
       position: relative;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       max-height: 85vh;
@@ -346,11 +356,11 @@
     .wizard-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
     .wizard-card .step-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
 
-    /* Selection Mechanics */
+    /* Options Buttons (Glass Style) */
     .wizard-options { display: flex; flex-direction: column; gap: 12px; }
     .opt-btn {
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 10px;
       padding: 16px; text-align: left; color: white;
       font-size: 0.95rem; font-weight: 600; cursor: pointer;
@@ -361,7 +371,7 @@
     .opt-btn::after { content: "→"; opacity: 0.3; transition: transform 0.2s; }
     .opt-btn:hover::after { opacity: 1; transform: translateX(4px); }
 
-    /* Solution Box Blueprint */
+    /* Solution Box Inside Glass */
     .diagnostic-result {
       background: rgba(37, 99, 235, 0.05);
       border: 1px solid rgba(37, 99, 235, 0.2);
@@ -379,14 +389,13 @@
 
     .wizard-sticky-bottom {
       padding: 20px 32px 32px 32px;
-      background: #0d0d12;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: transparent;
+      border-top: 1px solid var(--glass-border);
       border-radius: 0 0 16px 16px;
       display: none;
     }
     .wizard-sticky-bottom.visible { display: block; }
 
-    /* Escalation Row Layout */
     .escalate-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .esc-btn {
       display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -411,12 +420,8 @@
         max-height: 92vh;
         margin-top: auto;
       }
-      .wizard-scroll-container {
-        padding: 24px 20px 16px 20px;
-      }
-      .wizard-sticky-bottom {
-        padding: 16px 20px 24px 20px;
-      }
+      .wizard-scroll-container { padding: 24px 20px 16px 20px; }
+      .wizard-sticky-bottom { padding: 16px 20px 24px 20px; }
       .escalate-actions { grid-template-columns: 1fr; gap: 10px; }
     }
   </style>
@@ -444,11 +449,11 @@
     <button class="btn-primary trigger-audit">Quick Self Help</button>
   </section>
 
-  <!-- INTERACTIVE VALUE INTERFACE -->
+  <!-- INTERACTIVE ACCORDIONS ENGINE -->
   <section class="engine-section">
-    <h2 class="reveal">Select Your Current Problem:</h2>
+    <h2 class="reveal">Select Your Current Core Operational Bottleneck:</h2>
 
-    <!-- BLOCK 1: DOWNTIME (Stagger 1) -->
+    <!-- BLOCK 1: DOWNTIME -->
     <div class="accordion-item reveal staggered" data-type="downtime" style="--delay: 100ms">
       <button class="accordion-trigger">
         <div class="trigger-content">
@@ -480,7 +485,7 @@
       </div>
     </div>
 
-    <!-- BLOCK 2: MANUAL WORKFLOWS (Stagger 2) -->
+    <!-- BLOCK 2: MANUAL WORKFLOWS -->
     <div class="accordion-item reveal staggered" data-type="manual" style="--delay: 200ms">
       <button class="accordion-trigger">
         <div class="trigger-content">
@@ -512,7 +517,7 @@
       </div>
     </div>
 
-    <!-- BLOCK 3: SECURITY CONCERNS (Stagger 3) -->
+    <!-- BLOCK 3: SECURITY CONCERNS -->
     <div class="accordion-item reveal staggered" data-type="security" style="--delay: 300ms">
       <button class="accordion-trigger">
         <div class="trigger-content">
@@ -545,7 +550,7 @@
     </div>
   </section>
 
-  <!-- HIGH-CHARACTER VETTED PRODUCTS SHOWCASE -->
+  <!-- HIGH-CHARACTER ECOSYSTEM SECTION -->
   <section class="ecosystem-section">
     <div class="ecosystem-container">
       <div class="ecosystem-header reveal">
@@ -596,7 +601,7 @@
     </div>
   </section>
 
-  <!-- AUTOMATED END-USER FRIENDLY DIAGNOSTIC ENGINE MODAL -->
+  <!-- WIZARD DIAGNOSTIC ENGINE MODAL -->
   <div class="modal-overlay" id="auditModal">
     <div class="wizard-card">
       <button class="close-wizard" id="closeModalBtn">&times;</button>
@@ -614,7 +619,7 @@
           </div>
         </div>
 
-        <!-- STEP 2: INTERNET / NETWORK PROBLEMS -->
+        <!-- STEP 2: NETWORK -->
         <div class="wizard-step" id="step-network">
           <h3>What's wrong with the internet?</h3>
           <p class="step-subtitle">Choose the description that best fits your situation.</p>
@@ -626,7 +631,7 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 2: PC / LAPTOP PROBLEMS -->
+        <!-- STEP 2: PC -->
         <div class="wizard-step" id="step-pc">
           <h3>What is your computer doing?</h3>
           <p class="step-subtitle">Choose the option that describes the issue.</p>
@@ -638,7 +643,7 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 2: MOBILE PROBLEMS -->
+        <!-- STEP 2: MOBILE -->
         <div class="wizard-step" id="step-mobile">
           <h3>What is wrong with the device?</h3>
           <p class="step-subtitle">Choose the issue you are facing.</p>
@@ -649,7 +654,7 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 3: EVERYDAY LANGUAGE SOLUTIONS -->
+        <!-- STEP 3: SOLUTIONS -->
         <div class="wizard-step" id="step-solution">
           <h3>Try these simple steps right now:</h3>
           <p class="step-subtitle">We recommend trying this quick checklist first.</p>
@@ -664,6 +669,7 @@
 
       </div>
 
+      <!-- ESCALATION CONTAINER -->
       <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
         <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
@@ -682,15 +688,10 @@
     <p>&copy; 2026 Vyeta. Built for performance.</p>
   </footer>
 
-  <!-- AUTOMATION LOGIC SCRIPT ENGINE -->
+  <!-- SCRIPT ENGINE -->
   <script>
-    // --- SCROLL REVEAL (INTERSECTION OBSERVER) ENGINE ---
-    const revealOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
-
+    // Reveal Observer Engine
+    const revealOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -704,22 +705,18 @@
       document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     });
 
-
-    // --- ACCORDION CONTROL SYSTEM ---
+    // Accordion Logic
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-      trigger.addEventListener('click', function(e) {
-        // FIXED: Explicitly target the .accordion-item container closest to the click event 
+      trigger.addEventListener('click', function() {
         const item = this.closest('.accordion-item');
         const content = item.querySelector('.accordion-content');
         const isActive = item.classList.contains('active');
         
-        // Collapse all open rows cleanly
         document.querySelectorAll('.accordion-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.accordion-content').style.maxHeight = null;
         });
 
-        // Expand the targeted row immediately on first click
         if (!isActive) {
           item.classList.add('active');
           content.style.maxHeight = content.scrollHeight + "px";
@@ -727,7 +724,7 @@
       });
     });
 
-    // Modal Control Engine
+    // Modal Control System
     const modal = document.getElementById('auditModal');
     const scrollArea = document.getElementById('wizardScrollArea');
     const stickyDrawer = document.getElementById('stickyBottomDrawer');
@@ -766,7 +763,7 @@
       goToStep(currentCategory);
     }
 
-    // Friendly Diagnostic Options
+    // Solutions Mapping
     const solutions = {
       'net-completely-down': {
         title: "No Internet Connection Checklist",
