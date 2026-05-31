@@ -1,223 +1,408 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vyeta Digital Solutions</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brandBlue: '#1e3aff', // Bright premium blue matched from image.png
-            darkBg: '#09090b',
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyeta Digital Solutions | Enterprise ICT & Digital Ecosystems</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts for premium sans-serif typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #05070F;
         }
-      }
-    }
-  </script>
-  <style>
-    /* Custom premium typography & reveal styling */
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-    
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #09090b;
-    }
-
-    /* Core Welcome Screen Animations */
-    .logo-dot {
-      transform: scale(0);
-      animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-      animation-delay: 0.2s;
-    }
-
-    .logo-pill {
-      transform: translate(-30px, -30px) scale(0.8);
-      opacity: 0;
-      animation: slideInPill 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-      animation-delay: 0.4s;
-    }
-
-    .logo-text {
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeUpText 0.6s ease-out forwards;
-      animation-delay: 0.8s;
-    }
-
-    @keyframes scaleIn {
-      to { transform: scale(1); }
-    }
-
-    @keyframes slideInPill {
-      to {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeUpText {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Simulated Progress Micro-interaction */
-    .progress-fill {
-      width: 0%;
-      animation: loadProgress 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-    }
-
-    @keyframes loadProgress {
-      to { width: 100%; }
-    }
-
-    /* Seamless main landing layout reveals */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+        .glow-purple {
+            box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.15);
+        }
+        .glow-active-swiftrade {
+            box-shadow: 0 0 50px -5px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+        .glow-active-consultlink {
+            box-shadow: 0 0 50px -5px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        .glow-active-pulse {
+            box-shadow: 0 0 50px -5px rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+    </style>
 </head>
-<body class="text-zinc-100 overflow-hidden">
+<body class="text-slate-100 min-h-screen selection:bg-purple-500 selection:text-white overflow-x-hidden">
 
-  <!-- ================= WELCOME SCREEN ================= -->
-  <div id="welcome-screen" class="fixed inset-0 bg-darkBg z-50 flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
-    <div class="flex flex-col items-center space-y-6">
-      
-      <!-- Vector Logo Composite Formed from image.png -->
-      <svg class="w-32 h-32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Blue Dot Component -->
-        <circle class="logo-dot" cx="60" cy="65" r="18" fill="#1e3aff" />
-        <!-- Diagonal Rounded Pill Component -->
-        <rect class="logo-pill" x="115" y="40" width="34" height="105" rx="17" transform="rotate(32 115 40)" fill="#1e3aff" />
-      </svg>
+    <!-- Global Header -->
+    <header class="border-b border-slate-900 bg-[#05070F]/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center font-bold text-white shadow-lg shadow-purple-500/20">V</div>
+                <span class="text-lg font-bold tracking-tight text-white">VYETA<span class="text-purple-500">.</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#ecosystem" class="hover:text-white transition-colors">Ecosystem Modules</a>
+                <a href="#capabilities" class="hover:text-white transition-colors">Enterprise ICT</a>
+                <a href="#philosophy" class="hover:text-white transition-colors">Operational Logic</a>
+            </nav>
+            <div>
+                <a href="#contact" class="px-5 py-2.5 bg-slate-900 border border-slate-800 hover:border-slate-700 text-sm font-medium rounded-xl transition-all text-slate-200 hover:text-white">
+                    Request Consultation
+                </a>
+            </div>
+        </div>
+    </header>
 
-      <!-- Typography Layer matched to image.png branding -->
-      <div class="logo-text text-center">
-        <h1 class="text-4xl font-normal tracking-wide text-zinc-300 font-sans opacity-90">
-          vyeta
-        </h1>
-      </div>
+    <!-- Master Hero & Show-Stopper Control Center Section -->
+    <section id="ecosystem" class="relative pt-12 pb-24 px-6 max-w-7xl mx-auto">
+        <!-- Background Ambient Lights -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-semibold tracking-widest text-purple-400 uppercase bg-purple-950/40 px-3 py-1.5 rounded-full border border-purple-900/30">Enterprise ICT Engineering</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mt-4 mb-6 text-white leading-tight">
+                Architecting Modern <br><span class="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Digital Infrastructure</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-400 font-light leading-relaxed">
+                Vyeta Engineers, deploys, and maintains mission-critical platforms handling real-time commercial requests, remote professional networks, and civic feedback. Explore our live ecosystem modules below.
+            </p>
+        </div>
 
-      <!-- Tech-Style Micro Progress Indicator -->
-      <div class="w-40 h-[2px] bg-zinc-800/60 rounded-full overflow-hidden relative mt-2">
-        <div class="progress-fill h-full bg-brandBlue shadow-[0_0_12px_rgba(30,58,255,0.6)]"></div>
-      </div>
-      
-    </div>
-  </div>
+        <!-- THE SHOW-STOPPER: INTERACTIVE ECOSYSTEM CONTROL CENTER -->
+        <div id="controlCenter" class="w-full max-w-5xl mx-auto bg-[#0A0D1A] border border-slate-900 rounded-2xl glow-purple p-4 md:p-8 transition-all duration-500 glow-active-swiftrade">
+            
+            <!-- Terminal Header / Selector Tabs -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 border-b border-slate-900/80 pb-6">
+                <!-- Tab 1: swifTrade -->
+                <button onclick="switchPlatform('swiftrade')" id="tab-swiftrade" class="flex items-start text-left p-4 rounded-xl border transition-all duration-300 cursor-pointer border-emerald-500/30 bg-emerald-950/10 group">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 mr-4 group-hover:scale-105 transition-transform">
+                        🛒
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-white text-sm">swifTrade</h3>
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1 line-clamp-1">Demand-First Commerce Hub</p>
+                    </div>
+                </button>
 
+                <!-- Tab 2: ConsultLink -->
+                <button onclick="switchPlatform('consultlink')" id="tab-consultlink" class="flex items-start text-left p-4 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-900/30 transition-all duration-300 cursor-pointer group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 mr-4 group-hover:scale-105 transition-transform">
+                        ⚖️
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-slate-300 text-sm">ConsultLink</h3>
+                            <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Remote Professional Suite</p>
+                    </div>
+                </button>
 
-  <!-- ================= MAIN PLATFORM LAYOUT ================= -->
-  <!-- Kept hidden or fixed until loader triggers transition -->
-  <main id="main-content" class="min-h-screen w-full bg-darkBg relative z-10 opacity-0 transition-opacity duration-500">
-    
-    <!-- Premium Navigation Bar -->
-    <nav class="w-full border-b border-zinc-800/50 bg-darkBg/80 backdrop-blur-md sticky top-0 z-40 px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center space-y-0 space-x-2">
-        <span class="text-xl font-semibold tracking-tight bg-gradient-to-r from-zinc-100 to-zinc-400 bg-clip-text text-transparent">Vyeta</span>
-        <span class="text-xs bg-brandBlue/10 text-brandBlue border border-brandBlue/20 px-2 py-0.5 rounded-full font-medium">Digital Solutions</span>
-      </div>
-      <div class="flex items-center space-x-6 text-sm text-zinc-400 font-medium">
-        <a href="#services" class="hover:text-zinc-100 transition-colors">Services</a>
-        <a href="#architecture" class="hover:text-zinc-100 transition-colors">Infrastructure</a>
-        <button class="bg-zinc-100 text-zinc-950 font-semibold px-4 py-1.5 rounded-lg text-xs hover:bg-zinc-200 transition-all">Launch Console</button>
-      </div>
-    </nav>
+                <!-- Tab 3: Pulse -->
+                <button onclick="switchPlatform('pulse')" id="tab-pulse" class="flex items-start text-left p-4 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-900/30 transition-all duration-300 cursor-pointer group">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 shrink-0 mr-4 group-hover:scale-105 transition-transform">
+                        🇿🇲
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-slate-300 text-sm">Pulse OS</h3>
+                            <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Civic Governance Platform</p>
+                    </div>
+                </button>
+            </div>
 
-    <!-- Hero Showcase Section -->
-    <section class="max-w-6xl mx-auto px-6 pt-24 pb-16 text-center flex flex-col items-center">
-      <div class="reveal inline-flex items-center space-x-2 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full text-xs text-zinc-400 mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-brandBlue animate-pulse"></span>
-        <span>Operational Infrastructure Optimization</span>
-      </div>
-      
-      <h2 class="reveal text-5xl md:text-6xl font-bold tracking-tight text-white max-w-3xl leading-[1.15] mb-6">
-        Building high-impact software for the African enterprise.
-      </h2>
-      
-      <p class="reveal text-zinc-400 text-lg max-w-2xl leading-relaxed mb-8">
-        We conceptualize, engineer, and host robust digital architecture built for scalability, minute-value efficiency, and seamless operational flow.
-      </p>
+            <!-- Dynamic Workspace Area -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-center">
+                
+                <!-- Left Content Block (Live Telemetry & Copy) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs">
+                        <span id="platformStatusText" class="text-emerald-400 font-medium">● Production Cluster Alpha</span>
+                    </div>
+                    
+                    <h2 id="platformTitle" class="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                        swifTrade Ecosystem
+                    </h2>
+                    
+                    <p id="platformDescription" class="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                        Moving entirely away from rigid legacy stores, swifTrade links live buyers to local suppliers using a unique, demand-first request tool. Instead of browsing catalog noise, buyers post exact needs, triggering immediate matching from verified business capacity.
+                    </p>
 
-      <div class="reveal flex items-center space-x-4">
-        <button class="bg-brandBlue text-white font-medium px-6 py-3 rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-brandBlue/20 text-sm">
-          Explore Solutions Architecture
-        </button>
-        <button class="bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium px-6 py-3 rounded-xl hover:bg-zinc-800 transition-all text-sm">
-          Schedule Infrastructure Audit
-        </button>
-      </div>
+                    <!-- Technical Meta Indicators -->
+                    <div class="grid grid-cols-2 gap-4 border-t border-slate-900 pt-6">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-wider text-slate-500 block">Core Architecture</span>
+                            <span id="platformArch" class="text-xs text-slate-300 font-mono mt-0.5 block">HTML5 / GAS / Sheets DB</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase tracking-wider text-slate-500 block">Deployment Vector</span>
+                            <span class="text-xs text-slate-300 font-mono mt-0.5 block">Vyeta Shared Edge</span>
+                        </div>
+                    </div>
+
+                    <!-- THE SHOW STOPPING LINK ENTRY POINT -->
+                    <div class="pt-2">
+                        <a id="platformActionLink" href="https://vyetasolutions.github.io/Swiftrade-newv/" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 text-sm font-bold rounded-xl transition-all transform hover:-translate-y-0.5 shadow-lg shadow-emerald-500/10">
+                            Launch Live Production Module 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Terminal Block (Simulated Mockup / Operational Matrix) -->
+                <div class="lg:col-span-7 bg-[#05070F] border border-slate-900 rounded-xl p-6 font-mono text-xs text-slate-400 space-y-4 shadow-inner relative overflow-hidden h-72 md:h-80 flex flex-col justify-between">
+                    <!-- Tech Top Bar Decorator -->
+                    <div class="flex items-center justify-between border-b border-slate-900 pb-3 text-[10px] text-slate-500 tracking-tight">
+                        <span id="terminalID">SYS_NODE // SWIFTRADE_LIVE</span>
+                        <span>SECURE LAYER: ACTIVE</span>
+                    </div>
+
+                    <!-- Dynamic Terminal Logs -->
+                    <div id="terminalOutput" class="space-y-2 flex-grow overflow-y-auto pt-2 scrollbar-none">
+                        <p class="text-emerald-500/80">&gt; Initializing swifTrade secure handshake...</p>
+                        <p class="text-slate-600">&gt; Handshake established with regional distribution ledger.</p>
+                        <p class="text-slate-400">&gt; Ready for client inbound requisition traffic.</p>
+                    </div>
+
+                    <!-- Status Indicator Footnote -->
+                    <div class="border-t border-slate-900 pt-3 flex items-center justify-between text-[10px] text-slate-500">
+                        <span>BANDWIDTH: STABLE</span>
+                        <span id="terminalAccentIndicator" class="text-emerald-400">SYS_ALPHA_OK</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </section>
 
-  </main>
+    <!-- Broad-Based Enterprise ICT Solutions Section -->
+    <section id="capabilities" class="border-y border-slate-900 bg-[#070914] py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
+                <div class="max-w-xl">
+                    <span class="text-xs font-semibold tracking-widest text-purple-400 uppercase">Core Service Capabilities</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-2">End-to-End Operational ICT & Systems Provisioning</h2>
+                </div>
+                <p class="text-slate-400 text-sm md:text-base font-light max-w-md">
+                    Beyond our live production software environments, Vyeta supports regional enterprises with robust general technical services and corporate capacity infrastructure.
+                </p>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="p-6 bg-[#0A0D1A]/50 border border-slate-900 rounded-xl hover:border-slate-800 transition-all">
+                    <div class="text-xl mb-4">⚙️</div>
+                    <h3 class="text-base font-semibold text-white mb-2">Systems Integration</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed font-light">Custom software layer architecture, automation of cloud logs, secure database migrations, and web-app engineering tailored to local parameters.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="p-6 bg-[#0A0D1A]/50 border border-slate-900 rounded-xl hover:border-slate-800 transition-all">
+                    <div class="text-xl mb-4">🔌</div>
+                    <h3 class="text-base font-semibold text-white mb-2">Enterprise Infrastructure</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed font-light">Structured hardware deployment, localized business routing setup, server stack staging, and reliable commercial connectivity architecture.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="p-6 bg-[#0A0D1A]/50 border border-slate-900 rounded-xl hover:border-slate-800 transition-all">
+                    <div class="text-xl mb-4">🏢</div>
+                    <h3 class="text-base font-semibold text-white mb-2">Corporate Visibility</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed font-light">Precision corporate asset creation, physical corporate identity frameworks, high-resolution large format production, and market visibility assets.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="p-6 bg-[#0A0D1A]/50 border border-slate-900 rounded-xl hover:border-slate-800 transition-all">
+                    <div class="text-xl mb-4">📦</div>
+                    <h3 class="text-base font-semibold text-white mb-2">General Supply Chain</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed font-light">Agile commercial procurement networks, specialized computing equipment sourcing, and high-volume corporate technical hardware logistics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ================= ENGINE WORKHORSE CONTROLLER ================= -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const welcomeScreen = document.getElementById("welcome-screen");
-      const mainContent = document.getElementById("main-content");
+    <!-- Operational Philosophy / Business Capacity Section -->
+    <section id="philosophy" class="py-24 px-6 max-w-7xl mx-auto text-center relative">
+        <div class="max-w-2xl mx-auto space-y-6">
+            <span class="text-xs font-semibold tracking-widest text-purple-400 uppercase">The Vyeta Philosophy</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">We Focus on Business Capacity, Not Technology Clutter</h2>
+            <p class="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                We believe software and infrastructure are only useful when they unlock immediate minute value. Our frameworks remove structural noise so executive management can focus cleanly on scale, distribution, and critical operational delivery.
+            </p>
+        </div>
+    </section>
 
-      // Set timeout perfectly synchronized with CSS loader animations (1.6s progress + exit frame buffer)
-      setTimeout(() => {
-        // 1. Elegantly slide up out of viewport boundary
-        welcomeScreen.style.transform = "translateY(-100%)";
-        
-        // 2. Safely fade-in viewport layout data structures
-        mainContent.classList.remove("opacity-0");
-        document.body.classList.remove("overflow-hidden");
+    <!-- Contact Capture / Corporate Consultation -->
+    <section id="contact" class="bg-[#070914] border-t border-slate-900 py-20 px-6">
+        <div class="max-w-3xl mx-auto bg-[#0A0D1A] border border-slate-900 rounded-2xl p-8 md:p-12">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">Engage Vyeta Architecture</h2>
+                <p class="text-xs md:text-sm text-slate-400 mt-2 font-light">Deploy our specialized software systems or request contract enterprise ICT services.</p>
+            </div>
+            <form class="space-y-5" onsubmit="event.preventDefault(); alert('Consultation request captured by Vyeta core node.');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] text-slate-400 uppercase tracking-wider mb-1.5 font-medium">Name</label>
+                        <input type="text" required class="w-full bg-[#05070F] border border-slate-900 focus:border-purple-900 rounded-xl p-3 text-sm text-slate-200 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 uppercase tracking-wider mb-1.5 font-medium">Corporate Email</label>
+                        <input type="email" required class="w-full bg-[#05070F] border border-slate-900 focus:border-purple-900 rounded-xl p-3 text-sm text-slate-200 outline-none transition-all">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] text-slate-400 uppercase tracking-wider mb-1.5 font-medium">Inquiry Scope</label>
+                    <select class="w-full bg-[#05070F] border border-slate-900 focus:border-purple-900 rounded-xl p-3 text-sm text-slate-400 outline-none transition-all">
+                        <option>Ecosystem Module Licensing (swifTrade / ConsultLink / Pulse)</option>
+                        <option>Custom Full-Stack Software Development</option>
+                        <option>Enterprise Hardware Sourcing & Networking</option>
+                        <option>Corporate Branding & Operational Procurement</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[11px] text-slate-400 uppercase tracking-wider mb-1.5 font-medium">Operational Scope Details</label>
+                    <textarea rows="4" required class="w-full bg-[#05070F] border border-slate-900 focus:border-purple-900 rounded-xl p-3 text-sm text-slate-200 outline-none transition-all resize-none" placeholder="Describe the operational gap or engineering requirements..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-purple-500/10 cursor-pointer">
+                    Submit Inbound Requirement Matrix
+                </button>
+            </form>
+        </div>
+    </section>
 
-        // 3. Fire Intersection/Reveal Fallback routines manually for hero view visibility
-        setTimeout(() => {
-          initializeScrollObserver();
-          welcomeScreen.remove(); // Prune DOM node after runtime execution to conserve memory
-        }, 300);
+    <!-- Global Footer -->
+    <footer class="border-t border-slate-900/60 py-10 text-center text-xs text-slate-500 bg-[#05070F]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>Vyeta Digital Solutions Ecosystem © 2026. All rights reserved.</p>
+            <p class="font-mono text-[10px] tracking-tight">DIGITAL INFRASTRUCTURE & DATA SOVEREIGNTY // ZM</p>
+        </div>
+    </footer>
 
-      }, 2000); 
-
-      // Safe intersection engine to reveal components cleanly on scroll or viewport initialization
-      function initializeScrollObserver() {
-        const structuralElements = document.querySelectorAll('.reveal');
-        
-        const appearanceOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -40px 0px"
+    <!-- INTERACTIVE CONTROL LOGIC -->
+    <script>
+        const platformData = {
+            swiftrade: {
+                title: "swifTrade Ecosystem",
+                description: "Moving entirely away from rigid legacy stores, swifTrade links live buyers to local suppliers using a unique, demand-first request tool. Instead of browsing catalog noise, buyers post exact needs, triggering immediate matching from verified business capacity.",
+                url: "https://vyetasolutions.github.io/Swiftrade-newv/",
+                arch: "HTML5 / GAS / Sheets DB",
+                badgeColor: "text-emerald-400",
+                badgeBg: "bg-emerald-950/10",
+                btnGradient: "from-emerald-500 to-teal-600",
+                btnHover: "hover:from-emerald-400 hover:to-teal-500",
+                btnShadow: "shadow-emerald-500/10",
+                textColor: "text-emerald-400",
+                terminalId: "SYS_NODE // SWIFTRADE_LIVE",
+                logs: [
+                    "<p class='text-emerald-500/80'>&gt; Initializing swifTrade secure handshake...</p>",
+                    "<p class='text-slate-600'>&gt; Handshake established with regional distribution ledger.</p>",
+                    "<p class='text-slate-400'>&gt; Ready for client inbound requisition traffic.</p>",
+                    "<p class='text-slate-500'>&gt; Mapping real-time buyer demand matrices to supplier logs.</p>"
+                ]
+            },
+            consultlink: {
+                title: "ConsultLink Suite",
+                description: "Engineered to eliminate professional friction, ConsultLink allows immediate provisioning and remote management of critical professional services. It structures communication pathways between expert legal, medical, or technical consultants and the clients who require verified expertise.",
+                url: "https://vyetasolutions.github.io/consultlink/",
+                arch: "Tailwind CSS / Client Architecture",
+                badgeColor: "text-blue-400",
+                badgeBg: "bg-blue-950/10",
+                btnGradient: "from-blue-500 to-indigo-600",
+                btnHover: "hover:from-blue-400 hover:to-indigo-500",
+                btnShadow: "shadow-blue-500/10",
+                textColor: "text-blue-400",
+                terminalId: "SYS_NODE // CONSULTLINK_SECURE",
+                logs: [
+                    "<p class='text-blue-400/80'>&gt; Booting isolated consultation nodes...</p>",
+                    "<p class='text-slate-600'>&gt; Encryption standards initialized (AES-256 simulation).</p>",
+                    "<p class='text-slate-400'>&gt; Monitoring client-to-professional escrow mapping vectors.</p>",
+                    "<p class='text-slate-500'>&gt; Verification engine online: matching credentials to live demands.</p>"
+                ]
+            },
+            pulse: {
+                title: "Pulse Governance OS",
+                description: "A highly resilient community-focused feedback system that bridges localized operational communication gaps. Pulse connects residents immediately with municipal leadership, ward authorities, and public utility networks to track incidents, report challenges, and drive infrastructure workflows together.",
+                url: "https://vyetasolutions.github.io/pulse-os-zm/",
+                arch: "Tailwind CSS / Live Incident Ledger",
+                badgeColor: "text-red-400",
+                badgeBg: "bg-red-950/10",
+                btnGradient: "from-red-500 to-rose-600",
+                btnHover: "hover:from-red-400 hover:to-rose-500",
+                btnShadow: "shadow-red-500/10",
+                textColor: "text-red-400",
+                terminalId: "SYS_NODE // CIVIC_PULSE_PORTAL",
+                logs: [
+                    "<p class='text-red-400/80'>&gt; Connecting to national ward infrastructure maps...</p>",
+                    "<p class='text-slate-600'>&gt; Live Incident Dispatch arrays listening on channel 🇿🇲.</p>",
+                    "<p class='text-slate-400'>&gt; Bulletin board updates, community tracking metrics active.</p>",
+                    "<p class='text-slate-500'>&gt; Leadership Desk operational logic standing by for reports.</p>"
+                ]
+            }
         };
 
-        const appearanceObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, appearanceOptions);
+        function switchPlatform(key) {
+            const data = platformData[key];
+            const cc = document.getElementById('controlCenter');
+            
+            // 1. Update overall card glow styling
+            cc.className = "w-full max-w-5xl mx-auto bg-[#0A0D1A] border border-slate-900 rounded-2xl p-4 md:p-8 transition-all duration-500";
+            if(key === 'swiftrade') cc.classList.add('glow-active-swiftrade', 'glow-purple');
+            if(key === 'consultlink') cc.classList.add('glow-active-consultlink', 'glow-purple');
+            if(key === 'pulse') cc.classList.add('glow-active-pulse', 'glow-purple');
 
-        structuralElements.forEach(element => {
-          appearanceObserver.observe(element);
-        });
+            // 2. Reset and Update Tab Styles
+            ['swiftrade', 'consultlink', 'pulse'].forEach(k => {
+                const tab = document.getElementById(`tab-${k}`);
+                const title = tab.querySelector('h3');
+                const dot = tab.querySelector('span');
+                
+                if(k === key) {
+                    tab.className = `flex items-start text-left p-4 rounded-xl border transition-all duration-300 cursor-pointer group`;
+                    if(k === 'swiftrade') { tab.classList.add('border-emerald-500/30', 'bg-emerald-950/10'); dot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-pulse"; }
+                    if(k === 'consultlink') { tab.classList.add('border-blue-500/30', 'bg-blue-950/10'); dot.className = "w-2 h-2 rounded-full bg-blue-500 animate-pulse"; }
+                    if(k === 'pulse') { tab.classList.add('border-red-500/30', 'bg-red-950/10'); dot.className = "w-2 h-2 rounded-full bg-red-500 animate-pulse"; }
+                    title.className = "font-semibold text-white text-sm";
+                } else {
+                    tab.className = "flex items-start text-left p-4 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-900/30 transition-all duration-300 cursor-pointer group";
+                    title.className = "font-semibold text-slate-300 text-sm";
+                    dot.className = "w-2 h-2 rounded-full bg-slate-700";
+                }
+            });
 
-        // Fail-safe visibility initialization for viewport nodes
-        structuralElements.forEach(el => {
-          const coordinates = el.getBoundingClientRect();
-          if (coordinates.top < window.innerHeight) {
-            el.classList.add('revealed');
-          }
-        });
-      }
-    });
-  </script>
+            // 3. Update Left Side Content with Smooth Transitions
+            const pTitle = document.getElementById('platformTitle');
+            const pDesc = document.getElementById('platformDescription');
+            const pArch = document.getElementById('platformArch');
+            const pLink = document.getElementById('platformActionLink');
+            const pText = document.getElementById('platformStatusText');
+
+            pTitle.textContent = data.title;
+            pDesc.textContent = data.description;
+            pArch.textContent = data.arch;
+            
+            pText.className = `${data.textColor} font-medium`;
+            pText.parentNode.className = `inline-flex items-center gap-2 px-2.5 py-1 rounded-md ${data.badgeBg} border border-slate-900 text-xs`;
+            
+            pLink.href = data.url;
+            pLink.className = `w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r ${data.btnGradient} ${data.btnHover} text-slate-950 text-sm font-bold rounded-xl transition-all transform hover:-translate-y-0.5 shadow-lg ${data.btnShadow}`;
+
+            // 4. Update Right Side Terminal Context
+            document.getElementById('terminalID').textContent = data.terminalId;
+            const tAccent = document.getElementById('terminalAccentIndicator');
+            tAccent.className = data.textColor;
+            tAccent.textContent = `SYS_${key.toUpperCase()}_OK`;
+
+            const output = document.getElementById('terminalOutput');
+            output.innerHTML = '';
+            data.logs.forEach((log, index) => {
+                setTimeout(() => {
+                    output.innerHTML += log;
+                }, index * 150);
+            });
+        }
+    </script>
 </body>
 </html>
