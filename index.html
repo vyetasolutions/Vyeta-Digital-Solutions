@@ -16,6 +16,11 @@
       --cyan: #06b6d4;
       --magenta: #d946ef;
       --green: #10b981;
+      
+      /* Product Specific Brand Colors */
+      --swiftrade-glow: #a78bfa;
+      --consultlink-glow: #22d3ee;
+      --pulse-glow: #f472b6;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -125,7 +130,6 @@
       border-color: rgba(255, 255, 255, 0.15);
     }
     
-    /* Trigger Header */
     .accordion-trigger {
       width: 100%;
       background: transparent;
@@ -155,21 +159,17 @@
       transition: transform 0.3s ease;
     }
 
-    /* Target Border Colors on Selection */
     .accordion-item.active[data-type="downtime"] { border-color: var(--blue); }
     .accordion-item.active[data-type="manual"] { border-color: var(--purple); }
     .accordion-item.active[data-type="security"] { border-color: var(--cyan); }
 
-    /* Expandable Content Panel */
     .accordion-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       background: rgba(0, 0, 0, 0.2);
     }
-    .content-inner {
-      padding: 0 24px 24px 24px;
-    }
+    .content-inner { padding: 0 24px 24px 24px; }
     .solution-box {
       border-left: 2px solid rgba(255, 255, 255, 0.1);
       padding-left: 16px;
@@ -177,7 +177,6 @@
     }
     .solution-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 8px; }
     
-    /* Micro Package Tier Pricing Inside Accordion */
     .tier-row {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -198,44 +197,187 @@
       transition: all 0.2s ease;
     }
     .tier-link:hover { background: white; color: black; }
-
-    /* Active Animation States */
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
-    /* --- VETTED PRODUCTS --- */
+    /* --- HIGH-CHARACTER PRODUCTS SECTION --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 60px 24px;
+      padding: 90px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .ecosystem-container { max-width: 1000px; margin: 0 auto; }
-    .ecosystem-header { text-align: center; margin-bottom: 36px; }
-    .ecosystem-header h2 { font-size: 1.6rem; font-weight: 800; }
-    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    
-    .platform-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 24px;
+    .ecosystem-container { 
+      max-width: 850px; 
+      margin: 0 auto; 
+    }
+    .ecosystem-header { 
+      text-align: center; 
+      margin-bottom: 54px; 
+    }
+    .ecosystem-header h2 { 
+      font-size: 1.8rem; 
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    /* Stacked Layout for Individual Section Character */
+    .product-showcase {
       display: flex;
       flex-direction: column;
+      gap: 40px;
     }
-    .platform-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
-    .platform-card .tagline { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; }
-    .platform-card .description { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+
+    .platform-row {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 15, 22, 0.8) 0%, rgba(5, 5, 8, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Left-Accent Color Indicator Bars */
+    .platform-row::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      transition: all 0.4s ease;
+    }
+
+    /* Product Name Typography & Coloring */
+    .product-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+    
+    .platform-row .tagline { 
+      font-size: 0.9rem; 
+      font-weight: 700; 
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px; 
+    }
+    .platform-row .description { 
+      font-size: 1rem; 
+      color: var(--text-muted); 
+      line-height: 1.5;
+    }
+
+    /* Status Badges */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    /* Interactive Call To Actions */
     .platform-btn {
-      text-align: center; padding: 10px; border-radius: 6px;
-      background: rgba(255, 255, 255, 0.04); color: white;
-      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px; 
+      border-radius: 8px; 
+      background: transparent;
+      color: var(--text);
+      font-size: 0.9rem; 
+      font-weight: 700; 
+      text-decoration: none;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 220px;
     }
-    .platform-card:hover .platform-btn { background: white; color: black; }
+
+    /* Individual Character Customization */
+    
+    /* 1. swifTrade Styles */
+    .row-swiftrade .product-title {
+      color: var(--swiftrade-glow);
+      text-shadow: 0 0 30px rgba(167, 139, 250, 0.15);
+    }
+    .row-swiftrade .tagline { color: #8b5cf6; }
+    .row-swiftrade::before { background: var(--swiftrade-glow); }
+    .row-swiftrade .platform-btn { border: 1px solid rgba(167, 139, 250, 0.3); }
+    .row-swiftrade .status-dot { background: var(--green); box-shadow: 0 0 8px var(--green); }
+    
+    .row-swiftrade:hover {
+      border-color: rgba(167, 139, 250, 0.2);
+      box-shadow: 0 20px 40px -15px rgba(167, 139, 250, 0.1);
+    }
+    .row-swiftrade:hover .platform-btn {
+      background: var(--swiftrade-glow);
+      color: #000;
+      border-color: var(--swiftrade-glow);
+      box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+    }
+
+    /* 2. ConsultLink Styles */
+    .row-consultlink .product-title {
+      color: var(--consultlink-glow);
+      text-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+    }
+    .row-consultlink .tagline { color: #06b6d4; }
+    .row-consultlink::before { background: var(--consultlink-glow); }
+    .row-consultlink .platform-btn { border: 1px solid rgba(34, 211, 238, 0.3); }
+    .row-consultlink .status-dot { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+
+    .row-consultlink:hover {
+      border-color: rgba(34, 211, 238, 0.2);
+      box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.1);
+    }
+    .row-consultlink:hover .platform-btn {
+      background: var(--consultlink-glow);
+      color: #000;
+      border-color: var(--consultlink-glow);
+      box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+    }
+
+    /* 3. Pulse OS Styles */
+    .row-pulse .product-title {
+      color: var(--pulse-glow);
+      text-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
+    }
+    .row-pulse .tagline { color: #d946ef; }
+    .row-pulse::before { background: var(--pulse-glow); }
+    .row-pulse .platform-btn { border: 1px solid rgba(244, 114, 182, 0.3); }
+    .row-pulse .status-dot { background: var(--magenta); box-shadow: 0 0 8px var(--magenta); }
+
+    .row-pulse:hover {
+      border-color: rgba(244, 114, 182, 0.2);
+      box-shadow: 0 20px 40px -15px rgba(244, 114, 182, 0.1);
+    }
+    .row-pulse:hover .platform-btn {
+      background: var(--pulse-glow);
+      color: #000;
+      border-color: var(--pulse-glow);
+      box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+    }
 
     footer { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
       .trigger-content h3 { font-size: 1.1rem; }
+      .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
+      .platform-btn { max-width: 1000px; }
     }
   </style>
 </head>
@@ -361,37 +503,56 @@
         </div>
       </div>
     </div>
-
   </section>
 
-  <!-- FLAGSHIP PRODUCTS -->
+  <!-- HIGH-CHARACTER VETTED PRODUCTS SHOWCASE -->
   <section class="ecosystem-section">
     <div class="ecosystem-container">
       <div class="ecosystem-header">
-        <h2>Our Flagship Digital Products</h2>
+        <h2>Flagship Digital Products</h2>
       </div>
 
-      <div class="ecosystem-grid">
-        <div class="platform-card">
-          <h3>swifTrade</h3>
-          <p class="tagline">B2B Procurement Marketplace</p>
-          <p class="description">Direct request-matching network connecting verified commercial buyers to bulk product suppliers instantly.</p>
-          <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">Open Platform &rarr;</a>
+      <div class="product-showcase">
+        
+        <!-- PRODUCT 1: SWIFTRADE -->
+        <div class="platform-row row-swiftrade">
+          <div>
+            <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
+            <h3 class="product-title">swifTrade</h3>
+            <div class="tagline">B2B Procurement Marketplace</div>
+            <p class="description">Direct request-matching network built to link verified commercial buyers with bulk product suppliers instantly.</p>
+          </div>
+          <div>
+            <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">Open Platform &rarr;</a>
+          </div>
         </div>
 
-        <div class="platform-card">
-          <h3>ConsultLink</h3>
-          <p class="tagline">On-Demand Specialist Routing</p>
-          <p class="description">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
-          <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">Open Preview &rarr;</a>
+        <!-- PRODUCT 2: CONSULTLINK -->
+        <div class="platform-row row-consultlink">
+          <div>
+            <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
+            <h3 class="product-title">ConsultLink</h3>
+            <div class="tagline">On-Demand Specialist Routing</div>
+            <p class="description">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
+          </div>
+          <div>
+            <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">Open Preview &rarr;</a>
+          </div>
         </div>
 
-        <div class="platform-card">
-          <h3>Pulse OS ZM</h3>
-          <p class="tagline">Civic Feedback Engine</p>
-          <p class="description">Public system engineered for recording regional community updates and tracking local responses.</p>
-          <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
+        <!-- PRODUCT 3: PULSE OS ZM -->
+        <div class="platform-row row-pulse">
+          <div>
+            <div class="status-pill"><span class="status-dot"></span> Operational</div>
+            <h3 class="product-title">Pulse OS ZM</h3>
+            <div class="tagline">Civic Feedback Engine</div>
+            <p class="description">Public system engineered for recording regional community updates and tracking local responses.</p>
+          </div>
+          <div>
+            <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -409,13 +570,11 @@
         const content = item.querySelector('.accordion-content');
         const isActive = item.classList.contains('active');
         
-        // Collapse all other panels to keep page clean
         document.querySelectorAll('.accordion-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.accordion-content').style.maxHeight = null;
         });
 
-        // Toggle state
         if (!isActive) {
           item.classList.add('active');
           content.style.maxHeight = content.scrollHeight + "px";
