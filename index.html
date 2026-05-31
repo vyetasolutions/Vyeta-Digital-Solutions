@@ -128,7 +128,7 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4); }
 
-    /* --- ACCORDIONS (INTERACTIVE DARK GLASS) --- */
+    /* --- ACCORDIONS --- */
     .engine-section { padding: 40px 24px 80px 24px; max-width: 740px; margin: 0 auto; }
     .engine-section h2 { font-size: 1.1rem; font-weight: 600; text-align: center; margin-bottom: 32px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
     
@@ -144,7 +144,6 @@
     .trigger-content .pain-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
     .accordion-icon { font-size: 1.4rem; color: var(--text-muted); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 
-    /* Active states */
     .accordion-item.active[data-type="downtime"] { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.06); }
     .accordion-item.active[data-type="manual"] { border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.06); }
     .accordion-item.active[data-type="security"] { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 10px 30px rgba(6, 182, 212, 0.06); }
@@ -164,49 +163,86 @@
     .tier-link:hover { background: white; color: black; }
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
-    /* --- ECOSYSTEM SECTION --- */
-    .ecosystem-section { padding: 100px 24px; }
-    .ecosystem-container { max-width: 850px; margin: 0 auto; }
-    .ecosystem-header { text-align: center; margin-bottom: 48px; }
-    .ecosystem-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
-    .ecosystem-header h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple); text-transform: uppercase; letter-spacing: 0.08em; }
+    /* --- ECOSYSTEM HIGH-MAGIC PLATFORMS SECTION --- */
+    .ecosystem-section { padding: 120px 24px; position: relative; }
+    .ecosystem-container { max-width: 900px; margin: 0 auto; }
+    .ecosystem-header { text-align: center; margin-bottom: 64px; }
+    .ecosystem-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 8px; }
+    .ecosystem-header h3 { font-size: 0.95rem; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.12em; }
 
-    .product-showcase { display: flex; flex-direction: column; gap: 24px; }
+    .product-showcase { display: flex; flex-direction: column; gap: 32px; }
     
+    /* Interactive Cosmic Card Grid Layout */
     .platform-row {
-      background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border); border-radius: 16px; padding: 32px;
-      display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center;
-      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      background: linear-gradient(180deg, rgba(10, 10, 22, 0.7) 0%, rgba(5, 5, 12, 0.9) 100%);
+      backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px;
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center;
+      position: relative; overflow: hidden;
+      transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .product-title { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 2px; }
-    .platform-row .tagline { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
-    .platform-row .description { font-size: 0.95rem; color: var(--text-muted); line-height: 1.45; }
+    
+    /* Dynamic Hover Light Leak Shifters */
+    .platform-row::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.04), transparent 40%);
+      pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .platform-row:hover::before { opacity: 1; }
 
+    .product-title { font-size: 2.1rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 4px; color: #fff; transition: transform 0.3s ease; }
+    .platform-row .tagline { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .platform-row .description { font-size: 1rem; color: var(--text-muted); line-height: 1.55; max-width: 480px; }
+
+    /* Animated Pulsing Status Engine */
     .status-pill {
-      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; font-size: 0.65rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #94a3b8; margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px; font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 18px; color: #94a3b8;
     }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; position: relative; }
+    .status-dot::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;
+      animation: pulseGlow 1.8s infinite ease-in-out; background: inherit;
+    }
+    @keyframes pulseGlow { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
 
+    /* Glassmorphic Portal Buttons */
     .platform-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 24px; border-radius: 8px; 
-      background: transparent; color: var(--text); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease;
-      width: 100%; max-width: 200px; margin-left: auto; border: 1px solid rgba(255, 255, 255, 0.15);
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; 
+      background: rgba(255, 255, 255, 0.02); color: var(--text); font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      width: 100%; max-width: 220px; margin-left: auto; border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    /* Individual Platform Accent Configurations */
+    .row-swiftrade { --accent-color: var(--green); }
+    .row-swiftrade .tagline { color: var(--green); }
     .row-swiftrade .status-dot { background: var(--green); }
-    .row-swiftrade:hover { border-color: rgba(139, 92, 246, 0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(139, 92, 246, 0.08); }
-    .row-swiftrade:hover .platform-btn { background: white; color: black; border-color: white; }
 
+    .row-consultlink { --accent-color: var(--cyan); }
+    .row-consultlink .tagline { color: var(--cyan); }
     .row-consultlink .status-dot { background: var(--cyan); }
-    .row-consultlink:hover { border-color: rgba(6, 182, 212, 0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(6, 182, 212, 0.08); }
-    .row-consultlink:hover .platform-btn { background: white; color: black; border-color: white; }
 
+    .row-pulse { --accent-color: var(--magenta); }
+    .row-pulse .tagline { color: var(--magenta); }
     .row-pulse .status-dot { background: var(--magenta); }
-    .row-pulse:hover { border-color: rgba(236, 72, 153, 0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(236, 72, 153, 0.08); }
-    .row-pulse:hover .platform-btn { background: white; color: black; border-color: white; }
+
+    /* Shared Magical Over-Hover Physics */
+    .platform-row:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(139, 92, 246, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    }
+    /* Specific Glowing Shadow Projections */
+    .row-swiftrade:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.4); }
+    .row-consultlink:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.4); }
+    .row-pulse:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(236, 72, 153, 0.12); border-color: rgba(236, 72, 153, 0.4); }
+
+    .platform-row:hover .product-title { transform: translateX(4px); }
+    .platform-row:hover .platform-btn { background: #fff; color: #000; border-color: #fff; box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15); }
 
     /* --- DIAGNOSTIC MODAL --- */
     .modal-overlay {
@@ -272,7 +308,7 @@
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.6rem; }
-      .platform-row { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
       .platform-btn { max-width: 100%; margin-left: 0; }
     }
   </style>
@@ -553,22 +589,27 @@
     </div>
   </div>
 
-  <!-- THE DYNAMIC INTERACTIVE MOTION MATRIX ENGINE -->
+  <!-- THE MOTION ENGINE -->
   <script>
     // Pure Hardware-Accelerated Dynamic Vector Scrolling Math
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
-      
-      // Infinite Perspective Horizon grids wrap and translate down faster to simulate travel
       document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${scrolled * 0.35}px)`;
-      
-      // Stars drift slowly to establish sub-galactic layer isolation
       document.getElementById('bgStars').style.transform = `translateY(${scrolled * 0.12}px)`;
-      
-      // Ambient vector orbs glide at alternating deep metrics to cross foreground components organically
       document.getElementById('orb1').style.transform = `translateY(${scrolled * 0.22}px) scale(${1 + scrolled * 0.0003})`;
       document.getElementById('orb2').style.transform = `translateY(${scrolled * -0.15}px) scale(${1 + scrolled * 0.0001})`;
       document.getElementById('orb3').style.transform = `translateY(${scrolled * 0.08}px)`;
+    });
+
+    // Dynamic Micro-Light Coordinates Tracker for Cards
+    document.querySelectorAll('.platform-row').forEach(row => {
+      row.addEventListener('mousemove', (e) => {
+        const bounds = row.getBoundingClientRect();
+        const x = e.clientX - bounds.left;
+        const y = e.clientY - bounds.top;
+        row.style.setProperty('--x', `${x}px`);
+        row.style.setProperty('--y', `${y}px`);
+      });
     });
 
     // --- ACCORDION INTERACTIVITY ---
