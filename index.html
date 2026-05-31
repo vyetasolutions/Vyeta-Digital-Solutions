@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vyeta | Business Capacity & Systems</title>
+  <title>Vyeta | Business Technology, Infrastructure & Custom Software</title>
   <style>
-    /* --- THEME DESIGN SYSTEM --- */
+    /* --- PREMIUM SAAS DESIGN SYSTEM --- */
     :root {
       --bg-pure-black: #0a0a0c;
       --card-bg-glass: rgba(18, 18, 24, 0.75);
@@ -23,6 +23,9 @@
       margin: 0;
       padding: 0;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background-color: var(--bg-pure-black);
       color: var(--text-pure-white);
@@ -32,7 +35,7 @@
     }
     a { text-decoration: none; color: inherit; }
 
-    /* --- 1. CODE-BASED LOGO ANIMATION (NO FILE REQUIRED) --- */
+    /* --- 1. PRELOADER ANIMATION --- */
     #preloader {
       position: fixed;
       top: 0;
@@ -48,20 +51,21 @@
     }
     .preload-logo-wrapper {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 120px;
+      height: 120px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .logo-svg {
-      width: 100px;
-      height: 100px;
+    .preload-logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       animation: logoPulse 2s infinite ease-in-out;
     }
     @keyframes logoPulse {
       0%, 100% { transform: scale(0.95); filter: drop-shadow(0 0 0px rgba(37, 99, 235, 0)); }
-      50% { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(37, 99, 235, 0.8)); }
+      50% { transform: scale(1.03); filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.6)); }
     }
     .preloader-hidden {
       opacity: 0;
@@ -69,7 +73,7 @@
       transform: translateY(-100vh);
     }
 
-    /* --- 2. NAVIGATION --- */
+    /* --- 2. NAVIGATION BAR --- */
     .navbar {
       position: fixed;
       top: 0;
@@ -83,7 +87,7 @@
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 16px 24px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -91,14 +95,11 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: -0.02em;
+      gap: 10px;
     }
-    .nav-brand svg {
-      width: 28px;
-      height: 28px;
+    .nav-brand img {
+      height: 38px;
+      width: auto;
     }
     .nav-links {
       display: flex;
@@ -121,7 +122,7 @@
 
     /* --- 3. HERO SECTION --- */
     .hero {
-      padding: 200px 24px 120px 24px;
+      padding: 180px 24px 100px 24px;
       text-align: center;
     }
     .hero-badge {
@@ -137,7 +138,7 @@
       margin-bottom: 24px;
     }
     .hero h1 {
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       max-width: 850px;
@@ -151,14 +152,15 @@
     }
     .hero p {
       color: var(--text-muted);
-      font-size: 1.3rem;
-      max-width: 600px;
+      font-size: 1.25rem;
+      max-width: 650px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
-    /* --- 4. SERVICES SECTION --- */
+    /* --- 4. CORE SERVICES SECTION --- */
     .services-section {
-      padding: 60px 24px 100px 24px;
+      padding: 80px 24px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -166,49 +168,97 @@
       text-align: center;
       margin-bottom: 60px;
     }
-    .section-title h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
-    .section-title p { color: var(--text-muted); font-size: 1.1rem; }
+    .section-title h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
     
-    .retainer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-    .retainer-card {
-      background: var(--card-bg-glass);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 40px 32px;
+    .matrix-container {
       display: flex;
       flex-direction: column;
+      gap: 40px;
+    }
+    .matrix-pillar {
+      background: var(--card-bg-glass);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
+      padding: 40px;
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
-    .retainer-card h3 { font-size: 1.6rem; margin-bottom: 4px; }
-    .retainer-focus { color: var(--vyeta-blue); font-size: 0.9rem; font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em; }
-    
-    .retainer-metrics {
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
+    .pillar-header {
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 20px;
     }
-    .metric-line { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
-    .metric-line:last-child { margin-bottom: 0; }
-    .metric-label { color: var(--text-muted); }
-    .metric-value { font-weight: 600; color: var(--text-pure-white); }
+    .pillar-header h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pillar-header h3 span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 12px;
+      border-radius: 6px;
+      color: var(--text-muted);
+    }
+    .sub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .sub-category h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-pure-white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sub-category h4::before {
+      content: "";
+      width: 4px;
+      height: 14px;
+      border-radius: 2px;
+      display: inline-block;
+    }
     
-    .retainer-features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
-    .retainer-features li { position: relative; padding-left: 24px; margin-bottom: 14px; color: var(--text-muted); font-size: 0.95rem; }
-    .retainer-features li::before {
-      content: "→"; position: absolute; left: 0; color: var(--vyeta-blue); font-weight: bold;
+    .pillar-infra h4::before { background: var(--vyeta-blue); }
+    .pillar-apps h4::before { background: var(--neon-purple); }
+    .pillar-ai h4::before { background: var(--neon-cyan); }
+    .pillar-growth h4::before { background: var(--neon-magenta); }
+
+    .feature-list {
+      list-style: none;
+    }
+    .feature-list li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .feature-list li::before {
+      content: "•";
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 1.1rem;
     }
 
-    /* --- 5. ECOSYSTEM NEXUS SHOWSTOPPER --- */
+    /* --- 5. ECOSYSTEM LINK HUB --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 120px 24px;
+      padding: 100px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .ecosystem-container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .ecosystem-header { text-align: center; max-width: 750px; margin: 0 auto 64px auto; }
     .ecosystem-badge {
@@ -217,8 +267,8 @@
       color: #c084fc; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
       text-transform: uppercase; margin-bottom: 20px;
     }
-    .ecosystem-header h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 18px; }
-    .ecosystem-header p { color: var(--text-muted); font-size: 1.15rem; line-height: 1.6; }
+    .ecosystem-header h2 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .ecosystem-header p { color: var(--text-muted); font-size: 1.15rem; }
     
     .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
     .platform-card {
@@ -255,121 +305,239 @@
     }
     .btn-arrow { width: 16px; height: 16px; transition: transform 0.3s ease; }
 
-    /* --- INTERACTIVE EFFECTS --- */
+    /* --- INTERACTIVE HOVER ACTIONS --- */
     .platform-card:hover { transform: translateY(-6px); background: rgba(22, 22, 30, 0.9); }
-    .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.15); }
-    .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15); }
-    .pulse-card:hover { border-color: rgba(217, 70, 239, 0.5); box-shadow: 0 20px 40px -15px rgba(217, 70, 239, 0.15); }
+    .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.15); }
+    .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15); }
+    .pulse-card:hover { border-color: rgba(217, 70, 239, 0.4); box-shadow: 0 20px 40px -15px rgba(217, 70, 239, 0.15); }
     
     .platform-card:hover .platform-icon { background: var(--text-pure-white); color: var(--bg-pure-black); transform: scale(1.05); }
     .platform-card:hover .platform-btn { background: var(--text-pure-white); color: var(--bg-pure-black); border-color: var(--text-pure-white); }
     .platform-card:hover .btn-arrow { transform: translateX(4px); }
 
+    /* --- FOOTER --- */
     footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
+      .hero h1 { font-size: 2.4rem; }
       .nav-links { display: none; }
-      .ecosystem-header h2 { font-size: 2rem; }
+      .matrix-pillar { padding: 24px; }
+      .sub-grid { gap: 24px; }
+      .ecosystem-header h2 { font-size: 1.9rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- 1. PRELOADER -->
   <div id="preloader">
     <div class="preload-logo-wrapper">
-      <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="25" cy="25" r="12" fill="#2563eb"/>
-        <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#2563eb"/>
-      </svg>
+      <img src="image_2.png" alt="Vyeta Logo Loading">
     </div>
   </div>
 
+  <!-- 2. NAVIGATION BAR -->
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="12" fill="#2563eb"/>
-          <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#2563eb"/>
-        </svg>
-        <span>vyeta</span>
+        <img src="image_2.png" alt="Vyeta Logo">
       </div>
       <nav class="nav-links">
-        <a href="#services">Retainer Plans</a>
-        <a href="#ecosystem">Live Systems</a>
+        <a href="#services">Capabilities</a>
+        <a href="#ecosystem">Live Ecosystem</a>
       </nav>
       <a href="mailto:operations@vyeta.com" class="cta-nav-btn">Get In Touch</a>
     </div>
   </header>
 
+  <!-- 3. HERO SECTION -->
   <section class="hero">
-    <div class="hero-badge">Systems & Operations Architecture</div>
-    <h1>We build the setups that <span>save you time</span>.</h1>
-    <p>We don't log hours or hand you complicated tech reports. We fix operational bottlenecks, give your team time back, and launch software that works.</p>
+    <div class="hero-badge">Systems, Support & Custom Engineering</div>
+    <h1>We build and maintain setups that <span>save you time</span>.</h1>
+    <p>We eliminate technical operational bottlenecks, manage your company's day-to-day IT health, and launch custom software designed strictly around your workflow.</p>
   </section>
 
+  <!-- 4. CORE SERVICES MATRIX -->
   <section id="services" class="services-section">
     <div class="section-title">
-      <h2>Monthly Support Tiers</h2>
-      <p>Simple, reliable technical support designed to keep your business moving forward without friction.</p>
+      <h2>Core Digital & IT Services</h2>
+      <p>Clean, dependable execution. No technical confusion, just useful systems that keep your operations running seamlessly.</p>
     </div>
     
-    <div class="retainer-grid">
-      <div class="retainer-card">
-        <h3>Essential Plan</h3>
-        <p class="retainer-focus">Day-to-Day Stability</p>
-        <div class="retainer-metrics">
-          <div class="metric-line"><span class="metric-label">Main Benefit:</span><span class="metric-value">Fix Breakages Fast</span></div>
-          <div class="metric-line"><span class="metric-label">Time Reclaimed:</span><span class="metric-value">Immediate Relief</span></div>
+    <div class="matrix-container">
+      
+      <!-- PILLAR 1: CORE ICT & INFRASTRUCTURE -->
+      <div class="matrix-pillar pillar-infra">
+        <div class="pillar-header">
+          <h3>Infrastructure & Hardware <span>01 / Core ICT</span></h3>
         </div>
-        <ul class="retainer-features">
-          <li>Continuous monitoring to keep your systems online</li>
-          <li>Fast fix response when tech tools stop working</li>
-          <li>Basic safety setups to keep your business data safe</li>
-        </ul>
+        <div class="sub-grid">
+          <div class="sub-category">
+            <h4>IT Support & Maintenance</h4>
+            <ul class="feature-list">
+              <li>Computer troubleshooting and repairs</li>
+              <li>Network setup and maintenance</li>
+              <li>Software installation and support</li>
+              <li>IT infrastructure management</li>
+              <li>Remote technical support</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Networking & Infrastructure</h4>
+            <ul class="feature-list">
+              <li>Office network setup</li>
+              <li>Router and switch configuration</li>
+              <li>Wi-Fi deployment</li>
+              <li>Server installation and management</li>
+              <li>Structured cabling solutions</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Hardware Supply & Procurement</h4>
+            <ul class="feature-list">
+              <li>Computers and laptops</li>
+              <li>Printers and accessories</li>
+              <li>Networking equipment</li>
+              <li>Office IT equipment sourcing</li>
+              <li>Custom hardware procurement</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="retainer-card" style="border-color: rgba(37, 99, 235, 0.4);">
-        <h3>Professional Plan</h3>
-        <p class="retainer-focus">Speed & Automation</p>
-        <div class="retainer-metrics">
-          <div class="metric-line"><span class="metric-label">Main Benefit:</span><span class="metric-value">Automate Tasks</span></div>
-          <div class="metric-line"><span class="metric-label">Time Reclaimed:</span><span class="metric-value">Hours Saved Weekly</span></div>
+      <!-- PILLAR 2: SOFTWARE & DIGITAL SOLUTIONS -->
+      <div class="matrix-pillar pillar-apps">
+        <div class="pillar-header">
+          <h3>Software Engineering <span>02 / Applications</span></h3>
         </div>
-        <ul class="retainer-features">
-          <li>Remove repetitive steps with smart team automation</li>
-          <li>Speed up lagging internal software and workflows</li>
-          <li>Priority queue handling whenever your team needs help</li>
-        </ul>
+        <div class="sub-grid">
+          <div class="sub-category">
+            <h4>Custom Software Development</h4>
+            <ul class="feature-list">
+              <li>Business management systems</li>
+              <li>School management systems</li>
+              <li>Inventory systems</li>
+              <li>Customer portals</li>
+              <li>Web applications</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Website Development</h4>
+            <ul class="feature-list">
+              <li>Corporate websites</li>
+              <li>E-commerce platforms</li>
+              <li>Landing pages</li>
+              <li>Business portals</li>
+              <li>Website maintenance</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Mobile & Web Platforms</h4>
+            <ul class="feature-list">
+              <li>SaaS platform development</li>
+              <li>Community engagement platforms</li>
+              <li>Service marketplaces</li>
+              <li>Digital directories</li>
+              <li>Client portals</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="retainer-card">
-        <h3>Corporate Plan</h3>
-        <p class="retainer-focus">Custom Built Growth</p>
-        <div class="retainer-metrics">
-          <div class="metric-line"><span class="metric-label">Main Benefit:</span><span class="metric-value">Tailored Systems</span></div>
-          <div class="metric-line"><span class="metric-label">Time Reclaimed:</span><span class="metric-value">Full Peace of Mind</span></div>
+      <!-- PILLAR 3: AI, AUTOMATION & CYBERSECURITY -->
+      <div class="matrix-pillar pillar-ai">
+        <div class="pillar-header">
+          <h3>Intelligence, Security & Cloud <span>03 / Protection & Automation</span></h3>
         </div>
-        <ul class="retainer-features">
-          <li>Custom tech setups built completely for your workflow</li>
-          <li>Direct access to our senior tech leads for planning</li>
-          <li>Complete management of your entire business operations stack</li>
-        </ul>
+        <div class="sub-grid">
+          <div class="sub-category">
+            <h4>AI Integration</h4>
+            <ul class="feature-list">
+              <li>AI-powered customer support</li>
+              <li>Business process automation</li>
+              <li>AI chatbots</li>
+              <li>Content generation systems</li>
+              <li>AI workflow optimization</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Business Automation</h4>
+            <ul class="feature-list">
+              <li>Google Workspace automation</li>
+              <li>Google Apps Script solutions</li>
+              <li>Automated reporting</li>
+              <li>CRM automation</li>
+              <li>Lead management systems</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Cybersecurity Services</h4>
+            <ul class="feature-list">
+              <li>Cybersecurity awareness training</li>
+              <li>Phishing simulation campaigns</li>
+              <li>Security assessments</li>
+              <li>Data protection consulting</li>
+              <li>Digital security best practices & planning</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
+      <!-- PILLAR 4: BRANDING, WORKPLACE & CONSULTING -->
+      <div class="matrix-pillar pillar-growth">
+        <div class="pillar-header">
+          <h3>Workplace Strategy & Branding <span>04 / Scale</span></h3>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-category">
+            <h4>Branding & Digital Marketing</h4>
+            <ul class="feature-list">
+              <li>Logo design & corporate identity</li>
+              <li>Marketing materials & company profiles</li>
+              <li>Social media management</li>
+              <li>Facebook advertising & digital campaigns</li>
+              <li>Online business promotion</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Cloud & Digital Workplace</h4>
+            <ul class="feature-list">
+              <li>Google Workspace setup & deployment</li>
+              <li>Cloud storage deployment & migration</li>
+              <li>Remote work solutions</li>
+              <li>Email systems & document management</li>
+              <li>Digital workflows & collaboration tools</li>
+            </ul>
+          </div>
+          <div class="sub-category">
+            <h4>Consulting Services</h4>
+            <ul class="feature-list">
+              <li>Digital transformation technology strategy</li>
+              <li>Business digitization & ICT advisory</li>
+              <li>Systems planning & innovation consulting</li>
+              <li>Startup & SME digital business setup</li>
+              <li>Technology roadmaps & process optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- 5. LIVE ECOSYSTEM HUB -->
   <section id="ecosystem" class="ecosystem-section">
     <div class="ecosystem-container">
       
       <div class="ecosystem-header">
-        <span class="ecosystem-badge">Our Live Projects</span>
-        <h2>Software We’ve Built. Ready to Use.</h2>
-        <p>We don't just offer monthly tech support plans—we build standalone platforms that solve real business problems. Click any card below to launch the live app.</p>
+        <span class="ecosystem-badge">Our Live Platforms</span>
+        <h2>Systems We’ve Engineered. Ready to Use.</h2>
+        <p>Beyond support retainers, we run active standalone platforms designed for regional business, collaboration, and community operations. Click any system to open its live site.</p>
       </div>
 
       <div class="ecosystem-grid">
         
+        <!-- Card 1: swifTrade -->
         <div class="platform-card swiftrade-card">
           <div class="card-content">
             <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
@@ -380,7 +548,7 @@
             </div>
             <h3>swifTrade</h3>
             <p class="tagline">Direct B2B Procurement Marketplace</p>
-            <p class="description">Cuts out the middleman by matching wholesale business buyers directly with vetted suppliers based on active, real-time product requests.</p>
+            <p class="description">Matches bulk business buyers directly to verified wholesale product suppliers based on immediate, real-time request notifications.</p>
             <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">
               <span>Launch Platform</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -388,6 +556,7 @@
           </div>
         </div>
 
+        <!-- Card 2: ConsultLink -->
         <div class="platform-card consultlink-card">
           <div class="card-content">
             <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
@@ -398,7 +567,7 @@
             </div>
             <h3>ConsultLink</h3>
             <p class="tagline">On-Demand Consultant Router</p>
-            <p class="description">Instantly links corporate teams to expert legal, technical, and professional advisors without the slow booking back-and-forth.</p>
+            <p class="description">Instantly bridges corporate environments with expert legal, medical, and specialized technical advisors to remove calendar friction.</p>
             <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">
               <span>Enter Hub</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -406,6 +575,7 @@
           </div>
         </div>
 
+        <!-- Card 3: Pulse OS ZM -->
         <div class="platform-card pulse-card">
           <div class="card-content">
             <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
@@ -415,8 +585,8 @@
               </svg>
             </div>
             <h3>Pulse OS ZM</h3>
-            <p class="tagline">Community Engagement Platform</p>
-            <p class="description">A transparent online community hub designed for tracking civic feedback, reporting local issues, and tracking real-world responses.</p>
+            <p class="tagline">Governance & Civic Issue Tracker</p>
+            <p class="description">A clear, accountable feedback platform designed for reporting local issues, organizing structured updates, and tracking public responses.</p>
             <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">
               <span>Explore OS</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -428,15 +598,20 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Vyeta. All live software platforms integrated.</p>
+    <p>&copy; 2026 Vyeta. All rights reserved.</p>
   </footer>
 
+  <!-- PRELOADER REMOVAL SCRIPT -->
   <script>
     window.addEventListener('load', () => {
       setTimeout(() => {
-        document.getElementById('preloader').classList.add('preloader-hidden');
-      }, 1200);
+        const preloader = document.getElementById('preloader');
+        if(preloader) {
+          preloader.classList.add('preloader-hidden');
+        }
+      }, 1000);
     });
   </script>
 </body>
