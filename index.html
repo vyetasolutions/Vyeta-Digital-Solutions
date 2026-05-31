@@ -211,48 +211,96 @@
       border-radius: 50%;
     }
 
-    /* --- ECOSYSTEM HUB --- */
+    /* --- UPGRADED HIGH-CONTRAST ECOSYSTEM HUB --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 80px 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 90px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
     .ecosystem-container { max-width: 1100px; margin: 0 auto; }
-    .ecosystem-header { text-align: center; margin-bottom: 44px; }
+    .ecosystem-header { text-align: center; margin-bottom: 54px; }
     .ecosystem-badge {
-      display: inline-block; padding: 4px 12px; border-radius: 99px;
+      display: inline-block; padding: 5px 14px; border-radius: 99px;
       background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.2);
-      color: #c084fc; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 12px;
+      color: #c084fc; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;
     }
-    .ecosystem-header h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+    .ecosystem-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
     
-    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 28px; }
+    
+    /* Premium Glass Cards with Neon Accent Tops */
     .platform-card {
-      background: var(--card-bg-glass); border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column;
-      transition: all 0.3s ease;
+      position: relative;
+      background: linear-gradient(180deg, rgba(20, 20, 28, 0.8) 0%, rgba(10, 10, 14, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-top-width: 3px; 
+      border-radius: 16px; 
+      padding: 36px 28px; 
+      display: flex; 
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     }
-    .platform-status { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 20px; }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; }
-    .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 8px var(--live-green); }
-    .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); }
-    .status-dot.deployment { background-color: var(--neon-magenta); box-shadow: 0 0 8px var(--neon-magenta); }
     
-    .platform-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
-    .tagline { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
-    .swiftrade-card .tagline { color: var(--neon-purple); }
-    .consultlink-card .tagline { color: var(--neon-cyan); }
-    .pulse-card .tagline { color: var(--neon-magenta); }
+    /* Specific Platform Accent Colors */
+    .swiftrade-card { border-top-color: var(--neon-purple); }
+    .consultlink-card { border-top-color: var(--neon-cyan); }
+    .pulse-card { border-top-color: var(--neon-magenta); }
     
-    .description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 24px; flex-grow: 1; }
+    .platform-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 10px var(--live-green); }
+    .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
+    .status-dot.deployment { background-color: var(--neon-magenta); box-shadow: 0 0 10px var(--neon-magenta); }
+    
+    .platform-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .tagline { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.01em; }
+    
+    .swiftrade-card .tagline { color: #a78bfa; }
+    .consultlink-card .tagline { color: #22d3ee; }
+    .pulse-card .tagline { color: #f472b6; }
+    
+    .description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 36px; flex-grow: 1; }
+    
+    /* Modern Dynamic Button Layout */
     .platform-btn {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 20px; border-radius: 10px; background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06); color: var(--text-pure-white);
-      font-size: 0.9rem; font-weight: 600; transition: all 0.2s ease;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px; 
+      border-radius: 10px; 
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+      color: var(--text-pure-white);
+      font-size: 0.9rem; 
+      font-weight: 700; 
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .platform-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.1); }
-    .platform-card:hover .platform-btn { background: var(--text-pure-white); color: var(--bg-pure-black); }
+    .platform-btn span { transition: transform 0.3s ease; }
+
+    /* --- CONTRAST HOVER INTERACTIONS --- */
+    .platform-card:hover { 
+      transform: translateY(-8px); 
+      background: linear-gradient(180deg, rgba(26, 26, 36, 0.9) 0%, rgba(12, 12, 18, 0.95) 100%);
+    }
+    
+    /* Dynamic Ambient Glows */
+    .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.15); }
+    .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.15); }
+    .pulse-card:hover { border-color: rgba(217, 70, 239, 0.3); box-shadow: 0 20px 40px -10px rgba(217, 70, 239, 0.15); }
+    
+    /* Invert Button State on Card Hover */
+    .platform-card:hover .platform-btn { 
+      background: var(--text-pure-white); 
+      color: var(--bg-pure-black); 
+      border-color: var(--text-pure-white);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+    .platform-card:hover .platform-btn span {
+      transform: translateX(3px);
+    }
 
     footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 32px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
 
@@ -442,104 +490,50 @@
 
   </section>
 
-    /* --- UPGRADED HIGH-CONTRAST ECOSYSTEM HUB --- */
-    .ecosystem-section {
-      background-color: #020203;
-      padding: 90px 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .ecosystem-container { max-width: 1100px; margin: 0 auto; }
-    .ecosystem-header { text-align: center; margin-bottom: 54px; }
-    .ecosystem-badge {
-      display: inline-block; padding: 5px 14px; border-radius: 99px;
-      background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.2);
-      color: #c084fc; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;
-    }
-    .ecosystem-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
-    
-    .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 28px; }
-    
-    /* Premium Glass Cards with Neon Accent Tops */
-    .platform-card {
-      position: relative;
-      background: linear-gradient(180deg, rgba(20, 20, 28, 0.8) 0%, rgba(10, 10, 14, 0.9) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-top-width: 3px; 
-      border-radius: 16px; 
-      padding: 36px 28px; 
-      display: flex; 
-      flex-direction: column;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    /* Specific Platform Accent Colors */
-    .swiftrade-card { border-top-color: var(--neon-purple); }
-    .consultlink-card { border-top-color: var(--neon-cyan); }
-    .pulse-card { border-top-color: var(--neon-magenta); }
-    
-    .platform-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; }
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; }
-    .status-dot.live { background-color: var(--live-green); box-shadow: 0 0 10px var(--live-green); }
-    .status-dot.mvp { background-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
-    .status-dot.deployment { background-color: var(--neon-magenta); box-shadow: 0 0 10px var(--neon-magenta); }
-    
-    .platform-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em; }
-    .tagline { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.01em; }
-    
-    .swiftrade-card .tagline { color: #a78bfa; }
-    .consultlink-card .tagline { color: #22d3ee; }
-    .pulse-card .tagline { color: #f472b6; }
-    
-    .description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 36px; flex-grow: 1; }
-    
-    /* Modern Dynamic Button Layout */
-    .platform-btn {
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 20px; 
-      border-radius: 10px; 
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08); 
-      color: var(--text-pure-white);
-      font-size: 0.9rem; 
-      font-weight: 700; 
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    .platform-btn span { transition: transform 0.3s ease; }
+  <!-- LIVE ECOSYSTEM HUB -->
+  <section id="ecosystem" class="ecosystem-section">
+    <div class="ecosystem-container">
+      <div class="ecosystem-header">
+        <span class="ecosystem-badge">Live Projects</span>
+        <h2>Standalone Production Systems</h2>
+      </div>
 
-    /* --- CONTRAST HOVER INTERACTIONS --- */
-    .platform-card:hover { 
-      transform: translateY(-8px); 
-      background: linear-gradient(180deg, rgba(26, 26, 36, 0.9) 0%, rgba(12, 12, 18, 0.95) 100%);
-    }
-    
-    /* Dynamic Ambient Glows */
-    .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.15); }
-    .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.15); }
-    .pulse-card:hover { border-color: rgba(217, 70, 239, 0.3); box-shadow: 0 20px 40px -10px rgba(217, 70, 239, 0.15); }
-    
-    /* Invert Button State on Card Hover */
-    .platform-card:hover .platform-btn { 
-      background: var(--text-pure-white); 
-      color: var(--bg-pure-black); 
-      border-color: var(--text-pure-white);
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-    }
-    .platform-card:hover .platform-btn span {
-      transform: translateX(3px);
-    }
+      <div class="ecosystem-grid">
+        <!-- Card 1: swifTrade -->
+        <div class="platform-card swiftrade-card">
+          <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
+          <h3>swifTrade</h3>
+          <p class="tagline">B2B Procurement Marketplace</p>
+          <p class="description">Connects bulk business buyers directly to verified product suppliers using instant, request-driven real-time matches.</p>
+          <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">
+            Launch Platform <span>&rarr;</span>
+          </a>
+        </div>
 
+        <!-- Card 2: ConsultLink -->
+        <div class="platform-card consultlink-card">
+          <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
+          <h3>ConsultLink</h3>
+          <p class="tagline">On-Demand Advisor Routing</p>
+          <p class="description">Bridges corporate operations teams directly to professional, legal, and specialized technical consultants on demand.</p>
+          <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">
+            Enter Hub <span>&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Card 3: Pulse OS ZM -->
+        <div class="platform-card pulse-card">
+          <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
+          <h3>Pulse OS ZM</h3>
+          <p class="tagline">Civic Issue Tracker</p>
+          <p class="description">A clear public system designed for recording community updates, tracking local feedback, and measuring responses.</p>
+          <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">
+            Explore OS <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 Vyeta. Built for performance.</p>
-  </footer>
-
 
   <!-- FOOTER -->
   <footer>
