@@ -287,22 +287,35 @@
     }
     .modal-overlay.open { opacity: 1; pointer-events: auto; }
     
+    /* MODIFIED: Fixed layout engine to safeguard mobile viewports */
     .wizard-card {
       background: #0d0d12;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       width: 100%;
       max-width: 580px;
-      padding: 32px;
       position: relative;
       box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      max-height: 85vh; /* Never lets card clip off frame */
     }
+    
     .close-wizard {
       position: absolute; top: 20px; right: 20px;
       background: transparent; border: none; color: var(--text-muted);
       font-size: 1.5rem; cursor: pointer; transition: color 0.2s;
+      z-index: 10;
     }
     .close-wizard:hover { color: white; }
+
+    /* NEW: Dedicated Scroll Viewport for lists and check-steps */
+    .wizard-scroll-container {
+      padding: 32px 32px 24px 32px;
+      overflow-y: auto;
+      flex-grow: 1;
+      -webkit-overflow-scrolling: touch;
+    }
 
     .wizard-step { display: none; }
     .wizard-step.active { display: block; animation: fadeIn 0.25s ease-forward; }
@@ -341,6 +354,16 @@
     }
     .wizard-back-btn:hover { color: white; }
 
+    /* NEW: Locked, sticky bottom drawer for escalation controls */
+    .wizard-sticky-bottom {
+      padding: 20px 32px 32px 32px;
+      background: #0d0d12;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0 0 16px 16px;
+      display: none; /* Controlled dynamically below */
+    }
+    .wizard-sticky-bottom.visible { display: block; }
+
     /* Escalation Row Layout */
     .escalate-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .esc-btn {
@@ -361,7 +384,19 @@
       .trigger-content h3 { font-size: 1.1rem; }
       .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
       .platform-btn { max-width: 1000px; }
-      .escalate-actions { grid-template-columns: 1fr; }
+      
+      /* Target mobile specifically to guarantee maximum button visibility */
+      .wizard-card {
+        max-height: 92vh;
+        margin-top: auto; /* Docks nicely on small phone screens */
+      }
+      .wizard-scroll-container {
+        padding: 24px 20px 16px 20px;
+      }
+      .wizard-sticky-bottom {
+        padding: 16px 20px 24px 20px;
+      }
+      .escalate-actions { grid-template-columns: 1fr; gap: 10px; }
     }
   </style>
 </head>
@@ -541,71 +576,79 @@
     <div class="wizard-card">
       <button class="close-wizard" id="closeModalBtn">&times;</button>
       
-      <!-- STEP 1: CATEGORY SELECTION -->
-      <div class="wizard-step active" id="step1">
-        <h3>What is giving you trouble right now?</h3>
-        <p class="step-subtitle">Select the area that needs to be fixed.</p>
-        <div class="wizard-options">
-          <button class="opt-btn" onclick="goToStep('network')">Office Wi-Fi or Internet Connection</button>
-          <button class="opt-btn" onclick="goToStep('pc')">Computers, Laptops, or Screens</button>
-          <button class="opt-btn" onclick="goToStep('mobile')">Phones or Tablets</button>
-        </div>
-      </div>
-
-      <!-- STEP 2: INTERNET / NETWORK PROBLEMS -->
-      <div class="wizard-step" id="step-network">
-        <h3>What's wrong with the internet?</h3>
-        <p class="step-subtitle">Choose the description that best fits your situation.</p>
-        <div class="wizard-options">
-          <button class="opt-btn" onclick="showSolution('net-completely-down')">The internet is completely down for everyone</button>
-          <button class="opt-btn" onclick="showSolution('net-painfully-slow')">The internet works, but pages take forever to load</button>
-          <button class="opt-btn" onclick="showSolution('net-keeps-dropping')">The Wi-Fi randomly disconnects and reconnects</button>
-        </div>
-        <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
-      </div>
-
-      <!-- STEP 2: PC / LAPTOP PROBLEMS -->
-      <div class="wizard-step" id="step-pc">
-        <h3>What is your computer doing?</h3>
-        <p class="step-subtitle">Choose the option that describes the issue.</p>
-        <div class="wizard-options">
-          <button class="opt-btn" onclick="showSolution('pc-no-power')">It won't turn on at all / Completely dead</button>
-          <button class="opt-btn" onclick="showSolution('pc-frozen')">It keeps freezing, locking up, or running slow</button>
-          <button class="opt-btn" onclick="showSolution('pc-blue-screen')">It shows an error screen (Blue Screen) or keeps restarting</button>
-        </div>
-        <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
-      </div>
-
-      <!-- STEP 2: MOBILE PROBLEMS -->
-      <div class="wizard-step" id="step-mobile">
-        <h3>What is wrong with the device?</h3>
-        <p class="step-subtitle">Choose the issue you are facing.</p>
-        <div class="wizard-options">
-          <button class="opt-btn" onclick="showSolution('mob-no-email')">Can't log into company email or work accounts</button>
-          <button class="opt-btn" onclick="showSolution('mob-battery-screen')">The screen is cracked or the battery won't hold a charge</button>
-        </div>
-        <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
-      </div>
-
-      <!-- STEP 3: EVERYDAY LANGUAGE SOLUTIONS & QUICK ESCALATION -->
-      <div class="wizard-step" id="step-solution">
-        <h3>Try these simple steps right now:</h3>
-        <p class="step-subtitle">We recommend trying this quick checklist first.</p>
+      <!-- SCROLL CONTAINER: Keeps text and lists clean and swipeable -->
+      <div class="wizard-scroll-container" id="wizardScrollArea">
         
-        <div class="diagnostic-result">
-          <h4 id="solutionTitle">Analyzing...</h4>
-          <p id="solutionBody">Please wait.</p>
+        <!-- STEP 1: CATEGORY SELECTION -->
+        <div class="wizard-step active" id="step1">
+          <h3>What is giving you trouble right now?</h3>
+          <p class="step-subtitle">Select the area that needs to be fixed.</p>
+          <div class="wizard-options">
+            <button class="opt-btn" onclick="goToStep('network')">Office Wi-Fi or Internet Connection</button>
+            <button class="opt-btn" onclick="goToStep('pc')">Computers, Laptops, or Screens</button>
+            <button class="opt-btn" onclick="goToStep('mobile')">Phones or Tablets</button>
+          </div>
         </div>
 
+        <!-- STEP 2: INTERNET / NETWORK PROBLEMS -->
+        <div class="wizard-step" id="step-network">
+          <h3>What's wrong with the internet?</h3>
+          <p class="step-subtitle">Choose the description that best fits your situation.</p>
+          <div class="wizard-options">
+            <button class="opt-btn" onclick="showSolution('net-completely-down')">The internet is completely down for everyone</button>
+            <button class="opt-btn" onclick="showSolution('net-painfully-slow')">The internet works, but pages take forever to load</button>
+            <button class="opt-btn" onclick="showSolution('net-keeps-dropping')">The Wi-Fi randomly disconnects and reconnects</button>
+          </div>
+          <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
+        </div>
+
+        <!-- STEP 2: PC / LAPTOP PROBLEMS -->
+        <div class="wizard-step" id="step-pc">
+          <h3>What is your computer doing?</h3>
+          <p class="step-subtitle">Choose the option that describes the issue.</p>
+          <div class="wizard-options">
+            <button class="opt-btn" onclick="showSolution('pc-no-power')">It won't turn on at all / Completely dead</button>
+            <button class="opt-btn" onclick="showSolution('pc-frozen')">It keeps freezing, locking up, or running slow</button>
+            <button class="opt-btn" onclick="showSolution('pc-blue-screen')">It shows an error screen (Blue Screen) or keeps restarting</button>
+          </div>
+          <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
+        </div>
+
+        <!-- STEP 2: MOBILE PROBLEMS -->
+        <div class="wizard-step" id="step-mobile">
+          <h3>What is wrong with the device?</h3>
+          <p class="step-subtitle">Choose the issue you are facing.</p>
+          <div class="wizard-options">
+            <button class="opt-btn" onclick="showSolution('mob-no-email')">Can't log into company email or work accounts</button>
+            <button class="opt-btn" onclick="showSolution('mob-battery-screen')">The screen is cracked or the battery won't hold a charge</button>
+          </div>
+          <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
+        </div>
+
+        <!-- STEP 3: EVERYDAY LANGUAGE SOLUTIONS -->
+        <div class="wizard-step" id="step-solution">
+          <h3>Try these simple steps right now:</h3>
+          <p class="step-subtitle">We recommend trying this quick checklist first.</p>
+          
+          <div class="diagnostic-result">
+            <h4 id="solutionTitle">Analyzing...</h4>
+            <p id="solutionBody">Please wait.</p>
+          </div>
+          
+          <button class="wizard-back-btn" onclick="goBackToSubStep()">&larr; Back to Symptoms</button>
+        </div>
+
+      </div>
+
+      <!-- FIXED DRAWER: Escalation layer locks to the bottom edge seamlessly -->
+      <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
-        <p class="step-subtitle" style="margin-bottom: 16px;">If you tried the steps above and are still stuck, tap below to chat with us immediately or book a thorough system audit.</p>
+        <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
         
         <div class="escalate-actions">
           <a href="#" id="whatsappBtn" target="_blank" class="esc-btn esc-whatsapp">Chat on WhatsApp</a>
           <a href="#" id="emailBtn" class="esc-btn esc-email">Request Rapid Audit</a>
         </div>
-        
-        <button class="wizard-back-btn" onclick="goBackToSubStep()">&larr; Back to Symptoms</button>
       </div>
 
     </div>
@@ -639,6 +682,8 @@
 
     // Modal Control Engine
     const modal = document.getElementById('auditModal');
+    const scrollArea = document.getElementById('wizardScrollArea');
+    const stickyDrawer = document.getElementById('stickyBottomDrawer');
     let currentCategory = '';
 
     document.querySelectorAll('.trigger-audit').forEach(button => {
@@ -659,6 +704,9 @@
 
     function goToStep(step) {
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
+      stickyDrawer.classList.remove('visible'); // Hide buttons by default on routing selections
+      scrollArea.scrollTop = 0; // Auto-reset scroll position when changing views
+
       if (step === 1) {
         document.getElementById('step1').classList.add('active');
       } else {
@@ -732,6 +780,10 @@
 
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-solution').classList.add('active');
+      
+      // Reveal sticky bottom buttons right when the user views the solution checklist
+      stickyDrawer.classList.add('visible');
+      scrollArea.scrollTop = 0;
     }
   </script>
 </body>
