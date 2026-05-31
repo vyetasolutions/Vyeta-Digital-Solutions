@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vyeta | Systems & Infrastructure</title>
+  <title>Vyeta | Corporate IT Retainers & Digital Systems</title>
   <style>
     /* --- PREMIUM SAAS DESIGN SYSTEM --- */
     :root {
@@ -70,6 +70,7 @@
       color: var(--text-muted);
     }
     .nav-links a:hover { color: var(--text-pure-white); }
+    
     .cta-nav-btn {
       background: var(--text-pure-white);
       color: var(--bg-pure-black);
@@ -78,11 +79,16 @@
       font-weight: 600;
       font-size: 0.85rem;
       text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-nav-btn:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
     }
 
-    /* --- COMPACT HERO --- */
+    /* --- HIGH-CONVERSION VALUE HERO --- */
     .hero {
-      padding: 160px 24px 60px 24px;
+      padding: 180px 24px 80px 24px;
       text-align: center;
     }
     .hero-badge {
@@ -94,36 +100,78 @@
       color: #60a5fa;
       font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.4rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      max-width: 700px;
-      margin: 0 auto 16px auto;
-      line-height: 1.2;
+      max-width: 850px;
+      margin: 0 auto 20px auto;
+      line-height: 1.15;
     }
     .hero h1 span {
-      background: linear-gradient(to right, #ffffff, var(--vyeta-blue));
+      background: linear-gradient(to right, #ffffff, #93c5fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p {
       color: var(--text-muted);
-      font-size: 1.15rem;
-      max-width: 550px;
-      margin: 0 auto;
+      font-size: 1.25rem;
+      max-width: 620px;
+      margin: 0 auto 36px auto;
+    }
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .btn-primary {
+      background: var(--vyeta-blue);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    /* --- MODERN COMPACT UI/UX SERVICES INTERFACE --- */
+    /* --- BUSINESS REVENUE CAPABILITIES GRID --- */
     .services-section {
-      padding: 40px 24px 80px 24px;
+      padding: 60px 24px 100px 24px;
       max-width: 1100px;
       margin: 0 auto;
     }
+    .section-label {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-label h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
     
-    /* Segmented Control / Tab Switcher Container */
     .tabs-control-hub {
       display: flex;
       justify-content: center;
@@ -137,13 +185,13 @@
       padding: 6px;
       border-radius: 14px;
       width: 100%;
-      max-width: 720px;
+      max-width: 760px;
     }
     .tab-trigger {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 12px 8px;
+      padding: 14px 8px;
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
@@ -151,70 +199,115 @@
       transition: all 0.2s ease;
       text-align: center;
     }
-    .tab-trigger:hover {
-      color: var(--text-pure-white);
-    }
+    .tab-trigger:hover { color: var(--text-pure-white); }
     
-    /* Dynamic active indicators based on color scheme */
     .tab-trigger.active[data-target="infra"] { background: var(--vyeta-blue); color: #fff; }
     .tab-trigger.active[data-target="apps"] { background: var(--neon-purple); color: #fff; }
     .tab-trigger.active[data-target="ai"] { background: var(--neon-cyan); color: #fff; }
     .tab-trigger.active[data-target="growth"] { background: var(--neon-magenta); color: #fff; }
 
-    /* Content Pane Visibility Logic */
     .tab-pane {
       display: none;
-      animation: fadeIn 0.4s ease forwards;
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .tab-pane.pane-active {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 24px;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Sleek Mini Cards */
     .mini-service-card {
       background: var(--card-bg-glass);
       border: 1px solid rgba(255, 255, 255, 0.04);
       border-radius: 16px;
-      padding: 28px;
+      padding: 32px;
       backdrop-filter: blur(12px);
     }
     .mini-service-card h4 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .mini-service-card ul {
-      list-style: none;
-    }
-    .mini-service-card ul li {
-      font-size: 0.9rem;
-      color: var(--text-muted);
       margin-bottom: 8px;
+    }
+    .card-problem-statement {
+      font-size: 0.85rem;
+      color: #f87171;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .mini-service-card ul { list-style: none; }
+    .mini-service-card ul li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
       display: flex;
-      align-items: center;
-      gap: 8px;
+      align-items: flex-start;
+      gap: 10px;
     }
     .mini-service-card ul li::before {
-      content: "";
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
+      content: "✓";
+      color: var(--live-green);
+      font-weight: 700;
     }
 
-    /* --- UPGRADED HIGH-CONTRAST ECOSYSTEM HUB --- */
+    /* --- STRATEGIC PACKAGES & RETAINERS --- */
+    .packages-section {
+      background: #09090e;
+      padding: 100px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .packages-container { max-width: 1100px; margin: 0 auto; }
+    .packages-header { text-align: center; margin-bottom: 60px; }
+    .packages-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .packages-header p { color: var(--text-muted); max-width: 500px; margin: 0 auto; }
+    
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .package-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .package-card.featured {
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.03) 0%, rgba(5, 5, 7, 0) 100%);
+    }
+    .package-badge {
+      position: absolute; top: -12px; left: 32px;
+      background: var(--vyeta-blue); color: white;
+      padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;
+    }
+    .package-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+    .package-card .scope { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+    .package-features { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+    .package-features li { font-size: 0.95rem; margin-bottom: 14px; color: #cbd5e1; display: flex; gap: 10px; }
+    .package-features li::before { content: "→"; color: var(--vyeta-blue); font-weight: 700; }
+    
+    .package-btn {
+      display: block; text-align: center; padding: 14px; border-radius: 8px;
+      font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: all 0.2s ease;
+    }
+    .package-card .package-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: white; }
+    .package-card.featured .package-btn { background: white; color: black; }
+    .package-card .package-btn:hover { background: rgba(255, 255, 255, 0.1); }
+    .package-card.featured .package-btn:hover { background: #e2e8f0; }
+
+    /* --- LIVE ECOSYSTEM HUB --- */
     .ecosystem-section {
       background-color: #020203;
-      padding: 90px 24px;
+      padding: 100px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
     .ecosystem-container { max-width: 1100px; margin: 0 auto; }
@@ -228,7 +321,6 @@
     
     .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 28px; }
     
-    /* Premium Glass Cards with Neon Accent Tops */
     .platform-card {
       position: relative;
       background: linear-gradient(180deg, rgba(20, 20, 28, 0.8) 0%, rgba(10, 10, 14, 0.9) 100%);
@@ -242,7 +334,6 @@
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     }
     
-    /* Specific Platform Accent Colors */
     .swiftrade-card { border-top-color: var(--neon-purple); }
     .consultlink-card { border-top-color: var(--neon-cyan); }
     .pulse-card { border-top-color: var(--neon-magenta); }
@@ -262,7 +353,6 @@
     
     .description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 36px; flex-grow: 1; }
     
-    /* Modern Dynamic Button Layout */
     .platform-btn {
       display: flex; 
       align-items: center; 
@@ -280,32 +370,29 @@
     }
     .platform-btn span { transition: transform 0.3s ease; }
 
-    /* --- CONTRAST HOVER INTERACTIONS --- */
     .platform-card:hover { 
       transform: translateY(-8px); 
       background: linear-gradient(180deg, rgba(26, 26, 36, 0.9) 0%, rgba(12, 12, 18, 0.95) 100%);
     }
     
-    /* Dynamic Ambient Glows */
     .swiftrade-card:hover { border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.15); }
     .consultlink-card:hover { border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.15); }
     .pulse-card:hover { border-color: rgba(217, 70, 239, 0.3); box-shadow: 0 20px 40px -10px rgba(217, 70, 239, 0.15); }
     
-    /* Invert Button State on Card Hover */
     .platform-card:hover .platform-btn { 
       background: var(--text-pure-white); 
       color: var(--bg-pure-black); 
       border-color: var(--text-pure-white);
       box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
     }
-    .platform-card:hover .platform-btn span {
-      transform: translateX(3px);
-    }
+    .platform-card:hover .platform-btn span { transform: translateX(3px); }
 
-    footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 32px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
 
-    @media (max-width: 680px) {
-      .hero h1 { font-size: 2.2rem; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero-cta-group { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
       .nav-links { display: none; }
       .tabs-navbar { grid-template-columns: 1fr; gap: 4px; }
     }
@@ -317,7 +404,6 @@
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
-        <!-- RENDER-SAFE INLINE SVG FOR LOGO -->
         <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="25" cy="25" r="12" fill="#2563eb"/>
           <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#2563eb"/>
@@ -325,27 +411,34 @@
         <span>vyeta</span>
       </div>
       <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#ecosystem">Live Systems</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#retainers">Retainer Packages</a>
+        <a href="#ecosystem">Our Products</a>
       </nav>
-      <a href="mailto:operations@vyeta.com" class="cta-nav-btn">Contact</a>
+      <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit%20Request" class="cta-nav-btn">Request Audit</a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION: RE-ENGINEERED FOR VALUE -->
   <section class="hero">
-    <div class="hero-badge">Systems & Support Architecture</div>
-    <h1>We build and maintain setups that <span>save you time</span>.</h1>
-    <p>Zero friction tech support, day-to-day corporate IT management, and rapid custom software built for direct workflow utility.</p>
+    <div class="hero-badge">Enterprise Operations & Infrastructure</div>
+    <h1>We manage your corporate IT infrastructure so your business <span>never loses a minute</span>.</h1>
+    <p>Zero-friction corporate tech support, secure networks, and custom-engineered automation pipelines built to protect your operational capacity.</p>
+    <div class="hero-cta-group">
+      <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit%20Request" class="btn-primary">Book an IT Infrastructure Audit</a>
+      <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
+    </div>
   </section>
 
-  <!-- DYNAMIC UX CAPABILITIES COMPONENT -->
-  <section id="services" class="services-section">
+  <!-- CAPABILITIES INTERFACE: REFOCUSED ON ELIMINATING PAIN POINTS -->
+  <section id="capabilities" class="services-section">
+    <div class="section-label">
+      <h3>Operational Engineering Capabilities</h3>
+    </div>
     
-    <!-- Tab Controls Menu -->
     <div class="tabs-control-hub">
       <div class="tabs-navbar">
-        <button class="tab-trigger active" data-target="infra">ICT Solutions</button>
+        <button class="tab-trigger active" data-target="infra">ICT & Infra</button>
         <button class="tab-trigger" data-target="apps">Software</button>
         <button class="tab-trigger" data-target="ai">Automation & Cyber</button>
         <button class="tab-trigger" data-target="growth">Strategy & Brand</button>
@@ -355,33 +448,30 @@
     <!-- PANE 1: ICT & INFRASTRUCTURE -->
     <div class="tab-pane pane-active" id="infra">
       <div class="mini-service-card">
-        <h4 style="color: var(--vyeta-blue)">IT Support & Maintenance</h4>
+        <h4 style="color: var(--vyeta-blue)">Retainer IT Support</h4>
+        <p class="card-problem-statement">Eliminates: Idle Staff & System Downtime</p>
         <ul>
-          <li>Computer troubleshooting & repairs</li>
-          <li>Network setup & maintenance</li>
-          <li>Software installation & support</li>
-          <li>IT infrastructure management</li>
-          <li>Remote technical support</li>
+          <li>Immediate hardware & computer troubleshooting</li>
+          <li>Corporate network tuning and fault protection</li>
+          <li>Remote real-time technical helpdesk for operations</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--vyeta-blue)">Networking & Infrastructure</h4>
+        <h4 style="color: var(--vyeta-blue)">Secure Networks</h4>
+        <p class="card-problem-statement">Eliminates: Dropped Connections & Weak Wi-Fi</p>
         <ul>
-          <li>Office network installation</li>
-          <li>Router & switch configuration</li>
-          <li>Enterprise Wi-Fi deployment</li>
-          <li>Server setup & management</li>
-          <li>Structured cabling solutions</li>
+          <li>Enterprise-grade multi-office network installation</li>
+          <li>Managed router, switch, and secure firewall configuration</li>
+          <li>Structured clean cabling for corporate office layout</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--vyeta-blue)">Hardware Supply & Procurement</h4>
+        <h4 style="color: var(--vyeta-blue)">Hardware Sourcing</h4>
+        <p class="card-problem-statement">Eliminates: Overpriced, Unverified Equipment</p>
         <ul>
-          <li>Corporate computers & laptops</li>
-          <li>Printers & smart accessories</li>
-          <li>Network hardware sourcing</li>
-          <li>Office IT equipment sourcing</li>
-          <li>Custom hardware procurement</li>
+          <li>Procurement of corporate server builds & laptops</li>
+          <li>High-capacity network arrays and accessories</li>
+          <li>End-to-end direct logistics and deployment</li>
         </ul>
       </div>
     </div>
@@ -389,33 +479,30 @@
     <!-- PANE 2: SOFTWARE & APPLICATIONS -->
     <div class="tab-pane" id="apps">
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-purple)">Custom Software</h4>
+        <h4 style="color: var(--neon-purple)">Custom Internal Software</h4>
+        <p class="card-problem-statement">Eliminates: Fragmented Office Workflows</p>
         <ul>
-          <li>Business management engines</li>
-          <li>School management setups</li>
-          <li>Inventory management systems</li>
-          <li>Internal customer portals</li>
-          <li>Scalable web applications</li>
+          <li>Tailored business management and billing engines</li>
+          <li>Secure asset tracking and inventory systems</li>
+          <li>Internal corporate customer portals</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-purple)">Website Development</h4>
+        <h4 style="color: var(--neon-purple)">Corporate Web Systems</h4>
+        <p class="card-problem-statement">Eliminates: Slow, Outdated Web Assets</p>
         <ul>
-          <li>High-performance corporate sites</li>
-          <li>E-commerce checkout platforms</li>
-          <li>Optimized landing environments</li>
-          <li>Interactive business portals</li>
-          <li>Continuous site maintenance</li>
+          <li>High-speed custom enterprise environments</li>
+          <li>E-commerce systems with integrated checkouts</li>
+          <li>Continuous system updates and performance monitoring</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-purple)">Mobile & Web Platforms</h4>
+        <h4 style="color: var(--neon-purple)">Platform MVPs</h4>
+        <p class="card-problem-statement">Eliminates: High-Cost Development Failures</p>
         <ul>
-          <li>SaaS product architecture</li>
-          <li>Community engagement tools</li>
-          <li>Service matching marketplaces</li>
-          <li>Digital registries & directories</li>
-          <li>Custom client hubs</li>
+          <li>Rapid deployment of web service architectures</li>
+          <li>Custom client hubs and market request portals</li>
+          <li>Lightweight data models built for quick scaling</li>
         </ul>
       </div>
     </div>
@@ -423,33 +510,30 @@
     <!-- PANE 3: AI, AUTOMATION & SECURITY -->
     <div class="tab-pane" id="ai">
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-cyan)">AI Integration</h4>
+        <h4 style="color: var(--neon-cyan)">Workflow Automation</h4>
+        <p class="card-problem-statement">Eliminates: Slow Manual Data Entry</p>
         <ul>
-          <li>AI-powered customer support</li>
-          <li>Business process automation</li>
-          <li>Intelligent support chatbots</li>
-          <li>Automated content engines</li>
-          <li>AI team workflow optimization</li>
+          <li>Custom Google Workspace backends and scripting</li>
+          <li>Automated operational reporting direct to email</li>
+          <li>CRM data pipeline and lead sync integrations</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-cyan)">Business Automation</h4>
+        <h4 style="color: var(--neon-cyan)">Intelligent Support</h4>
+        <p class="card-problem-statement">Eliminates: Missed Client Inquiries</p>
         <ul>
-          <li>Google Workspace integration</li>
-          <li>Google Apps Script engineering</li>
-          <li>Automated operational reporting</li>
-          <li>CRM automation pipelines</li>
-          <li>Lead management setups</li>
+          <li>Context-aware automated business chatbots</li>
+          <li>Internal team knowledge bases driven by AI</li>
+          <li>Smart automated customer routing models</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-cyan)">Cybersecurity Services</h4>
+        <h4 style="color: var(--neon-cyan)">Cyber Defense</h4>
+        <p class="card-problem-statement">Eliminates: Data Breaches & Phishing Risks</p>
         <ul>
-          <li>Phishing simulation drills</li>
-          <li>Corporate security assessments</li>
-          <li>Data protection & safety advice</li>
-          <li>Employee awareness workshops</li>
-          <li>Incident response planning</li>
+          <li>Corporate network threat evaluations</li>
+          <li>Controlled phishing simulation training drills</li>
+          <li>Comprehensive employee access safety blueprints</li>
         </ul>
       </div>
     </div>
@@ -457,37 +541,85 @@
     <!-- PANE 4: STRATEGY & WORKPLACE -->
     <div class="tab-pane" id="growth">
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-magenta)">Cloud & Workplace</h4>
+        <h4 style="color: var(--neon-magenta)">Cloud Workplace</h4>
+        <p class="card-problem-statement">Eliminates: Disconnected Distributed Teams</p>
         <ul>
-          <li>Enterprise Google Workspace setup</li>
-          <li>Secure data cloud migration</li>
-          <li>Remote office collaboration tools</li>
-          <li>Corporate email configurations</li>
-          <li>Document management systems</li>
+          <li>Unified Google Workspace system migrations</li>
+          <li>Secure shared storage and credential structures</li>
+          <li>Centralized corporate email setup</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-magenta)">Consulting & Strategy</h4>
+        <h4 style="color: var(--neon-magenta)">Tech Consulting</h4>
+        <p class="card-problem-statement">Eliminates: Blind, Unstructured Tech Spend</p>
         <ul>
-          <li>Digital transformation planning</li>
-          <li>Business digitization advisory</li>
-          <li>Technology blueprints & roadmaps</li>
-          <li>SME structural tech setup</li>
-          <li>Operational process optimization</li>
+          <li>Digital transformation blueprints for SMEs</li>
+          <li>Operational workflow scaling reviews</li>
+          <li>Software design architecture plans</li>
         </ul>
       </div>
       <div class="mini-service-card">
-        <h4 style="color: var(--neon-magenta)">Branding & Marketing</h4>
+        <h4 style="color: var(--neon-magenta)">Corporate Presence</h4>
+        <p class="card-problem-statement">Eliminates: Weak, Unprofessional Digital Identity</p>
         <ul>
-          <li>Minimalist logo & brand assets</li>
-          <li>Corporate identity development</li>
-          <li>Social media performance management</li>
-          <li>Targeted online advertising campaigns</li>
-          <li>Company profiles & materials</li>
+          <li>Minimalist high-contrast brand assets</li>
+          <li>Polished pitch assets and company profiles</li>
+          <li>Targeted online placement asset management</li>
         </ul>
       </div>
     </div>
+  </section>
 
+  <!-- STRATEGIC RETAINER TIERING TABLE -->
+  <section id="retainers" class="packages-section">
+    <div class="packages-container">
+      <div class="packages-header">
+        <h2>Predictable Operational Retainers</h2>
+        <p>Secure premium ICT retainers, priority engineering support, and routine architecture maintenance.</p>
+      </div>
+      
+      <div class="packages-grid">
+        <!-- Tier 1 -->
+        <div class="package-card">
+          <h3>Essential Plan</h3>
+          <p class="scope">Ideal for growing teams needing core stability.</p>
+          <ul class="package-features">
+            <li>Scheduled hardware & network maintenance</li>
+            <li>Remote business technical helpdesk</li>
+            <li>Basic cloud asset configuration</li>
+            <li>Guaranteed next-day incident response</li>
+          </ul>
+          <a href="mailto:operations@vyeta.com?subject=Essential%20Retainer%20Inquiry" class="package-btn">Select Essential</a>
+        </div>
+        
+        <!-- Tier 2 -->
+        <div class="package-card featured">
+          <div class="package-badge">Most Demanded</div>
+          <h3>Professional Plan</h3>
+          <p class="scope">Complete operational coverage for active companies.</p>
+          <ul class="package-features">
+            <li>Priority 24/7 network & device monitoring</li>
+            <li>Same-day urgent on-site technical support</li>
+            <li>Custom Google Workspace automated reporting</li>
+            <li>Quarterly infrastructure threat assessments</li>
+          </ul>
+          <a href="mailto:operations@vyeta.com?subject=Professional%20Retainer%20Inquiry" class="package-btn">Deploy Professional</a>
+        </div>
+        
+        <!-- Tier 3 -->
+        <div class="package-card">
+          <h3>Corporate Plan</h3>
+          <p class="scope">For enterprises demanding custom system engineering.</p>
+          <ul class="package-features">
+            <li>Dedicated enterprise infrastructure support</li>
+            <li>Unlimited software updates & custom script tweaks</li>
+            <li>Full cyber defense drills & simulations</li>
+            <li>Direct technology officer strategic planning</li>
+          </ul>
+          <a href="mailto:operations@vyeta.com?subject=Corporate%20Retainer%20Inquiry" class="package-btn">Contact Board</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- LIVE ECOSYSTEM HUB -->
@@ -495,11 +627,10 @@
     <div class="ecosystem-container">
       <div class="ecosystem-header">
         <span class="ecosystem-badge">Live Projects</span>
-        <h2>Standalone Production Systems</h2>
+        <h2>Our Flagship Digital Products</h2>
       </div>
 
       <div class="ecosystem-grid">
-        <!-- Card 1: swifTrade -->
         <div class="platform-card swiftrade-card">
           <div class="platform-status"><span class="status-dot live"></span> Live Platform</div>
           <h3>swifTrade</h3>
@@ -510,7 +641,6 @@
           </a>
         </div>
 
-        <!-- Card 2: ConsultLink -->
         <div class="platform-card consultlink-card">
           <div class="platform-status"><span class="status-dot mvp"></span> Live Preview</div>
           <h3>ConsultLink</h3>
@@ -521,7 +651,6 @@
           </a>
         </div>
 
-        <!-- Card 3: Pulse OS ZM -->
         <div class="platform-card pulse-card">
           <div class="platform-status"><span class="status-dot deployment"></span> Operational</div>
           <h3>Pulse OS ZM</h3>
@@ -542,17 +671,14 @@
 
   <!-- LIGHTWEIGHT INTERACTIVE ENGINE SCRIPT -->
   <script>
-    // Tab Controller Action
     const triggers = document.querySelectorAll('.tab-trigger');
     const panes = document.querySelectorAll('.tab-pane');
 
     triggers.forEach(trigger => {
       trigger.addEventListener('click', () => {
-        // Clear past active indicators
         triggers.forEach(t => t.classList.remove('active'));
         panes.forEach(p => p.classList.remove('pane-active'));
 
-        // Assign current active selections
         trigger.classList.add('active');
         const targetId = trigger.getAttribute('data-target');
         document.getElementById(targetId).classList.add('pane-active');
