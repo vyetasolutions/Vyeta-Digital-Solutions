@@ -35,9 +35,56 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow-x: hidden;
       line-height: 1.4;
+      position: relative;
     }
 
-    /* --- CASCADING SCROLL MOTION ENGINE --- */
+    /* --- PARALLAX AMBIENT BACKGROUND ENGINE --- */
+    .parallax-bg-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .parallax-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.25;
+      will-change: transform;
+      transform: translate3d(0, 0, 0); /* Forces hardware acceleration */
+    }
+
+    /* Target Placement & Branding Colors for Orbs */
+    .orb-purple {
+      width: 450px;
+      height: 450px;
+      background: var(--purple);
+      top: -10%;
+      left: -10%;
+    }
+
+    .orb-cyan {
+      width: 550px;
+      height: 550px;
+      background: var(--cyan);
+      top: 40%;
+      right: -15%;
+    }
+
+    .orb-magenta {
+      width: 400px;
+      height: 400px;
+      background: var(--magenta);
+      bottom: -10%;
+      left: 15%;
+    }
+
+    /* --- CASCADING SCROLL MOTION ENGINE (FOREGROUND REVEAL) --- */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -96,10 +143,12 @@
 
     /* --- HERO --- */
     .hero {
-      padding: 140px 24px 40px 24px;
+      padding: 180px 24px 60px 24px;
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
     .hero h1 {
       font-size: 2.8rem;
@@ -137,6 +186,8 @@
       padding: 40px 24px 60px 24px;
       max-width: 700px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
     .engine-section h2 {
       font-size: 1.4rem;
@@ -236,9 +287,13 @@
 
     /* --- HIGH-CHARACTER PRODUCTS SECTION (GLASS) --- */
     .ecosystem-section {
-      background-color: #010102;
+      background-color: rgba(1, 1, 2, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 90px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.03);
+      position: relative;
+      z-index: 2;
     }
     .ecosystem-container { max-width: 850px; margin: 0 auto; }
     .ecosystem-header { text-align: center; margin-bottom: 54px; }
@@ -408,7 +463,7 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-    footer { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+    footer { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); position: relative; z-index: 2; }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
@@ -423,10 +478,19 @@
       .wizard-scroll-container { padding: 24px 20px 16px 20px; }
       .wizard-sticky-bottom { padding: 16px 20px 24px 20px; }
       .escalate-actions { grid-template-columns: 1fr; gap: 10px; }
+      
+      .parallax-orb { filter: blur(90px); opacity: 0.18; } /* Lighter rendering for mobile battery optimization */
     }
   </style>
 </head>
 <body>
+
+  <!-- PARALLAX BACKGROUND ELEMENT WRAPPER -->
+  <div class="parallax-bg-wrapper">
+    <div class="parallax-orb orb-purple" data-speed="0.15"></div>
+    <div class="parallax-orb orb-cyan" data-speed="-0.08"></div>
+    <div class="parallax-orb orb-magenta" data-speed="0.2"></div>
+  </div>
 
   <!-- NAVIGATION -->
   <header class="navbar">
@@ -690,7 +754,24 @@
 
   <!-- SCRIPT ENGINE -->
   <script>
-    // Reveal Observer Engine
+    // --- PERFORMANCE OPTIMIZED PARALLAX ENGINE ---
+    const orbs = document.querySelectorAll('.parallax-orb');
+    
+    window.addEventListener('scroll', () => {
+      // requestAnimationFrame handles the calculations at exactly the screen's refresh rate (e.g., 60Hz/120Hz)
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        
+        orbs.forEach(orb => {
+          const speed = parseFloat(orb.getAttribute('data-speed'));
+          const yPos = scrolled * speed;
+          // translate3d bypasses the CPU and renders directly via GPU to preserve glassmorphism frame rates
+          orb.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        });
+      });
+    }, { passive: true }); // passive: true ensures scrolling response remains completely instantaneous
+
+    // --- REVEAL ON SCROLL ENGINE ---
     const revealOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -705,7 +786,7 @@
       document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     });
 
-    // Accordion Logic
+    // --- ACCORDION LOGIC ---
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', function() {
         const item = this.closest('.accordion-item');
@@ -724,7 +805,7 @@
       });
     });
 
-    // Modal Control System
+    // --- DIAGNOSTIC MODAL CONTROL SYSTEM ---
     const modal = document.getElementById('auditModal');
     const scrollArea = document.getElementById('wizardScrollArea');
     const stickyDrawer = document.getElementById('stickyBottomDrawer');
