@@ -67,6 +67,8 @@
       font-weight: 600;
       font-size: 0.85rem;
       text-decoration: none;
+      cursor: pointer;
+      border: none;
     }
 
     /* --- COMPACT HERO --- */
@@ -102,6 +104,9 @@
       font-weight: 600;
       text-decoration: none;
       box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
 
     /* --- CONVERSION ENGINE: ACTIONABLE ACCORDIONS --- */
@@ -205,27 +210,11 @@
       padding: 90px 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .ecosystem-container { 
-      max-width: 850px; 
-      margin: 0 auto; 
-    }
-    .ecosystem-header { 
-      text-align: center; 
-      margin-bottom: 54px; 
-    }
-    .ecosystem-header h2 { 
-      font-size: 1.8rem; 
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
+    .ecosystem-container { max-width: 850px; margin: 0 auto; }
+    .ecosystem-header { text-align: center; margin-bottom: 54px; }
+    .ecosystem-header h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
 
-    /* Stacked Layout for Individual Section Character */
-    .product-showcase {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
+    .product-showcase { display: flex; flex-direction: column; gap: 40px; }
     .platform-row {
       position: relative;
       background: linear-gradient(135deg, rgba(15, 15, 22, 0.8) 0%, rgba(5, 5, 8, 0.9) 100%);
@@ -238,138 +227,132 @@
       align-items: center;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    /* Left-Accent Color Indicator Bars */
     .platform-row::before {
-      content: "";
-      position: absolute;
-      left: 0; top: 20%; bottom: 20%;
-      width: 4px;
-      border-radius: 0 4px 4px 0;
-      transition: all 0.4s ease;
+      content: ""; position: absolute; left: 0; top: 20%; bottom: 20%; width: 4px; border-radius: 0 4px 4px 0; transition: all 0.4s ease;
     }
+    .product-title { font-size: 2.2rem; font-weight: 900; letter-spacing: -0.04em; margin-bottom: 4px; }
+    .platform-row .tagline { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .platform-row .description { font-size: 1rem; color: var(--text-muted); line-height: 1.5; }
 
-    /* Product Name Typography & Coloring */
-    .product-title {
-      font-size: 2.2rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin-bottom: 4px;
-    }
-    
-    .platform-row .tagline { 
-      font-size: 0.9rem; 
-      font-weight: 700; 
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px; 
-    }
-    .platform-row .description { 
-      font-size: 1rem; 
-      color: var(--text-muted); 
-      line-height: 1.5;
-    }
-
-    /* Status Badges */
     .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 99px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted); margin-bottom: 16px;
     }
     .status-dot { width: 6px; height: 6px; border-radius: 50%; }
 
-    /* Interactive Call To Actions */
     .platform-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 24px; 
-      border-radius: 8px; 
-      background: transparent;
-      color: var(--text);
-      font-size: 0.9rem; 
-      font-weight: 700; 
-      text-decoration: none;
-      transition: all 0.3s ease;
-      width: 100%;
-      max-width: 220px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 8px; 
+      background: transparent; color: var(--text); font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease;
+      width: 100%; max-width: 220px;
     }
 
-    /* Individual Character Customization */
-    
-    /* 1. swifTrade Styles */
-    .row-swiftrade .product-title {
-      color: var(--swiftrade-glow);
-      text-shadow: 0 0 30px rgba(167, 139, 250, 0.15);
-    }
+    .row-swiftrade .product-title { color: var(--swiftrade-glow); text-shadow: 0 0 30px rgba(167, 139, 250, 0.15); }
     .row-swiftrade .tagline { color: #8b5cf6; }
     .row-swiftrade::before { background: var(--swiftrade-glow); }
     .row-swiftrade .platform-btn { border: 1px solid rgba(167, 139, 250, 0.3); }
     .row-swiftrade .status-dot { background: var(--green); box-shadow: 0 0 8px var(--green); }
-    
-    .row-swiftrade:hover {
-      border-color: rgba(167, 139, 250, 0.2);
-      box-shadow: 0 20px 40px -15px rgba(167, 139, 250, 0.1);
-    }
-    .row-swiftrade:hover .platform-btn {
-      background: var(--swiftrade-glow);
-      color: #000;
-      border-color: var(--swiftrade-glow);
-      box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
-    }
+    .row-swiftrade:hover { border-color: rgba(167, 139, 250, 0.2); box-shadow: 0 20px 40px -15px rgba(167, 139, 250, 0.1); }
+    .row-swiftrade:hover .platform-btn { background: var(--swiftrade-glow); color: #000; border-color: var(--swiftrade-glow); box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3); }
 
-    /* 2. ConsultLink Styles */
-    .row-consultlink .product-title {
-      color: var(--consultlink-glow);
-      text-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
-    }
+    .row-consultlink .product-title { color: var(--consultlink-glow); text-shadow: 0 0 30px rgba(34, 211, 238, 0.15); }
     .row-consultlink .tagline { color: #06b6d4; }
     .row-consultlink::before { background: var(--consultlink-glow); }
     .row-consultlink .platform-btn { border: 1px solid rgba(34, 211, 238, 0.3); }
     .row-consultlink .status-dot { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+    .row-consultlink:hover { border-color: rgba(34, 211, 238, 0.2); box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.1); }
+    .row-consultlink:hover .platform-btn { background: var(--consultlink-glow); color: #000; border-color: var(--consultlink-glow); box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3); }
 
-    .row-consultlink:hover {
-      border-color: rgba(34, 211, 238, 0.2);
-      box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.1);
-    }
-    .row-consultlink:hover .platform-btn {
-      background: var(--consultlink-glow);
-      color: #000;
-      border-color: var(--consultlink-glow);
-      box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
-    }
-
-    /* 3. Pulse OS Styles */
-    .row-pulse .product-title {
-      color: var(--pulse-glow);
-      text-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
-    }
+    .row-pulse .product-title { color: var(--pulse-glow); text-shadow: 0 0 30px rgba(244, 114, 182, 0.15); }
     .row-pulse .tagline { color: #d946ef; }
     .row-pulse::before { background: var(--pulse-glow); }
     .row-pulse .platform-btn { border: 1px solid rgba(244, 114, 182, 0.3); }
     .row-pulse .status-dot { background: var(--magenta); box-shadow: 0 0 8px var(--magenta); }
+    .row-pulse:hover { border-color: rgba(244, 114, 182, 0.2); box-shadow: 0 20px 40px -15px rgba(244, 114, 182, 0.1); }
+    .row-pulse:hover .platform-btn { background: var(--pulse-glow); color: #000; border-color: var(--pulse-glow); box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3); }
 
-    .row-pulse:hover {
-      border-color: rgba(244, 114, 182, 0.2);
-      box-shadow: 0 20px 40px -15px rgba(244, 114, 182, 0.1);
+    /* --- DYNAMIC FLOW ENGINE MODAL --- */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(3, 3, 5, 0.95);
+      backdrop-filter: blur(25px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
     }
-    .row-pulse:hover .platform-btn {
-      background: var(--pulse-glow);
-      color: #000;
-      border-color: var(--pulse-glow);
-      box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    
+    .wizard-card {
+      background: #0d0d12;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 540px;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
     }
+    .close-wizard {
+      position: absolute; top: 20px; right: 20px;
+      background: transparent; border: none; color: var(--text-muted);
+      font-size: 1.5rem; cursor: pointer; transition: color 0.2s;
+    }
+    .close-wizard:hover { color: white; }
+
+    .wizard-step { display: none; }
+    .wizard-step.active { display: block; animation: fadeIn 0.25s ease-forward; }
+
+    .wizard-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .wizard-card .step-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* Selection Mechanics */
+    .wizard-options { display: flex; flex-direction: column; gap: 12px; }
+    .opt-btn {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 16px; text-align: left; color: white;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.2s ease;
+    }
+    .opt-btn:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.2); }
+    .opt-btn::after { content: "→"; opacity: 0.3; transition: transform 0.2s; }
+    .opt-btn:hover::after { opacity: 1; transform: translateX(4px); }
+
+    /* Solution Box Blueprint */
+    .diagnostic-result {
+      background: rgba(37, 99, 235, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 10px; padding: 20px; margin-bottom: 24px;
+    }
+    .diagnostic-result h4 { font-size: 1.05rem; margin-bottom: 8px; color: #93c5fd; }
+    .diagnostic-result p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
+    
+    .wizard-back-btn {
+      background: transparent; border: none; color: var(--text-muted);
+      font-size: 0.85rem; font-weight: 600; cursor: pointer; margin-top: 16px;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .wizard-back-btn:hover { color: white; }
+
+    /* Escalation Row Layout */
+    .escalate-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .esc-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 700;
+    }
+    .esc-whatsapp { background: #25d366; color: black; }
+    .esc-whatsapp:hover { background: #20ba5a; }
+    .esc-email { background: white; color: black; }
+    .esc-email:hover { background: #e2e8f0; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
     footer { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
@@ -378,6 +361,7 @@
       .trigger-content h3 { font-size: 1.1rem; }
       .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
       .platform-btn { max-width: 1000px; }
+      .escalate-actions { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -393,7 +377,7 @@
         </svg>
         <span>vyeta</span>
       </div>
-      <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit" class="cta-nav-btn">Request Audit</a>
+      <button class="cta-nav-btn trigger-audit">Request Audit</button>
     </div>
   </header>
 
@@ -401,7 +385,7 @@
   <section class="hero">
     <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
     <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
-    <a href="mailto:operations@vyeta.com?subject=IT%20Infrastructure%20Audit" class="btn-primary">Get an IT System Audit</a>
+    <button class="btn-primary trigger-audit">Get an IT System Audit</button>
   </section>
 
   <!-- INTERACTIVE VALUE INTERFACE -->
@@ -427,14 +411,14 @@
               <h4>Essential Maintenance Retainer</h4>
               <p>Routine hardware health checks, network optimization, and next-day emergency assistance.</p>
             </div>
-            <a href="mailto:operations@vyeta.com?subject=Essential%20Retainer%20Inquiry" class="tier-link">Select</a>
+            <button class="tier-link trigger-audit">Select</button>
           </div>
           <div class="tier-row">
             <div class="tier-info">
               <h4>Professional Support Retainer</h4>
               <p>24/7 proactive system tracking, high-priority same-day on-site troubleshooting, full coverage.</p>
             </div>
-            <a href="mailto:operations@vyeta.com?subject=Professional%20Retainer%20Inquiry" class="tier-link">Select</a>
+            <button class="tier-link trigger-audit">Select</button>
           </div>
         </div>
       </div>
@@ -459,14 +443,14 @@
               <h4>Operational Automation Setup</h4>
               <p>Custom Google Workspace scripts, automated database reporting pipelines, app integrations.</p>
             </div>
-            <a href="mailto:operations@vyeta.com?subject=Automation%20Setup%20Inquiry" class="tier-link">Select</a>
+            <button class="tier-link trigger-audit">Select</button>
           </div>
           <div class="tier-row">
             <div class="tier-info">
               <h4>Custom Enterprise Platforms</h4>
               <p>Dedicated billing software, multi-tiered business web apps, tailored customer registries.</p>
             </div>
-            <a href="mailto:operations@vyeta.com?subject=Custom%20Platform%20Inquiry" class="tier-link">Select</a>
+            <button class="tier-link trigger-audit">Select</button>
           </div>
         </div>
       </div>
@@ -491,14 +475,14 @@
               <h4>Corporate Threat Assessment</h4>
               <p>Full security scanning, network liability audits, employee access optimization plans.</p>
             </div>
-            <a href="mailto:operations@vyeta.com?subject=Threat%20Assessment%20Inquiry" class="tier-link">Select</a>
+            <button class="tier-link trigger-audit">Select</button>
           </div>
           <div class="tier-row">
             <div class="tier-info">
               <h4>Continuous Security & Strategy</h4>
               <p>Ongoing vulnerability assessments, active monitoring, employee training, data recovery prep.</p>
             </div>
-            <a href="mailto:operations@vyeta.com?subject=Security%20Strategy%20Inquiry" class="tier-link">Select</a>
+            <button class="tier-link trigger-audit">Select</button>
           </div>
         </div>
       </div>
@@ -513,8 +497,6 @@
       </div>
 
       <div class="product-showcase">
-        
-        <!-- PRODUCT 1: SWIFTRADE -->
         <div class="platform-row row-swiftrade">
           <div>
             <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
@@ -527,7 +509,6 @@
           </div>
         </div>
 
-        <!-- PRODUCT 2: CONSULTLINK -->
         <div class="platform-row row-consultlink">
           <div>
             <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
@@ -540,7 +521,6 @@
           </div>
         </div>
 
-        <!-- PRODUCT 3: PULSE OS ZM -->
         <div class="platform-row row-pulse">
           <div>
             <div class="status-pill"><span class="status-dot"></span> Operational</div>
@@ -552,18 +532,91 @@
             <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
+
+  <!-- AUTOMATED DYNAMIC DIAGNOSTIC ENGINE MODAL -->
+  <div class="modal-overlay" id="auditModal">
+    <div class="wizard-card">
+      <button class="close-wizard" id="closeModalBtn">&times;</button>
+      
+      <!-- STEP 1: DEVICE SELECTION -->
+      <div class="wizard-step active" id="step1">
+        <h3>What requires immediate diagnostic attention?</h3>
+        <p class="step-subtitle">Select the segment experiencing operational failure.</p>
+        <div class="wizard-options">
+          <button class="opt-btn" onclick="goToStep('network')">Corporate Office Network / Wi-Fi</button>
+          <button class="opt-btn" onclick="goToStep('pc')">Workstations (PC / Laptop)</button>
+          <button class="opt-btn" onclick="goToStep('mobile')">Corporate Mobile Devices</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 (NETWORK SELECTION) -->
+      <div class="wizard-step" id="step-network">
+        <h3>What is happening to the network?</h3>
+        <p class="step-subtitle">Identify the specific connectivity issue.</p>
+        <div class="wizard-options">
+          <button class="opt-btn" onclick="showSolution('network-dead')">Completely down / No internet across office</button>
+          <button class="opt-btn" onclick="showSolution('network-slow')">Internet is working but incredibly slow</button>
+        </div>
+        <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
+      </div>
+
+      <!-- STEP 2 (PC SELECTION) -->
+      <div class="wizard-step" id="step-pc">
+        <h3>What is the system symptom?</h3>
+        <p class="step-subtitle">Identify the primary failure mode.</p>
+        <div class="wizard-options">
+          <button class="opt-btn" onclick="showSolution('pc-boot')">Computer won't turn on or screen is blank</button>
+          <button class="opt-btn" onclick="showSolution('pc-performance')">System freezes, loops, or runs critically slow</button>
+        </div>
+        <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
+      </div>
+
+      <!-- STEP 2 (MOBILE SELECTION) -->
+      <div class="wizard-step" id="step-mobile">
+        <h3>What mobile bottleneck are you experiencing?</h3>
+        <p class="step-subtitle">Select the primary issue context.</p>
+        <div class="wizard-options">
+          <button class="opt-btn" onclick="showSolution('mobile-access')">Cannot access corporate accounts / Email sync error</button>
+          <button class="opt-btn" onclick="showSolution('mobile-damaged')">Device has physical damage or battery failure</button>
+        </div>
+        <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
+      </div>
+
+      <!-- STEP 3: INTERACTIVE RUNTIME SOLUTION & LEAD CAPTURE -->
+      <div class="wizard-step" id="step-solution">
+        <h3>Recommended Instant Triage:</h3>
+        <p class="step-subtitle">Perform these structural verification steps immediately.</p>
+        
+        <div class="diagnostic-result">
+          <h4 id="solutionTitle">Analyzing...</h4>
+          <p id="solutionBody">Please wait.</p>
+        </div>
+
+        <h3>Still experiencing the bottleneck?</h3>
+        <p class="step-subtitle" style="margin-bottom: 16px;">Escalate to Vyeta Operations for active emergency resolution or a formal infrastructure retainer audit.</p>
+        
+        <div class="escalate-actions">
+          <a href="#" id="whatsappBtn" target="_blank" class="esc-btn esc-whatsapp">Escalate to WhatsApp</a>
+          <a href="#" id="emailBtn" class="esc-btn esc-email">Request Rapid Audit</a>
+        </div>
+        
+        <button class="wizard-back-btn" onclick="goBackToSubStep()">&larr; Back to Symptoms</button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Vyeta. Built for performance.</p>
   </footer>
 
-  <!-- SCRIPT ENGINE FOR ACCORDIONS -->
+  <!-- AUTOMATION LOGIC SCRIPT ENGINE -->
   <script>
+    // Accordion Logic
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
         const item = trigger.parentElement;
@@ -581,6 +634,92 @@
         }
       });
     });
+
+    // Modal Control Engine
+    const modal = document.getElementById('auditModal');
+    let currentCategory = '';
+
+    document.querySelectorAll('.trigger-audit').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('open');
+        goToStep(1);
+      });
+    });
+
+    document.getElementById('closeModalBtn').addEventListener('click', () => {
+      modal.classList.remove('open');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+
+    function goToStep(step) {
+      document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
+      if (step === 1) {
+        document.getElementById('step1').classList.add('active');
+      } else {
+        currentCategory = step;
+        document.getElementById('step-' + step).classList.add('active');
+      }
+    }
+
+    function goBackToSubStep() {
+      goToStep(currentCategory);
+    }
+
+    // Comprehensive Diagnostic Knowledge Base
+    const solutions = {
+      'network-dead': {
+        title: "Total Network Blackout Checklist",
+        text: "1. Locate your central ISP Fiber termination unit or Gateway router and check the light indicators. If a red/LOS light is active, it is an external line break.\n2. Power-cycle the core router (unplug for 30 seconds).\n3. Check if multiple distinct hardware endpoints (PC vs. Phone) share the blackout to isolate if it's a device profile error.",
+        context: "Total Office Network Failure"
+      },
+      'network-slow': {
+        title: "Network Congestion Triage",
+        text: "1. Run an isolated speed check. If ping latency is high (>100ms), background cloud backups or local torrent leaks are consuming standard business capacity.\n2. Verify if the slow speed affects wired LAN connections or just Wi-Fi. If only Wi-Fi, run an environment RF channel adjustment to fix signal collision.",
+        context: "Slow Internet Issues"
+      },
+      'pc-boot': {
+        title: "Hardware Power Isolation Protocols",
+        text: "1. Perform a hard reset: Disconnect the power cable (and battery if accessible), hold down the power button for 15 full seconds, plug back in directly to a tested wall outlet, and attempt boot.\n2. Monitor internal fans or click noises. If light indicators flash specific patterns, record the code pattern for hardware diagnostics.",
+        context: "PC Power Subsystem Failure"
+      },
+      'pc-performance': {
+        title: "System Freeze Elimination Process",
+        text: "1. Execute Ctrl + Shift + Esc to check Resource Allocation. Isolate any background process locking the CPU or Disk usage at 100%.\n2. If operating on mechanical storage drives, run data defragmentation metrics or plan a safe, structural SSD storage migration.",
+        context: "PC Performance Slowdowns"
+      },
+      'mobile-access': {
+        title: "Secure Account Recovery Protocol",
+        text: "1. Verify device connection integrity over an independent public cell network rather than internal company Wi-Fi.\n2. Delete local expired cache data for enterprise applications or trigger an administrator token refresh within your corporate tenant directory (Google Workspace/M365).",
+        context: "Mobile Business Credential Sync Errors"
+      },
+      'mobile-damaged': {
+        title: "Physical Infrastructure Asset Log",
+        text: "1. Immediately power off devices experiencing rapid battery expands to prevent lithium fires.\n2. If liquid damage occurred, do not power on or plug in accessories. Keep the device inverted to save logic board pathways.",
+        context: "Mobile Physical Damage"
+      }
+    };
+
+    function showSolution(key) {
+      const data = solutions[key];
+      document.getElementById('solutionTitle').innerText = data.title;
+      document.getElementById('solutionBody').innerHTML = data.text.replace(/\n/g, '<br>');
+      
+      // Dynamic Deep Link Generation for Pre-Filling Lead Contexts
+      const baseWhatsApp = "https://wa.me/260777363303";
+      const waText = encodeURIComponent(`Hi Vyeta, I used your diagnostic wizard for a "${data.context}" issue. The basic steps did not fix the bottleneck. We need an on-site engineer or corporate audit.`);
+      document.getElementById('whatsappBtn').href = `${baseWhatsApp}?text=${waText}`;
+
+      const emailSubject = encodeURIComponent(`Emergency Infrastructure Escalation: ${data.context}`);
+      const emailBody = encodeURIComponent(`Vyeta Team,\n\nOur operation is encountering a bottleneck with: ${data.context}.\n\nWe ran the automated wizard suggestions but require structural support. Please reach out to schedule an audit or service dispatch.`);
+      document.getElementById('emailBtn').href = `mailto:operations@vyeta.com?subject=${emailSubject}&body=${emailBody}`;
+
+      document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('step-solution').classList.add('active');
+    }
   </script>
 </body>
 </html>
