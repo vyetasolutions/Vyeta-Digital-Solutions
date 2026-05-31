@@ -33,12 +33,11 @@
       line-height: 1.4;
     }
 
-        /* --- CASCADING SCROLL MOTION ENGINE --- */
+    /* --- CASCADING SCROLL MOTION ENGINE --- */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      /* FIXED: Explicitly define opacity and transform transitions separately, 
-         preventing layout or max-height changes from triggering a reset */
+      /* FIXED: Restricted transition triggers to prevent styling mutations on layout expansion */
       transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
                   transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, opacity;
@@ -166,6 +165,9 @@
       justify-content: space-between;
       align-items: center;
     }
+    .trigger-content {
+      pointer-events: none; /* FIXED: Prevents click mutations from breaking parent selector targets */
+    }
     .trigger-content .pain-label {
       font-size: 0.75rem;
       font-weight: 700;
@@ -182,16 +184,17 @@
       font-size: 1.5rem;
       color: var(--text-muted);
       transition: transform 0.3s ease;
+      pointer-events: none;
     }
 
     .accordion-item.active[data-type="downtime"] { border-color: var(--blue); }
     .accordion-item.active[data-type="manual"] { border-color: var(--purple); }
     .accordion-item.active[data-type="security"] { border-color: var(--cyan); }
 
-        .accordion-content {
+    .accordion-content {
       max-height: 0;
       overflow: hidden;
-      /* FIXED: Explicitly declare max-height here so the engine doesn't track global animation updates */
+      /* FIXED: Locked layout parameters to safeguard height calculations */
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       background: rgba(0, 0, 0, 0.2);
     }
@@ -685,37 +688,38 @@
     const revealOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.15 // Triggers when 15% of the element enters the viewport
+      threshold: 0.15
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // Once the element floats in, stop monitoring it to save device processing power
           observer.unobserve(entry.target);
         }
       });
     }, revealOptions);
 
-    // Initializing tracking on all tagged elements
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     });
 
 
-    // Accordion Control
+    // --- ACCORDION CONTROL SYSTEM ---
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        const item = trigger.parentElement;
+      trigger.addEventListener('click', function(e) {
+        // FIXED: Explicitly target the .accordion-item container closest to the click event 
+        const item = this.closest('.accordion-item');
         const content = item.querySelector('.accordion-content');
         const isActive = item.classList.contains('active');
         
+        // Collapse all open rows cleanly
         document.querySelectorAll('.accordion-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.accordion-content').style.maxHeight = null;
         });
 
+        // Expand the targeted row immediately on first click
         if (!isActive) {
           item.classList.add('active');
           content.style.maxHeight = content.scrollHeight + "px";
