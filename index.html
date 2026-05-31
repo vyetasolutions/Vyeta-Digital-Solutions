@@ -23,55 +23,76 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    
+    /* --- PURE CSS HARDWARE-ACCELERATED PARALLAX ENGINE --- */
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+      overflow: hidden;
+    }
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      overflow-x: hidden;
       line-height: 1.5;
-      position: relative;
+      
+      /* Establish 3D space perspective camera */
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      perspective: 1px;
+      transform-style: preserve-3d;
     }
 
-    /* --- SUBTLE ACCENT LAYER (NO EYE STRAIN) --- */
-    .space-matrix-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+    /* Parallax Base Container */
+    .parallax-wrapper {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
       z-index: -1;
-      overflow: hidden;
+      transform-style: preserve-3d;
+      pointer-events: none;
     }
 
-    /* Ultra-faint, elegant geometric grid mesh */
+    /* Layer 1: Elegant geometric grid mesh (Moves slightly slower) */
     .cyber-grid {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 250%;
       background-image: 
         linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
       background-size: 60px 60px;
+      
+      /* Push back in 3D space & scale up to fill screen bounds */
+      transform: translateZ(-1px) scale(2);
+      transform-origin: 50% 0%;
     }
 
-    /* Muted, deep-space color mist (soft ambiance behind the dark canvas) */
+    /* Layer 2: Muted, deep-space color mist (Pushed further back, moves slowest) */
     .neon-glow-orb {
       position: absolute;
       border-radius: 50%;
       filter: blur(160px);
-      opacity: 0.18;
+      opacity: 0.15;
       mix-blend-mode: screen;
+      
+      /* Push deeper back into the background */
+      transform: translateZ(-2px) scale(3);
+      transform-origin: 50% 0%;
     }
-    .orb-1 { width: 500px; height: 500px; background: var(--blue); top: -10%; left: -10%; }
-    .orb-2 { width: 600px; height: 600px; background: var(--purple); bottom: -10%; right: -5%; }
+    .orb-1 { width: 350px; height: 350px; background: var(--blue); top: 5%; left: -5%; }
+    .orb-2 { width: 450px; height: 450px; background: var(--purple); top: 40%; right: -5%; }
+
+    /* Foreground Content Layer to stay crisp and isolated */
+    .foreground-content {
+      position: relative;
+      z-index: 10;
+      transform: translateZ(0);
+    }
 
     /* --- NAVBAR --- */
     .navbar {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(5, 5, 10, 0.75);
+      background: rgba(5, 5, 10, 0.8);
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
       border-bottom: 1px solid var(--glass-border);
@@ -116,7 +137,7 @@
     .trigger-content .pain-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
     .accordion-icon { font-size: 1.4rem; color: var(--text-muted); transition: transform 0.2s ease; }
 
-    /* Elegant, understated active states */
+    /* Elegant active states */
     .accordion-item.active[data-type="downtime"] { border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.03); }
     .accordion-item.active[data-type="manual"] { border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.03); }
     .accordion-item.active[data-type="security"] { border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.03); }
@@ -168,7 +189,6 @@
       width: 100%; max-width: 200px; margin-left: auto; border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    /* Professional, subtle focus outlines on hover */
     .row-swiftrade .product-title { color: white; }
     .row-swiftrade .tagline { color: var(--purple); }
     .row-swiftrade .status-dot { background: var(--green); }
@@ -258,185 +278,195 @@
 </head>
 <body>
 
-  <!-- ADJUSTED SUBTLE GRAPHICS BACKGROUND LAYERS -->
-  <div class="space-matrix-wrapper">
+  <!-- PURE CSS PARALLAX LAYERS CONTAINER -->
+  <div class="parallax-wrapper">
     <div class="cyber-grid"></div>
     <div class="neon-glow-orb orb-1"></div>
     <div class="neon-glow-orb orb-2"></div>
   </div>
 
-  <!-- NAVIGATION -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="nav-brand">
-        <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="12" fill="#3b82f6"/>
-          <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#3b82f6"/>
-        </svg>
-        <span>vyeta</span>
+  <!-- CRISP FOREGROUND INTERFACE CONTENT -->
+  <div class="foreground-content">
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="12" fill="#3b82f6"/>
+            <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#3b82f6"/>
+          </svg>
+          <span>vyeta</span>
+        </div>
+        <button class="cta-nav-btn trigger-audit">Request Audit</button>
       </div>
-      <button class="cta-nav-btn trigger-audit">Request Audit</button>
-    </div>
-  </header>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
-    <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
-    <button class="btn-primary trigger-audit">Quick Self Help</button>
-  </section>
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
+      <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
+      <button class="btn-primary trigger-audit">Quick Self Help</button>
+    </section>
 
-  <!-- INTERACTIVE ACCORDIONS ENGINE -->
-  <section class="engine-section">
-    <h2>Select Your Current Core Operational Bottleneck:</h2>
+    <!-- INTERACTIVE ACCORDIONS ENGINE -->
+    <section class="engine-section">
+      <h2>Select Your Current Core Operational Bottleneck:</h2>
 
-    <!-- BLOCK 1: DOWNTIME -->
-    <div class="accordion-item active" data-type="downtime">
-      <button class="accordion-trigger">
-        <div class="trigger-content">
-          <div class="pain-label" style="color: var(--blue)">Infrastructure & Helpdesk</div>
-          <h3>Computers are slow / Networks keep dropping</h3>
-        </div>
-        <div class="accordion-icon">+</div>
-      </button>
-      <div class="accordion-content" style="max-height: 500px;">
-        <div class="content-inner">
-          <div class="solution-box">
-            <p>We deploy rock-solid office networking, structured cabling, and permanent hardware configurations backed by an active, on-call corporate support desk.</p>
+      <!-- BLOCK 1: DOWNTIME -->
+      <div class="accordion-item active" data-type="downtime">
+        <button class="accordion-trigger">
+          <div class="trigger-content">
+            <div class="pain-label" style="color: var(--blue)">Infrastructure & Helpdesk</div>
+            <h3>Computers are slow / Networks keep dropping</h3>
           </div>
-          <div class="tier-row">
-            <div class="tier-info">
-              <h4>Essential Maintenance Retainer</h4>
-              <p>Routine hardware health checks, network optimization, and next-day emergency assistance.</p>
+          <div class="accordion-icon">+</div>
+        </button>
+        <div class="accordion-content" style="max-height: 500px;">
+          <div class="content-inner">
+            <div class="solution-box">
+              <p>We deploy rock-solid office networking, structured cabling, and permanent hardware configurations backed by an active, on-call corporate support desk.</p>
             </div>
-            <button class="tier-link trigger-audit">Select</button>
-          </div>
-          <div class="tier-row">
-            <div class="tier-info">
-              <h4>Professional Support Retainer</h4>
-              <p>24/7 proactive system tracking, high-priority same-day on-site troubleshooting, full coverage.</p>
+            <div class="tier-row">
+              <div class="tier-info">
+                <h4>Essential Maintenance Retainer</h4>
+                <p>Routine hardware health checks, network optimization, and next-day emergency assistance.</p>
+              </div>
+              <button class="tier-link trigger-audit">Select</button>
             </div>
-            <button class="tier-link trigger-audit">Select</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BLOCK 2: MANUAL WORKFLOWS -->
-    <div class="accordion-item" data-type="manual">
-      <button class="accordion-trigger">
-        <div class="trigger-content">
-          <div class="pain-label" style="color: var(--purple)">Software & Automation</div>
-          <h3>Too much manual data entry / Staff is bottlenecked</h3>
-        </div>
-        <div class="accordion-icon">+</div>
-      </button>
-      <div class="accordion-content">
-        <div class="content-inner">
-          <div class="solution-box">
-            <p>We build tailored business management applications, automated Google Apps Script pipeline tools, and lightweight web platforms to clean up manual operations.</p>
-          </div>
-          <div class="tier-row">
-            <div class="tier-info">
-              <h4>Operational Automation Setup</h4>
-              <p>Custom Google Workspace scripts, automated database reporting pipelines, app integrations.</p>
+            <div class="tier-row">
+              <div class="tier-info">
+                <h4>Professional Support Retainer</h4>
+                <p>24/7 proactive system tracking, high-priority same-day on-site troubleshooting, full coverage.</p>
+              </div>
+              <button class="tier-link trigger-audit">Select</button>
             </div>
-            <button class="tier-link trigger-audit">Select</button>
-          </div>
-          <div class="tier-row">
-            <div class="tier-info">
-              <h4>Custom Enterprise Platforms</h4>
-              <p>Dedicated billing software, multi-tiered business web apps, tailored customer registries.</p>
-            </div>
-            <button class="tier-link trigger-audit">Select</button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- BLOCK 3: SECURITY CONCERNS -->
-    <div class="accordion-item" data-type="security">
-      <button class="accordion-trigger">
-        <div class="trigger-content">
-          <div class="pain-label" style="color: var(--cyan)">Cybersecurity & Strategy</div>
-          <h3>Worried about data leaks / Unprotected endpoints</h3>
-        </div>
-        <div class="accordion-icon">+</div>
-      </button>
-      <div class="accordion-content">
-        <div class="content-inner">
-          <div class="solution-box">
-            <p>We run network penetration testing, administer controlled company-wide phishing drills, and construct secure access parameters to lock down commercial data assets.</p>
+      <!-- BLOCK 2: MANUAL WORKFLOWS -->
+      <div class="accordion-item" data-type="manual">
+        <button class="accordion-trigger">
+          <div class="trigger-content">
+            <div class="pain-label" style="color: var(--purple)">Software & Automation</div>
+            <h3>Too much manual data entry / Staff is bottlenecked</h3>
           </div>
-          <div class="tier-row">
-            <div class="tier-info">
-              <h4>Corporate Threat Assessment</h4>
-              <p>Full security scanning, network liability audits, employee access optimization plans.</p>
+          <div class="accordion-icon">+</div>
+        </button>
+        <div class="accordion-content">
+          <div class="content-inner">
+            <div class="solution-box">
+              <p>We build tailored business management applications, automated Google Apps Script pipeline tools, and lightweight web platforms to clean up manual operations.</p>
             </div>
-            <button class="tier-link trigger-audit">Select</button>
-          </div>
-          <div class="tier-row">
-            <div class="tier-info">
-              <h4>Continuous Security & Strategy</h4>
-              <p>Ongoing vulnerability assessments, active monitoring, employee training, data recovery prep.</p>
+            <div class="tier-row">
+              <div class="tier-info">
+                <h4>Operational Automation Setup</h4>
+                <p>Custom Google Workspace scripts, automated database reporting pipelines, app integrations.</p>
+              </div>
+              <button class="tier-link trigger-audit">Select</button>
             </div>
-            <button class="tier-link trigger-audit">Select</button>
+            <div class="tier-row">
+              <div class="tier-info">
+                <h4>Custom Enterprise Platforms</h4>
+                <p>Dedicated billing software, multi-tiered business web apps, tailored customer registries.</p>
+              </div>
+              <button class="tier-link trigger-audit">Select</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- WORKSPACE INTEGRATION SECTION -->
-  <section class="ecosystem-section">
-    <div class="ecosystem-container">
-      <div class="ecosystem-header">
-        <h2>Vyeta Workspace</h2>
-        <h3>Bridging Gaps With Robust Smart Tools</h3>
-      </div>
-
-      <div class="product-showcase">
-        <!-- swifTrade -->
-        <div class="platform-row row-swiftrade">
-          <div>
-            <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
-            <h3 class="product-title">swifTrade</h3>
-            <div class="tagline">B2B Procurement Marketplace</div>
-            <p class="description">Direct request-matching network built to link verified commercial buyers with bulk product suppliers instantly.</p>
+      <!-- BLOCK 3: SECURITY CONCERNS -->
+      <div class="accordion-item" data-type="security">
+        <button class="accordion-trigger">
+          <div class="trigger-content">
+            <div class="pain-label" style="color: var(--cyan)">Cybersecurity & Strategy</div>
+            <h3>Worried about data leaks / Unprotected endpoints</h3>
           </div>
-          <div>
-            <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">Open Platform &rarr;</a>
-          </div>
-        </div>
-
-        <!-- ConsultLink -->
-        <div class="platform-row row-consultlink">
-          <div>
-            <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
-            <h3 class="product-title">ConsultLink</h3>
-            <div class="tagline">On-Demand Specialist Routing</div>
-            <p class="description">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
-          </div>
-          <div>
-            <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">Open Preview &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Pulse OS ZM -->
-        <div class="platform-row row-pulse">
-          <div>
-            <div class="status-pill"><span class="status-dot"></span> Operational</div>
-            <h3 class="product-title">Pulse OS ZM</h3>
-            <div class="tagline">Civic Feedback Engine</div>
-            <p class="description">Public system engineered for recording regional community updates and tracking local responses.</p>
-          </div>
-          <div>
-            <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
+          <div class="accordion-icon">+</div>
+        </button>
+        <div class="accordion-content">
+          <div class="content-inner">
+            <div class="solution-box">
+              <p>We run network penetration testing, administer controlled company-wide phishing drills, and construct secure access parameters to lock down commercial data assets.</p>
+            </div>
+            <div class="tier-row">
+              <div class="tier-info">
+                <h4>Corporate Threat Assessment</h4>
+                <p>Full security scanning, network liability audits, employee access optimization plans.</p>
+              </div>
+              <button class="tier-link trigger-audit">Select</button>
+            </div>
+            <div class="tier-row">
+              <div class="tier-info">
+                <h4>Continuous Security & Strategy</h4>
+                <p>Ongoing vulnerability assessments, active monitoring, employee training, data recovery prep.</p>
+              </div>
+              <button class="tier-link trigger-audit">Select</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- WORKSPACE INTEGRATION SECTION -->
+    <section class="ecosystem-section">
+      <div class="ecosystem-container">
+        <div class="ecosystem-header">
+          <h2>Vyeta Workspace</h2>
+          <h3>Bridging Gaps With Robust Smart Tools</h3>
+        </div>
+
+        <div class="product-showcase">
+          <!-- swifTrade -->
+          <div class="platform-row row-swiftrade">
+            <div>
+              <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
+              <h3 class="product-title">swifTrade</h3>
+              <div class="tagline">B2B Procurement Marketplace</div>
+              <p class="description">Direct request-matching network built to link verified commercial buyers with bulk product suppliers instantly.</p>
+            </div>
+            <div>
+              <a href="https://vyetasolutions.github.io/Swiftrade-newv/" class="platform-btn">Open Platform &rarr;</a>
+            </div>
+          </div>
+
+          <!-- ConsultLink -->
+          <div class="platform-row row-consultlink">
+            <div>
+              <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
+              <h3 class="product-title">ConsultLink</h3>
+              <div class="tagline">On-Demand Specialist Routing</div>
+              <p class="description">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
+            </div>
+            <div>
+              <a href="https://vyetasolutions.github.io/consultlink/#" class="platform-btn">Open Preview &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Pulse OS ZM -->
+          <div class="platform-row row-pulse">
+            <div>
+              <div class="status-pill"><span class="status-dot"></span> Operational</div>
+              <h3 class="product-title">Pulse OS ZM</h3>
+              <div class="tagline">Civic Feedback Engine</div>
+              <p class="description">Public system engineered for recording regional community updates and tracking local responses.</p>
+            </div>
+            <div>
+              <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2026 Vyeta. Built for performance.</p>
+    </footer>
+
+  </div> <!-- END FOREGROUND CONTENT -->
 
   <!-- DIAGNOSTIC ENGINE MODAL -->
   <div class="modal-overlay" id="auditModal">
@@ -519,11 +549,6 @@
 
     </div>
   </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 Vyeta. Built for performance.</p>
-  </footer>
 
   <!-- SCRIPT ENGINE -->
   <script>
