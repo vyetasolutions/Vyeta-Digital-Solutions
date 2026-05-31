@@ -33,23 +33,22 @@
       line-height: 1.4;
     }
 
-    /* --- CASCADING SCROLL MOTION ENGINE --- */
-    /* Elements start slightly shifted down and completely transparent */
+        /* --- CASCADING SCROLL MOTION ENGINE --- */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
+      /* FIXED: Explicitly define opacity and transform transitions separately, 
+         preventing layout or max-height changes from triggering a reset */
       transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
                   transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, opacity;
     }
 
-    /* Active state triggered when scrolled into viewport */
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Staggering utility delays applied dynamically via inline CSS variables */
     .reveal.staggered {
       transition-delay: var(--delay, 0ms);
     }
@@ -189,12 +188,14 @@
     .accordion-item.active[data-type="manual"] { border-color: var(--purple); }
     .accordion-item.active[data-type="security"] { border-color: var(--cyan); }
 
-    .accordion-content {
+        .accordion-content {
       max-height: 0;
       overflow: hidden;
+      /* FIXED: Explicitly declare max-height here so the engine doesn't track global animation updates */
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       background: rgba(0, 0, 0, 0.2);
     }
+
     .content-inner { padding: 0 24px 24px 24px; }
     .solution-box {
       border-left: 2px solid rgba(255, 255, 255, 0.1);
