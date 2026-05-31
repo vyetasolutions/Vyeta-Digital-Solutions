@@ -33,6 +33,27 @@
       line-height: 1.4;
     }
 
+    /* --- CASCADING SCROLL MOTION ENGINE --- */
+    /* Elements start slightly shifted down and completely transparent */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    /* Active state triggered when scrolled into viewport */
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggering utility delays applied dynamically via inline CSS variables */
+    .reveal.staggered {
+      transition-delay: var(--delay, 0ms);
+    }
+
     /* --- NAVBAR --- */
     .navbar {
       position: fixed;
@@ -287,7 +308,6 @@
     }
     .modal-overlay.open { opacity: 1; pointer-events: auto; }
     
-    /* MODIFIED: Fixed layout engine to safeguard mobile viewports */
     .wizard-card {
       background: #0d0d12;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -298,7 +318,7 @@
       box-shadow: 0 30px 60px rgba(0,0,0,0.8);
       display: flex;
       flex-direction: column;
-      max-height: 85vh; /* Never lets card clip off frame */
+      max-height: 85vh;
     }
     
     .close-wizard {
@@ -309,7 +329,6 @@
     }
     .close-wizard:hover { color: white; }
 
-    /* NEW: Dedicated Scroll Viewport for lists and check-steps */
     .wizard-scroll-container {
       padding: 32px 32px 24px 32px;
       overflow-y: auto;
@@ -354,13 +373,12 @@
     }
     .wizard-back-btn:hover { color: white; }
 
-    /* NEW: Locked, sticky bottom drawer for escalation controls */
     .wizard-sticky-bottom {
       padding: 20px 32px 32px 32px;
       background: #0d0d12;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 0 0 16px 16px;
-      display: none; /* Controlled dynamically below */
+      display: none;
     }
     .wizard-sticky-bottom.visible { display: block; }
 
@@ -385,10 +403,9 @@
       .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
       .platform-btn { max-width: 1000px; }
       
-      /* Target mobile specifically to guarantee maximum button visibility */
       .wizard-card {
         max-height: 92vh;
-        margin-top: auto; /* Docks nicely on small phone screens */
+        margin-top: auto;
       }
       .wizard-scroll-container {
         padding: 24px 20px 16px 20px;
@@ -417,7 +434,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero reveal">
     <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
     <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
     <button class="btn-primary trigger-audit">Get an IT System Audit</button>
@@ -425,10 +442,10 @@
 
   <!-- INTERACTIVE VALUE INTERFACE -->
   <section class="engine-section">
-    <h2>Select Your Current Core Operational Bottleneck:</h2>
+    <h2 class="reveal">Select Your Current Core Operational Bottleneck:</h2>
 
-    <!-- BLOCK 1: DOWNTIME -->
-    <div class="accordion-item" data-type="downtime">
+    <!-- BLOCK 1: DOWNTIME (Stagger 1) -->
+    <div class="accordion-item reveal staggered" data-type="downtime" style="--delay: 100ms">
       <button class="accordion-trigger">
         <div class="trigger-content">
           <div class="pain-label" style="color: var(--blue)">Infrastructure & Helpdesk</div>
@@ -459,8 +476,8 @@
       </div>
     </div>
 
-    <!-- BLOCK 2: MANUAL WORKFLOWS -->
-    <div class="accordion-item" data-type="manual">
+    <!-- BLOCK 2: MANUAL WORKFLOWS (Stagger 2) -->
+    <div class="accordion-item reveal staggered" data-type="manual" style="--delay: 200ms">
       <button class="accordion-trigger">
         <div class="trigger-content">
           <div class="pain-label" style="color: var(--purple)">Software & Automation</div>
@@ -491,8 +508,8 @@
       </div>
     </div>
 
-    <!-- BLOCK 3: SECURITY CONCERNS -->
-    <div class="accordion-item" data-type="security">
+    <!-- BLOCK 3: SECURITY CONCERNS (Stagger 3) -->
+    <div class="accordion-item reveal staggered" data-type="security" style="--delay: 300ms">
       <button class="accordion-trigger">
         <div class="trigger-content">
           <div class="pain-label" style="color: var(--cyan)">Cybersecurity & Strategy</div>
@@ -527,12 +544,13 @@
   <!-- HIGH-CHARACTER VETTED PRODUCTS SHOWCASE -->
   <section class="ecosystem-section">
     <div class="ecosystem-container">
-      <div class="ecosystem-header">
+      <div class="ecosystem-header reveal">
         <h2>Flagship Digital Products</h2>
       </div>
 
       <div class="product-showcase">
-        <div class="platform-row row-swiftrade">
+        <!-- swifTrade -->
+        <div class="platform-row row-swiftrade reveal">
           <div>
             <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
             <h3 class="product-title">swifTrade</h3>
@@ -544,7 +562,8 @@
           </div>
         </div>
 
-        <div class="platform-row row-consultlink">
+        <!-- ConsultLink -->
+        <div class="platform-row row-consultlink reveal">
           <div>
             <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
             <h3 class="product-title">ConsultLink</h3>
@@ -556,7 +575,8 @@
           </div>
         </div>
 
-        <div class="platform-row row-pulse">
+        <!-- Pulse OS ZM -->
+        <div class="platform-row row-pulse reveal">
           <div>
             <div class="status-pill"><span class="status-dot"></span> Operational</div>
             <h3 class="product-title">Pulse OS ZM</h3>
@@ -576,7 +596,6 @@
     <div class="wizard-card">
       <button class="close-wizard" id="closeModalBtn">&times;</button>
       
-      <!-- SCROLL CONTAINER: Keeps text and lists clean and swipeable -->
       <div class="wizard-scroll-container" id="wizardScrollArea">
         
         <!-- STEP 1: CATEGORY SELECTION -->
@@ -640,7 +659,6 @@
 
       </div>
 
-      <!-- FIXED DRAWER: Escalation layer locks to the bottom edge seamlessly -->
       <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
         <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
@@ -661,6 +679,29 @@
 
   <!-- AUTOMATION LOGIC SCRIPT ENGINE -->
   <script>
+    // --- SCROLL REVEAL (INTERSECTION OBSERVER) ENGINE ---
+    const revealOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Triggers when 15% of the element enters the viewport
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Once the element floats in, stop monitoring it to save device processing power
+          observer.unobserve(entry.target);
+        }
+      });
+    }, revealOptions);
+
+    // Initializing tracking on all tagged elements
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    });
+
+
     // Accordion Control
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
@@ -704,8 +745,8 @@
 
     function goToStep(step) {
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
-      stickyDrawer.classList.remove('visible'); // Hide buttons by default on routing selections
-      scrollArea.scrollTop = 0; // Auto-reset scroll position when changing views
+      stickyDrawer.classList.remove('visible'); 
+      scrollArea.scrollTop = 0; 
 
       if (step === 1) {
         document.getElementById('step1').classList.add('active');
@@ -719,7 +760,7 @@
       goToStep(currentCategory);
     }
 
-    // Human-Friendly, Exhaustive Diagnostic Options
+    // Friendly Diagnostic Options
     const solutions = {
       'net-completely-down': {
         title: "No Internet Connection Checklist",
@@ -768,12 +809,10 @@
       document.getElementById('solutionTitle').innerText = data.title;
       document.getElementById('solutionBody').innerHTML = data.text;
       
-      // WhatsApp message formatting using friendly everyday phrasing
       const baseWhatsApp = "https://wa.me/260777363303";
       const waText = encodeURIComponent(`Hi Vyeta team, I am on your website and we are running into an issue: "${data.context}". We tried the basic troubleshooting steps but still need assistance. Can we get an engineer or schedule a system audit?`);
       document.getElementById('whatsappBtn').href = `${baseWhatsApp}?text=${waText}`;
 
-      // Email formatting matching the style
       const emailSubject = encodeURIComponent(`IT Support Needed: ${data.context}`);
       const emailBody = encodeURIComponent(`Vyeta Operations,\n\nWe are experiencing an operational issue: ${data.context}.\n\nWe reviewed the quick-fix guide on the landing page but need professional hands on this. Please let us know when we can schedule an infrastructure audit.\n\nBest regards.`);
       document.getElementById('emailBtn').href = `mailto:operations@vyeta.com?subject=${emailSubject}&body=${emailBody}`;
@@ -781,7 +820,6 @@
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-solution').classList.add('active');
       
-      // Reveal sticky bottom buttons right when the user views the solution checklist
       stickyDrawer.classList.add('visible');
       scrollArea.scrollTop = 0;
     }
