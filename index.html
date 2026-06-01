@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vyeta | Corporate IT Retainers</title>
   <style>
-    /* --- MINIMALIST PREMIUM DESIGN SYSTEM --- */
     :root {
       --bg: #030307; 
       --text: #ffffff;
@@ -15,27 +14,22 @@
       --cyan: #06b6d4;
       --magenta: #ec4899;
       --green: #10b981;
-      
       --glass-bg: rgba(8, 8, 16, 0.65);
       --glass-border: rgba(255, 255, 255, 0.08);
       --glass-blur: blur(20px);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg);
-    }
+    html { scroll-behavior: smooth; background-color: var(--bg); }
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.5;
-      overflow-x: hidden;
+      /* overflow-x: clip instead of hidden — hidden creates a scroll container that breaks position:sticky */
+      overflow-x: clip;
     }
 
-    /* --- DEEP SPACE PARALLAX STAGE --- */
     .magic-parallax-stage {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
@@ -43,7 +37,6 @@
       pointer-events: none;
       perspective: 1000px;
     }
-
     .infinite-horizon-grid {
       position: absolute;
       top: -20%; left: -50%; width: 200%; height: 200%;
@@ -55,7 +48,6 @@
       transform-origin: center top;
       will-change: transform;
     }
-
     .star-field {
       position: absolute;
       width: 100%; height: 100%;
@@ -67,7 +59,6 @@
       opacity: 0.25;
       will-change: transform;
     }
-
     .ambient-luminary {
       position: absolute;
       border-radius: 50%;
@@ -80,12 +71,9 @@
     .luminary-2 { width: 600px; height: 600px; background: radial-gradient(var(--purple), var(--magenta)); top: 50%; right: -10%; }
     .luminary-3 { width: 400px; height: 400px; background: var(--blue); bottom: -10%; left: 20%; }
 
-    .foreground-content {
-      position: relative;
-      z-index: 10;
-    }
+    .foreground-content { position: relative; z-index: 10; }
 
-    /* --- NAVBAR --- */
+    /* NAVBAR */
     .navbar {
       position: fixed; top: 0; width: 100%; z-index: 100;
       background: rgba(3, 3, 7, 0.75);
@@ -94,12 +82,9 @@
       border-bottom: 1px solid var(--glass-border);
     }
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
-    
     .nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.03em; text-decoration: none; color: var(--text); }
     .logo-vector { width: 28px; height: 28px; display: block; }
-    
     .nav-right-block { display: flex; align-items: center; gap: 12px; }
-
     .nav-link-btn {
       color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600;
       padding: 10px 18px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15);
@@ -107,14 +92,13 @@
       transition: all 0.2s ease;
     }
     .nav-link-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3); }
-
     .cta-nav-btn {
       background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;
       cursor: pointer; border: none; transition: all 0.2s ease;
     }
     .cta-nav-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-    /* --- HERO --- */
+    /* HERO */
     .hero { padding: 220px 24px 100px 24px; text-align: center; max-width: 850px; margin: 0 auto; }
     .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; line-height: 1.15; }
     .hero h1 span {
@@ -124,7 +108,6 @@
       animation: textGlow 6s linear infinite;
     }
     @keyframes textGlow { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
-    
     .hero p { color: var(--text-muted); font-size: 1.25rem; margin-bottom: 36px; max-width: 650px; margin-left: auto; margin-right: auto; }
     .btn-primary {
       display: inline-block; background: linear-gradient(135deg, var(--blue), var(--purple)); color: white;
@@ -133,31 +116,26 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4); }
 
-    /* --- ACCORDIONS --- */
+    /* ACCORDIONS */
     .engine-section { padding: 40px 24px 80px 24px; max-width: 740px; margin: 0 auto; }
     .engine-section h2 { font-size: 1.1rem; font-weight: 600; text-align: center; margin-bottom: 32px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
-    
     .accordion-item {
       background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
       border: 1px solid var(--glass-border); border-radius: 14px; margin-bottom: 18px; overflow: hidden;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .accordion-item:hover { border-color: rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.03); transform: translateY(-1px); }
-    
     .accordion-trigger { width: 100%; background: transparent; border: none; padding: 26px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .trigger-content h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
     .trigger-content .pain-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
     .accordion-icon { font-size: 1.4rem; color: var(--text-muted); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-
     .accordion-item.active[data-type="downtime"] { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.06); }
     .accordion-item.active[data-type="manual"] { border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.06); }
     .accordion-item.active[data-type="security"] { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 10px 30px rgba(6, 182, 212, 0.06); }
-
     .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
     .content-inner { padding: 0 26px 26px 26px; }
     .solution-box { border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 16px; margin-bottom: 20px; }
     .solution-box p { color: #cbd5e1; font-size: 0.95rem; }
-    
     .tier-row { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     .tier-info h4 { font-size: 0.95rem; font-weight: 700; }
     .tier-info p { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
@@ -168,105 +146,58 @@
     .tier-link:hover { background: white; color: black; }
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
-    /* ============================================================
-       ECOSYSTEM / WORKSPACE SECTION — STICKY SCROLL LAYOUT
-       Key rules:
-       1. .ecosystem-section must NOT have overflow: hidden/auto
-       2. .ecosystem-container is a flex row — header sticks, cards scroll
-       3. .ecosystem-header uses position: sticky; top: 110px (below navbar)
-       4. .product-showcase is just a normal flex column — no overflow
-    ============================================================ */
+    /* ECOSYSTEM — STICKY SCROLL */
     .ecosystem-section {
-      padding: 120px 24px 200px 24px; /* extra bottom padding = scroll room */
+      padding: 120px 24px 200px 24px; /* tall bottom padding gives the header room to scroll against */
       position: relative;
-      /* overflow must stay at default (visible) for sticky to work */
     }
-
-    .ecosystem-container {
-      max-width: 1140px;
-      margin: 0 auto;
+    .ecosystem-container { 
+      max-width: 1140px; 
+      margin: 0 auto; 
       display: flex;
       gap: 80px;
-      align-items: flex-start; /* required — stretch would break sticky */
+      align-items: flex-start; /* essential: prevents flex from stretching children to full height */
+      position: relative;
     }
-
-    /* THE STICKY HEADER — freezes in place while cards scroll past */
-    .ecosystem-header {
+    .ecosystem-header { 
       position: -webkit-sticky;
-      position: sticky;
-      top: 110px; /* clears the fixed navbar */
-      flex: 0 0 300px;
-      align-self: flex-start; /* critical for sticky inside flexbox */
-      z-index: 20;
+      position: sticky; 
+      top: 110px;
+      z-index: 10;
+      flex: 0 0 320px;
+      align-self: flex-start; /* critical: sticky only travels if element has natural height */
     }
+    .ecosystem-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 12px; line-height: 1.1; }
+    .ecosystem-header h3 { font-size: 0.9rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
 
-    .ecosystem-header h2 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 12px;
-      line-height: 1.1;
-    }
-    .ecosystem-header h3 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #3b82f6;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 28px;
-    }
-
-    /* Subtle "scroll indicator" tag beneath the heading */
+    /* Scroll nudge indicator */
     .scroll-hint {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 0.72rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.22);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       border: 1px solid rgba(255,255,255,0.07);
       padding: 6px 12px;
       border-radius: 99px;
-      background: rgba(255,255,255,0.02);
     }
-    /* Animated bouncing arrow inside the hint */
-    .scroll-hint-arrow {
-      display: inline-block;
-      animation: bounceDown 1.6s ease-in-out infinite;
-    }
+    .scroll-hint-arrow { display: inline-block; animation: bounceDown 1.6s ease-in-out infinite; }
     @keyframes bounceDown {
-      0%, 100% { transform: translateY(0);   opacity: 0.4; }
-      50%       { transform: translateY(4px); opacity: 1;   }
+      0%, 100% { transform: translateY(0); opacity: 0.4; }
+      50%       { transform: translateY(4px); opacity: 1; }
     }
 
-    /* Thin vertical timeline line connecting the cards */
-    .product-showcase {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      flex: 1;
+    .product-showcase { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 40px; 
+      flex: 1; 
       position: relative;
+      z-index: 5;
     }
-    /* Left-edge accent line alongside the card stack */
-    .product-showcase::before {
-      content: '';
-      position: absolute;
-      left: -20px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(139, 92, 246, 0.3) 15%,
-        rgba(139, 92, 246, 0.3) 85%,
-        transparent 100%
-      );
-    }
-
-    /* Interactive Cosmic Card Grid Layout */
     .platform-row {
       background: linear-gradient(180deg, rgba(10, 10, 22, 0.8) 0%, rgba(5, 5, 12, 0.95) 100%);
       backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
@@ -277,18 +208,15 @@
                   transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                   box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    
     .platform-row::before {
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.04), transparent 40%);
       pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
     }
     .platform-row:hover::before { opacity: 1; }
-
     .product-title { font-size: 2.1rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 4px; color: #fff; transition: transform 0.3s ease; }
     .platform-row .tagline { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
     .platform-row .description { font-size: 1rem; color: var(--text-muted); line-height: 1.55; max-width: 480px; }
-
     .status-pill {
       display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px; font-size: 0.65rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
@@ -300,26 +228,21 @@
       animation: pulseGlow 1.8s infinite ease-in-out; background: inherit;
     }
     @keyframes pulseGlow { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
-
     .platform-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; 
       background: rgba(255, 255, 255, 0.02); color: var(--text); font-size: 0.95rem; font-weight: 600; text-decoration: none;
       width: 100%; max-width: 220px; margin-left: auto; border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(4px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
     .row-swiftrade { --accent-color: var(--green); }
     .row-swiftrade .tagline { color: var(--green); }
     .row-swiftrade .status-dot { background: var(--green); }
-
     .row-consultlink { --accent-color: var(--cyan); }
     .row-consultlink .tagline { color: var(--cyan); }
     .row-consultlink .status-dot { background: var(--cyan); }
-
     .row-pulse { --accent-color: var(--magenta); }
     .row-pulse .tagline { color: var(--magenta); }
     .row-pulse .status-dot { background: var(--magenta); }
-
     .platform-row:hover {
       border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-5px) scale(1.01);
@@ -328,36 +251,30 @@
     .row-swiftrade:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.4); }
     .row-consultlink:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.4); }
     .row-pulse:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(236, 72, 153, 0.12); border-color: rgba(236, 72, 153, 0.4); }
-
     .platform-row:hover .product-title { transform: translateX(4px); }
     .platform-row:hover .platform-btn { background: #fff; color: #000; border-color: #fff; box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15); }
 
-    /* --- DIAGNOSTIC MODAL --- */
+    /* MODAL */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 2, 4, 0.88); 
       z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none;
       transition: opacity 0.3s ease; padding: 20px; backdrop-filter: blur(8px);
     }
     .modal-overlay.open { opacity: 1; pointer-events: auto; }
-    
     .wizard-card {
       background: #07070d; border: 1px solid var(--glass-border); border-radius: 20px; width: 100%; max-width: 580px;
       position: relative; box-shadow: 0 32px 64px rgba(0, 0, 0, 0.8); display: flex; flex-direction: column; max-height: 85vh;
     }
-    
     .close-wizard {
       position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: var(--text-muted);
       font-size: 1.4rem; cursor: pointer; transition: color 0.2s; z-index: 10;
     }
     .close-wizard:hover { color: white; }
-
     .wizard-scroll-container { padding: 36px; overflow-y: auto; flex-grow: 1; -webkit-overflow-scrolling: touch; }
     .wizard-step { display: none; }
     .wizard-step.active { display: block; }
-
     .wizard-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
     .wizard-card .step-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
-
     .wizard-options { display: flex; flex-direction: column; gap: 12px; }
     .opt-btn {
       background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px;
@@ -366,23 +283,19 @@
     }
     .opt-btn:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); transform: translateX(3px); }
     .opt-btn::after { content: "→"; opacity: 0.4; font-weight: 700; }
-
     .diagnostic-result {
       background: rgba(59, 130, 246, 0.04); border: 1px solid rgba(59, 130, 246, 0.2);
       border-radius: 8px; padding: 20px; margin-bottom: 20px;
     }
     .diagnostic-result h4 { font-size: 1rem; margin-bottom: 10px; color: #93c5fd; font-weight: 700; }
     .diagnostic-result p { font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; }
-    
     .wizard-back-btn {
       background: transparent; border: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 600;
       cursor: pointer; margin-top: 20px; display: inline-flex; align-items: center; gap: 4px;
     }
     .wizard-back-btn:hover { color: white; }
-
     .wizard-sticky-bottom { padding: 20px 36px 36px 36px; background: #05050a; border-top: 1px solid var(--glass-border); display: none; }
     .wizard-sticky-bottom.visible { display: block; }
-
     .escalate-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .esc-btn {
       display: flex; align-items: center; justify-content: center; gap: 6px; padding: 14px; border-radius: 8px;
@@ -394,23 +307,11 @@
 
     footer { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
 
-    /* --- RESPONSIVE --- */
     @media (max-width: 950px) {
-      .ecosystem-container {
-        flex-direction: column;
-        gap: 40px;
-      }
-      /* On mobile the sticky becomes static — normal flow */
-      .ecosystem-header {
-        position: static;
-        flex: none;
-        width: 100%;
-        text-align: center;
-      }
+      .ecosystem-container { flex-direction: column; gap: 40px; }
+      .ecosystem-header { position: static; text-align: center; flex: none; width: 100%; }
       .scroll-hint { display: none; }
-      .product-showcase::before { display: none; }
     }
-
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.6rem; }
       .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
@@ -420,7 +321,6 @@
 </head>
 <body>
 
-  <!-- THE INTERACTIVE BACKGROUND ENGINE -->
   <div class="magic-parallax-stage">
     <div class="infinite-horizon-grid" id="bgGrid"></div>
     <div class="star-field" id="bgStars"></div>
@@ -429,10 +329,8 @@
     <div class="ambient-luminary luminary-3" id="orb3"></div>
   </div>
 
-  <!-- FOREGROUND FRAMEWORK -->
   <div class="foreground-content">
 
-    <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="nav-brand">
@@ -449,14 +347,12 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
       <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
       <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
       <button class="btn-primary trigger-audit">Quick Self Help</button>
     </section>
 
-    <!-- INTERACTIVE ACCORDIONS ENGINE -->
     <section class="engine-section">
       <h2>Select Your Current Core Operational Bottleneck:</h2>
 
@@ -554,23 +450,16 @@
       </div>
     </section>
 
-    <!-- WORKSPACE INTEGRATION SECTION -->
     <section class="ecosystem-section" id="workspace">
       <div class="ecosystem-container">
 
-        <!-- STICKY HEADING — stays pinned while cards scroll -->
         <div class="ecosystem-header">
           <h2>Vyeta Workspace</h2>
           <h3>Bridging Gaps With Robust Smart Tools</h3>
-          <span class="scroll-hint">
-            Scroll to explore
-            <span class="scroll-hint-arrow">↓</span>
-          </span>
+          <span class="scroll-hint">Scroll to explore <span class="scroll-hint-arrow">↓</span></span>
         </div>
 
-        <!-- SCROLLING PLATFORM CARDS -->
         <div class="product-showcase">
-
           <div class="platform-row row-swiftrade">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
@@ -606,8 +495,8 @@
               <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
             </div>
           </div>
-
         </div>
+
       </div>
     </section>
 
@@ -617,13 +506,10 @@
 
   </div>
 
-  <!-- DIAGNOSTIC ENGINE MODAL -->
   <div class="modal-overlay" id="auditModal">
     <div class="wizard-card">
       <button class="close-wizard" id="closeModalBtn">&times;</button>
-      
       <div class="wizard-scroll-container" id="wizardScrollArea">
-        
         <div class="wizard-step active" id="step1">
           <h3>What is giving you trouble right now?</h3>
           <p class="step-subtitle">Select the area that needs to be fixed.</p>
@@ -633,7 +519,6 @@
             <button class="opt-btn" onclick="goToStep('mobile')">Phones or Tablets</button>
           </div>
         </div>
-
         <div class="wizard-step" id="step-network">
           <h3>What's wrong with the internet?</h3>
           <p class="step-subtitle">Choose the description that best fits your situation.</p>
@@ -644,7 +529,6 @@
           </div>
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
-
         <div class="wizard-step" id="step-pc">
           <h3>What is your computer doing?</h3>
           <p class="step-subtitle">Choose the option that describes the issue.</p>
@@ -655,7 +539,6 @@
           </div>
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
-
         <div class="wizard-step" id="step-mobile">
           <h3>What is wrong with the device?</h3>
           <p class="step-subtitle">Choose the issue you are facing.</p>
@@ -665,7 +548,6 @@
           </div>
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
-
         <div class="wizard-step" id="step-solution">
           <h3>Try these simple steps right now:</h3>
           <p class="step-subtitle">We recommend trying this quick checklist first.</p>
@@ -675,9 +557,7 @@
           </div>
           <button class="wizard-back-btn" onclick="goBackToSubStep()">&larr; Back to Symptoms</button>
         </div>
-
       </div>
-
       <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
         <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
@@ -686,42 +566,36 @@
           <a href="#" id="emailBtn" class="esc-btn esc-email">Request Rapid Audit</a>
         </div>
       </div>
-
     </div>
   </div>
 
   <script>
-    // Parallax background
     window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${scrolled * 0.35}px)`;
-      document.getElementById('bgStars').style.transform = `translateY(${scrolled * 0.12}px)`;
-      document.getElementById('orb1').style.transform = `translateY(${scrolled * 0.22}px) scale(${1 + scrolled * 0.0003})`;
-      document.getElementById('orb2').style.transform = `translateY(${scrolled * -0.15}px) scale(${1 + scrolled * 0.0001})`;
-      document.getElementById('orb3').style.transform = `translateY(${scrolled * 0.08}px)`;
+      const s = window.pageYOffset;
+      document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${s * 0.35}px)`;
+      document.getElementById('bgStars').style.transform = `translateY(${s * 0.12}px)`;
+      document.getElementById('orb1').style.transform = `translateY(${s * 0.22}px) scale(${1 + s * 0.0003})`;
+      document.getElementById('orb2').style.transform = `translateY(${s * -0.15}px) scale(${1 + s * 0.0001})`;
+      document.getElementById('orb3').style.transform = `translateY(${s * 0.08}px)`;
     });
 
-    // Mouse light tracker for platform cards
     document.querySelectorAll('.platform-row').forEach(row => {
       row.addEventListener('mousemove', (e) => {
-        const bounds = row.getBoundingClientRect();
-        row.style.setProperty('--x', `${e.clientX - bounds.left}px`);
-        row.style.setProperty('--y', `${e.clientY - bounds.top}px`);
+        const b = row.getBoundingClientRect();
+        row.style.setProperty('--x', `${e.clientX - b.left}px`);
+        row.style.setProperty('--y', `${e.clientY - b.top}px`);
       });
     });
 
-    // Accordion
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', function() {
         const item = this.closest('.accordion-item');
         const content = item.querySelector('.accordion-content');
         const isActive = item.classList.contains('active');
-        
         document.querySelectorAll('.accordion-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.accordion-content').style.maxHeight = null;
         });
-
         if (!isActive) {
           item.classList.add('active');
           content.style.maxHeight = content.scrollHeight + "px";
@@ -729,7 +603,6 @@
       });
     });
 
-    // Modal
     const modal = document.getElementById('auditModal');
     const scrollArea = document.getElementById('wizardScrollArea');
     const stickyDrawer = document.getElementById('stickyBottomDrawer');
@@ -742,7 +615,6 @@
         goToStep(1);
       });
     });
-
     document.getElementById('closeModalBtn').addEventListener('click', () => modal.classList.remove('open'));
     window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
 
@@ -757,66 +629,33 @@
         document.getElementById('step-' + step).classList.add('active');
       }
     }
-
     function goBackToSubStep() { goToStep(currentCategory); }
 
     const solutions = {
-      'net-completely-down': {
-        title: "No Internet Connection Checklist",
-        text: "• Check with your team: Is everyone disconnected, or is it just your device? If it's just you, restart your computer.<br><br>• Look at your main internet box (router): Find the main internet box in the office. Are there any red lights blinking on it? If yes, the internet provider is likely down in your area.<br><br>• The 30-Second Rule: Unplug the power cable from the back of the internet box, wait 30 seconds, and plug it back in. It takes about 2 to 3 minutes to turn fully back on.",
-        context: "Internet is completely down across the office"
-      },
-      'net-painfully-slow': {
-        title: "Slow Internet Fixes",
-        text: "• Pause big apps: Close software like OneDrive, Google Drive, Dropbox, or YouTube that might be updating or syncing large files in the background.<br><br>• Test a cable: If you are on Wi-Fi, try plugging your laptop directly into a network wall socket or cable if you have one available. If that's fast, your office Wi-Fi antenna setup needs optimization.<br><br>• Reboot your machine: Sometimes old network memory logs get stuck. A simple computer restart can clear the path.",
-        context: "Internet is working but running very slowly"
-      },
-      'net-keeps-dropping': {
-        title: "Fixing Weak or Dropping Wi-Fi",
-        text: "• Move closer to the antenna: If the connection cuts out when you enter a specific room or move behind thick walls, you have a Wi-Fi blindspot.<br><br>• Forget the network: Go to your device's Wi-Fi settings, click 'Forget Network' on your office Wi-Fi, turn your Wi-Fi off and back on, then re-type the office password.<br><br>• Unplug extra splitters: Make sure no loose network cords are plugged back into the same wall sockets, as this can confuse the office router grid.",
-        context: "Wi-Fi keeps dropping and disconnecting"
-      },
-      'pc-no-power': {
-        title: "Computer Won't Turn On Checklist",
-        text: "• Check the wall switch: Unplug your charger or power brick, plug a phone charger into the exact same wall socket, and see if the socket is actually getting power.<br><br>• The Deep Power Drain: Unplug the power cord from your computer. Hold down the computer's power button for a full 15 seconds while unplugged. Plug it back in and try turning it on again.<br><br>• Check the charging light: Look closely at where the power wire goes into the laptop. Is a tiny light turning on? If there is no light, your charging cable or power port may be damaged.",
-        context: "Computer or laptop won't turn on at all"
-      },
-      'pc-frozen': {
-        title: "Fixing a Frozen or Slow Computer",
-        text: "• Emergency Escape: Press the <b>Ctrl + Shift + Esc</b> keys at the same time on your keyboard. Look for any application using high memory and click 'End Task' to kill it.<br><br>• Close old browser tabs: If you have dozens of open internet tabs, close the ones you aren't using. They silently drain your computer's speed.<br><br>• Check storage space: Make sure your main computer hard drive isn't completely full. Computers require breathing room to function smoothly.",
-        context: "Computer keeps freezing or running slow"
-      },
-      'pc-blue-screen': {
-        title: "Handling Error Screens & Automatic Restarts",
-        text: "• Unplug all accessories: Unplug everything connected to the computer—USB drives, external monitors, printers, and mice. Then restart it.<br><br>• Let it finish updates: If it says 'Installing updates, do not turn off your computer,' leave it alone. Forcing it off right now can damage the system files.<br><br>• Keep it cool: Feel the bottom of the laptop or the back of the computer tower. If it's boiling hot, turn it off and let it cool down for 20 minutes before restarting.",
-        context: "Computer shows a blue screen error or keeps restarting"
-      },
-      'mob-no-email': {
-        title: "Company Email & Account Sync Help",
-        text: "• Try mobile data: Turn off your device's Wi-Fi and try opening your work email using your standard cellular mobile data bundle. If this works, your office network has blocked the email sync parameters.<br><br>• Check the time: Look closely at your phone's clock. If your phone's date or time is off by even a few minutes, security servers will automatically reject your login for safety.<br><br>• Update the application: Open the Google Play Store or Apple App Store and make sure your email application (Outlook or Gmail) is completely updated.",
-        context: "Mobile device cannot connect to company email or work apps"
-      },
-      'mob-battery-screen': {
-        title: "Physical Hardware Damaged or Weak Battery",
-        text: "• Stop using expanding batteries: If the back of your phone or the screen is popping outward or lifting up, the battery is swelling. Turn it off immediately and stop charging it.<br><br>• Screen glitches: If the screen is cracked and flickering randomly, avoid plugging it into computer file transfers until a backup is completed.<br><br>• Clean the charging socket: Use a clean toothpick to gently clear out lint from the charging hole at the bottom of the phone if your cable keeps slipping loose.",
-        context: "Phone has physical damage or battery issues"
-      }
+      'net-completely-down': { title: "No Internet Connection Checklist", text: "• Check with your team: Is everyone disconnected, or is it just your device? If it's just you, restart your computer.<br><br>• Look at your main internet box (router): Find the main internet box in the office. Are there any red lights blinking on it? If yes, the internet provider is likely down in your area.<br><br>• The 30-Second Rule: Unplug the power cable from the back of the internet box, wait 30 seconds, and plug it back in. It takes about 2 to 3 minutes to turn fully back on.", context: "Internet is completely down across the office" },
+      'net-painfully-slow': { title: "Slow Internet Fixes", text: "• Pause big apps: Close software like OneDrive, Google Drive, Dropbox, or YouTube that might be updating or syncing large files in the background.<br><br>• Test a cable: If you are on Wi-Fi, try plugging your laptop directly into a network wall socket or cable if you have one available. If that's fast, your office Wi-Fi antenna setup needs optimization.<br><br>• Reboot your machine: Sometimes old network memory logs get stuck. A simple computer restart can clear the path.", context: "Internet is working but running very slowly" },
+      'net-keeps-dropping': { title: "Fixing Weak or Dropping Wi-Fi", text: "• Move closer to the antenna: If the connection cuts out when you enter a specific room or move behind thick walls, you have a Wi-Fi blindspot.<br><br>• Forget the network: Go to your device's Wi-Fi settings, click 'Forget Network' on your office Wi-Fi, turn your Wi-Fi off and back on, then re-type the office password.<br><br>• Unplug extra splitters: Make sure no loose network cords are plugged back into the same wall sockets, as this can confuse the office router grid.", context: "Wi-Fi keeps dropping and disconnecting" },
+      'pc-no-power': { title: "Computer Won't Turn On Checklist", text: "• Check the wall switch: Unplug your charger or power brick, plug a phone charger into the exact same wall socket, and see if the socket is actually getting power.<br><br>• The Deep Power Drain: Unplug the power cord from your computer. Hold down the computer's power button for a full 15 seconds while unplugged. Plug it back in and try turning it on again.<br><br>• Check the charging light: Look closely at where the power wire goes into the laptop. Is a tiny light turning on? If there is no light, your charging cable or power port may be damaged.", context: "Computer or laptop won't turn on at all" },
+      'pc-frozen': { title: "Fixing a Frozen or Slow Computer", text: "• Emergency Escape: Press the <b>Ctrl + Shift + Esc</b> keys at the same time on your keyboard. Look for any application using high memory and click 'End Task' to kill it.<br><br>• Close old browser tabs: If you have dozens of open internet tabs, close the ones you aren't using. They silently drain your computer's speed.<br><br>• Check storage space: Make sure your main computer hard drive isn't completely full. Computers require breathing room to function smoothly.", context: "Computer keeps freezing or running slow" },
+      'pc-blue-screen': { title: "Handling Error Screens & Automatic Restarts", text: "• Unplug all accessories: Unplug everything connected to the computer—USB drives, external monitors, printers, and mice. Then restart it.<br><br>• Let it finish updates: If it says 'Installing updates, do not turn off your computer,' leave it alone. Forcing it off right now can damage the system files.<br><br>• Keep it cool: Feel the bottom of the laptop or the back of the computer tower. If it's boiling hot, turn it off and let it cool down for 20 minutes before restarting.", context: "Computer shows a blue screen error or keeps restarting" },
+      'mob-no-email': { title: "Company Email & Account Sync Help", text: "• Try mobile data: Turn off your device's Wi-Fi and try opening your work email using your standard cellular mobile data bundle. If this works, your office network has blocked the email sync parameters.<br><br>• Check the time: Look closely at your phone's clock. If your phone's date or time is off by even a few minutes, security servers will automatically reject your login for safety.<br><br>• Update the application: Open the Google Play Store or Apple App Store and make sure your email application (Outlook or Gmail) is completely updated.", context: "Mobile device cannot connect to company email or work apps" },
+      'mob-battery-screen': { title: "Physical Hardware Damaged or Weak Battery", text: "• Stop using expanding batteries: If the back of your phone or the screen is popping outward or lifting up, the battery is swelling. Turn it off immediately and stop charging it.<br><br>• Screen glitches: If the screen is cracked and flickering randomly, avoid plugging it into computer file transfers until a backup is completed.<br><br>• Clean the charging socket: Use a clean toothpick to gently clear out lint from the charging hole at the bottom of the phone if your cable keeps slipping loose.", context: "Phone has physical damage or battery issues" }
     };
 
     function showSolution(key) {
       const data = solutions[key];
       document.getElementById('solutionTitle').innerText = data.title;
       document.getElementById('solutionBody').innerHTML = data.text;
-      
       const waText = encodeURIComponent(`Hi Vyeta team, I am on your website and we are running into an issue: "${data.context}". We tried the basic troubleshooting steps but still need assistance. Can we get an engineer or schedule a system audit?`);
       document.getElementById('whatsappBtn').href = `https://wa.me/260777363303?text=${waText}`;
-
       const emailSubject = encodeURIComponent(`IT Support Needed: ${data.context}`);
       const emailBody = encodeURIComponent(`Vyeta Operations,\n\nWe are experiencing an operational issue: ${data.context}.\n\nWe reviewed the quick-fix guide on the landing page but need professional hands on this. Please let us know when we can schedule an infrastructure audit.\n\nBest regards.`);
       document.getElementById('emailBtn').href = `mailto:operations@vyeta.com?subject=${emailSubject}&body=${emailBody}`;
-
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-solution').classList.add('active');
       stickyDrawer.classList.add('visible');
       scrollArea.scrollTop = 0;
     }
+  </script>
+</body>
+</html>
