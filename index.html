@@ -10,13 +10,12 @@
       --bg: #030307; 
       --text: #ffffff;
       --text-muted: #94a3b8;
-      --blue: #1e40af; /* Extracted pure blue from image_3.png */
+      --blue: #1e40af;
       --purple: #8b5cf6;
       --cyan: #06b6d4;
       --magenta: #ec4899;
       --green: #10b981;
       
-      /* Sophisticated Dark Glass Core - High Contrast Legibility */
       --glass-bg: rgba(8, 8, 16, 0.65);
       --glass-border: rgba(255, 255, 255, 0.08);
       --glass-blur: blur(20px);
@@ -45,7 +44,6 @@
       perspective: 1000px;
     }
 
-    /* Layer 1: Tilted Infinite Grid Perspective Horizon */
     .infinite-horizon-grid {
       position: absolute;
       top: -20%; left: -50%; width: 200%; height: 200%;
@@ -58,7 +56,6 @@
       will-change: transform;
     }
 
-    /* Layer 2: Cosmic Floating Star Particles */
     .star-field {
       position: absolute;
       width: 100%; height: 100%;
@@ -71,7 +68,6 @@
       will-change: transform;
     }
 
-    /* Layer 3: Organic Fluid Luminescent Orbs */
     .ambient-luminary {
       position: absolute;
       border-radius: 50%;
@@ -84,7 +80,6 @@
     .luminary-2 { width: 600px; height: 600px; background: radial-gradient(var(--purple), var(--magenta)); top: 50%; right: -10%; }
     .luminary-3 { width: 400px; height: 400px; background: var(--blue); bottom: -10%; left: 20%; }
 
-    /* Foreground Content Isolator */
     .foreground-content {
       position: relative;
       z-index: 10;
@@ -101,7 +96,6 @@
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
     
     .nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.03em; text-decoration: none; color: var(--text); }
-    /* Exact vector form matching logo asset image_3.png */
     .logo-vector { width: 28px; height: 28px; display: block; }
     
     .nav-right-block { display: flex; align-items: center; gap: 12px; }
@@ -174,40 +168,104 @@
     .tier-link:hover { background: white; color: black; }
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
-    /* --- ECOSYSTEM PLATFORMS SECTION --- */
-    .ecosystem-section { padding: 120px 24px; position: relative; }
-    
-    /* Dedicated flex layout to guarantee scrolling containers slide freely underneath */
-    .ecosystem-container { 
-      max-width: 1140px; 
-      margin: 0 auto; 
+    /* ============================================================
+       ECOSYSTEM / WORKSPACE SECTION — STICKY SCROLL LAYOUT
+       Key rules:
+       1. .ecosystem-section must NOT have overflow: hidden/auto
+       2. .ecosystem-container is a flex row — header sticks, cards scroll
+       3. .ecosystem-header uses position: sticky; top: 110px (below navbar)
+       4. .product-showcase is just a normal flex column — no overflow
+    ============================================================ */
+    .ecosystem-section {
+      padding: 120px 24px 200px 24px; /* extra bottom padding = scroll room */
+      position: relative;
+      /* overflow must stay at default (visible) for sticky to work */
+    }
+
+    .ecosystem-container {
+      max-width: 1140px;
+      margin: 0 auto;
       display: flex;
       gap: 80px;
-      align-items: flex-start;
-      position: relative;
+      align-items: flex-start; /* required — stretch would break sticky */
     }
-    
-    /* Fixed heading layout pinned safely past navbar boundary depth */
-    .ecosystem-header { 
-      position: -webkit-sticky;
-      position: sticky; 
-      top: 110px; 
-      z-index: 10;
-      flex: 0 0 320px;
-      align-self: flex-start;
-    }
-    .ecosystem-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 12px; line-height: 1.1; }
-    .ecosystem-header h3 { font-size: 0.9rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.12em; }
 
-    .product-showcase { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 40px; 
-      flex: 1; 
-      position: relative;
-      z-index: 5;
+    /* THE STICKY HEADER — freezes in place while cards scroll past */
+    .ecosystem-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 110px; /* clears the fixed navbar */
+      flex: 0 0 300px;
+      align-self: flex-start; /* critical for sticky inside flexbox */
+      z-index: 20;
     }
-    
+
+    .ecosystem-header h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .ecosystem-header h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 28px;
+    }
+
+    /* Subtle "scroll indicator" tag beneath the heading */
+    .scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 6px 12px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.02);
+    }
+    /* Animated bouncing arrow inside the hint */
+    .scroll-hint-arrow {
+      display: inline-block;
+      animation: bounceDown 1.6s ease-in-out infinite;
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0);   opacity: 0.4; }
+      50%       { transform: translateY(4px); opacity: 1;   }
+    }
+
+    /* Thin vertical timeline line connecting the cards */
+    .product-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      flex: 1;
+      position: relative;
+    }
+    /* Left-edge accent line alongside the card stack */
+    .product-showcase::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(139, 92, 246, 0.3) 15%,
+        rgba(139, 92, 246, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
     /* Interactive Cosmic Card Grid Layout */
     .platform-row {
       background: linear-gradient(180deg, rgba(10, 10, 22, 0.8) 0%, rgba(5, 5, 12, 0.95) 100%);
@@ -220,7 +278,6 @@
                   box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
-    /* Dynamic Hover Light Leak Shifters */
     .platform-row::before {
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.04), transparent 40%);
@@ -232,7 +289,6 @@
     .platform-row .tagline { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
     .platform-row .description { font-size: 1rem; color: var(--text-muted); line-height: 1.55; max-width: 480px; }
 
-    /* Animated Pulsing Status Engine */
     .status-pill {
       display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px; font-size: 0.65rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
@@ -245,7 +301,6 @@
     }
     @keyframes pulseGlow { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
 
-    /* Glassmorphic Portal Buttons */
     .platform-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; 
       background: rgba(255, 255, 255, 0.02); color: var(--text); font-size: 0.95rem; font-weight: 600; text-decoration: none;
@@ -253,7 +308,6 @@
       backdrop-filter: blur(4px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Individual Platform Accent Configurations */
     .row-swiftrade { --accent-color: var(--green); }
     .row-swiftrade .tagline { color: var(--green); }
     .row-swiftrade .status-dot { background: var(--green); }
@@ -266,13 +320,11 @@
     .row-pulse .tagline { color: var(--magenta); }
     .row-pulse .status-dot { background: var(--magenta); }
 
-    /* Shared Magical Over-Hover Physics */
     .platform-row:hover {
       border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-5px) scale(1.01);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(139, 92, 246, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
     }
-    /* Specific Glowing Shadow Projections */
     .row-swiftrade:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.4); }
     .row-consultlink:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.4); }
     .row-pulse:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(236, 72, 153, 0.12); border-color: rgba(236, 72, 153, 0.4); }
@@ -342,18 +394,21 @@
 
     footer { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
 
-    /* Fallbacks for medium screens and mobile interfaces */
+    /* --- RESPONSIVE --- */
     @media (max-width: 950px) {
-      .ecosystem-container { 
+      .ecosystem-container {
         flex-direction: column;
-        gap: 40px; 
+        gap: 40px;
       }
-      .ecosystem-header { 
-        position: static; 
-        text-align: center; 
+      /* On mobile the sticky becomes static — normal flow */
+      .ecosystem-header {
+        position: static;
         flex: none;
         width: 100%;
+        text-align: center;
       }
+      .scroll-hint { display: none; }
+      .product-showcase::before { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -381,7 +436,6 @@
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="nav-brand">
-          <!-- Perfectly traced geometry from your provided image_3.png logo asset -->
           <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="28" cy="28" r="13" fill="#1e40af"/>
             <rect x="52" y="16" width="22" height="66" rx="11" transform="rotate(32 52 16)" fill="#1e40af"/>
@@ -406,7 +460,6 @@
     <section class="engine-section">
       <h2>Select Your Current Core Operational Bottleneck:</h2>
 
-      <!-- BLOCK 1: DOWNTIME -->
       <div class="accordion-item active" data-type="downtime">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -438,7 +491,6 @@
         </div>
       </div>
 
-      <!-- BLOCK 2: MANUAL WORKFLOWS -->
       <div class="accordion-item" data-type="manual">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -470,7 +522,6 @@
         </div>
       </div>
 
-      <!-- BLOCK 3: SECURITY CONCERNS -->
       <div class="accordion-item" data-type="security">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -506,13 +557,20 @@
     <!-- WORKSPACE INTEGRATION SECTION -->
     <section class="ecosystem-section" id="workspace">
       <div class="ecosystem-container">
+
+        <!-- STICKY HEADING — stays pinned while cards scroll -->
         <div class="ecosystem-header">
           <h2>Vyeta Workspace</h2>
           <h3>Bridging Gaps With Robust Smart Tools</h3>
+          <span class="scroll-hint">
+            Scroll to explore
+            <span class="scroll-hint-arrow">↓</span>
+          </span>
         </div>
 
+        <!-- SCROLLING PLATFORM CARDS -->
         <div class="product-showcase">
-          <!-- swifTrade -->
+
           <div class="platform-row row-swiftrade">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
@@ -525,7 +583,6 @@
             </div>
           </div>
 
-          <!-- ConsultLink -->
           <div class="platform-row row-consultlink">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
@@ -538,7 +595,6 @@
             </div>
           </div>
 
-          <!-- Pulse OS ZM -->
           <div class="platform-row row-pulse">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Operational</div>
@@ -550,16 +606,16 @@
               <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <p>&copy; 2026 Vyeta. Built for performance.</p>
     </footer>
 
-  </div> <!-- END FOREGROUND CONTENT -->
+  </div>
 
   <!-- DIAGNOSTIC ENGINE MODAL -->
   <div class="modal-overlay" id="auditModal">
@@ -568,7 +624,6 @@
       
       <div class="wizard-scroll-container" id="wizardScrollArea">
         
-        <!-- STEP 1 -->
         <div class="wizard-step active" id="step1">
           <h3>What is giving you trouble right now?</h3>
           <p class="step-subtitle">Select the area that needs to be fixed.</p>
@@ -579,7 +634,6 @@
           </div>
         </div>
 
-        <!-- STEP 2: NETWORK -->
         <div class="wizard-step" id="step-network">
           <h3>What's wrong with the internet?</h3>
           <p class="step-subtitle">Choose the description that best fits your situation.</p>
@@ -591,7 +645,6 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 2: PC -->
         <div class="wizard-step" id="step-pc">
           <h3>What is your computer doing?</h3>
           <p class="step-subtitle">Choose the option that describes the issue.</p>
@@ -603,7 +656,6 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 2: MOBILE -->
         <div class="wizard-step" id="step-mobile">
           <h3>What is wrong with the device?</h3>
           <p class="step-subtitle">Choose the issue you are facing.</p>
@@ -614,26 +666,21 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 3 -->
         <div class="wizard-step" id="step-solution">
           <h3>Try these simple steps right now:</h3>
           <p class="step-subtitle">We recommend trying this quick checklist first.</p>
-          
           <div class="diagnostic-result">
             <h4 id="solutionTitle">Analyzing...</h4>
             <p id="solutionBody">Please wait.</p>
           </div>
-          
           <button class="wizard-back-btn" onclick="goBackToSubStep()">&larr; Back to Symptoms</button>
         </div>
 
       </div>
 
-      <!-- ESCALATION CONTAINER -->
       <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
         <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
-        
         <div class="escalate-actions">
           <a href="#" id="whatsappBtn" target="_blank" class="esc-btn esc-whatsapp">Chat on WhatsApp</a>
           <a href="#" id="emailBtn" class="esc-btn esc-email">Request Rapid Audit</a>
@@ -643,9 +690,8 @@
     </div>
   </div>
 
-  <!-- THE MOTION ENGINE -->
   <script>
-    // Pure Hardware-Accelerated Dynamic Vector Scrolling Math
+    // Parallax background
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
       document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${scrolled * 0.35}px)`;
@@ -655,18 +701,16 @@
       document.getElementById('orb3').style.transform = `translateY(${scrolled * 0.08}px)`;
     });
 
-    // Dynamic Micro-Light Coordinates Tracker for Cards
+    // Mouse light tracker for platform cards
     document.querySelectorAll('.platform-row').forEach(row => {
       row.addEventListener('mousemove', (e) => {
         const bounds = row.getBoundingClientRect();
-        const x = e.clientX - bounds.left;
-        const y = e.clientY - bounds.top;
-        row.style.setProperty('--x', `${x}px`);
-        row.style.setProperty('--y', `${y}px`);
+        row.style.setProperty('--x', `${e.clientX - bounds.left}px`);
+        row.style.setProperty('--y', `${e.clientY - bounds.top}px`);
       });
     });
 
-    // --- ACCORDION INTERACTIVITY ---
+    // Accordion
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', function() {
         const item = this.closest('.accordion-item');
@@ -676,7 +720,7 @@
         document.querySelectorAll('.accordion-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.accordion-content').style.maxHeight = null;
-         });
+        });
 
         if (!isActive) {
           item.classList.add('active');
@@ -685,7 +729,7 @@
       });
     });
 
-    // --- DIAGNOSTIC MODAL CONTROL SYSTEM ---
+    // Modal
     const modal = document.getElementById('auditModal');
     const scrollArea = document.getElementById('wizardScrollArea');
     const stickyDrawer = document.getElementById('stickyBottomDrawer');
@@ -699,19 +743,13 @@
       });
     });
 
-    document.getElementById('closeModalBtn').addEventListener('click', () => {
-      modal.classList.remove('open');
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('open');
-    });
+    document.getElementById('closeModalBtn').addEventListener('click', () => modal.classList.remove('open'));
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
 
     function goToStep(step) {
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
-      stickyDrawer.classList.remove('visible'); 
-      scrollArea.scrollTop = 0; 
-
+      stickyDrawer.classList.remove('visible');
+      scrollArea.scrollTop = 0;
       if (step === 1) {
         document.getElementById('step1').classList.add('active');
       } else {
@@ -720,11 +758,8 @@
       }
     }
 
-    function goBackToSubStep() {
-      goToStep(currentCategory);
-    }
+    function goBackToSubStep() { goToStep(currentCategory); }
 
-    // Solutions Mapping
     const solutions = {
       'net-completely-down': {
         title: "No Internet Connection Checklist",
@@ -773,9 +808,8 @@
       document.getElementById('solutionTitle').innerText = data.title;
       document.getElementById('solutionBody').innerHTML = data.text;
       
-      const baseWhatsApp = "https://wa.me/260777363303";
       const waText = encodeURIComponent(`Hi Vyeta team, I am on your website and we are running into an issue: "${data.context}". We tried the basic troubleshooting steps but still need assistance. Can we get an engineer or schedule a system audit?`);
-      document.getElementById('whatsappBtn').href = `${baseWhatsApp}?text=${waText}`;
+      document.getElementById('whatsappBtn').href = `https://wa.me/260777363303?text=${waText}`;
 
       const emailSubject = encodeURIComponent(`IT Support Needed: ${data.context}`);
       const emailBody = encodeURIComponent(`Vyeta Operations,\n\nWe are experiencing an operational issue: ${data.context}.\n\nWe reviewed the quick-fix guide on the landing page but need professional hands on this. Please let us know when we can schedule an infrastructure audit.\n\nBest regards.`);
@@ -783,10 +817,6 @@
 
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-solution').classList.add('active');
-      
       stickyDrawer.classList.add('visible');
       scrollArea.scrollTop = 0;
     }
-  </script>
-</body>
-</html>
