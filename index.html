@@ -99,10 +99,18 @@
       border-bottom: 1px solid var(--glass-border);
     }
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
-    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+    
+    .nav-left-block { display: flex; align-items: center; gap: 32px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
     .logo-vector { width: 24px; height: 24px; animation: spin 20s linear infinite; }
     @keyframes spin { 100% { transform: rotate(300deg); } }
     
+    .nav-link {
+      color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--text); }
+
     .cta-nav-btn {
       background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;
       cursor: pointer; border: none; transition: all 0.2s ease;
@@ -165,8 +173,25 @@
 
     /* --- ECOSYSTEM HIGH-MAGIC PLATFORMS SECTION --- */
     .ecosystem-section { padding: 120px 24px; position: relative; }
-    .ecosystem-container { max-width: 900px; margin: 0 auto; }
-    .ecosystem-header { text-align: center; margin-bottom: 64px; }
+    
+    /* Side-by-side positioning runway layout */
+    .ecosystem-container { 
+      max-width: 1140px; 
+      margin: 0 auto; 
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    
+    /* Freezes heading at viewport top below navbar bounds */
+    .ecosystem-header { 
+      position: -webkit-sticky;
+      position: sticky; 
+      top: 130px; 
+      text-align: left;
+      z-index: 5;
+    }
     .ecosystem-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 8px; }
     .ecosystem-header h3 { font-size: 0.95rem; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.12em; }
 
@@ -306,6 +331,19 @@
 
     footer { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
 
+    /* Fallbacks for medium screens and mobile interfaces */
+    @media (max-width: 950px) {
+      .ecosystem-container { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+      }
+      .ecosystem-header { 
+        position: static; 
+        text-align: center; 
+      }
+      .nav-left-block { gap: 20px; }
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.6rem; }
       .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
@@ -330,12 +368,15 @@
     <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
-        <div class="nav-brand">
-          <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="25" cy="25" r="12" fill="#3b82f6"/>
-            <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#3b82f6"/>
-          </svg>
-          <span>vyeta</span>
+        <div class="nav-left-block">
+          <a href="#" class="nav-brand">
+            <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="25" r="12" fill="#3b82f6"/>
+              <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#3b82f6"/>
+            </svg>
+            <span>vyeta</span>
+          </a>
+          <a href="#workspace" class="nav-link">Workspace</a>
         </div>
         <button class="cta-nav-btn trigger-audit">Request Audit</button>
       </div>
@@ -450,7 +491,7 @@
     </section>
 
     <!-- WORKSPACE INTEGRATION SECTION -->
-    <section class="ecosystem-section">
+    <section class="ecosystem-section" id="workspace">
       <div class="ecosystem-container">
         <div class="ecosystem-header">
           <h2>Vyeta Workspace</h2>
@@ -622,7 +663,7 @@
         document.querySelectorAll('.accordion-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.accordion-content').style.maxHeight = null;
-        });
+         });
 
         if (!isActive) {
           item.classList.add('active');
