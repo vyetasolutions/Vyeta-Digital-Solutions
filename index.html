@@ -10,7 +10,7 @@
       --bg: #030307; 
       --text: #ffffff;
       --text-muted: #94a3b8;
-      --blue: #3b82f6; 
+      --blue: #1e40af; /* Extracted pure blue from image_3.png */
       --purple: #8b5cf6;
       --cyan: #06b6d4;
       --magenta: #ec4899;
@@ -100,9 +100,9 @@
     }
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
     
-    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
-    .logo-vector { width: 24px; height: 24px; animation: spin 20s linear infinite; }
-    @keyframes spin { 100% { transform: rotate(300deg); } }
+    .nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.03em; text-decoration: none; color: var(--text); }
+    /* Exact vector form matching logo asset image_3.png */
+    .logo-vector { width: 28px; height: 28px; display: block; }
     
     .nav-right-block { display: flex; align-items: center; gap: 12px; }
 
@@ -174,37 +174,45 @@
     .tier-link:hover { background: white; color: black; }
     .accordion-item.active .accordion-icon { transform: rotate(45deg); color: white; }
 
-    /* --- ECOSYSTEM HIGH-MAGIC PLATFORMS SECTION --- */
+    /* --- ECOSYSTEM PLATFORMS SECTION --- */
     .ecosystem-section { padding: 120px 24px; position: relative; }
     
-    /* Rebuilt layout system using flexbox parameters to support flawless sticky freezing loops */
+    /* Dedicated flex layout to guarantee scrolling containers slide freely underneath */
     .ecosystem-container { 
       max-width: 1140px; 
       margin: 0 auto; 
       display: flex;
-      gap: 64px;
+      gap: 80px;
       align-items: flex-start;
+      position: relative;
     }
     
-    /* Freezes heading at viewport top below navbar bounds safely */
+    /* Fixed heading layout pinned safely past navbar boundary depth */
     .ecosystem-header { 
       position: -webkit-sticky;
       position: sticky; 
-      top: 120px; 
-      text-align: left;
-      z-index: 5;
+      top: 110px; 
+      z-index: 10;
       flex: 0 0 320px;
+      align-self: flex-start;
     }
-    .ecosystem-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 8px; }
-    .ecosystem-header h3 { font-size: 0.95rem; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.12em; }
+    .ecosystem-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 12px; line-height: 1.1; }
+    .ecosystem-header h3 { font-size: 0.9rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.12em; }
 
-    .product-showcase { display: flex; flex-direction: column; gap: 32px; flex: 1; }
+    .product-showcase { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 40px; 
+      flex: 1; 
+      position: relative;
+      z-index: 5;
+    }
     
     /* Interactive Cosmic Card Grid Layout */
     .platform-row {
-      background: linear-gradient(180deg, rgba(10, 10, 22, 0.7) 0%, rgba(5, 5, 12, 0.9) 100%);
+      background: linear-gradient(180deg, rgba(10, 10, 22, 0.8) 0%, rgba(5, 5, 12, 0.95) 100%);
       backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px;
+      border: 1px solid var(--glass-border); border-radius: 24px; padding: 44px;
       display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center;
       position: relative; overflow: hidden;
       transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -373,9 +381,10 @@
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="nav-brand">
+          <!-- Perfectly traced geometry from your provided image_3.png logo asset -->
           <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="25" cy="25" r="12" fill="#3b82f6"/>
-            <rect x="42" y="15" width="24" height="70" rx="12" transform="rotate(-30 42 15)" fill="#3b82f6"/>
+            <circle cx="28" cy="28" r="13" fill="#1e40af"/>
+            <rect x="52" y="16" width="22" height="66" rx="11" transform="rotate(32 52 16)" fill="#1e40af"/>
           </svg>
           <span>vyeta</span>
         </a>
