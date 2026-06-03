@@ -10,13 +10,12 @@
       --bg: #030307; 
       --text: #ffffff;
       --text-muted: #94a3b8;
-      --blue: #1e40af; /* Extracted pure blue from image_3.png */
+      --blue: #1e40af;
       --purple: #8b5cf6;
       --cyan: #06b6d4;
       --magenta: #ec4899;
       --green: #10b981;
       
-      /* Sophisticated Dark Glass Core - High Contrast Legibility */
       --glass-bg: rgba(8, 8, 16, 0.65);
       --glass-border: rgba(255, 255, 255, 0.08);
       --glass-blur: blur(20px);
@@ -45,7 +44,6 @@
       perspective: 1000px;
     }
 
-    /* Layer 1: Tilted Infinite Grid Perspective Horizon */
     .infinite-horizon-grid {
       position: absolute;
       top: -20%; left: -50%; width: 200%; height: 200%;
@@ -58,7 +56,6 @@
       will-change: transform;
     }
 
-    /* Layer 2: Cosmic Floating Star Particles */
     .star-field {
       position: absolute;
       width: 100%; height: 100%;
@@ -71,7 +68,6 @@
       will-change: transform;
     }
 
-    /* Layer 3: Organic Fluid Luminescent Orbs */
     .ambient-luminary {
       position: absolute;
       border-radius: 50%;
@@ -84,7 +80,6 @@
     .luminary-2 { width: 600px; height: 600px; background: radial-gradient(var(--purple), var(--magenta)); top: 50%; right: -10%; }
     .luminary-3 { width: 400px; height: 400px; background: var(--blue); bottom: -10%; left: 20%; }
 
-    /* Foreground Content Isolator */
     .foreground-content {
       position: relative;
       z-index: 10;
@@ -101,7 +96,6 @@
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
     
     .nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.03em; text-decoration: none; color: var(--text); }
-    /* Exact vector form matching logo asset image_3.png */
     .logo-vector { width: 28px; height: 28px; display: block; }
     
     .nav-right-block { display: flex; align-items: center; gap: 12px; }
@@ -177,7 +171,6 @@
     /* --- ECOSYSTEM PLATFORMS SECTION --- */
     .ecosystem-section { padding: 120px 24px; position: relative; }
     
-    /* Dedicated flex layout to guarantee scrolling containers slide freely underneath */
     .ecosystem-container { 
       max-width: 1140px; 
       margin: 0 auto; 
@@ -187,7 +180,6 @@
       position: relative;
     }
     
-    /* Fixed heading layout pinned safely past navbar boundary depth */
     .ecosystem-header { 
       position: -webkit-sticky;
       position: sticky; 
@@ -208,7 +200,6 @@
       z-index: 5;
     }
     
-    /* Interactive Cosmic Card Grid Layout */
     .platform-row {
       background: linear-gradient(180deg, rgba(10, 10, 22, 0.8) 0%, rgba(5, 5, 12, 0.95) 100%);
       backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
@@ -220,7 +211,6 @@
                   box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
-    /* Dynamic Hover Light Leak Shifters */
     .platform-row::before {
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.04), transparent 40%);
@@ -232,7 +222,6 @@
     .platform-row .tagline { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
     .platform-row .description { font-size: 1rem; color: var(--text-muted); line-height: 1.55; max-width: 480px; }
 
-    /* Animated Pulsing Status Engine */
     .status-pill {
       display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px; font-size: 0.65rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
@@ -245,7 +234,6 @@
     }
     @keyframes pulseGlow { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
 
-    /* Glassmorphic Portal Buttons */
     .platform-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; 
       background: rgba(255, 255, 255, 0.02); color: var(--text); font-size: 0.95rem; font-weight: 600; text-decoration: none;
@@ -253,7 +241,6 @@
       backdrop-filter: blur(4px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Individual Platform Accent Configurations */
     .row-swiftrade { --accent-color: var(--green); }
     .row-swiftrade .tagline { color: var(--green); }
     .row-swiftrade .status-dot { background: var(--green); }
@@ -266,13 +253,11 @@
     .row-pulse .tagline { color: var(--magenta); }
     .row-pulse .status-dot { background: var(--magenta); }
 
-    /* Shared Magical Over-Hover Physics */
     .platform-row:hover {
       border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-5px) scale(1.01);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(139, 92, 246, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
     }
-    /* Specific Glowing Shadow Projections */
     .row-swiftrade:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.4); }
     .row-consultlink:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.4); }
     .row-pulse:hover { box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(236, 72, 153, 0.12); border-color: rgba(236, 72, 153, 0.4); }
@@ -280,7 +265,6 @@
     .platform-row:hover .product-title { transform: translateX(4px); }
     .platform-row:hover .platform-btn { background: #fff; color: #000; border-color: #fff; box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15); }
 
-    /* --- DIAGNOSTIC MODAL --- */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 2, 4, 0.88); 
       z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none;
@@ -342,20 +326,10 @@
 
     footer { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
 
-    /* Fallbacks for medium screens and mobile interfaces */
     @media (max-width: 950px) {
-      .ecosystem-container { 
-        flex-direction: column;
-        gap: 40px; 
-      }
-      .ecosystem-header { 
-        position: static; 
-        text-align: center; 
-        flex: none;
-        width: 100%;
-      }
+      .ecosystem-container { flex-direction: column; gap: 40px; }
+      .ecosystem-header { position: static; text-align: center; flex: none; width: 100%; }
     }
-
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.6rem; }
       .platform-row { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
@@ -374,7 +348,6 @@
   </div>
 
   <div class="foreground-content">
-
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="nav-brand">
@@ -399,7 +372,6 @@
 
     <section class="engine-section">
       <h2>Select Your Current Core Operational Bottleneck:</h2>
-
       <div class="accordion-item active" data-type="downtime">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -548,7 +520,7 @@
               <p class="description">Designed to help discover events, activities, promotions, entertainment, and experiences happening around Zambia.</p>
             </div>
             <div>
-              <a href="#" class="platform-btn">Explore Events &rarr;</a>
+              <a href="https://vyetasolutions.github.io/WhatsHappenin-ZM/" class="platform-btn">Explore Events &rarr;</a>
             </div>
           </div>
         </div>
@@ -558,13 +530,12 @@
     <footer>
       <p>&copy; 2026 Vyeta. Built for performance.</p>
     </footer>
+  </div>
 
-  </div> <div class="modal-overlay" id="auditModal">
+  <div class="modal-overlay" id="auditModal">
     <div class="wizard-card">
       <button class="close-wizard" id="closeModalBtn">&times;</button>
-      
       <div class="wizard-scroll-container" id="wizardScrollArea">
-        
         <div class="wizard-step active" id="step1">
           <h3>What is giving you trouble right now?</h3>
           <p class="step-subtitle">Select the area that needs to be fixed.</p>
@@ -610,32 +581,26 @@
         <div class="wizard-step" id="step-solution">
           <h3>Try these simple steps right now:</h3>
           <p class="step-subtitle">We recommend trying this quick checklist first.</p>
-          
           <div class="diagnostic-result">
             <h4 id="solutionTitle">Analyzing...</h4>
             <p id="solutionBody">Please wait.</p>
           </div>
-          
           <button class="wizard-back-btn" onclick="goBackToSubStep()">&larr; Back to Symptoms</button>
         </div>
-
       </div>
 
       <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
         <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
-        
         <div class="escalate-actions">
           <a href="#" id="whatsappBtn" target="_blank" class="esc-btn esc-whatsapp">Chat on WhatsApp</a>
           <a href="#" id="emailBtn" class="esc-btn esc-email">Request Rapid Audit</a>
         </div>
       </div>
-
     </div>
   </div>
 
   <script>
-    // Pure Hardware-Accelerated Dynamic Vector Scrolling Math
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
       document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${scrolled * 0.35}px)`;
@@ -645,7 +610,6 @@
       document.getElementById('orb3').style.transform = `translateY(${scrolled * 0.08}px)`;
     });
 
-    // Dynamic Micro-Light Coordinates Tracker for Cards
     document.querySelectorAll('.platform-row').forEach(row => {
       row.addEventListener('mousemove', (e) => {
         const bounds = row.getBoundingClientRect();
@@ -656,7 +620,6 @@
       });
     });
 
-    // --- ACCORDION INTERACTIVITY ---
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.addEventListener('click', function() {
         const item = this.closest('.accordion-item');
@@ -675,7 +638,6 @@
       });
     });
 
-    // --- DIAGNOSTIC MODAL CONTROL SYSTEM ---
     const modal = document.getElementById('auditModal');
     const scrollArea = document.getElementById('wizardScrollArea');
     const stickyDrawer = document.getElementById('stickyBottomDrawer');
@@ -701,7 +663,6 @@
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
       stickyDrawer.classList.remove('visible'); 
       scrollArea.scrollTop = 0; 
-
       if (step === 1) {
         document.getElementById('step1').classList.add('active');
       } else {
@@ -710,70 +671,31 @@
       }
     }
 
-    function goBackToSubStep() {
-      goToStep(currentCategory);
-    }
+    function goBackToSubStep() { goToStep(currentCategory); }
 
-    // Solutions Mapping
     const solutions = {
-      'net-completely-down': {
-        title: "No Internet Connection Checklist",
-        text: "• Check with your team: Is everyone disconnected, or is it just your device? If it's just you, restart your computer.<br><br>• Look at your main internet box (router): Find the main internet box in the office. Are there any red lights blinking on it? If yes, the internet provider is likely down in your area.<br><br>• The 30-Second Rule: Unplug the power cable from the back of the internet box, wait 30 seconds, and plug it back in. It takes about 2 to 3 minutes to turn fully back on.",
-        context: "Internet is completely down across the office"
-      },
-      'net-painfully-slow': {
-        title: "Slow Internet Fixes",
-        text: "• Pause big apps: Close software like OneDrive, Google Drive, Dropbox, or YouTube that might be updating or syncing large files in the background.<br><br>• Test a cable: If you are on Wi-Fi, try plugging your laptop directly into a network wall socket or cable if you have one available. If that's fast, your office Wi-Fi antenna setup needs optimization.<br><br>• Reboot your machine: Sometimes old network memory logs get stuck. A simple computer restart can clear the path.",
-        context: "Internet is working but running very slowly"
-      },
-      'net-keeps-dropping': {
-        title: "Fixing Weak or Dropping Wi-Fi",
-        text: "• Move closer to the antenna: If the connection cuts out when you enter a specific room or move behind thick walls, you have a Wi-Fi blindspot.<br><br>• Forget the network: Go to your device's Wi-Fi settings, click 'Forget Network' on your office Wi-Fi, turn your Wi-Fi off and back on, then re-type the office password.<br><br>• Unplug extra splitters: Make sure no loose network cords are plugged back into the same wall sockets, as this can confuse the office router grid.",
-        context: "Wi-Fi keeps dropping and disconnecting"
-      },
-      'pc-no-power': {
-        title: "Computer Won't Turn On Checklist",
-        text: "• Check the wall switch: Unplug your charger or power brick, plug a phone charger into the exact same wall socket, and see if the socket is actually getting power.<br><br>• The Deep Power Drain: Unplug the power cord from your computer. Hold down the computer's power button for a full 15 seconds while unplugged. Plug it back in and try turning it on again.<br><br>• Check the charging light: Look closely at where the power wire goes into the laptop. Is a tiny light turning on? If there is no light, your charging cable or power port may be damaged.",
-        context: "Computer or laptop won't turn on at all"
-      },
-      'pc-frozen': {
-        title: "Fixing a Frozen or Slow Computer",
-        text: "• Emergency Escape: Press the <b>Ctrl + Shift + Esc</b> keys at the same time on your keyboard. Look for any application using high memory and click 'End Task' to kill it.<br><br>• Close old browser tabs: If you have dozens of open internet tabs, close the ones you aren't using. They silently drain your computer's speed.<br><br>• Check storage space: Make sure your main computer hard drive isn't completely full. Computers require breathing room to function smoothly.",
-        context: "Computer keeps freezing or running slow"
-      },
-      'pc-blue-screen': {
-        title: "Handling Error Screens & Automatic Restarts",
-        text: "• Unplug all accessories: Unplug everything connected to the computer—USB drives, external monitors, printers, and mice. Then restart it.<br><br>• Let it finish updates: If it says 'Installing updates, do not turn off your computer,' leave it alone. Forcing it off right now can damage the system files.<br><br>• Keep it cool: Feel the bottom of the laptop or the back of the computer tower. If it's boiling hot, turn it off and let it cool down for 20 minutes before restarting.",
-        context: "Computer shows a blue screen error or keeps restarting"
-      },
-      'mob-no-email': {
-        title: "Company Email & Account Sync Help",
-        text: "• Try mobile data: Turn off your device's Wi-Fi and try opening your work email using your standard cellular mobile data bundle. If this works, your office network has blocked the email sync parameters.<br><br>• Check the time: Look closely at your phone's clock. If your phone's date or time is off by even a few minutes, security servers will automatically reject your login for safety.<br><br>• Update the application: Open the Google Play Store or Apple App Store and make sure your email application (Outlook or Gmail) is completely updated.",
-        context: "Mobile device cannot connect to company email or work apps"
-      },
-      'mob-battery-screen': {
-        title: "Physical Hardware Damaged or Weak Battery",
-        text: "• Stop using expanding batteries: If the back of your phone or the screen is popping outward or lifting up, the battery is swelling. Turn it off immediately and stop charging it.<br><br>• Screen glitches: If the screen is cracked and flickering randomly, avoid plugging it into computer file transfers until a backup is completed.<br><br>• Clean the charging socket: Use a clean toothpick to gently clear out lint from the charging hole at the bottom of the phone if your cable keeps slipping loose.",
-        context: "Phone has physical damage or battery issues"
-      }
+      'net-completely-down': { title: "No Internet Connection Checklist", text: "• Check with your team: Is everyone disconnected, or is it just your device? If it's just you, restart your computer.<br><br>• Look at your main internet box (router): Find the main internet box in the office. Are there any red lights blinking on it? If yes, the internet provider is likely down in your area.<br><br>• The 30-Second Rule: Unplug the power cable from the back of the internet box, wait 30 seconds, and plug it back in. It takes about 2 to 3 minutes to turn fully back on.", context: "Internet is completely down across the office" },
+      'net-painfully-slow': { title: "Slow Internet Fixes", text: "• Pause big apps: Close software like OneDrive, Google Drive, Dropbox, or YouTube that might be updating or syncing large files in the background.<br><br>• Test a cable: If you are on Wi-Fi, try plugging your laptop directly into a network wall socket or cable if you have one available. If that's fast, your office Wi-Fi antenna setup needs optimization.<br><br>• Reboot your machine: Sometimes old network memory logs get stuck. A simple computer restart can clear the path.", context: "Internet is working but running very slowly" },
+      'net-keeps-dropping': { title: "Fixing Weak or Dropping Wi-Fi", text: "• Move closer to the antenna: If the connection cuts out when you enter a specific room or move behind thick walls, you have a Wi-Fi blindspot.<br><br>• Forget the network: Go to your device's Wi-Fi settings, click 'Forget Network' on your office Wi-Fi, turn your Wi-Fi off and back on, then re-type the office password.<br><br>• Unplug extra splitters: Make sure no loose network cords are plugged back into the same wall sockets, as this can confuse the office router grid.", context: "Wi-Fi keeps dropping and disconnecting" },
+      'pc-no-power': { title: "Computer Won't Turn On Checklist", text: "• Check the wall switch: Unplug your charger or power brick, plug a phone charger into the exact same wall socket, and see if the socket is actually getting power.<br><br>• The Deep Power Drain: Unplug the power cord from your computer. Hold down the computer's power button for a full 15 seconds while unplugged. Plug it back in and try turning it on again.<br><br>• Check the charging light: Look closely at where the power wire goes into the laptop. Is a tiny light turning on? If there is no light, your charging cable or power port may be damaged.", context: "Computer or laptop won't turn on at all" },
+      'pc-frozen': { title: "Fixing a Frozen or Slow Computer", text: "• Emergency Escape: Press the <b>Ctrl + Shift + Esc</b> keys at the same time on your keyboard. Look for any application using high memory and click 'End Task' to kill it.<br><br>• Close old browser tabs: If you have dozens of open internet tabs, close the ones you aren't using. They silently drain your computer's speed.<br><br>• Check storage space: Make sure your main computer hard drive isn't completely full. Computers require breathing room to function smoothly.", context: "Computer keeps freezing or running slow" },
+      'pc-blue-screen': { title: "Handling Error Screens & Automatic Restarts", text: "• Unplug all accessories: Unplug everything connected to the computer—USB drives, external monitors, printers, and mice. Then restart it.<br><br>• Let it finish updates: If it says 'Installing updates, do not turn off your computer,' leave it alone. Forcing it off right now can damage the system files.<br><br>• Keep it cool: Feel the bottom of the laptop or the back of the computer tower. If it's boiling hot, turn it off and let it cool down for 20 minutes before restarting.", context: "Computer shows a blue screen error or keeps restarting" },
+      'mob-no-email': { title: "Company Email & Account Sync Help", text: "• Try mobile data: Turn off your device's Wi-Fi and try opening your work email using your standard cellular mobile data bundle. If this works, your office network has blocked the email sync parameters.<br><br>• Check the time: Look closely at your phone's clock. If your phone's date or time is off by even a few minutes, security servers will automatically reject your login for safety.<br><br>• Update the application: Open the Google Play Store or Apple App Store and make sure your email application (Outlook or Gmail) is completely updated.", context: "Mobile device cannot connect to company email or work apps" },
+      'mob-battery-screen': { title: "Physical Hardware Damaged or Weak Battery", text: "• Stop using expanding batteries: If the back of your phone or the screen is popping outward or lifting up, the battery is swelling. Turn it off immediately and stop charging it.<br><br>• Screen glitches: If the screen is cracked and flickering randomly, avoid plugging it into computer file transfers until a backup is completed.<br><br>• Clean the charging socket: Use a clean toothpick to gently clear out lint from the charging hole at the bottom of the phone if your cable keeps slipping loose.", context: "Phone has physical damage or battery issues" }
     };
 
     function showSolution(key) {
       const data = solutions[key];
       document.getElementById('solutionTitle').innerText = data.title;
       document.getElementById('solutionBody').innerHTML = data.text;
-      
       const baseWhatsApp = "https://wa.me/260777363303";
       const waText = encodeURIComponent(`Hi Vyeta team, I am on your website and we are running into an issue: "${data.context}". We tried the basic troubleshooting steps but still need assistance. Can we get an engineer or schedule a system audit?`);
       document.getElementById('whatsappBtn').href = `${baseWhatsApp}?text=${waText}`;
-
       const emailSubject = encodeURIComponent(`IT Support Needed: ${data.context}`);
       const emailBody = encodeURIComponent(`Vyeta Operations,\n\nWe are experiencing an operational issue: ${data.context}.\n\nWe reviewed the quick-fix guide on the landing page but need professional hands on this. Please let us know when we can schedule an infrastructure audit.\n\nBest regards.`);
       document.getElementById('emailBtn').href = `mailto:operations@vyeta.com?subject=${emailSubject}&body=${emailBody}`;
-
       document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-solution').classList.add('active');
-      
       stickyDrawer.classList.add('visible');
       scrollArea.scrollTop = 0;
     }
