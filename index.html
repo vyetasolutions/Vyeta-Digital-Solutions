@@ -365,7 +365,6 @@
 </head>
 <body>
 
-  <!-- THE INTERACTIVE BACKGROUND ENGINE -->
   <div class="magic-parallax-stage">
     <div class="infinite-horizon-grid" id="bgGrid"></div>
     <div class="star-field" id="bgStars"></div>
@@ -374,14 +373,11 @@
     <div class="ambient-luminary luminary-3" id="orb3"></div>
   </div>
 
-  <!-- FOREGROUND FRAMEWORK -->
   <div class="foreground-content">
 
-    <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="nav-brand">
-          <!-- Perfectly traced geometry from your provided image_3.png logo asset -->
           <svg class="logo-vector" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="28" cy="28" r="13" fill="#1e40af"/>
             <rect x="52" y="16" width="22" height="66" rx="11" transform="rotate(32 52 16)" fill="#1e40af"/>
@@ -395,18 +391,15 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
       <h1>Stop losing billable hours to <span>unreliable IT setups</span>.</h1>
       <p>We provide enterprise-grade infrastructure management, predictable monthly support retainers, and fast automated operations blueprints.</p>
       <button class="btn-primary trigger-audit">Quick Self Help</button>
     </section>
 
-    <!-- INTERACTIVE ACCORDIONS ENGINE -->
     <section class="engine-section">
       <h2>Select Your Current Core Operational Bottleneck:</h2>
 
-      <!-- BLOCK 1: DOWNTIME -->
       <div class="accordion-item active" data-type="downtime">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -438,7 +431,6 @@
         </div>
       </div>
 
-      <!-- BLOCK 2: MANUAL WORKFLOWS -->
       <div class="accordion-item" data-type="manual">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -470,7 +462,6 @@
         </div>
       </div>
 
-      <!-- BLOCK 3: SECURITY CONCERNS -->
       <div class="accordion-item" data-type="security">
         <button class="accordion-trigger">
           <div class="trigger-content">
@@ -503,7 +494,6 @@
       </div>
     </section>
 
-    <!-- WORKSPACE INTEGRATION SECTION -->
     <section class="ecosystem-section" id="workspace">
       <div class="ecosystem-container">
         <div class="ecosystem-header">
@@ -512,7 +502,6 @@
         </div>
 
         <div class="product-showcase">
-          <!-- swifTrade -->
           <div class="platform-row row-swiftrade">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Active Platform</div>
@@ -525,7 +514,6 @@
             </div>
           </div>
 
-          <!-- ConsultLink -->
           <div class="platform-row row-consultlink">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Live Preview</div>
@@ -538,7 +526,6 @@
             </div>
           </div>
 
-          <!-- Pulse OS ZM -->
           <div class="platform-row row-pulse">
             <div>
               <div class="status-pill"><span class="status-dot"></span> Operational</div>
@@ -550,25 +537,34 @@
               <a href="https://vyetasolutions.github.io/pulse-os-zm/" class="platform-btn">Open System &rarr;</a>
             </div>
           </div>
+
+          <h2 style="font-size: 1.5rem; margin-top: 40px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Lifestyle & Entertainment</h2>
+
+          <div class="platform-row" style="--accent-color: var(--blue);">
+            <div>
+              <div class="status-pill" style="border-color: rgba(30, 64, 175, 0.3);"><span class="status-dot" style="background: var(--blue);"></span> Trending</div>
+              <h3 class="product-title">WhatsHappenin ZM</h3>
+              <div class="tagline" style="color: var(--blue);">Zambian Events & Experiences</div>
+              <p class="description">Designed to help discover events, activities, promotions, entertainment, and experiences happening around Zambia.</p>
+            </div>
+            <div>
+              <a href="#" class="platform-btn">Explore Events &rarr;</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <p>&copy; 2026 Vyeta. Built for performance.</p>
     </footer>
 
-  </div> <!-- END FOREGROUND CONTENT -->
-
-  <!-- DIAGNOSTIC ENGINE MODAL -->
-  <div class="modal-overlay" id="auditModal">
+  </div> <div class="modal-overlay" id="auditModal">
     <div class="wizard-card">
       <button class="close-wizard" id="closeModalBtn">&times;</button>
       
       <div class="wizard-scroll-container" id="wizardScrollArea">
         
-        <!-- STEP 1 -->
         <div class="wizard-step active" id="step1">
           <h3>What is giving you trouble right now?</h3>
           <p class="step-subtitle">Select the area that needs to be fixed.</p>
@@ -579,7 +575,6 @@
           </div>
         </div>
 
-        <!-- STEP 2: NETWORK -->
         <div class="wizard-step" id="step-network">
           <h3>What's wrong with the internet?</h3>
           <p class="step-subtitle">Choose the description that best fits your situation.</p>
@@ -591,7 +586,6 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 2: PC -->
         <div class="wizard-step" id="step-pc">
           <h3>What is your computer doing?</h3>
           <p class="step-subtitle">Choose the option that describes the issue.</p>
@@ -603,7 +597,6 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 2: MOBILE -->
         <div class="wizard-step" id="step-mobile">
           <h3>What is wrong with the device?</h3>
           <p class="step-subtitle">Choose the issue you are facing.</p>
@@ -614,7 +607,6 @@
           <button class="wizard-back-btn" onclick="goToStep(1)">&larr; Back</button>
         </div>
 
-        <!-- STEP 3 -->
         <div class="wizard-step" id="step-solution">
           <h3>Try these simple steps right now:</h3>
           <p class="step-subtitle">We recommend trying this quick checklist first.</p>
@@ -629,7 +621,6 @@
 
       </div>
 
-      <!-- ESCALATION CONTAINER -->
       <div class="wizard-sticky-bottom" id="stickyBottomDrawer">
         <h3>Did that solve the problem?</h3>
         <p class="step-subtitle" style="margin-bottom: 16px;">If you are still stuck, tap below to chat with us immediately or book a system audit.</p>
@@ -643,7 +634,6 @@
     </div>
   </div>
 
-  <!-- THE MOTION ENGINE -->
   <script>
     // Pure Hardware-Accelerated Dynamic Vector Scrolling Math
     window.addEventListener('scroll', () => {
