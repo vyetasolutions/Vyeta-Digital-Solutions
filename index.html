@@ -1361,10 +1361,4 @@ modal.addEventListener('click', e => { if(e.target === modal) window.closeWizard
 document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) window.closeWizard(); });
 </script>
 </body>
-</html>"""
-
-with open('/mnt/user-data/outputs/index.html','w') as f:
-    f.write(PAGE)
-print(f"Written {len(PAGE):,} chars / {PAGE.count(chr(10))} lines")
-PYEOF
-python3 /tmp/build.py
+</html>
