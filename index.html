@@ -208,104 +208,162 @@ body::after{content:'';position:fixed;inset:0;z-index:2;pointer-events:none;
 .oc-protect{--oc-col:#f43f5e}.oc-idea{--oc-col:#f59e0b}.oc-connect{--oc-col:#06b6d4}
 
 /* ─────────────────────────────────────────
-   ECOSYSTEM & PLATFORMS
+   ECOSYSTEM / WORKSPACE (FIXED UNIFORM GRID)
 ───────────────────────────────────────── */
-.eco-sec{padding:0 28px 120px}
-.eco-in{max-width:1140px;margin:0 auto}
-.eco-head{text-align:center;margin-bottom:64px}
-.eco-canvas{position:relative;width:100%;max-width:780px;margin:0 auto;height:520px}
-.eco-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
-.eco-path{fill:none;stroke:rgba(255,255,255,.08);stroke-width:1.5;stroke-linecap:round;
-  transition:stroke .4s,stroke-width .4s}
-.eco-path.lit{stroke:rgba(167,139,250,.5);stroke-width:2}
-.eco-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;
-  width:130px;height:130px;border-radius:50%;
-  background:var(--surface-hi);backdrop-filter:var(--gblur);-webkit-backdrop-filter:var(--gblur);
-  border:1px solid rgba(167,139,250,.3);
-  box-shadow:0 0 40px rgba(124,58,237,.2),0 0 80px rgba(124,58,237,.08),
-             inset 0 1px 0 rgba(255,255,255,.12);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
-.eco-hub::before{content:'';position:absolute;inset:-1px;border-radius:50%;
-  background:conic-gradient(from 0deg,rgba(167,139,250,.4),rgba(96,165,250,.4),rgba(6,182,212,.4),rgba(167,139,250,.4));
-  z-index:-1;animation:hubSpin 8s linear infinite;
-  mask:radial-gradient(farthest-side,transparent calc(100% - 2px),black 100%);
-  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),black 100%)}
-@keyframes hubSpin{to{transform:rotate(360deg)}}
-.eco-hub-n{font-family:var(--fh);font-size:1.3rem;font-weight:800;letter-spacing:-.03em}
-.eco-hub-t{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-lt)}
+.eco-sec { padding: 0 28px 120px; }
+.eco-in { max-width: 1140px; margin: 0 auto; }
 
-/* 5 Node Radial Pentagon Maps */
-.eco-node{position:absolute;z-index:5;background:var(--surface);backdrop-filter:var(--gblur);
-  -webkit-backdrop-filter:var(--gblur);border:1px solid var(--bd);border-radius:16px;
-  padding:20px 22px;width:175px;
-  transition:border-color .35s var(--spring),transform .35s var(--spring),box-shadow .35s;cursor:pointer}
-.p-n1{top:0;left:50%;transform:translateX(-50%)}
-.p-n2{top:35%;right:0;transform:translateY(-50%)}
-.p-n3{bottom:-5%;right:10%}
-.p-n4{bottom:-5%;left:10%}
-.p-n5{top:35%;left:0;transform:translateY(-50%)}
+.eco-split {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 64px;
+  align-items: start;
+}
 
-.p-n1:hover{transform:translateX(-50%) scale(1.04)}
-.p-n2:hover{transform:translateY(-50%) scale(1.04)}
-.p-n3:hover{transform:scale(1.04)}
-.p-n4:hover{transform:scale(1.04)}
-.p-n5:hover{transform:translateY(-50%) scale(1.04)}
+/* Sticky Header Side */
+.eco-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 120px;
+  z-index: 10;
+}
 
-.eco-node:hover{border-color:var(--bd-hi)}
-.eco-node:hover.n-green{border-color:rgba(16,185,129,.4);box-shadow:0 16px 40px rgba(16,185,129,.12)}
-.eco-node:hover.n-cyan{border-color:rgba(6,182,212,.4);box-shadow:0 16px 40px rgba(6,182,212,.12)}
-.eco-node:hover.n-mag{border-color:rgba(219,39,119,.4);box-shadow:0 16px 40px rgba(219,39,119,.12)}
-.eco-node:hover.n-blue{border-color:rgba(96,165,250,.4);box-shadow:0 16px 40px rgba(96,165,250,.12)}
-.eco-node:hover.n-purple{border-color:rgba(167,139,250,.4);box-shadow:0 16px 40px rgba(167,139,250,.12)}
-.eco-node:hover.n-amber{border-color:rgba(245,158,11,.4);box-shadow:0 16px 40px rgba(245,158,11,.12)}
+/* Scrolling Cards Grid Side */
+.eco-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
 
-/* New Static Node layout for sections beneath radial diagram */
-.eco-static {
-  position: relative !important;
-  top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
-  margin: 0 auto;
-  max-width: 340px;
+.eco-subhead {
+  grid-column: 1 / -1; 
+  margin-top: 24px; 
+  padding-top: 32px; 
+  border-top: 1px solid var(--bd);
+}
+
+/* Uniform Platform Cards */
+.platform-card {
+  background: var(--surface);
+  backdrop-filter: var(--gblur);
+  -webkit-backdrop-filter: var(--gblur);
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s var(--spring), border-color 0.3s, box-shadow 0.3s;
+}
+
+.platform-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--hover-col, var(--bd-hi));
+  box-shadow: 0 16px 40px var(--hover-bg, rgba(255,255,255,0.05));
+}
+
+.pc-head {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 24px;
+}
+
+.pc-badge {
+  font-size: 0.65rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: 0.08em;
+  padding: 4px 12px; 
+  border-radius: 99px; 
+  border: 1px solid;
+}
+
+/* Flex-grow guarantees perfectly aligned buttons at the bottom */
+.pc-body { 
+  flex-grow: 1; 
+  margin-bottom: 32px; 
+}
+
+.pc-title { 
+  font-family: var(--fh); 
+  font-size: 1.4rem; 
+  font-weight: 700; 
+  margin-bottom: 6px; 
+  letter-spacing: -0.02em; 
+}
+
+.pc-tag { 
+  font-size: 0.75rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: 0.06em; 
+  margin-bottom: 12px; 
+}
+
+.pc-desc { 
+  font-size: 0.9rem; 
+  color: var(--muted-hi); 
+  line-height: 1.6; 
+}
+
+.pc-foot { 
+  margin-top: auto; 
+}
+
+.pc-btn {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 8px; 
   width: 100%;
+  padding: 12px; 
+  border-radius: 10px; 
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--bd); 
+  color: var(--text); 
+  font-size: 0.85rem; 
+  font-weight: 600;
+  text-decoration: none; 
+  transition: background 0.2s, border-color 0.2s;
 }
-.eco-static:hover { transform: scale(1.04) !important; }
 
-.en-dot{width:7px;height:7px;border-radius:50%;margin-bottom:10px;position:relative}
-.en-dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:inherit;
-  animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
-.d-green{background:var(--green)}
-.d-cyan{background:var(--cyan)}
-.d-mag{background:var(--magenta)}
-.d-blue{background:var(--blue-lt)}
-.d-purple{background:var(--purple-lt)}
-.d-amber{background:var(--amber)}
-
-.en-name{font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
-.en-cat{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-.t-green{color:var(--green)}
-.t-cyan{color:var(--cyan)}
-.t-mag{color:var(--magenta)}
-.t-blue{color:var(--blue-lt)}
-.t-purple{color:var(--purple-lt)}
-.t-amber{color:var(--amber)}
-
-.en-desc{font-size:.72rem;color:var(--muted-hi);line-height:1.5;margin-bottom:12px}
-.en-link{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;
-  text-decoration:none;padding:6px 12px;border-radius:6px;
-  background:rgba(255,255,255,.05);border:1px solid var(--bd);color:var(--text);
-  transition:background .15s,border-color .15s}
-.en-link:hover{background:rgba(255,255,255,.12);border-color:var(--bd-hi)}
-
-/* Mobile ecosystem grids */
-@media(max-width:720px){
-  .eco-canvas{height:auto;position:static}
-  .eco-hub,.eco-node{position:static;transform:none!important;width:100%}
-  .eco-hub{border-radius:16px;width:100%;height:auto;padding:24px;margin-bottom:12px}
-  .eco-svg{display:none}
-  .eco-mg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .eco-node{width:auto}
-  .eco-static { max-width: 100%; }
+.pc-btn:hover { 
+  background: rgba(255,255,255,0.08); 
+  border-color: var(--bd-hi); 
 }
-@media(min-width:721px){.eco-mg{display:contents}}
+
+/* Custom Card Color Themes */
+.c-biz { --hover-col: rgba(167,139,250,.4); --hover-bg: rgba(167,139,250,.08); }
+.c-biz .pc-badge { color: var(--purple-lt); border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.05); }
+.c-biz .pc-tag { color: var(--purple-lt); }
+
+.c-mob { --hover-col: rgba(245,158,11,.4); --hover-bg: rgba(245,158,11,.08); }
+.c-mob .pc-badge { color: var(--amber); border-color: rgba(245,158,11,.3); background: rgba(245,158,11,.05); }
+.c-mob .pc-tag { color: var(--amber); }
+
+.c-con { --hover-col: rgba(6,182,212,.4); --hover-bg: rgba(6,182,212,.08); }
+.c-con .pc-badge { color: var(--cyan); border-color: rgba(6,182,212,.3); background: rgba(6,182,212,.05); }
+.c-con .pc-tag { color: var(--cyan); }
+
+.c-pul { --hover-col: rgba(219,39,119,.4); --hover-bg: rgba(219,39,119,.08); }
+.c-pul .pc-badge { color: var(--magenta); border-color: rgba(219,39,119,.3); background: rgba(219,39,119,.05); }
+.c-pul .pc-tag { color: var(--magenta); }
+
+.c-swi { --hover-col: rgba(16,185,129,.4); --hover-bg: rgba(16,185,129,.08); }
+.c-swi .pc-badge { color: var(--green); border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
+.c-swi .pc-tag { color: var(--green); }
+
+.c-wha { --hover-col: rgba(96,165,250,.4); --hover-bg: rgba(96,165,250,.08); }
+.c-wha .pc-badge { color: var(--blue-lt); border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.05); }
+.c-wha .pc-tag { color: var(--blue-lt); }
+
+/* Stack vertically on smaller screens */
+@media(max-width: 950px){
+  .eco-split { grid-template-columns: 1fr; gap: 40px; }
+  .eco-sticky { position: static; text-align: center; margin-bottom: 24px; }
+  .eco-sticky .sec-p { margin: 0 auto; }
+}
 
 /* ─────────────────────────────────────────
    CTA + FOOTER
@@ -393,10 +451,6 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
 .esc-wa{background:#25d366;color:#000}
 .esc-email{background:#fff;color:#000}
 
-/* ─────────────────────────────────────────
-   RESPONSIVE MODAL
-───────────────────────────────────────── */
-@media(max-width:860px){.oc-sols{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){
   .hero{padding:130px 20px 80px}
   .oc-sols{grid-template-columns:1fr}
@@ -435,7 +489,7 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
     </a>
     <div class="nav-links">
       <a href="#outcomes"  class="nav-link">Solutions</a>
-      <a href="#ecosystem" class="nav-link">Ecosystem</a>
+      <a href="#workspace" class="nav-link">Workspace</a>
     </div>
     <button class="nav-cta" id="navCta">Run Diagnostic</button>
   </div>
@@ -526,7 +580,7 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
         </div>
         <div class="oc-foot">
           <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%27d%20like%20to%20build%20an%20online%20presence%20for%20my%20business." target="_blank" class="oc-btn oc-btn-wa">💬 Get a Quote</a>
-          <a href="#ecosystem" class="oc-btn oc-btn-gh">View Our Platforms &darr;</a>
+          <a href="#workspace" class="oc-btn oc-btn-gh">View Our Platforms &darr;</a>
         </div>
       </div></div>
     </div>
@@ -568,7 +622,7 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
         </div>
         <div class="oc-foot">
           <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%20have%20a%20digital%20product%20idea%20I%27d%20like%20to%20build." target="_blank" class="oc-btn oc-btn-wa">💬 Let's Build It</a>
-          <a href="#ecosystem" class="oc-btn oc-btn-gh">See What We've Built &darr;</a>
+          <a href="#workspace" class="oc-btn oc-btn-gh">See What We've Built &darr;</a>
         </div>
       </div></div>
     </div>
@@ -588,7 +642,7 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
           <div class="oc-sol"><div class="oc-sol-i">🎉</div><div class="oc-sol-t">WhatsHappenin ZM</div><div class="oc-sol-d">Promote events, experiences, and opportunities to a local audience</div></div>
         </div>
         <div class="oc-foot">
-          <a href="#ecosystem" class="oc-btn oc-btn-pri">Explore All Platforms &rarr;</a>
+          <a href="#workspace" class="oc-btn oc-btn-pri">Explore All Platforms &rarr;</a>
           <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%27d%20like%20to%20learn%20more%20about%20connecting%20with%20opportunities." target="_blank" class="oc-btn oc-btn-wa">💬 Talk to Us</a>
         </div>
       </div></div>
@@ -597,84 +651,109 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
   </div>
 </section>
 
-<section class="eco-sec" id="ecosystem">
+<section class="eco-sec" id="workspace">
   <div class="eco-in">
-    <div class="eco-head reveal">
-      <div class="kicker">Vyeta Presents</div>
-      <h2 class="sec-h">Workspace</h2>
-      <p class="sec-p" style="margin:0 auto;text-align:center">Connected platforms. One ecosystem. Each solving a real gap in the Zambian market — designed to work together.</p>
-    </div>
-    
-    <div class="eco-canvas reveal d1" id="ecoCanvas">
-      <svg class="eco-svg" id="ecoSvg" xmlns="http://www.w3.org/2000/svg">
-        <path class="eco-path" id="path-n1" d=""/>
-        <path class="eco-path" id="path-n2" d=""/>
-        <path class="eco-path" id="path-n3" d=""/>
-        <path class="eco-path" id="path-n4" d=""/>
-        <path class="eco-path" id="path-n5" d=""/>
-        <circle id="dot-n1" r="3.5" fill="#a78bfa" opacity=".85"/>
-        <circle id="dot-n2" r="3.5" fill="#f59e0b" opacity=".85"/>
-        <circle id="dot-n3" r="3.5" fill="#06b6d4" opacity=".85"/>
-        <circle id="dot-n4" r="3.5" fill="#db2777" opacity=".85"/>
-        <circle id="dot-n5" r="3.5" fill="#10b981" opacity=".85"/>
-      </svg>
+    <div class="eco-split">
       
-      <div class="eco-hub" id="ecoHub">
-        <div class="eco-hub-n">VYETA</div>
-        <div class="eco-hub-t">WORKSPACE</div>
+      <div class="eco-sticky reveal">
+        <div class="kicker">Vyeta Presents</div>
+        <h2 class="sec-h">Workspace</h2>
+        <p class="sec-p">Connected platforms. One ecosystem. Each solving a real gap in the Zambian market — designed to work flawlessly together.</p>
       </div>
-      
-      <div class="eco-mg">
-        <div class="eco-node n-purple p-n1" id="node-n1" data-node="n1">
-          <div class="en-dot d-purple"></div><div class="en-name">Vyeta Business Suite</div>
-          <div class="en-cat t-purple">Micro-Business Services</div>
-          <div class="en-desc">Providing essential business, legal, and operational services tailored to empower micro and informal businesses.</div>
-          <a href="https://vyetasolutions.github.io/businessinabox/" target="_blank" class="en-link">Open Suite &rarr;</a>
-        </div>
-        
-        <div class="eco-node n-amber p-n2" id="node-n2" data-node="n2">
-          <div class="en-dot d-amber"></div><div class="en-name">Vyeta Mobility</div>
-          <div class="en-cat t-amber">Transport & Logistics</div>
-          <div class="en-desc">A one-stop service for transport. Easily rent a car, hail a ride, or manage operational moving needs.</div>
-          <a href="https://vyetasolutions.github.io/vyeta-mobility-network-/" target="_blank" class="en-link">Open Mobility &rarr;</a>
-        </div>
-        
-        <div class="eco-node n-cyan p-n3" id="node-n3" data-node="n3">
-          <div class="en-dot d-cyan"></div><div class="en-name">ConsultLink</div>
-          <div class="en-cat t-cyan">On-Demand Advisory</div>
-          <div class="en-desc">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</div>
-          <a href="https://vyetasolutions.github.io/consultlink/#" target="_blank" class="en-link">Preview &rarr;</a>
-        </div>
-        
-        <div class="eco-node n-mag p-n4" id="node-n4" data-node="n4">
-          <div class="en-dot d-mag"></div><div class="en-name">Pulse OS ZM</div>
-          <div class="en-cat t-mag">Civic Feedback</div>
-          <div class="en-desc">Public system engineered for recording regional community updates and tracking local responses.</div>
-          <a href="https://vyetasolutions.github.io/pulse-os-zm/" target="_blank" class="en-link">Open System &rarr;</a>
-        </div>
-        
-        <div class="eco-node n-green p-n5" id="node-n5" data-node="n5">
-          <div class="en-dot d-green"></div><div class="en-name">swifTrade</div>
-          <div class="en-cat t-green">B2B Marketplace</div>
-          <div class="en-desc">Direct request-matching network built to link verified commercial buyers with bulk product suppliers.</div>
-          <a href="https://vyetasolutions.github.io/Swiftrade-newv/" target="_blank" class="en-link">Open Platform &rarr;</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="eco-head reveal d1" style="margin-top: 100px; margin-bottom: 48px;">
-      <div class="kicker">Lifestyle & Entertainment</div>
-      <h2 class="sec-h" style="font-size: 2.2rem;">Discover Zambia</h2>
-    </div>
-    <div class="eco-mg reveal d2" style="display: flex; justify-content: center; width: 100%;">
-      <div class="eco-node n-blue eco-static">
-        <div class="en-dot d-blue"></div><div class="en-name">WhatsHappenin ZM</div>
-        <div class="en-cat t-blue">Zambian Events & Experiences</div>
-        <div class="en-desc">Designed to help discover events, activities, promotions, entertainment, and experiences happening around Zambia.</div>
-        <a href="https://vyetasolutions.github.io/WhatsHappenin-ZM/" target="_blank" class="en-link">Explore Events &rarr;</a>
-      </div>
-    </div>
 
+      <div class="eco-cards">
+        
+        <div class="platform-card c-biz reveal d1">
+          <div class="pc-head">
+            <span class="pc-badge">Active Suite</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">Vyeta Business Suite</h3>
+            <div class="pc-tag">Micro-Business Services</div>
+            <p class="pc-desc">Providing essential business, legal, and operational services tailored to empower micro and informal businesses.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/businessinabox/" target="_blank" class="pc-btn">Open Suite &rarr;</a>
+          </div>
+        </div>
+
+        <div class="platform-card c-mob reveal d2">
+          <div class="pc-head">
+            <span class="pc-badge">Active Network</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">Vyeta Mobility</h3>
+            <div class="pc-tag">Transport & Logistics</div>
+            <p class="pc-desc">A one-stop service for transport. Easily rent a car, hail a ride, or manage operational moving needs.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/vyeta-mobility-network-/" target="_blank" class="pc-btn">Open Mobility &rarr;</a>
+          </div>
+        </div>
+
+        <div class="platform-card c-con reveal d1">
+          <div class="pc-head">
+            <span class="pc-badge">Live Preview</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">ConsultLink</h3>
+            <div class="pc-tag">On-Demand Advisory</div>
+            <p class="pc-desc">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/consultlink/#" target="_blank" class="pc-btn">Preview &rarr;</a>
+          </div>
+        </div>
+
+        <div class="platform-card c-pul reveal d2">
+          <div class="pc-head">
+            <span class="pc-badge">Operational</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">Pulse OS ZM</h3>
+            <div class="pc-tag">Civic Feedback</div>
+            <p class="pc-desc">Public system engineered for recording regional community updates and tracking local responses.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/pulse-os-zm/" target="_blank" class="pc-btn">Open System &rarr;</a>
+          </div>
+        </div>
+
+        <div class="platform-card c-swi reveal d1">
+          <div class="pc-head">
+            <span class="pc-badge">Active Platform</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">swifTrade</h3>
+            <div class="pc-tag">B2B Marketplace</div>
+            <p class="pc-desc">Direct request-matching network built to link verified commercial buyers with bulk product suppliers.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/Swiftrade-newv/" target="_blank" class="pc-btn">Open Platform &rarr;</a>
+          </div>
+        </div>
+
+        <div class="eco-subhead reveal">
+          <div class="kicker">Lifestyle & Entertainment</div>
+          <h3 class="sec-h" style="font-size: 1.8rem;">Discover Zambia</h3>
+        </div>
+
+        <div class="platform-card c-wha reveal d1">
+          <div class="pc-head">
+            <span class="pc-badge">Trending</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">WhatsHappenin ZM</h3>
+            <div class="pc-tag">Zambian Events & Experiences</div>
+            <p class="pc-desc">Designed to help discover events, activities, promotions, entertainment, and experiences happening around Zambia.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/WhatsHappenin-ZM/" target="_blank" class="pc-btn">Explore Events &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 
@@ -871,46 +950,7 @@ document.querySelectorAll('.oc').forEach(card=>{
 });
 
 /* ═══════════════════════════════════════════════
-   5. ECOSYSTEM SVG LINES + ANIMATED DOTS
-═══════════════════════════════════════════════ */
-function drawEcoLines(){
-  if(window.innerWidth<721) return;
-  const wrap=document.getElementById('ecoCanvas');
-  const hub =document.getElementById('ecoHub');
-  const wr  =wrap.getBoundingClientRect();
-  const hr  =hub.getBoundingClientRect();
-  const hx  =hr.left-wr.left+hr.width/2, hy=hr.top-wr.top+hr.height/2;
-  ['n1','n2','n3','n4','n5'].forEach(pos=>{
-    const nd=document.getElementById('node-'+pos);
-    const pt=document.getElementById('path-'+pos);
-    const dt=document.getElementById('dot-'+pos);
-    if(!nd||!pt||!dt) return;
-    const nr=nd.getBoundingClientRect();
-    const nx=nr.left-wr.left+nr.width/2, ny=nr.top-wr.top+nr.height/2;
-    pt.setAttribute('d',`M${hx},${hy} Q${(hx+nx)/2},${(hy+ny)/2} ${nx},${ny}`);
-    moveDot(dt,pt);
-  });
-}
-function moveDot(dot,path){
-  if(!path.getTotalLength) return;
-  let t=Math.random(), spd=.0008+Math.random()*.0006;
-  (function step(){
-    t=(t+spd)%1;
-    const len=path.getTotalLength();
-    if(len>0){const p=path.getPointAtLength(t*len);dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);}
-    requestAnimationFrame(step);
-  })();
-}
-document.querySelectorAll('.eco-node').forEach(n=>{
-  const p=document.getElementById('path-'+n.dataset.node);
-  n.addEventListener('mouseenter',()=>p&&p.classList.add('lit'));
-  n.addEventListener('mouseleave',()=>p&&p.classList.remove('lit'));
-});
-window.addEventListener('load',()=>setTimeout(drawEcoLines,200));
-window.addEventListener('resize',()=>{clearTimeout(window._ecoT);window._ecoT=setTimeout(drawEcoLines,300);},{passive:true});
-
-/* ═══════════════════════════════════════════════
-   6. WIZARD — STATE MACHINE
+   5. WIZARD — STATE MACHINE
 ═══════════════════════════════════════════════ */
 const CAT_COLOR = {network:'#60a5fa',pc:'#a78bfa',mobile:'#34d399',software:'#f59e0b',security:'#f43f5e'};
 const CAT_LABEL = {network:'Network',pc:'Hardware',mobile:'Mobile',software:'Software',security:'Security'};
@@ -1257,6 +1297,9 @@ const TREE = {
     ]},
 };
 
+/* ─────────────────────────────────────────
+   WIZARD ENGINE
+───────────────────────────────────────── */
 const modal    = document.getElementById('modal');
 const wizBody  = document.getElementById('wizBody');
 const wizFoot  = document.getElementById('wizFoot');
@@ -1368,6 +1411,7 @@ window.closeWizard = function(){
   clearTimeout(footTimer);
 };
 
+/* Trigger points */
 document.querySelectorAll('.trigger-audit, #navCta').forEach(el =>
   el.addEventListener('click', e => { e.preventDefault(); window.openWizard(); })
 );
