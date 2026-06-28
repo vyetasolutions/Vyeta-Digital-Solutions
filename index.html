@@ -358,6 +358,26 @@ body::after{content:'';position:fixed;inset:0;z-index:2;pointer-events:none;
 .c-wha .pc-badge { color: var(--blue-lt); border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.05); }
 .c-wha .pc-tag { color: var(--blue-lt); }
 
+/* Vyeta Labs card themes */
+.c-apex {
+  --hover-col: rgba(245,158,11,.4);
+  --hover-bg: rgba(167,139,250,.1);
+  background: linear-gradient(160deg, rgba(124,58,237,.10), var(--surface) 55%);
+  border-color: rgba(245,158,11,.16);
+}
+.c-apex .pc-badge { color: var(--amber); border-color: rgba(245,158,11,.32); background: rgba(245,158,11,.07); }
+.c-apex .pc-tag { color: var(--purple-lt); }
+.c-apex .pc-btn { border-color: rgba(245,158,11,.22); }
+.c-apex .pc-btn:hover { background: rgba(245,158,11,.08); border-color: rgba(245,158,11,.4); }
+
+.c-credit { --hover-col: rgba(6,182,212,.4); --hover-bg: rgba(6,182,212,.08); }
+.c-credit .pc-badge { color: var(--cyan); border-color: rgba(6,182,212,.3); background: rgba(6,182,212,.05); }
+.c-credit .pc-tag { color: var(--cyan); }
+
+.c-balloon { --hover-col: rgba(16,185,129,.4); --hover-bg: rgba(16,185,129,.08); }
+.c-balloon .pc-badge { color: var(--green); border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
+.c-balloon .pc-tag { color: var(--green); }
+
 /* Stack vertically on smaller screens */
 @media(max-width: 950px){
   .eco-split { grid-template-columns: 1fr; gap: 40px; }
@@ -490,6 +510,7 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
     <div class="nav-links">
       <a href="#outcomes"  class="nav-link">Solutions</a>
       <a href="#workspace" class="nav-link">Workspace</a>
+      <a href="#labs" class="nav-link">Labs</a>
     </div>
     <button class="nav-cta" id="navCta">Run Diagnostic</button>
   </div>
@@ -749,6 +770,65 @@ footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
           </div>
           <div class="pc-foot">
             <a href="https://vyetasolutions.github.io/WhatsHappenin-ZM/" target="_blank" class="pc-btn">Explore Events &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eco-sec" id="labs">
+  <div class="eco-in">
+    <div class="eco-split">
+
+      <div class="eco-sticky reveal">
+        <div class="kicker">Innovation Studio</div>
+        <h2 class="sec-h">Vyeta Labs</h2>
+        <p class="sec-p">Where new ideas become real products. Vyeta Labs is our innovation studio focused on loyalty, gamification, digital value systems, and next-generation customer engagement experiences.</p>
+      </div>
+
+      <div class="eco-cards">
+
+        <div class="platform-card c-apex reveal d1">
+          <div class="pc-head">
+            <span class="pc-badge">Flagship Innovation</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">Apex Rewards</h3>
+            <div class="pc-tag">Gamified Loyalty Platform</div>
+            <p class="pc-desc">Turn customer engagement into measurable growth through rewards, achievements, challenges, and interactive loyalty experiences designed for modern businesses.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://apex-rewards-core.onrender.com/demo" target="_blank" class="pc-btn">Explore Apex Rewards &rarr;</a>
+          </div>
+        </div>
+
+        <div class="platform-card c-credit reveal d2">
+          <div class="pc-head">
+            <span class="pc-badge">In Development</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">Vyeta Credits</h3>
+            <div class="pc-tag">Digital Value & Rewards</div>
+            <p class="pc-desc">A flexible digital credits framework designed to power rewards, incentives, promotions, and future ecosystem transactions.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/vyeta-credits/#/login" target="_blank" class="pc-btn">Open Credits &rarr;</a>
+          </div>
+        </div>
+
+        <div class="platform-card c-balloon reveal d1">
+          <div class="pc-head">
+            <span class="pc-badge">Interactive Experience</span>
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">Balloon Adventures</h3>
+            <div class="pc-tag">Gamified Engagement</div>
+            <p class="pc-desc">A showcase of how entertainment, engagement, and digital rewards can work together to create memorable customer experiences.</p>
+          </div>
+          <div class="pc-foot">
+            <a href="https://vyetasolutions.github.io/kids-games/" target="_blank" class="pc-btn">Launch Experience &rarr;</a>
           </div>
         </div>
 
