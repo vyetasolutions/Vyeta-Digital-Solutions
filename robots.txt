@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vyetasolutions.github.io/Vyeta-Digital-Solutions/sitemap.xml
