@@ -1,1503 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vyeta | Digital Ecosystem &amp; IT Infrastructure</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ─────────────────────────────────────────
-   TOKENS
-───────────────────────────────────────── */
-:root{
-  --bg:#02020b;
-  --surface:rgba(8,8,22,.60);
-  --surface-hi:rgba(14,14,34,.78);
-  --gblur:blur(26px);
-  --bd:rgba(255,255,255,.07);
-  --bd-hi:rgba(255,255,255,.15);
-  --text:#eeeef5;
-  --muted:#64748b;
-  --muted-hi:#94a3b8;
-  --blue:#2563eb; --blue-lt:#60a5fa;
-  --purple:#7c3aed; --purple-lt:#a78bfa;
-  --cyan:#06b6d4; --green:#10b981;
-  --amber:#f59e0b; --rose:#e11d48; --magenta:#db2777;
-  --fh:'Bricolage Grotesque',sans-serif;
-  --fb:'IBM Plex Sans',sans-serif;
-  --spring:cubic-bezier(.16,1,.3,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;background:var(--bg)}
-body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Metadata -->
+  <title>Vyeta Digital Solutions | IT Infrastructure &amp; Digital Ecosystems in Lusaka, Zambia</title>
+  <meta name="description" content="Vyeta Digital Solutions provides reliable IT infrastructure retainers, custom software MVP development, business automation, and B2B digital marketplaces across Lusaka, Zambia, and Southern Africa.">
+  <meta name="keywords" content="IT infrastructure Lusaka, software development Zambia, business automation, B2B digital marketplaces, digital transformation Zambia, Vyeta Digital Solutions, swifTrade, ConsultLink">
+  <link rel="canonical" href="https://vyetasolutions.github.io/Vyeta-Digital-Solutions/" />
 
-/* ─────────────────────────────────────────
-   BACKGROUND
-───────────────────────────────────────── */
-.bg{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.bg-grid{
-  position:absolute;top:-20%;left:-50%;width:200%;height:200%;
-  background-image:linear-gradient(rgba(99,102,241,.038) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(99,102,241,.038) 1px,transparent 1px);
-  background-size:60px 60px;
-  transform:rotateX(75deg);transform-origin:center top;will-change:transform
-}
-#starCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.bg-aurora{position:absolute;inset:0;pointer-events:none;transition:background 2s ease}
-.orb{position:absolute;border-radius:50%;filter:blur(140px);mix-blend-mode:screen;
-     will-change:transform;pointer-events:none;transition:background 2.5s ease}
-.orb-1{width:600px;height:600px;background:radial-gradient(#1e40af,transparent);top:4%;left:-8%;opacity:.14}
-.orb-2{width:680px;height:680px;background:radial-gradient(#6d28d9,transparent);top:46%;right:-12%;opacity:.11}
-.orb-3{width:460px;height:460px;background:radial-gradient(#0891b2,transparent);bottom:0;left:20%;opacity:.09}
-/* grain */
-body::after{content:'';position:fixed;inset:0;z-index:2;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity:.026;mix-blend-mode:overlay}
-.fg{position:relative;z-index:10}
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vyetasolutions.github.io/Vyeta-Digital-Solutions/">
+  <meta property="og:title" content="Vyeta Digital Solutions | IT Infrastructure &amp; Digital Ecosystems in Lusaka, Zambia">
+  <meta property="og:description" content="Empowering businesses across Lusaka and Southern Africa with IT retainers, rapid MVP development, and connected digital marketplaces.">
+  <meta property="og:image" content="https://vyetasolutions.github.io/Vyeta-Digital-Solutions/logo.png">
 
-/* ─────────────────────────────────────────
-   SCROLL REVEAL
-───────────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(28px);
-  transition:opacity .65s var(--spring),transform .65s var(--spring)}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://vyetasolutions.github.io/Vyeta-Digital-Solutions/">
+  <meta name="twitter:title" content="Vyeta Digital Solutions | IT Infrastructure &amp; Digital Ecosystems in Lusaka, Zambia">
+  <meta name="twitter:description" content="Empowering businesses across Lusaka and Southern Africa with IT retainers, rapid MVP development, and connected digital marketplaces.">
+  <meta name="twitter:image" content="https://vyetasolutions.github.io/Vyeta-Digital-Solutions/logo.png">
 
-/* ─────────────────────────────────────────
-   NAV
-───────────────────────────────────────── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(2,2,11,.60);backdrop-filter:var(--gblur);-webkit-backdrop-filter:var(--gblur);
-  border-bottom:1px solid var(--bd);transition:background .3s}
-.nav.scrolled{background:rgba(2,2,11,.84)}
-.nav-in{max-width:1140px;margin:0 auto;padding:0 28px;height:64px;
-  display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:1.42rem;
-  font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.025em}
-.logo-svg{width:26px;height:26px;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-link{color:var(--muted-hi);text-decoration:none;font-size:.875rem;font-weight:500;
-  padding:8px 14px;border-radius:8px;transition:color .15s,background .15s}
-.nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
-.nav-cta{background:var(--text);color:var(--bg);padding:9px 22px;border-radius:8px;
-  font-size:.875rem;font-weight:600;border:none;cursor:pointer;font-family:var(--fb);
-  transition:opacity .15s,transform .15s}
-.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+  <!-- Local Business Schema Markup (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Vyeta Digital Solutions",
+    "url": "https://vyetasolutions.github.io/Vyeta-Digital-Solutions/",
+    "logo": "https://vyetasolutions.github.io/Vyeta-Digital-Solutions/logo.png",
+    "description": "Providing reliable IT infrastructure retainers, custom software MVP development, business automation, and B2B digital marketplaces across Lusaka, Zambia, and Southern Africa.",
+    "telephone": "+260777363303",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lusaka",
+      "addressCountry": "ZM"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Lusaka"
+      },
+      {
+        "@type": "Country",
+        "name": "Zambia"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Southern Africa"
+      }
+    ],
+    "sameAs": [
+      "https://share.google/5yBJ2z99dzPubMvHO",
+      "https://web.facebook.com/profile.php?id=100092201311615"
+    ]
+  }
+  </script>
 
-/* ─────────────────────────────────────────
-   HERO
-───────────────────────────────────────── */
-.hero{padding:176px 28px 100px;text-align:center;max-width:880px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;
-  background:rgba(124,58,237,.1);border:1px solid rgba(167,139,250,.26);
-  padding:7px 18px;border-radius:99px;font-size:.72rem;font-weight:700;
-  letter-spacing:.07em;color:var(--purple-lt);text-transform:uppercase;
-  margin-bottom:36px;backdrop-filter:blur(10px)}
-.bdot{width:6px;height:6px;border-radius:50%;background:var(--purple-lt);position:relative}
-.bdot::after{content:'';position:absolute;inset:0;border-radius:50%;background:inherit;
-  animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
-@keyframes ping{75%,100%{transform:scale(2.6);opacity:0}}
-.hero h1{font-family:var(--fh);font-size:clamp(2.8rem,6.5vw,4.8rem);font-weight:800;
-  letter-spacing:-.048em;line-height:1.07;margin-bottom:28px}
-.hero h1 em{font-style:normal;
-  background:linear-gradient(108deg,#93c5fd 0%,#c084fc 44%,#67e8f9 100%);
-  background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  animation:shimmer 5s linear infinite}
-@keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
-.hero-sub{color:var(--muted-hi);font-size:1.12rem;max-width:600px;
-  margin:0 auto 44px;line-height:1.72}
-.hero-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+  <!-- Embedded Premium Dark Theme & Neon Purple Styles -->
+  <style>
+    :root {
+      --bg-dark: #0a0a0f;
+      --bg-card: #12121a;
+      --text-main: #f0f0f5;
+      --text-muted: #9a9ab0;
+      --neon-purple: #b829ff;
+      --neon-glow: rgba(184, 41, 255, 0.35);
+      --border-color: #2a2a3d;
+    }
 
-/* ─────────────────────────────────────────
-   BUTTONS
-───────────────────────────────────────── */
-.btn-solid{display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,var(--blue),var(--purple));
-  color:#fff;padding:15px 34px;border-radius:10px;font-size:.95rem;font-weight:600;
-  border:none;cursor:pointer;font-family:var(--fb);text-decoration:none;
-  box-shadow:0 4px 28px rgba(99,102,241,.34);
-  transition:transform .22s var(--spring),box-shadow .22s}
-.btn-solid:hover{transform:translateY(-2px);box-shadow:0 8px 38px rgba(99,102,241,.5)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);
-  color:var(--text);padding:15px 28px;border-radius:10px;font-size:.95rem;
-  font-weight:500;cursor:pointer;font-family:var(--fb);text-decoration:none;
-  backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
-.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.3)}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-/* ─────────────────────────────────────────
-   STATS
-───────────────────────────────────────── */
-.stats-wrap{max-width:1140px;margin:0 auto;padding:0 28px 96px}
-.stats-inner{display:flex;background:var(--surface);backdrop-filter:var(--gblur);
-  -webkit-backdrop-filter:var(--gblur);border:1px solid var(--bd);border-radius:18px;overflow:hidden}
-.stat{flex:1;padding:28px 36px;text-align:center;border-right:1px solid var(--bd)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:var(--fh);font-size:2rem;font-weight:800;letter-spacing:-.04em}
-.stat-l{font-size:.7rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-/* ─────────────────────────────────────────
-   SECTION TYPOGRAPHY
-───────────────────────────────────────── */
-.kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--blue-lt);margin-bottom:14px}
-.sec-h{font-family:var(--fh);font-size:clamp(2rem,4vw,3rem);font-weight:800;
-  letter-spacing:-.04em;line-height:1.12;margin-bottom:16px}
-.sec-p{color:var(--muted-hi);font-size:1rem;max-width:520px;line-height:1.68}
+    /* Background Canvas Animation Container */
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
 
-/* ─────────────────────────────────────────
-   OUTCOMES — "What Are You Trying To Achieve?"
-───────────────────────────────────────── */
-.out-sec{padding:0 28px 112px;max-width:1140px;margin:0 auto}
-.out-head{text-align:center;margin-bottom:56px}
-.out-head .sec-h{font-size:clamp(2rem,4.5vw,3.2rem)}
-.out-head .sec-p{margin:0 auto;text-align:center;max-width:480px}
-.out-stack{display:flex;flex-direction:column;gap:12px}
+    header {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(184, 41, 255, 0.15);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-.oc{background:var(--surface);backdrop-filter:var(--gblur);-webkit-backdrop-filter:var(--gblur);
-  border:1px solid var(--bd);border-radius:18px;overflow:hidden;position:relative;
-  transition:border-color .35s var(--spring),box-shadow .35s}
-.oc::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(500px circle at var(--cx,50%) var(--cy,50%),rgba(255,255,255,.03),transparent 40%);
-  opacity:0;transition:opacity .3s;z-index:0}
-.oc:hover::before{opacity:1}
-.oc.active{border-color:var(--oc-col,var(--purple-lt));
-  box-shadow:0 0 0 1px var(--oc-col,var(--purple-lt)),0 20px 50px rgba(0,0,0,.4)}
-.oc-hdr{display:flex;align-items:center;gap:20px;padding:26px 32px;cursor:pointer;
-  position:relative;z-index:1;user-select:none;-webkit-tap-highlight-color:transparent}
-.oc-emoji{font-size:1.6rem;flex-shrink:0;line-height:1}
-.oc-tw{flex:1;min-width:0}
-.oc-title{font-family:var(--fh);font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:2px}
-.oc-tag{font-size:.82rem;color:var(--muted-hi);line-height:1.4}
-.oc-chev{width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  background:rgba(255,255,255,.06);border:1px solid var(--bd);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.9rem;color:var(--muted-hi);font-weight:400;
-  transition:transform .4s var(--spring),background .25s,color .25s}
-.oc.active .oc-chev{transform:rotate(45deg);background:var(--oc-col,var(--purple-lt));color:#fff;border-color:transparent}
-.oc-body{max-height:0;overflow:hidden;transition:max-height .55s var(--spring)}
-.oc-inner{padding:0 32px 32px;position:relative;z-index:1}
-.oc-div{height:1px;background:var(--bd);margin-bottom:24px}
-.oc-desc{font-size:.95rem;color:var(--muted-hi);line-height:1.7;margin-bottom:24px;max-width:620px}
-.oc-sols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
-.oc-sol{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-radius:12px;
-  padding:16px 18px;transition:background .2s,border-color .2s}
-.oc-sol:hover{background:rgba(255,255,255,.05);border-color:var(--bd-hi)}
-.oc-sol-i{font-size:1.1rem;margin-bottom:8px}
-.oc-sol-t{font-size:.82rem;font-weight:600;margin-bottom:4px}
-.oc-sol-d{font-size:.75rem;color:var(--muted);line-height:1.5}
-.oc-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.oc-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:9px;
-  font-size:.875rem;font-weight:600;border:none;cursor:pointer;font-family:var(--fb);
-  text-decoration:none;transition:transform .2s,box-shadow .2s}
-.oc-btn-pri{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;
-  box-shadow:0 4px 18px rgba(99,102,241,.28)}
-.oc-btn-pri:hover{transform:translateY(-1px);box-shadow:0 8px 26px rgba(99,102,241,.42)}
-.oc-btn-wa{background:#25d366;color:#000;box-shadow:0 4px 16px rgba(37,211,102,.22)}
-.oc-btn-wa:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(37,211,102,.38)}
-.oc-btn-gh{background:rgba(255,255,255,.04);border:1px solid var(--bd-hi);
-  color:var(--text);backdrop-filter:blur(6px)}
-.oc-btn-gh:hover{background:rgba(255,255,255,.09)}
-.oc-grow{--oc-col:#10b981}.oc-time{--oc-col:#a78bfa}.oc-online{--oc-col:#60a5fa}
-.oc-protect{--oc-col:#f43f5e}.oc-idea{--oc-col:#f59e0b}.oc-connect{--oc-col:#06b6d4}
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
 
-/* ─────────────────────────────────────────
-   ECOSYSTEM / WORKSPACE (FIXED UNIFORM GRID)
-───────────────────────────────────────── */
-.eco-sec { padding: 0 28px 120px; }
-.eco-in { max-width: 1140px; margin: 0 auto; }
+    .logo-container img {
+      height: 38px;
+      width: auto;
+    }
 
-.eco-split {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 64px;
-  align-items: start;
-}
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 10px var(--neon-glow);
+    }
 
-/* Sticky Header Side */
-.eco-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 120px;
-  z-index: 10;
-}
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      font-size: 0.95rem;
+    }
 
-/* Scrolling Cards Grid Side */
-.eco-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
+    .nav-links a:hover {
+      color: var(--text-main);
+      text-shadow: 0 0 8px var(--neon-purple);
+    }
 
-.eco-subhead {
-  grid-column: 1 / -1; 
-  margin-top: 24px; 
-  padding-top: 32px; 
-  border-top: 1px solid var(--bd);
-}
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-/* Uniform Platform Cards */
-.platform-card {
-  background: var(--surface);
-  backdrop-filter: var(--gblur);
-  -webkit-backdrop-filter: var(--gblur);
-  border: 1px solid var(--bd);
-  border-radius: 18px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 0.3s var(--spring), border-color 0.3s, box-shadow 0.3s;
-}
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.platform-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--hover-col, var(--bd-hi));
-  box-shadow: 0 16px 40px var(--hover-bg, rgba(255,255,255,0.05));
-}
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+    }
 
-.pc-head {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  margin-bottom: 24px;
-}
+    .cta-btn {
+      background: transparent;
+      color: var(--text-main);
+      border: 2px solid var(--neon-purple);
+      padding: 0.85rem 2.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 15px var(--neon-glow);
+      transition: all 0.3s ease;
+    }
 
-.pc-badge {
-  font-size: 0.65rem; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: 0.08em;
-  padding: 4px 12px; 
-  border-radius: 99px; 
-  border: 1px solid;
-}
+    .cta-btn:hover {
+      background: var(--neon-purple);
+      box-shadow: 0 0 25px var(--neon-purple);
+      transform: translateY(-2px);
+    }
 
-/* Flex-grow guarantees perfectly aligned buttons at the bottom */
-.pc-body { 
-  flex-grow: 1; 
-  margin-bottom: 32px; 
-}
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 8%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
 
-.pc-title { 
-  font-family: var(--fh); 
-  font-size: 1.4rem; 
-  font-weight: 700; 
-  margin-bottom: 6px; 
-  letter-spacing: -0.02em; 
-}
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-.pc-tag { 
-  font-size: 0.75rem; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: 0.06em; 
-  margin-bottom: 12px; 
-}
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--neon-purple);
+      box-shadow: 0 10px 30px -10px var(--neon-glow);
+    }
 
-.pc-desc { 
-  font-size: 0.9rem; 
-  color: var(--muted-hi); 
-  line-height: 1.6; 
-}
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
 
-.pc-foot { 
-  margin-top: auto; 
-}
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
 
-.pc-btn {
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 8px; 
-  width: 100%;
-  padding: 12px; 
-  border-radius: 10px; 
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--bd); 
-  color: var(--text); 
-  font-size: 0.85rem; 
-  font-weight: 600;
-  text-decoration: none; 
-  transition: background 0.2s, border-color 0.2s;
-}
+    .card-tag {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--neon-purple);
+      background: rgba(184, 41, 255, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid rgba(184, 41, 255, 0.3);
+    }
 
-.pc-btn:hover { 
-  background: rgba(255,255,255,0.08); 
-  border-color: var(--bd-hi); 
-}
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 5%;
+      text-align: center;
+      margin-top: 4rem;
+      background: #07070a;
+    }
 
-/* Custom Card Color Themes */
-.c-biz { --hover-col: rgba(167,139,250,.4); --hover-bg: rgba(167,139,250,.08); }
-.c-biz .pc-badge { color: var(--purple-lt); border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.05); }
-.c-biz .pc-tag { color: var(--purple-lt); }
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-.c-mob { --hover-col: rgba(245,158,11,.4); --hover-bg: rgba(245,158,11,.08); }
-.c-mob .pc-badge { color: var(--amber); border-color: rgba(245,158,11,.3); background: rgba(245,158,11,.05); }
-.c-mob .pc-tag { color: var(--amber); }
+    .footer-contact {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
 
-.c-con { --hover-col: rgba(6,182,212,.4); --hover-bg: rgba(6,182,212,.08); }
-.c-con .pc-badge { color: var(--cyan); border-color: rgba(6,182,212,.3); background: rgba(6,182,212,.05); }
-.c-con .pc-tag { color: var(--cyan); }
-
-.c-pul { --hover-col: rgba(219,39,119,.4); --hover-bg: rgba(219,39,119,.08); }
-.c-pul .pc-badge { color: var(--magenta); border-color: rgba(219,39,119,.3); background: rgba(219,39,119,.05); }
-.c-pul .pc-tag { color: var(--magenta); }
-
-.c-swi { --hover-col: rgba(16,185,129,.4); --hover-bg: rgba(16,185,129,.08); }
-.c-swi .pc-badge { color: var(--green); border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
-.c-swi .pc-tag { color: var(--green); }
-
-.c-wha { --hover-col: rgba(96,165,250,.4); --hover-bg: rgba(96,165,250,.08); }
-.c-wha .pc-badge { color: var(--blue-lt); border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.05); }
-.c-wha .pc-tag { color: var(--blue-lt); }
-
-/* Vyeta Labs card themes */
-.c-apex {
-  --hover-col: rgba(245,158,11,.4);
-  --hover-bg: rgba(167,139,250,.1);
-  background: linear-gradient(160deg, rgba(124,58,237,.10), var(--surface) 55%);
-  border-color: rgba(245,158,11,.16);
-}
-.c-apex .pc-badge { color: var(--amber); border-color: rgba(245,158,11,.32); background: rgba(245,158,11,.07); }
-.c-apex .pc-tag { color: var(--purple-lt); }
-.c-apex .pc-btn { border-color: rgba(245,158,11,.22); }
-.c-apex .pc-btn:hover { background: rgba(245,158,11,.08); border-color: rgba(245,158,11,.4); }
-
-.c-credit { --hover-col: rgba(6,182,212,.4); --hover-bg: rgba(6,182,212,.08); }
-.c-credit .pc-badge { color: var(--cyan); border-color: rgba(6,182,212,.3); background: rgba(6,182,212,.05); }
-.c-credit .pc-tag { color: var(--cyan); }
-
-.c-balloon { --hover-col: rgba(16,185,129,.4); --hover-bg: rgba(16,185,129,.08); }
-.c-balloon .pc-badge { color: var(--green); border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
-.c-balloon .pc-tag { color: var(--green); }
-
-/* Stack vertically on smaller screens */
-@media(max-width: 950px){
-  .eco-split { grid-template-columns: 1fr; gap: 40px; }
-  .eco-sticky { position: static; text-align: center; margin-bottom: 24px; }
-  .eco-sticky .sec-p { margin: 0 auto; }
-}
-
-/* ─────────────────────────────────────────
-   CTA + FOOTER
-───────────────────────────────────────── */
-.cta-sec{padding:0 28px 120px}
-.cta-in{max-width:1140px;margin:0 auto;background:var(--surface);
-  backdrop-filter:var(--gblur);-webkit-backdrop-filter:var(--gblur);
-  border:1px solid var(--bd);border-radius:24px;padding:80px 60px;
-  text-align:center;position:relative;overflow:hidden}
-.cta-in::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 85% 60% at 50% 0%,rgba(99,102,241,.09),transparent)}
-.cta-in .sec-h{margin-bottom:16px}
-.cta-in .sec-p{margin:0 auto 40px;text-align:center}
-.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-footer{border-top:1px solid var(--bd);padding:36px 28px;text-align:center;
-  color:var(--muted);font-size:.78rem}
-
-/* ─────────────────────────────────────────
-   MODAL WIZARD
-───────────────────────────────────────── */
-.veil{position:fixed;inset:0;background:rgba(1,1,10,.85);z-index:999;
-  display:flex;align-items:center;justify-content:center;padding:20px;
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  opacity:0;pointer-events:none;transition:opacity .28s ease}
-.veil.open{opacity:1;pointer-events:auto}
-.wiz{background:rgba(4,4,16,.92);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
-  border:1px solid rgba(255,255,255,.11);border-radius:22px;
-  width:100%;max-width:560px;position:relative;
-  box-shadow:0 40px 90px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.05);
-  display:flex;flex-direction:column;max-height:90vh;overflow:hidden}
-.wiz-hdr{padding:28px 32px 0;flex-shrink:0;border-bottom:1px solid transparent;transition:border-color .3s}
-.wiz-hdr.bdr{border-color:rgba(255,255,255,.07)}
-.wiz-trail{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-height:20px;margin-bottom:18px}
-.crumb{font-size:.65rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-.crumb.cur{color:var(--text)}
-.csep{color:var(--muted);font-size:.6rem;opacity:.4}
-.cat-bar{height:2px;border-radius:2px;margin-bottom:20px;transition:background .4s;opacity:0}
-.wiz-x{position:absolute;top:18px;right:18px;z-index:10;
-  background:rgba(255,255,255,.06);border:1px solid var(--bd);border-radius:8px;
-  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-size:1.1rem;cursor:pointer;transition:background .15s,color .15s}
-.wiz-x:hover{background:rgba(255,255,255,.14);color:#fff}
-.wiz-body{padding:0 32px 28px;overflow-y:auto;flex-grow:1;-webkit-overflow-scrolling:touch}
-.wiz-step{animation:sIn .22s ease both}
-@keyframes sIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
-.wiz-title{font-family:var(--fh);font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
-.wiz-sub{color:var(--muted-hi);font-size:.855rem;margin-bottom:22px;line-height:1.55}
-.opt-list{display:flex;flex-direction:column;gap:9px}
-.opt{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:14px 16px;
-  display:flex;justify-content:space-between;align-items:center;
-  color:var(--text);font-size:.885rem;font-weight:500;
-  cursor:pointer;text-align:left;font-family:var(--fb);width:100%;
-  transition:background .15s,border-color .15s,transform .15s}
-.opt:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);transform:translateX(3px)}
-.opt-arr{opacity:.38;font-size:.85rem;flex-shrink:0;margin-left:10px}
-.sev{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:99px;
-  font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
-.sev-ok {background:rgba(16,185,129,.1); border:1px solid rgba(16,185,129,.28);color:var(--green)}
-.sev-warn{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.28);color:var(--amber)}
-.sev-crit{background:rgba(225,29,72,.1); border:1px solid rgba(225,29,72,.28); color:var(--rose)}
-.sol-box{background:rgba(99,102,241,.055);border:1px solid rgba(99,102,241,.2);
-  border-radius:12px;padding:22px;margin-bottom:20px}
-.sol-step{display:flex;gap:12px;margin-bottom:12px}
-.sol-step:last-child{margin-bottom:0}
-.sol-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;
-  background:rgba(99,102,241,.25);border:1px solid rgba(99,102,241,.3);
-  font-size:.7rem;font-weight:700;color:#93c5fd;
-  display:flex;align-items:center;justify-content:center;margin-top:2px}
-.sol-txt{font-size:.875rem;color:#cbd5e1;line-height:1.66}
-.back-btn{background:none;border:none;color:var(--muted);font-size:.8rem;font-weight:600;
-  cursor:pointer;margin-top:16px;display:inline-flex;align-items:center;gap:4px;
-  font-family:var(--fb);transition:color .15s;padding:0}
-.back-btn:hover{color:var(--text)}
-.wiz-foot{padding:20px 32px 28px;border-top:1px solid rgba(255,255,255,.07);
-  background:rgba(2,2,10,.65);backdrop-filter:blur(12px);flex-shrink:0;display:none}
-.wiz-foot.show{display:block}
-.wiz-foot h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
-.wiz-foot p{font-size:.8rem;color:var(--muted-hi);margin-bottom:16px}
-.esc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.esc{display:flex;align-items:center;justify-content:center;gap:7px;
-  padding:13px;border-radius:9px;font-size:.875rem;font-weight:700;
-  text-decoration:none;transition:opacity .15s,transform .15s}
-.esc:hover{opacity:.88;transform:translateY(-1px)}
-.esc-wa{background:#25d366;color:#000}
-.esc-email{background:#fff;color:#000}
-
-@media(max-width:640px){
-  .hero{padding:130px 20px 80px}
-  .oc-sols{grid-template-columns:1fr}
-  .oc-hdr{padding:20px;gap:14px}
-  .oc-inner{padding:0 20px 24px}
-  .cta-in{padding:48px 26px}
-  .stats-inner{flex-wrap:wrap}
-  .stat{flex:1 0 40%;border-right:none;border-bottom:1px solid var(--bd)}
-  .stat:last-child{border-bottom:none}
-  .nav-links{display:none}
-  .wiz{max-height:95vh;border-radius:16px}
-}
-</style>
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links a {
+        margin: 0 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="bg">
-  <div class="bg-grid" id="bgGrid"></div>
-  <canvas id="starCanvas"></canvas>
-  <div class="bg-aurora" id="bgAurora"></div>
-  <div class="orb orb-1" id="orb1"></div>
-  <div class="orb orb-2" id="orb2"></div>
-  <div class="orb orb-3" id="orb3"></div>
-</div>
+  <!-- Background Starfield Animation -->
+  <div id="canvas-container">
+    <canvas id="bg-canvas"></canvas>
+  </div>
 
-<div class="fg">
-
-<header class="nav" id="mainNav">
-  <div class="nav-in">
-    <a href="#" class="nav-logo">
-      <svg class="logo-svg" viewBox="0 0 100 100" fill="none">
-        <circle cx="28" cy="28" r="13" fill="#2563eb"/>
-        <rect x="52" y="16" width="22" height="66" rx="11" transform="rotate(32 52 16)" fill="#2563eb"/>
-      </svg>
-      vyeta
+  <!-- Navigation -->
+  <header>
+    <a href="#" class="logo-container">
+      <img src="logo.png" alt="Vyeta Digital Solutions Logo" onerror="this.style.display='none'">
+      <span class="brand-name">Vyeta Digital Solutions</span>
     </a>
-    <div class="nav-links">
-      <a href="#outcomes"  class="nav-link">Solutions</a>
-      <a href="#workspace" class="nav-link">Workspace</a>
-      <a href="#labs" class="nav-link">Labs</a>
-    </div>
-    <button class="nav-cta" id="navCta">Run Diagnostic</button>
-  </div>
-</header>
+    <nav class="nav-links">
+      <a href="#ecosystem">Platforms</a>
+      <a href="#services">Retainers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero reveal">
-  <div class="hero-badge"><span class="bdot"></span>Zambia's Digital Ecosystem</div>
-  <h1>One Ecosystem.<br><em>Infinite Possibilities.</em></h1>
-  <p class="hero-sub">Vyeta builds platforms, automates operations, secures infrastructure, and connects businesses to opportunities — all from one trusted partner.</p>
-  <div class="hero-btns">
-    <button class="btn-solid trigger-audit">Run IT Diagnostic &rarr;</button>
-    <a href="#outcomes" class="btn-ghost">What Can We Do For You</a>
-  </div>
-</section>
+  <!-- Hero -->
+  <main class="hero">
+    <h1>Engineering Digital Ecosystems Across Zambia</h1>
+    <p>We architect high-performance IT infrastructure, deploy rapid software MVPs, and operate hyper-local B2B marketplaces designed to eliminate commercial friction in Southern Africa.</p>
+    <a href="#contact" class="cta-btn">Initiate Digital Transformation</a>
+  </main>
 
-<div class="stats-wrap reveal d1">
-  <div class="stats-inner">
-    <div class="stat"><div class="stat-n">6+</div><div class="stat-l">Live Platforms</div></div>
-    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Industry Verticals</div></div>
-    <div class="stat"><div class="stat-n">ZM</div><div class="stat-l">Built for Zambia</div></div>
-    <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">On-Call Support</div></div>
-  </div>
-</div>
-
-<section class="out-sec" id="outcomes">
-  <div class="out-head reveal">
-    <div class="kicker">Customer Outcomes</div>
-    <h2 class="sec-h">What are you trying to achieve?</h2>
-    <p class="sec-p">Select your goal. We'll show you exactly how Vyeta makes it happen.</p>
-  </div>
-  <div class="out-stack">
-
-    <div class="oc oc-grow reveal">
-      <div class="oc-hdr">
-        <span class="oc-emoji">🚀</span>
-        <div class="oc-tw"><div class="oc-title">Grow My Business</div><div class="oc-tag">Scale operations, reach new customers, generate more revenue</div></div>
-        <div class="oc-chev">+</div>
+  <!-- Core Platforms & Infrastructure -->
+  <section id="ecosystem" class="grid-layout">
+    <div class="card">
+      <div>
+        <h2>swifTrade Marketplace</h2>
+        <p>A request-driven digital commerce platform enabling seamless, low-friction B2B transactions and structured trade negotiation tailored for the Zambian market.</p>
       </div>
-      <div class="oc-body"><div class="oc-inner">
-        <div class="oc-div"></div>
-        <p class="oc-desc">Growth requires reliable infrastructure, smart automation, and a digital presence that works while you sleep. Vyeta delivers all three under one retainer.</p>
-        <div class="oc-sols">
-          <div class="oc-sol"><div class="oc-sol-i">⚙️</div><div class="oc-sol-t">IT Infrastructure Retainer</div><div class="oc-sol-d">Rock-solid networking so operations never grind to a halt</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">📊</div><div class="oc-sol-t">Business Automation</div><div class="oc-sol-d">Eliminate manual overhead so your team focuses on revenue</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🌐</div><div class="oc-sol-t">Digital Platform Access</div><div class="oc-sol-d">Reach new customers via SwifTrade or WhatsHappenin ZM</div></div>
-        </div>
-        <div class="oc-foot">
-          <button class="oc-btn oc-btn-pri trigger-audit">Start with an IT Audit &rarr;</button>
-          <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%20want%20to%20grow%20my%20business%20and%20discuss%20your%20IT%20and%20digital%20platform%20solutions." target="_blank" class="oc-btn oc-btn-wa">💬 Chat on WhatsApp</a>
-        </div>
-      </div></div>
+      <span class="card-tag">Online Commerce</span>
     </div>
 
-    <div class="oc oc-time reveal d1">
-      <div class="oc-hdr">
-        <span class="oc-emoji">⚡</span>
-        <div class="oc-tw"><div class="oc-title">Save Time &amp; Work Smarter</div><div class="oc-tag">Eliminate repetitive tasks and free your team for high-value work</div></div>
-        <div class="oc-chev">+</div>
+    <div class="card">
+      <div>
+        <h2>ConsultLink Network</h2>
+        <p>An accessible professional matching infrastructure connecting enterprises with verified specialists across ICT, mechanical engineering, and agricultural sectors.</p>
       </div>
-      <div class="oc-body"><div class="oc-inner">
-        <div class="oc-div"></div>
-        <p class="oc-desc">Manual data entry, spreadsheet chaos, and disconnected tools cost your business hours every week. We build automations that give that time back — permanently.</p>
-        <div class="oc-sols">
-          <div class="oc-sol"><div class="oc-sol-i">🔗</div><div class="oc-sol-t">Google Workspace Automation</div><div class="oc-sol-d">Custom Apps Script pipelines that move and process data automatically</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">📈</div><div class="oc-sol-t">Automated Reporting</div><div class="oc-sol-d">Live dashboards and scheduled reports built into your workflow</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🧩</div><div class="oc-sol-t">App Integrations</div><div class="oc-sol-d">Connect CRM, email, billing, and inventory so nothing falls through</div></div>
-        </div>
-        <div class="oc-foot">
-          <button class="oc-btn oc-btn-pri trigger-audit">Run Automation Diagnostic &rarr;</button>
-          <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%20want%20to%20automate%20manual%20tasks%20in%20my%20business." target="_blank" class="oc-btn oc-btn-wa">💬 Discuss Automation</a>
-        </div>
-      </div></div>
+      <span class="card-tag">Service Infrastructure</span>
     </div>
 
-    <div class="oc oc-online reveal d2">
-      <div class="oc-hdr">
-        <span class="oc-emoji">🌐</span>
-        <div class="oc-tw"><div class="oc-title">Establish My Online Presence</div><div class="oc-tag">A professional digital footprint that works around the clock</div></div>
-        <div class="oc-chev">+</div>
+    <div class="card">
+      <div>
+        <h2>Full-Stack MVP Development</h2>
+        <p>Rapid architectural deployment utilizing modern serverless backends, progressive web app frameworks, and high-speed static edge hosting.</p>
       </div>
-      <div class="oc-body"><div class="oc-inner">
-        <div class="oc-div"></div>
-        <p class="oc-desc">In today's market, if you can't be found online you don't exist. We build fast, professional web presences that represent your business with confidence.</p>
-        <div class="oc-sols">
-          <div class="oc-sol"><div class="oc-sol-i">🖥️</div><div class="oc-sol-t">Business Website</div><div class="oc-sol-d">Responsive, fast-loading sites hosted on reliable infrastructure</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🛠️</div><div class="oc-sol-t">Custom Web Applications</div><div class="oc-sol-d">Booking systems, client portals, registries, and internal tools</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🎨</div><div class="oc-sol-t">Brand Digital Strategy</div><div class="oc-sol-d">Domain, email, SEO fundamentals, and social presence setup</div></div>
-        </div>
-        <div class="oc-foot">
-          <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%27d%20like%20to%20build%20an%20online%20presence%20for%20my%20business." target="_blank" class="oc-btn oc-btn-wa">💬 Get a Quote</a>
-          <a href="#workspace" class="oc-btn oc-btn-gh">View Our Platforms &darr;</a>
-        </div>
-      </div></div>
+      <span class="card-tag">Custom Software</span>
+    </div>
+  </section>
+
+  <!-- Retainers & Operations -->
+  <section id="services" class="grid-layout" style="padding-top: 0;">
+    <div class="card">
+      <div>
+        <h2>Corporate IT Retainers</h2>
+        <p>Tiered operational support packages providing mission-critical business automation, systems maintenance, and ICT infrastructure reliability.</p>
+      </div>
+      <span class="card-tag">Enterprise Support</span>
     </div>
 
-    <div class="oc oc-protect reveal d3">
-      <div class="oc-hdr">
-        <span class="oc-emoji">🔒</span>
-        <div class="oc-tw"><div class="oc-title">Protect My Business</div><div class="oc-tag">Keep your data, devices, and staff safe from costly threats</div></div>
-        <div class="oc-chev">+</div>
+    <div class="card">
+      <div>
+        <h2>Fintech &amp; Payment Systems</h2>
+        <p>Developing closed-loop digital payment architectures and specialized liquidity tools designed to support irregular income and cashless peer-to-peer commerce.</p>
       </div>
-      <div class="oc-body"><div class="oc-inner">
-        <div class="oc-div"></div>
-        <p class="oc-desc">A single data breach or ransomware attack can shut a business down permanently. Vyeta identifies your vulnerabilities before attackers do — and closes them.</p>
-        <div class="oc-sols">
-          <div class="oc-sol"><div class="oc-sol-i">🔍</div><div class="oc-sol-t">Threat Assessment Audit</div><div class="oc-sol-d">Full security scan, network liability report, and remediation roadmap</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🎣</div><div class="oc-sol-t">Staff Phishing Training</div><div class="oc-sol-d">Controlled drills and awareness training to close the human gap</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🛡️</div><div class="oc-sol-t">Continuous Monitoring</div><div class="oc-sol-d">Ongoing vulnerability management and incident response</div></div>
-        </div>
-        <div class="oc-foot">
-          <button class="oc-btn oc-btn-pri trigger-audit">Run Security Diagnostic &rarr;</button>
-          <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%20want%20a%20security%20audit%20for%20my%20business." target="_blank" class="oc-btn oc-btn-wa">💬 Book Security Audit</a>
-        </div>
-      </div></div>
+      <span class="card-tag">Financial Technology</span>
     </div>
 
-    <div class="oc oc-idea reveal d1">
-      <div class="oc-hdr">
-        <span class="oc-emoji">💡</span>
-        <div class="oc-tw"><div class="oc-title">Bring An Idea To Life</div><div class="oc-tag">Turn a concept into a working digital product — fast and cleanly</div></div>
-        <div class="oc-chev">+</div>
+    <div class="card">
+      <div>
+        <h2>Civic &amp; Logistics Platforms</h2>
+        <p>Deploying ultra-lightweight frameworks for public transit optimization, community engagement tracking, and streamlined logistics management.</p>
       </div>
-      <div class="oc-body"><div class="oc-inner">
-        <div class="oc-div"></div>
-        <p class="oc-desc">You have the vision. We have the engineers. From marketplace platforms to civic tools — we've built it before and we can build yours. No agencies, no bloat. Just working software.</p>
-        <div class="oc-sols">
-          <div class="oc-sol"><div class="oc-sol-i">⚡</div><div class="oc-sol-t">Rapid MVP Development</div><div class="oc-sol-d">Working prototype in weeks, not months</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🗄️</div><div class="oc-sol-t">Backend &amp; Database Design</div><div class="oc-sol-d">Google Sheets backends, Apps Script APIs, scalable data architecture</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🚀</div><div class="oc-sol-t">Launch &amp; Ongoing Support</div><div class="oc-sol-d">Deploy, iterate, and maintain with a team that stays post-launch</div></div>
-        </div>
-        <div class="oc-foot">
-          <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%20have%20a%20digital%20product%20idea%20I%27d%20like%20to%20build." target="_blank" class="oc-btn oc-btn-wa">💬 Let's Build It</a>
-          <a href="#workspace" class="oc-btn oc-btn-gh">See What We've Built &darr;</a>
-        </div>
-      </div></div>
+      <span class="card-tag">Smart Systems</span>
     </div>
+  </section>
 
-    <div class="oc oc-connect reveal d2">
-      <div class="oc-hdr">
-        <span class="oc-emoji">🤝</span>
-        <div class="oc-tw"><div class="oc-title">Connect With New Opportunities</div><div class="oc-tag">Get matched with businesses, experts, and partners that drive growth</div></div>
-        <div class="oc-chev">+</div>
-      </div>
-      <div class="oc-body"><div class="oc-inner">
-        <div class="oc-div"></div>
-        <p class="oc-desc">Vyeta isn't just an IT provider — it's a connected ecosystem of platforms designed to create economic opportunity. The right connection can change everything.</p>
-        <div class="oc-sols">
-          <div class="oc-sol"><div class="oc-sol-i">🏪</div><div class="oc-sol-t">SwifTrade Marketplace</div><div class="oc-sol-d">Connect with verified B2B buyers and bulk suppliers across Zambia</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">👨‍⚖️</div><div class="oc-sol-t">ConsultLink Specialists</div><div class="oc-sol-d">Get routed to legal, medical, and technical advisors on demand</div></div>
-          <div class="oc-sol"><div class="oc-sol-i">🎉</div><div class="oc-sol-t">WhatsHappenin ZM</div><div class="oc-sol-d">Promote events, experiences, and opportunities to a local audience</div></div>
-        </div>
-        <div class="oc-foot">
-          <a href="#workspace" class="oc-btn oc-btn-pri">Explore All Platforms &rarr;</a>
-          <a href="https://wa.me/260777363303?text=Hi%20Vyeta%2C%20I%27d%20like%20to%20learn%20more%20about%20connecting%20with%20opportunities." target="_blank" class="oc-btn oc-btn-wa">💬 Talk to Us</a>
-        </div>
-      </div></div>
-    </div>
+  <!-- Consistent Local NAP Footer -->
+  <footer id="contact">
+    <p>&copy; 2026 Vyeta Digital Solutions. Built and operating in Lusaka, Zambia &bull; Serving Southern Africa.</p>
+    <p class="footer-contact">Direct Support &amp; WhatsApp: <a href="tel:+260777363303" style="color: var(--neon-purple); text-decoration: none;">+260 777 363 303</a></p>
+    <p style="margin-top: 8px; font-size: 0.8rem;">
+      <a href="https://share.google/5yBJ2z99dzPubMvHO" target="_blank" rel="noopener" style="color: var(--text-muted); margin-right: 15px;">Google Business Profile</a>
+      <a href="https://web.facebook.com/profile.php?id=100092201311615" target="_blank" rel="noopener" style="color: var(--text-muted);">Verified Facebook Page</a>
+    </p>
+  </footer>
 
-  </div>
-</section>
+  <!-- Performance-Throttled Animation Script -->
+  <script>
+    (function() {
+      const canvas = document.getElementById('bg-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let stars = [];
+      let animationFrameId;
+      let isPlaying = true;
 
-<section class="eco-sec" id="workspace">
-  <div class="eco-in">
-    <div class="eco-split">
-      
-      <div class="eco-sticky reveal">
-        <div class="kicker">Vyeta Presents</div>
-        <h2 class="sec-h">Workspace</h2>
-        <p class="sec-p">Connected platforms. One ecosystem. Each solving a real gap in the Zambian market — designed to work flawlessly together.</p>
-      </div>
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
 
-      <div class="eco-cards">
+      window.addEventListener('resize', resize);
+      resize();
+
+      // Initialize Stars
+      for (let i = 0; i < 70; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: Math.random() * 0.5 + 0.2,
+          alpha: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      function draw() {
+        if (!isPlaying) return;
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = '#b829ff';
+
+        stars.forEach(star => {
+          ctx.globalAlpha = star.alpha;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.x += star.vx;
+          star.y += star.vy;
+
+          if (star.y > height) {
+            star.y = 0;
+            star.x = Math.random() * width;
+          }
+          if (star.x > width) star.x = 0;
+          if (star.x < 0) star.x = width;
+        });
+
+        animationFrameId = requestAnimationFrame(draw);
+      }
+
+      // Start loop
+      draw();
+
+      // Core Web Vitals Optimization: Pause animation when tab is inactive
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          isPlaying = false;
+          cancelAnimationFrame(animationFrameId);
+        } else {
+          isPlaying = true;
+          draw();
+        }
+      });
+
+      // Pause animation if canvas container goes off screen
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!isPlaying) {
+                isPlaying = true;
+                draw();
+              }
+            } else {
+              isPlaying = false;
+              cancelAnimationFrame(animationFrameId);
+            }
+          });
+        }, { threshold: 0 });
         
-        <div class="platform-card c-biz reveal d1">
-          <div class="pc-head">
-            <span class="pc-badge">Active Suite</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">Vyeta Business Suite</h3>
-            <div class="pc-tag">Micro-Business Services</div>
-            <p class="pc-desc">Providing essential business, legal, and operational services tailored to empower micro and informal businesses.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasuite.onrender.com/" target="_blank" class="pc-btn">Open Suite &rarr;</a>
-          </div>
-        </div>
-
-        <div class="platform-card c-mob reveal d2">
-          <div class="pc-head">
-            <span class="pc-badge">Active Network</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">Vyeta Mobility</h3>
-            <div class="pc-tag">Transport & Logistics</div>
-            <p class="pc-desc">A one-stop service for transport. Easily rent a car, hail a ride, or manage operational moving needs.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/vyeta-mobility-network-/" target="_blank" class="pc-btn">Open Mobility &rarr;</a>
-          </div>
-        </div>
-
-        <div class="platform-card c-con reveal d1">
-          <div class="pc-head">
-            <span class="pc-badge">Live Preview</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">ConsultLink</h3>
-            <div class="pc-tag">On-Demand Advisory</div>
-            <p class="pc-desc">Bridges organizational operations straight to legal, medical, and technical advisory consultants.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/consultlink/#" target="_blank" class="pc-btn">Preview &rarr;</a>
-          </div>
-        </div>
-
-        <div class="platform-card c-pul reveal d2">
-          <div class="pc-head">
-            <span class="pc-badge">Operational</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">Pulse OS ZM</h3>
-            <div class="pc-tag">Civic Feedback</div>
-            <p class="pc-desc">Public system engineered for recording regional community updates and tracking local responses.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/pulse-os-zm/" target="_blank" class="pc-btn">Open System &rarr;</a>
-          </div>
-        </div>
-
-        <div class="platform-card c-swi reveal d1">
-          <div class="pc-head">
-            <span class="pc-badge">Active Platform</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">swifTrade</h3>
-            <div class="pc-tag">B2B Marketplace</div>
-            <p class="pc-desc">Direct request-matching network built to link verified commercial buyers with bulk product suppliers.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/swiftrade-v2/" target="_blank" class="pc-btn">Open Platform &rarr;</a>
-          </div>
-        </div>
-
-        <div class="eco-subhead reveal">
-          <div class="kicker">Lifestyle & Entertainment</div>
-          <h3 class="sec-h" style="font-size: 1.8rem;">Discover Zambia</h3>
-        </div>
-
-        <div class="platform-card c-wha reveal d1">
-          <div class="pc-head">
-            <span class="pc-badge">Trending</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">WhatsHappenin ZM</h3>
-            <div class="pc-tag">Zambian Events & Experiences</div>
-            <p class="pc-desc">Designed to help discover events, activities, promotions, entertainment, and experiences happening around Zambia.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/WhatsHappenin-ZM/" target="_blank" class="pc-btn">Explore Events &rarr;</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="eco-sec" id="labs">
-  <div class="eco-in">
-    <div class="eco-split">
-
-      <div class="eco-sticky reveal">
-        <div class="kicker">Innovation Studio</div>
-        <h2 class="sec-h">Vyeta Labs</h2>
-        <p class="sec-p">Where new ideas become real products. Vyeta Labs is our innovation studio focused on loyalty, gamification, digital value systems, and next-generation customer engagement experiences.</p>
-      </div>
-
-      <div class="eco-cards">
-
-        <div class="platform-card c-apex reveal d1">
-          <div class="pc-head">
-            <span class="pc-badge">Flagship Innovation</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">Apex Rewards</h3>
-            <div class="pc-tag">Gamified Loyalty Platform</div>
-            <p class="pc-desc">Turn customer engagement into measurable growth through rewards, achievements, challenges, and interactive loyalty experiences designed for modern businesses.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://apex-rewards-core.onrender.com/demo" target="_blank" class="pc-btn">Explore Apex Rewards &rarr;</a>
-          </div>
-        </div>
-
-        <div class="platform-card c-credit reveal d2">
-          <div class="pc-head">
-            <span class="pc-badge">In Development</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">Vyeta Credits</h3>
-            <div class="pc-tag">Digital Value & Rewards</div>
-            <p class="pc-desc">A flexible digital credits framework designed to power rewards, incentives, promotions, and future ecosystem transactions.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/vyeta-credits/#/login" target="_blank" class="pc-btn">Open Credits &rarr;</a>
-          </div>
-        </div>
-
-        <div class="platform-card c-balloon reveal d1">
-          <div class="pc-head">
-            <span class="pc-badge">Interactive Experience</span>
-          </div>
-          <div class="pc-body">
-            <h3 class="pc-title">Balloon Adventures</h3>
-            <div class="pc-tag">Gamified Engagement</div>
-            <p class="pc-desc">A showcase of how entertainment, engagement, and digital rewards can work together to create memorable customer experiences.</p>
-          </div>
-          <div class="pc-foot">
-            <a href="https://vyetasolutions.github.io/kids-games/" target="_blank" class="pc-btn">Launch Experience &rarr;</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-sec reveal">
-  <div class="cta-in">
-    <div class="kicker">Get Started</div>
-    <h2 class="sec-h">Ready to transform your operations?</h2>
-    <p class="sec-p">Tell us your biggest challenge. Our team walks you to the right solution in under two minutes.</p>
-    <div class="cta-btns">
-      <button class="btn-solid trigger-audit">Start IT Diagnostic &rarr;</button>
-      <a href="https://wa.me/260777363303" target="_blank" class="btn-ghost">Chat on WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<footer><p>&copy; 2026 Vyeta Digital Solutions. Built in Zambia.</p></footer>
-</div><div class="veil" id="modal" role="dialog" aria-modal="true" aria-label="IT Diagnostic Wizard">
-  <div class="wiz" id="wizShell">
-    <button class="wiz-x" id="wizClose" aria-label="Close">&times;</button>
-    <div class="wiz-hdr" id="wizHdr">
-      <div class="wiz-trail" id="wizTrail"></div>
-      <div class="cat-bar"   id="catBar"></div>
-    </div>
-    <div class="wiz-body" id="wizBody"></div>
-    <div class="wiz-foot" id="wizFoot">
-      <h4>Did those steps help?</h4>
-      <p>If you're still stuck, our engineers are on standby — reach us immediately below.</p>
-      <div class="esc-row">
-        <a href="#" id="waBtn"    target="_blank" rel="noopener" class="esc esc-wa">💬 WhatsApp Us Now</a>
-        <a href="#" id="emailBtn"                               class="esc esc-email">📋 Request Rapid Audit</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-/* ═══════════════════════════════════════════════
-   1. STARFIELD CANVAS — stars + shooting stars
-═══════════════════════════════════════════════ */
-(function initStarfield(){
-  const cv  = document.getElementById('starCanvas');
-  const ctx = cv.getContext('2d');
-  const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  let W, H, stars, shooters, nextShot, rafId;
-
-  const PALETTES = [
-    {o1:'#1e40af',o2:'#6d28d9',o3:'#0891b2',a1:'rgba(30,64,175,.08)',  a2:'rgba(109,40,217,.07)'},
-    {o1:'#5b21b6',o2:'#9d174d',o3:'#1d4ed8',a1:'rgba(91,33,182,.08)',  a2:'rgba(157,23,77,.07)' },
-    {o1:'#0e7490',o2:'#065f46',o3:'#6d28d9',a1:'rgba(14,116,144,.09)', a2:'rgba(6,95,70,.07)'   },
-    {o1:'#1e40af',o2:'#0891b2',o3:'#9d174d',a1:'rgba(30,64,175,.07)',  a2:'rgba(8,145,178,.07)' },
-  ];
-
-  function h2n(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]}
-  function lerpHex(a,b,t){
-    const [r1,g1,b1]=h2n(a),[r2,g2,b2]=h2n(b);
-    return`#${[Math.round(r1+(r2-r1)*t),Math.round(g1+(g2-g1)*t),Math.round(b1+(b2-b1)*t)].map(v=>v.toString(16).padStart(2,'0')).join('')}`
-  }
-  function applyPalette(prog){
-    const max=PALETTES.length-1, seg=prog*max, i=Math.min(Math.floor(seg),max-1), t=seg-i;
-    const f=PALETTES[i],to=PALETTES[i+1];
-    document.getElementById('orb1').style.background=`radial-gradient(${lerpHex(f.o1,to.o1,t)},transparent)`;
-    document.getElementById('orb2').style.background=`radial-gradient(${lerpHex(f.o2,to.o2,t)},transparent)`;
-    document.getElementById('orb3').style.background=`radial-gradient(${lerpHex(f.o3,to.o3,t)},transparent)`;
-    const lerp=(s1,s2)=>{
-      const a=s1.match(/[\d.]+/g).map(Number),b=s2.match(/[\d.]+/g).map(Number);
-      let ai=0;return s1.replace(/[\d.]+/g,()=>+(a[ai]+(b[ai++]-a[ai-1])*t).toFixed(3));
-    };
-    document.getElementById('bgAurora').style.background=
-      `radial-gradient(ellipse 110% 55% at 30% 20%,${lerp(f.a1,to.a1)},transparent 65%),`+
-      `radial-gradient(ellipse 90% 50% at 70% 70%,${lerp(f.a2,to.a2)},transparent 60%)`;
-  }
-  window._applyPalette = applyPalette;
-
-  const TINTS=['255,255,255','210,220,255','230,215,255','190,235,255'];
-  function mkStar(){
-    return{x:Math.random()*W,y:Math.random()*H,
-           r:Math.random()*1.15+.15,base:Math.random()*.55+.15,
-           ph:Math.random()*Math.PI*2,sp:Math.random()*.018+.004,
-           col:TINTS[Math.floor(Math.random()*TINTS.length)]}
-  }
-  function mkShooter(){
-    const fromTop=Math.random()>.45;
-    return{x:fromTop?Math.random()*W:-10,y:fromTop?-10:Math.random()*H*.4,
-           ang:Math.PI/4+(Math.random()-.5)*.55,
-           spd:9+Math.random()*11,life:1,
-           dec:.012+Math.random()*.016,
-           len:90+Math.random()*130,
-           w:1.2+Math.random()*1.2,
-           col:['255,255,255','210,225,255','235,220,255'][Math.floor(Math.random()*3)]}
-  }
-
-  function init(){
-    W=cv.width=window.innerWidth; H=cv.height=window.innerHeight;
-    stars=Array.from({length:Math.min(200,Math.round(W*H/5800))},mkStar);
-    shooters=[]; nextShot=Date.now()+2000+Math.random()*2000;
-  }
-
-  function frame(){
-    ctx.clearRect(0,0,W,H);
-    for(const s of stars){
-      s.ph+=s.sp;
-      const a=s.base*(.45+.55*Math.sin(s.ph));
-      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(${s.col},${a.toFixed(3)})`; ctx.fill();
-    }
-    if(Date.now()>nextShot && shooters.length<3){
-      shooters.push(mkShooter());
-      nextShot=Date.now()+2400+Math.random()*2600;
-    }
-    shooters=shooters.filter(sh=>{
-      sh.x+=Math.cos(sh.ang)*sh.spd; sh.y+=Math.sin(sh.ang)*sh.spd; sh.life-=sh.dec;
-      if(sh.life<=0)return false;
-      const a=sh.life, tx=sh.x-Math.cos(sh.ang)*sh.len*sh.life, ty=sh.y-Math.sin(sh.ang)*sh.len*sh.life;
-      const g=ctx.createLinearGradient(tx,ty,sh.x,sh.y);
-      g.addColorStop(0,`rgba(${sh.col},0)`);
-      g.addColorStop(.6,`rgba(${sh.col},${(a*.35).toFixed(3)})`);
-      g.addColorStop(1,`rgba(${sh.col},${(a*.92).toFixed(3)})`);
-      ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(sh.x,sh.y);
-      ctx.strokeStyle=g; ctx.lineWidth=sh.w; ctx.lineCap='round'; ctx.stroke();
-      const hg=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.w*4);
-      hg.addColorStop(0,`rgba(${sh.col},${(a*.9).toFixed(3)})`);
-      hg.addColorStop(1,`rgba(${sh.col},0)`);
-      ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.w*4,0,Math.PI*2);
-      ctx.fillStyle=hg; ctx.fill();
-      return true;
-    });
-    rafId=requestAnimationFrame(frame);
-  }
-
-  if(!reduced){
-    init(); frame();
-    window.addEventListener('resize',()=>{cancelAnimationFrame(rafId);init();frame();},{passive:true});
-  } else {
-    init();
-    for(const s of stars){ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(${s.col},${s.base.toFixed(2)})`;ctx.fill();}
-  }
-})();
-
-/* ═══════════════════════════════════════════════
-   2. NAV SCROLL + PARALLAX + COLOUR SHIFT
-═══════════════════════════════════════════════ */
-const mainNav = document.getElementById('mainNav');
-let   rafPending = false;
-
-window.addEventListener('scroll', ()=>{
-  mainNav.classList.toggle('scrolled', window.pageYOffset > 40);
-  if(!rafPending){
-    rafPending=true;
-    requestAnimationFrame(()=>{
-      const s    = window.pageYOffset;
-      const maxS = Math.max(1, document.body.scrollHeight - window.innerHeight);
-      document.getElementById('bgGrid').style.transform = `rotateX(72deg) translateY(${s*.28}px)`;
-      document.getElementById('orb1').style.transform   = `translateY(${s*.18}px)`;
-      document.getElementById('orb2').style.transform   = `translateY(${s*-.12}px)`;
-      document.getElementById('orb3').style.transform   = `translateY(${s*.07}px)`;
-      if(window._applyPalette) window._applyPalette(Math.min(1, s/maxS));
-      rafPending=false;
-    });
-  }
-},{passive:true});
-
-/* ═══════════════════════════════════════════════
-   3. SCROLL REVEAL
-═══════════════════════════════════════════════ */
-const revIO = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');revIO.unobserve(e.target);} });
-},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>revIO.observe(el));
-
-/* ═══════════════════════════════════════════════
-   4. OUTCOME ACCORDION
-═══════════════════════════════════════════════ */
-document.querySelectorAll('.oc').forEach(card=>{
-  const hdr  = card.querySelector('.oc-hdr');
-  const body = card.querySelector('.oc-body');
-  card.addEventListener('mousemove', e=>{
-    const r=card.getBoundingClientRect();
-    card.style.setProperty('--cx',`${e.clientX-r.left}px`);
-    card.style.setProperty('--cy',`${e.clientY-r.top}px`);
-  });
-  hdr.addEventListener('click', ()=>{
-    const wasOpen = card.classList.contains('active');
-    document.querySelectorAll('.oc.active').forEach(c=>{
-      c.classList.remove('active');
-      c.querySelector('.oc-body').style.maxHeight='0';
-    });
-    if(!wasOpen){
-      card.classList.add('active');
-      body.style.maxHeight = body.scrollHeight+'px';
-      setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
-    }
-  });
-});
-
-/* ═══════════════════════════════════════════════
-   5. WIZARD — STATE MACHINE
-═══════════════════════════════════════════════ */
-const CAT_COLOR = {network:'#60a5fa',pc:'#a78bfa',mobile:'#34d399',software:'#f59e0b',security:'#f43f5e'};
-const CAT_LABEL = {network:'Network',pc:'Hardware',mobile:'Mobile',software:'Software',security:'Security'};
-
-const TREE = {
-  /* ROOT */
-  root:{title:'What is giving you trouble right now?',sub:'Select the area that best describes your situation.',
-    opts:[
-      {label:'📡  Network & Internet',    next:'network'},
-      {label:'💻  Computers & Hardware',  next:'pc'},
-      {label:'📱  Mobile Devices',        next:'mobile'},
-      {label:'⚙️  Software & Systems',    next:'software'},
-      {label:'🔒  Security Concern',      next:'security'},
-    ]},
-
-  /* ─── NETWORK ─── */
-  network:{cat:'network',title:'What is happening with your internet?',sub:'Pick the description closest to your situation.',
-    opts:[
-      {label:'Completely down — nobody can connect', next:'net_scope'},
-      {label:'Works but very slow',                  next:'net_slow_type'},
-      {label:'Wi-Fi keeps dropping randomly',        next:'net_drop_scope'},
-    ]},
-  net_scope:{cat:'network',title:'Who is affected?',sub:'This tells us if it is office-wide or just one device.',
-    opts:[
-      {label:'Everyone in the office is down', next:'sol_net_all'},
-      {label:'Just me / one workstation',      next:'sol_net_one'},
-    ]},
-  net_slow_type:{cat:'network',title:'What is the slow connection affecting most?',sub:'Helps narrow down where the bottleneck is.',
-    opts:[
-      {label:'Video calls cutting out or lagging',  next:'sol_net_calls'},
-      {label:'File uploads or downloads crawling',  next:'sol_net_files'},
-      {label:'General browsing — everything slow',  next:'sol_net_general'},
-    ]},
-  net_drop_scope:{cat:'network',title:'Where does the Wi-Fi drop occur?',sub:'Location pinpoints coverage gap vs router fault.',
-    opts:[
-      {label:'Only in certain rooms or areas',   next:'sol_net_zone'},
-      {label:'Everywhere across the office',     next:'sol_net_office'},
-    ]},
-
-  sol_net_all:{cat:'network',severity:'crit',title:'Office-Wide Internet Outage',
-    ctx:'Total internet outage affecting all office staff',
-    steps:[
-      {n:1,t:'Check the internet box',b:'Find the main router or modem. Red or orange blinking lights signal an ISP outage — not a fault with your equipment.'},
-      {n:2,t:'30-second reboot',b:'Unplug the power cable from the internet box, wait 30 full seconds, then plug it back in. Allow 3–4 minutes to fully restart before testing.'},
-      {n:3,t:'Call your ISP',b:'If lights are still red after the reboot, your internet provider has an outage in your area. Use mobile data to find their support number — this is their problem to fix.'},
-    ]},
-  sol_net_one:{cat:'network',severity:'warn',title:'Single Device Internet Issue',
-    ctx:'One workstation lost internet while others work fine',
-    steps:[
-      {n:1,t:'Forget & rejoin Wi-Fi',b:'Go to Wi-Fi settings → tap your network → Forget. Turn Wi-Fi off then on, then reconnect and re-enter the office password carefully.'},
-      {n:2,t:'Flush the DNS cache',b:'Windows: press Win+R → type cmd → run: ipconfig /flushdns. Mac: open Terminal → run: sudo dscacheutil -flushcache. Then restart the browser.'},
-      {n:3,t:'Release and renew IP',b:'In Windows Command Prompt run: ipconfig /release then ipconfig /renew. This forces your device to request a fresh network address from the router.'},
-    ]},
-  sol_net_calls:{cat:'network',severity:'warn',title:'Video Call Quality Fix',
-    ctx:'Video calls choppy or cutting out despite internet working',
-    steps:[
-      {n:1,t:'Switch Wi-Fi to cable',b:'Plug a network cable directly from your laptop into the router or a wall socket. Video calls need stable latency — wireless is always worse for this.'},
-      {n:2,t:'Kill background syncing',b:'Pause OneDrive, Dropbox, Google Drive, and any cloud backup tools during calls. These silently steal bandwidth during uploads and destroy call quality.'},
-      {n:3,t:'Lower video quality',b:'In Zoom or Teams go to Settings → Video and set to 720p or Standard Definition. HD video uses 3–5× more bandwidth than standard.'},
-    ]},
-  sol_net_files:{cat:'network',severity:'ok',title:'Slow Upload & Download Fix',
-    ctx:'File transfers and downloads running very slowly',
-    steps:[
-      {n:1,t:'Test your actual speed',b:'Open fast.com on the affected device. A healthy office connection should reach at least 20 Mbps down and 5 Mbps up. Note the numbers if far below.'},
-      {n:2,t:'Check who else is sharing',b:'Ask if a colleague is running a major backup, software update, or large file transfer simultaneously. One heavy upload can cap everyone else.'},
-      {n:3,t:'Full shutdown and restart',b:'Stuck TCP sessions and network buffers can throttle speeds. Power the computer fully off, wait 15 seconds, then power on — not just Restart.'},
-    ]},
-  sol_net_general:{cat:'network',severity:'warn',title:'General Slow Browsing Fix',
-    ctx:'General internet browsing is slow across the office',
-    steps:[
-      {n:1,t:'Clear the browser cache',b:'In Chrome: Ctrl+Shift+Delete → set All Time → tick Cached images and Cookies → click Clear data. A bloated cache can dramatically slow every page load.'},
-      {n:2,t:'Change your DNS server',b:'Slow DNS makes every website feel sluggish. On Windows: Network Settings → IPv4 Properties → set DNS to 1.1.1.1 (primary) and 8.8.8.8 (secondary).'},
-      {n:3,t:'Reboot the router',b:'Routers accumulate memory leaks and stale connection tables over days. Unplugging for 30 seconds usually recovers 30–50% of lost throughput.'},
-    ]},
-  sol_net_zone:{cat:'network',severity:'warn',title:'Wi-Fi Dead Zone Detected',
-    ctx:'Wi-Fi drops in specific rooms or zones of the office',
-    steps:[
-      {n:1,t:'Map the dead zone',b:'Walk slowly toward the problem area while watching signal bars. Thick concrete walls, metal shelving, and lift shafts all block Wi-Fi signals significantly.'},
-      {n:2,t:'Relocate the access point',b:'If the router is in a closed cupboard or server room, moving it to an open central area often eliminates dead zones without any new hardware.'},
-      {n:3,t:'Add a Wi-Fi extender',b:'A TP-Link or Mercusys range extender placed halfway between the router and the dead zone usually solves it permanently. Available under ZMW 500.'},
-    ]},
-  sol_net_office:{cat:'network',severity:'crit',title:'Office-Wide Wi-Fi Instability',
-    ctx:'Wi-Fi disconnections happening throughout the entire office',
-    steps:[
-      {n:1,t:'Change the Wi-Fi channel',b:'Log into your router admin panel (usually 192.168.1.1) and change the wireless channel from Auto to channel 1, 6, or 11. Neighbouring networks cause constant interference on the same channel.'},
-      {n:2,t:'Proper reboot — 60 seconds',b:'Unplug the router power for a full 60 seconds, not just 10. Some routers need a longer reset to clear corrupted channel tables. Do this outside office hours.'},
-      {n:3,t:'Check router firmware',b:'Log into the router admin panel and look for a firmware update option. Outdated router firmware is the most common hidden cause of random office-wide disconnections.'},
-    ]},
-
-  /* ─── PC / HARDWARE ─── */
-  pc:{cat:'pc',title:'What is the computer doing?',sub:'Pick the symptom that best describes what you are seeing.',
-    opts:[
-      {label:"Won't turn on — completely dead",                       next:'pc_dead_type'},
-      {label:'Freezing, locking up, or running very slow',           next:'pc_slow_cause'},
-      {label:'Blue screen error or keeps restarting by itself',      next:'pc_bsod_when'},
-      {label:'Making strange grinding or clicking noises',           next:'sol_pc_noise'},
-    ]},
-  pc_dead_type:{cat:'pc',title:'Is this a desktop or a laptop?',sub:'The power troubleshooting steps differ between the two.',
-    opts:[
-      {label:'Desktop tower or all-in-one', next:'sol_pc_dead_desk'},
-      {label:'Laptop or notebook',          next:'sol_pc_dead_lap'},
-    ]},
-  pc_slow_cause:{cat:'pc',title:'When did the slowness start?',sub:'The timing helps isolate whether something changed on the system.',
-    opts:[
-      {label:'Started recently — it was fine before',             next:'sol_pc_slow_new'},
-      {label:'Always been slow or gradually getting worse',       next:'sol_pc_slow_old'},
-      {label:'Slow only when using one specific programme',       next:'sol_pc_slow_app'},
-    ]},
-  pc_bsod_when:{cat:'pc',title:'When does the error screen appear?',sub:'The timing points to hardware vs software causes.',
-    opts:[
-      {label:'Immediately on startup before Windows loads', next:'sol_pc_bsod_boot'},
-      {label:'Randomly during normal use',                  next:'sol_pc_bsod_rand'},
-      {label:'After a recent Windows update',               next:'sol_pc_bsod_upd'},
-    ]},
-
-  sol_pc_dead_desk:{cat:'pc',severity:'crit',title:"Desktop Won't Power On",
-    ctx:'Desktop computer completely dead — no lights, no fans, no display',
-    steps:[
-      {n:1,t:'Test the wall socket',b:'Plug a phone charger or lamp into the exact same wall socket the desktop uses. If nothing powers up there, the socket is the problem — not the computer.'},
-      {n:2,t:'Check the power strip',b:'If plugged into a power strip or extension lead, look for a small tripped reset button (usually red or black) on the side of the strip. Press it firmly.'},
-      {n:3,t:'Check the PSU switch',b:'Look at the back of the desktop tower near where the power cable plugs in. There is often a small rocker switch that may have been accidentally knocked to OFF.'},
-    ]},
-  sol_pc_dead_lap:{cat:'pc',severity:'warn',title:"Laptop Won't Power On",
-    ctx:'Laptop completely unresponsive — no lights, no startup sound',
-    steps:[
-      {n:1,t:'The deep power drain',b:'Unplug the charger from the laptop. Hold the power button down for a full 20 seconds while the charger is disconnected — this drains residual charge stuck in the system. Now plug the charger in and try again.'},
-      {n:2,t:'Check the charging indicator',b:'Look closely at the charging port where the cable enters the laptop. Is a tiny LED indicator glowing? No light at all means the cable or charging port itself may be damaged. Try a different charger if you have one available.'},
-      {n:3,t:'Remove all external devices',b:'Unplug every USB device, external monitor, and docking station connected to the laptop. A faulty peripheral can sometimes prevent a laptop from booting. Then press the power button.'},
-    ]},
-  sol_pc_slow_new:{cat:'pc',severity:'warn',title:'Sudden Slowness Fix',
-    ctx:'Computer became slow recently after previously working well',
-    steps:[
-      {n:1,t:'Open Task Manager',b:'Press Ctrl+Shift+Esc. Click the CPU and Memory column headers to sort by usage. Look for any process consuming above 80% CPU or 90% memory. Note its name before doing anything else.'},
-      {n:2,t:'Check for pending updates',b:'Windows or Office updates often run silently in the background and consume all available resources. Go to Settings → Windows Update and let any pending update complete fully before judging performance.'},
-      {n:3,t:'Quick malware scan',b:'Open Windows Security → Virus & Threat Protection → Quick Scan. Sudden unexplained slowness after a period of normal use is a classic malware symptom — scan first.'},
-    ]},
-  sol_pc_slow_old:{cat:'pc',severity:'ok',title:'Chronic Slowness Optimisation',
-    ctx:'Computer has always been slow or gradually getting worse',
-    steps:[
-      {n:1,t:'Check available storage',b:'Open File Explorer → This PC. Your C: drive needs at least 15% free space at all times. If it is over 90% full, the computer will crawl. Delete Downloads, empty the Recycle Bin, and uninstall unused programmes.'},
-      {n:2,t:'Disable startup programmes',b:'Press Ctrl+Shift+Esc → click the Startup tab. Disable anything with High startup impact that you do not need every morning: Spotify, Skype, Teams, OneDrive, and similar apps.'},
-      {n:3,t:'Run Disk Cleanup',b:'Type Disk Cleanup in the Start menu, select drive C:, then tick all checkboxes including System files. This routinely frees 2–5 GB of junk that Windows accumulates silently over time.'},
-    ]},
-  sol_pc_slow_app:{cat:'pc',severity:'ok',title:'Single Application Running Slowly',
-    ctx:'One specific application is slow while the rest of the computer is fine',
-    steps:[
-      {n:1,t:'Restart just that application',b:'Fully close the programme — also check the system tray (bottom-right corner) for a background icon. Wait 10 seconds and reopen it. Many apps accumulate memory leaks during long sessions.'},
-      {n:2,t:'Clear application cache',b:'For web apps in Chrome: press F12 → right-click the Refresh button → Empty Cache and Hard Reload. For desktop apps, look for a Clear Cache or Reset option inside the application settings menu.'},
-      {n:3,t:'Reinstall the application',b:'Uninstall it from Control Panel → Programs, restart the computer, then install a completely fresh copy. A full reinstall clears corrupted configuration files that a Repair option typically misses.'},
-    ]},
-  sol_pc_bsod_boot:{cat:'pc',severity:'crit',title:'Blue Screen on Startup',
-    ctx:'Computer shows blue screen error immediately on startup before Windows loads',
-    steps:[
-      {n:1,t:'Disconnect all peripherals',b:'Unplug every USB device, external drive, monitor adapter, and printer cable. Restart the computer. A faulty external device preventing boot is the most common cause of this specific pattern.'},
-      {n:2,t:'Run Startup Repair',b:'After 3 failed boot attempts Windows may offer Startup Repair automatically. If not: hold Shift while clicking Restart → Troubleshoot → Advanced Options → Startup Repair. Let it complete fully.'},
-      {n:3,t:'Do not force-shutdown repeatedly',b:'Every forced power-off during boot can corrupt the filesystem further. If Startup Repair is running and showing a progress bar, leave it alone — even if it takes 30–40 minutes.'},
-    ]},
-  sol_pc_bsod_rand:{cat:'pc',severity:'warn',title:'Random Blue Screen During Use',
-    ctx:'Blue screen error occurs randomly during normal computer use',
-    steps:[
-      {n:1,t:'Check for overheating',b:'Feel the bottom of the laptop or sides of the desktop tower during normal operation. If it is extremely hot, overheating is likely causing the crashes. Ensure all vents are unobstructed.'},
-      {n:2,t:'Update device drivers',b:'Right-click Start → Device Manager. Look for yellow warning triangles on any device. Right-click → Update Driver. Graphics card and chipset drivers are the most common culprits.'},
-      {n:3,t:'Run Windows Memory Diagnostic',b:'Press Win+R → type mdsched → click Restart now and check for problems. Let it run overnight. Faulty RAM causes approximately 40% of random blue screen errors.'},
-    ]},
-  sol_pc_bsod_upd:{cat:'pc',severity:'warn',title:'Blue Screen After Windows Update',
-    ctx:'Blue screen started appearing after a recent Windows update was installed',
-    steps:[
-      {n:1,t:'Boot to Safe Mode',b:'Hold Shift and click Restart → Troubleshoot → Advanced Options → Startup Settings → Restart → press 4 for Safe Mode. Test if the crash still occurs with minimal drivers loaded.'},
-      {n:2,t:'Uninstall the recent update',b:'In Safe Mode: Settings → Update & Security → View Update History → Uninstall Updates. Sort by date, find the most recent update, and uninstall it. Then restart normally.'},
-      {n:3,t:'Roll back device drivers',b:'Device Manager → right-click Graphics adapter or Network adapter → Properties → Driver tab → Roll Back Driver. Windows updates sometimes automatically push broken driver versions.'},
-    ]},
-  sol_pc_noise:{cat:'pc',severity:'crit',title:'⚠️ Strange Noises — Act Immediately',
-    ctx:'Computer making grinding or clicking sounds during operation',
-    steps:[
-      {n:1,t:'Back up data RIGHT NOW',b:'Grinding or clicking sounds from a computer almost always mean the hard drive is about to fail. Before anything else — copy all important files to a USB drive, Google Drive, or external disk immediately.'},
-      {n:2,t:'Identify the noise source',b:'Listen closely: rhythmic clicking = failing hard drive. High-pitched grinding whine = failing cooling fan. Both are serious. A failing drive means your data is at immediate risk.'},
-      {n:3,t:'Reduce heavy usage',b:'Do not run large programmes or leave the computer running overnight until it has been professionally inspected. Every additional hour of heavy use on a failing drive increases the risk of permanent data loss.'},
-    ]},
-
-  /* ─── MOBILE ─── */
-  mobile:{cat:'mobile',title:'What is wrong with the mobile device?',sub:'Select the symptom you are experiencing.',
-    opts:[
-      {label:"Can't access company email or work apps",    next:'mob_account'},
-      {label:"Can't connect to the office Wi-Fi",          next:'sol_mob_wifi'},
-      {label:'Screen cracked or battery draining fast',    next:'mob_hw'},
-      {label:'Specific work app keeps crashing',           next:'sol_mob_crash'},
-    ]},
-  mob_account:{cat:'mobile',title:'Which account is the problem?',sub:'Different accounts have different quick fixes.',
-    opts:[
-      {label:'Company email — Outlook or Gmail',     next:'sol_mob_email'},
-      {label:'Microsoft Teams or Zoom',              next:'sol_mob_teams'},
-      {label:'Company VPN or internal system',       next:'sol_mob_vpn'},
-    ]},
-  mob_hw:{cat:'mobile',title:'What type of physical issue?',sub:'This determines the urgency of the situation.',
-    opts:[
-      {label:'Screen cracked — display still works',      next:'sol_mob_crack'},
-      {label:'Battery swelling or back cover popping out',next:'sol_mob_swell'},
-      {label:'Battery drains fully in under 3 hours',     next:'sol_mob_drain'},
-    ]},
-
-  sol_mob_email:{cat:'mobile',severity:'ok',title:'Company Email Sync Fix',
-    ctx:'Company email not syncing or inaccessible on mobile',
-    steps:[
-      {n:1,t:'Check device date and time',b:'Go to Settings → Date & Time → enable Set Automatically. If the phone clock is even 5 minutes out of sync, mail security servers will silently reject your login with no useful error message.'},
-      {n:2,t:'Update the mail app',b:'Open the Play Store or App Store and update Outlook or Gmail to the latest version. Authentication protocols change and older app versions lose compatibility with corporate servers without warning.'},
-      {n:3,t:'Remove and re-add the account',b:'Go to mail app Settings → Accounts → delete your work account completely, then add it again fresh. Use your full company email address (including the domain) as the username, not just the first part.'},
-    ]},
-  sol_mob_teams:{cat:'mobile',severity:'ok',title:'Teams / Zoom App Fix',
-    ctx:'Microsoft Teams or Zoom not working on mobile',
-    steps:[
-      {n:1,t:'Clear app cache only',b:'Settings → Apps → Teams or Zoom → Storage → tap Clear Cache (do NOT tap Clear Data — that wipes your login and settings). Restart the app. Cache corruption causes most Teams mobile issues.'},
-      {n:2,t:'Sign out and sign back in',b:'Sign out of the app completely, force-close it from the recent apps list, reopen it, and sign back in fresh. This refreshes the security authentication token which may have expired.'},
-      {n:3,t:'Check app permissions',b:'Settings → Apps → Teams → Permissions. Ensure Microphone, Camera, and Notifications are all set to Allow. Teams silently stops working when any of these permissions are denied.'},
-    ]},
-  sol_mob_vpn:{cat:'mobile',severity:'warn',title:'Mobile VPN / Internal System Access',
-    ctx:'Cannot access company VPN or internal systems on mobile',
-    steps:[
-      {n:1,t:'Delete and reinstall VPN app',b:'Remove the VPN application completely, restart the phone, then install it fresh from the app store. VPN configuration profiles often become corrupted silently after operating system updates.'},
-      {n:2,t:'Switch to mobile data',b:'Turn Wi-Fi off and try connecting through your mobile data bundle. Some office routers block outgoing VPN traffic at the firewall. If it works on mobile data, the office network configuration is the problem.'},
-      {n:3,t:'Check certificate expiry',b:'Corporate VPNs use security certificates with fixed expiry dates. When these expire, the VPN refuses to connect showing only a generic error. Contact your IT administrator to check and renew the certificate.'},
-    ]},
-  sol_mob_wifi:{cat:'mobile',severity:'ok',title:'Mobile Wi-Fi Connection Fix',
-    ctx:'Mobile device cannot connect to the office Wi-Fi network',
-    steps:[
-      {n:1,t:'Forget and rejoin the network',b:'Settings → Wi-Fi → tap your office network name → Forget Network. Turn Wi-Fi off, then back on. Tap the network again and type the office password carefully — uppercase letters matter.'},
-      {n:2,t:'Check MAC address filtering',b:"Some office networks maintain a whitelist of approved device MAC addresses. If others connect fine but your new phone can't, your device may not be on the approved list — ask your IT administrator."},
-      {n:3,t:'Try the 5 GHz band',b:"If the office has two network names (e.g. 'Office' and 'Office_5G'), try connecting to the 5 GHz version. It is faster and far less congested than 2.4 GHz, though it has slightly shorter range."},
-    ]},
-  sol_mob_crack:{cat:'mobile',severity:'warn',title:'Cracked Screen — Next Steps',
-    ctx:'Mobile device screen is cracked but still functioning',
-    steps:[
-      {n:1,t:'Back up immediately',b:'Connect to Wi-Fi, go to Settings → Backup, and run a full backup to Google Drive or iCloud right now — before the cracked digitiser layer deteriorates further and locks you out of the device entirely.'},
-      {n:2,t:'Apply a screen protector',b:'A thick tempered glass protector placed over the crack prevents it from spreading further and protects your fingers from glass splinters. Available at most phone accessory shops for ZMW 30–80.'},
-      {n:3,t:'Avoid all moisture',b:'A cracked screen breaks the dust and water seal on the device. Keep the phone away from rain, drinks, and humid environments until the screen has been professionally replaced.'},
-    ]},
-  sol_mob_swell:{cat:'mobile',severity:'crit',title:'🔴 URGENT — Swelling Battery',
-    ctx:'Mobile device battery is swelling — fire and explosion risk',
-    steps:[
-      {n:1,t:'STOP CHARGING IMMEDIATELY',b:'A swelling lithium battery is actively generating gas and represents a real fire and explosion risk. Unplug the device from power immediately. Do not charge it again under any circumstances.'},
-      {n:2,t:'Power it down safely',b:"Turn the phone off completely. If the screen has already separated from the frame, do not try to push it back — you could puncture the battery cell. Place the device on a hard, non-flammable surface away from papers and fabric."},
-      {n:3,t:'Do not put it in a bag',b:'A swelling device must be kept in open air away from enclosed spaces. Take it to a phone repair shop today — do not use or charge the device again until the battery has been physically replaced.'},
-    ]},
-  sol_mob_drain:{cat:'mobile',severity:'ok',title:'Fast Battery Drain Fix',
-    ctx:'Mobile phone battery draining completely in under 3 hours',
-    steps:[
-      {n:1,t:'Check battery-hungry apps',b:'Settings → Battery → Battery Usage. Look for any individual app consuming more than 20% battery in the background. Social media, email, navigation, and streaming apps are the most common offenders.'},
-      {n:2,t:'Restrict background data',b:'Settings → Apps → select each heavy app → Background Data → Restrict. This stops apps silently checking for updates and syncing content when you are not actively using them — the primary drain source.'},
-      {n:3,t:'Enable battery saver mode',b:'Turn on Battery Saver mode temporarily. If battery life immediately improves significantly, the cause is software — not a hardware failure requiring a physical battery replacement.'},
-    ]},
-  sol_mob_crash:{cat:'mobile',severity:'ok',title:'Work App Crashing Fix',
-    ctx:'Specific work application crashes repeatedly on mobile device',
-    steps:[
-      {n:1,t:'Force stop and relaunch',b:'Settings → Apps → [App Name] → Force Stop. Wait 15 seconds, then reopen the app. Many crashes are caused by a stuck background process rather than a fault in the app itself.'},
-      {n:2,t:'Clear cache only',b:'Settings → Apps → [App Name] → Storage → Clear Cache. Do NOT tap Clear Data — that wipes your login credentials and settings. Cache-only clears fix approximately 70% of mobile app crash issues.'},
-      {n:3,t:'Update the application',b:'Open the Play Store or App Store, search for the application, and install any available update. Work applications frequently push critical crash fixes in minor version updates without announcement.'},
-    ]},
-
-  /* ─── SOFTWARE ─── */
-  software:{cat:'software',title:'Which software issue are you dealing with?',sub:'Pick the situation that best matches yours.',
-    opts:[
-      {label:'Files missing, corrupted, or will not open',  next:'sol_sw_files'},
-      {label:'Printer shows offline or prints blank pages',  next:'sw_printer'},
-      {label:'Programme will not install or crashes',        next:'sol_sw_install'},
-      {label:'Microsoft Office or Google Workspace issues',  next:'sol_sw_office'},
-    ]},
-  sw_printer:{cat:'software',title:'What is the printer doing?',sub:'The symptom points to different root causes.',
-    opts:[
-      {label:'Shows as Offline in the computer',      next:'sol_sw_offline'},
-      {label:'Accepts the job but prints blank pages', next:'sol_sw_blank'},
-    ]},
-
-  sol_sw_files:{cat:'software',severity:'warn',title:'Missing or Corrupted Files',
-    ctx:'Important files are missing, corrupted, or refusing to open',
-    steps:[
-      {n:1,t:'Check the Recycle Bin',b:'Open the Recycle Bin on the desktop. Sort by Date Deleted. Files deleted accidentally remain there until the bin is manually emptied. Right-click the file and select Restore.'},
-      {n:2,t:'Check Office AutoRecover',b:"For Microsoft Office files: open the application → File → Info → Manage Document → Recover Unsaved Documents. Office automatically saves a backup copy every 10 minutes to a temporary folder."},
-      {n:3,t:'Restore from cloud version history',b:'In OneDrive or Google Drive, right-click the file or its parent folder → Version History. You can restore any version of a file from up to 30 days ago without any data loss.'},
-    ]},
-  sol_sw_offline:{cat:'software',severity:'ok',title:"Printer Showing Offline Fix",
-    ctx:'Printer shows as Offline in Windows and will not accept print jobs',
-    steps:[
-      {n:1,t:'Restart the Print Spooler service',b:'Press Win+R → type services.msc → find Print Spooler in the list → right-click → Restart. This clears all stuck jobs and resets the printer queue. Resolves the offline status in 80% of cases.'},
-      {n:2,t:'Set as default and clear queue',b:"Control Panel → Devices and Printers → right-click your printer → Set as Default Printer. Then right-click again → See what's printing → cancel any stuck jobs shown in the queue."},
-      {n:3,t:'Verify network IP address',b:'Print a configuration page directly from the printer (usually by holding the OK button for 5 seconds on the device itself). Compare the IP address shown to what appears in Windows — a mismatch means a network assignment conflict.'},
-    ]},
-  sol_sw_blank:{cat:'software',severity:'ok',title:'Printer Printing Blank Pages',
-    ctx:'Printer accepts print jobs but pages come out completely blank',
-    steps:[
-      {n:1,t:'Check ink or toner levels',b:'Open the manufacturer software (HP, Epson, or Canon) and check ink or toner levels. A nearly empty cartridge will often print completely blank pages before the low ink warning ever appears on screen.'},
-      {n:2,t:'Run a nozzle clean cycle',b:'In printer settings → Maintenance → run a Nozzle Check followed by a Head Cleaning cycle. For laser printers, remove the toner cartridge and gently shake it side to side to redistribute the powder evenly.'},
-      {n:3,t:'Print the built-in test page',b:"Press the printer's OK or Feed button and hold for 3 seconds to print the internal test page. If this prints correctly, the problem is with the driver or print software — not the printer hardware itself."},
-    ]},
-  sol_sw_install:{cat:'software',severity:'warn',title:'Software Installation Problem',
-    ctx:'Programme will not install or crashes immediately after installation',
-    steps:[
-      {n:1,t:'Run as Administrator',b:'Right-click the installer file → Run as Administrator. Many corporate and professional programmes require administrator rights to install properly. If you do not have admin access, contact IT to run the installation.'},
-      {n:2,t:'Pause antivirus temporarily',b:'Temporarily pause your antivirus software (Windows Defender or third-party) for 10 minutes before re-running the installer. Overzealous antivirus blocks approximately 30% of legitimate software installations.'},
-      {n:3,t:'Verify available disk space',b:'Installers need temporary working space — typically 2–3 times the final install size. Open File Explorer → This PC and confirm that the C: drive has at least 5 GB free before attempting the installation again.'},
-    ]},
-  sol_sw_office:{cat:'software',severity:'ok',title:'Office / Workspace App Fix',
-    ctx:'Microsoft Office or Google Workspace apps misbehaving or refusing to activate',
-    steps:[
-      {n:1,t:'Sign out and sign back in',b:"In any Office application go to File → Account → Sign Out. Close every Office application completely. Reopen one and sign back in. Authentication token corruption causes most activation and cloud sync problems."},
-      {n:2,t:'Run Online Repair',b:'Go to Control Panel → Programs → Microsoft 365 → Change → select Online Repair. This downloads fresh copies of all Office components from Microsoft without removing your documents or personal settings.'},
-      {n:3,t:'Check your licence status',b:"Office applications silently switch to read-only when a subscription lapses. Visit office.com, sign in with your work account, and check the subscription status. Renewing immediately restores full functionality within minutes."},
-    ]},
-
-  /* ─── SECURITY ─── */
-  security:{cat:'security',title:'What type of security concern?',sub:'Select the situation you are dealing with right now.',
-    opts:[
-      {label:'Received a suspicious or threatening email',         next:'sol_sec_phish'},
-      {label:'Think an account or password has been compromised',  next:'sol_sec_hack'},
-      {label:'A company device has been lost or stolen',           next:'sol_sec_stolen'},
-      {label:'Strange or unexpected activity on the network',      next:'sol_sec_net'},
-    ]},
-
-  sol_sec_phish:{cat:'security',severity:'warn',title:'Suspicious Email — Immediate Steps',
-    ctx:'Received a suspicious or phishing email at work',
-    steps:[
-      {n:1,t:'Do NOT click anything',b:'Even hovering over links in a suspicious email can be risky. Do not click links, open attachments, or reply to the message. If you already clicked a link, disconnect from the network immediately and inform your IT team.'},
-      {n:2,t:'Report it inside your email client',b:'In Outlook: select the email → click the Report Message button → select Phishing. In Gmail: click the three-dot menu → Report phishing. This alerts security teams and helps block the sender for everyone.'},
-      {n:3,t:'Warn your colleagues',b:'Phishing campaigns target multiple people in the same organisation simultaneously. If the email impersonates a colleague, supplier, or bank, send a quick internal message warning your team not to interact with it.'},
-    ]},
-  sol_sec_hack:{cat:'security',severity:'crit',title:'🔴 Suspected Account Compromise',
-    ctx:'Company account or password suspected to have been compromised',
-    steps:[
-      {n:1,t:'Change the password immediately',b:'Go to your account settings right now and change the password to something completely new — at least 14 characters including numbers and symbols. If possible, do this from a different, trusted device.'},
-      {n:2,t:'Enable two-factor authentication',b:'After changing the password, enable 2FA or MFA on the account immediately. Go to Security Settings → Two-Step Verification and set it up using an authenticator app rather than SMS, which can be intercepted.'},
-      {n:3,t:'Review recent login activity',b:"Gmail: scroll to the bottom of your inbox → click 'Last account activity' → Details. Microsoft: visit myaccount.microsoft.com → Security → Sign-in activity. Look for any logins from unrecognised countries or devices."},
-    ]},
-  sol_sec_stolen:{cat:'security',severity:'crit',title:'🔴 Lost or Stolen Device Protocol',
-    ctx:'Company laptop or phone has been lost or stolen',
-    steps:[
-      {n:1,t:'Change all passwords immediately',b:'Change the passwords for your work email, all systems accessible from that device, and your Microsoft or Google account right now. Do this before taking any other action — speed is critical here.'},
-      {n:2,t:'Initiate a remote wipe',b:"For phones: use Google's Find My Device at android.com/find or Apple's Find My at icloud.com/find to remotely wipe the device. For laptops enrolled in Microsoft Intune, the IT administrator can wipe it remotely from the admin portal."},
-      {n:3,t:'Notify IT and file a report',b:'Report the loss to your IT team immediately so they can revoke the device access tokens and remove it from company systems. File a police report if the device was stolen — this is typically required for any insurance claim.'},
-    ]},
-  sol_sec_net:{cat:'security',severity:'crit',title:'Unusual Network Activity',
-    ctx:'Strange or unexpected network activity detected on office systems',
-    steps:[
-      {n:1,t:'Isolate the affected machine',b:"If one computer is behaving strangely — unusually high data usage, suddenly very slow, camera indicator on when it shouldn't be — physically unplug its network cable and disable its Wi-Fi immediately."},
-      {n:2,t:'Do not power it off',b:"Shutting the machine down destroys volatile forensic evidence stored in RAM memory that security professionals need to diagnose what happened. Leave it running but fully disconnected from all networks."},
-      {n:3,t:'Contact security immediately',b:'This is a potential active breach situation. Do not attempt to investigate or clean it yourself — doing so can destroy evidence and spread the threat. Contact your IT team or Vyeta for an immediate security incident response.'},
-    ]},
-};
-
-/* ─────────────────────────────────────────
-   WIZARD ENGINE
-───────────────────────────────────────── */
-const modal    = document.getElementById('modal');
-const wizBody  = document.getElementById('wizBody');
-const wizFoot  = document.getElementById('wizFoot');
-const wizTrail = document.getElementById('wizTrail');
-const catBarEl = document.getElementById('catBar');
-const wizHdr   = document.getElementById('wizHdr');
-let   wizHist  = ['root'];
-let   footTimer = null;
-
-function getNode(id){ return TREE[id] || null; }
-
-function renderTrail(){
-  let cat = null;
-  for(const id of wizHist){
-    const n = getNode(id);
-    if(n && n.cat){ cat = n.cat; break; }
-  }
-  if(cat){
-    catBarEl.style.background = `linear-gradient(90deg,${CAT_COLOR[cat]},transparent)`;
-    catBarEl.style.opacity = '1';
-  } else {
-    catBarEl.style.opacity = '0';
-  }
-  const crumbs = [];
-  if(wizHist.length > 1){
-    crumbs.push({label:'Start', active:false});
-    if(cat) crumbs.push({label:CAT_LABEL[cat], active:true});
-  }
-  wizTrail.innerHTML = crumbs.map((c,i) =>
-    `<span class="crumb${c.active?' cur':''}">${c.label}</span>${i < crumbs.length-1 ? '<span class="csep">›</span>' : ''}`
-  ).join('');
-  wizHdr.classList.toggle('bdr', wizHist.length > 1);
-}
-
-function render(nodeId){
-  const node = getNode(nodeId);
-  if(!node){ console.error('Wizard: unknown node:', nodeId); return; }
-
-  clearTimeout(footTimer);
-  wizFoot.classList.remove('show');
-  wizBody.scrollTop = 0;
-  renderTrail();
-
-  if(node.steps){
-    const sevCls = {crit:'sev-crit', warn:'sev-warn', ok:'sev-ok'}[node.severity] || 'sev-ok';
-    const sevLbl = {crit:'Escalation likely needed', warn:'Try these steps first', ok:'Usually self-resolvable'}[node.severity] || 'Usually self-resolvable';
-
-    wizBody.innerHTML =
-      `<div class="wiz-step">` +
-        `<span class="sev ${sevCls}">● ${sevLbl}</span>` +
-        `<p class="wiz-title">${node.title}</p>` +
-        `<p class="wiz-sub">Work through these steps in order before escalating to our team.</p>` +
-        `<div class="sol-box">` +
-          node.steps.map(s =>
-            `<div class="sol-step">` +
-              `<div class="sol-num">${s.n}</div>` +
-              `<div class="sol-txt"><strong>${s.t}:</strong> ${s.b}</div>` +
-            `</div>`
-          ).join('') +
-        `</div>` +
-        `<button class="back-btn" onclick="window.wizBack()">← Back to symptoms</button>` +
-      `</div>`;
-
-    const waText  = encodeURIComponent(`Hi Vyeta — I have an issue: "${node.ctx}". I worked through the self-help checklist on your website but still need professional assistance. Can we schedule a visit or a full system audit?`);
-    const emailSub = encodeURIComponent(`IT Support Needed: ${node.ctx}`);
-    const emailBod = encodeURIComponent(`Vyeta Operations,\n\nWe are experiencing the following issue:\n${node.ctx}\n\nWe reviewed the self-help checklist on your website but require professional support. Please advise on next steps and availability.\n\nBest regards.`);
-    document.getElementById('waBtn').href    = `https://wa.me/260777363303?text=${waText}`;
-    document.getElementById('emailBtn').href = `mailto:operations@vyeta.com?subject=${emailSub}&body=${emailBod}`;
-
-    footTimer = setTimeout(() => wizFoot.classList.add('show'), 400);
-
-  } else if(node.opts){
-    wizBody.innerHTML =
-      `<div class="wiz-step">` +
-        `<p class="wiz-title">${node.title}</p>` +
-        `<p class="wiz-sub">${node.sub}</p>` +
-        `<div class="opt-list">` +
-          node.opts.map(o =>
-            `<button class="opt" onclick="window.wizNav('${o.next}')">` +
-              `<span>${o.label}</span>` +
-              `<span class="opt-arr">›</span>` +
-            `</button>`
-          ).join('') +
-        `</div>` +
-        (wizHist.length > 1 ? `<button class="back-btn" onclick="window.wizBack()">← Back</button>` : '') +
-      `</div>`;
-  }
-}
-
-window.wizNav = function(nodeId){
-  wizHist.push(nodeId);
-  render(nodeId);
-};
-window.wizBack = function(){
-  if(wizHist.length > 1){
-    wizHist.pop();
-    render(wizHist[wizHist.length - 1]);
-  }
-};
-window.openWizard = function(){
-  wizHist = ['root'];
-  render('root');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-};
-window.closeWizard = function(){
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-  clearTimeout(footTimer);
-};
-
-/* Trigger points */
-document.querySelectorAll('.trigger-audit, #navCta').forEach(el =>
-  el.addEventListener('click', e => { e.preventDefault(); window.openWizard(); })
-);
-document.getElementById('wizClose').addEventListener('click', window.closeWizard);
-modal.addEventListener('click', e => { if(e.target === modal) window.closeWizard(); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) window.closeWizard(); });
-</script>
+        observer.observe(document.getElementById('canvas-container'));
+      }
+    })();
+  </script>
 </body>
 </html>
